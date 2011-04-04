@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Order by:</b>
+  <%= @user_request.order_by %>
+</p>
+
+<p>
+  <b>Num result:</b>
+  <%= @user_request.num_result %>
+</p>
+
+<p>
+  <b>Start index:</b>
+  <%= @user_request.start_index %>
+</p>
+
+
+<%= link_to 'Edit', edit_user_request_path(@user_request) %> |
+<%= link_to 'Back', user_requests_path %>

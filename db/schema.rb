@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110404170648) do
+ActiveRecord::Schema.define(:version => 20110404230214) do
 
   create_table "brands", :force => true do |t|
     t.string   "name"
@@ -52,6 +52,14 @@ ActiveRecord::Schema.define(:version => 20110404170648) do
   create_table "usages", :force => true do |t|
     t.string   "name"
     t.integer  "super_usage_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_requests", :force => true do |t|
+    t.string   "order_by"
+    t.integer  "num_result"
+    t.integer  "start_index"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

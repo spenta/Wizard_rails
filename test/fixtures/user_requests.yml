@@ -1,0 +1,19 @@
+valid:
+  order_by: spenta_score
+  num_result: 5
+  start_index: 0
+
+invalid_order_by:
+  order_by: MyString
+  num_result: 1
+  start_index: 1
+  
+invalid_num_result:
+  order_by: price
+  num_result: -1
+  start_index: 1
+  
+invalid_start_index:
+  order_by: spenta_score
+  num_result: 1
+  start_index: -1

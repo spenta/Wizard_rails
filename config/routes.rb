@@ -1,4 +1,6 @@
 WizardRails::Application.routes.draw do
+  resources :user_requests
+
   resources :products
 
   # The priority is based upon order of creation:

@@ -1,0 +1,27 @@
+<h1>Listing user_requests</h1>
+
+<table>
+  <tr>
+    <th>Order by</th>
+    <th>Num result</th>
+    <th>Start index</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @user_requests.each do |user_request| %>
+  <tr>
+    <td><%= user_request.order_by %></td>
+    <td><%= user_request.num_result %></td>
+    <td><%= user_request.start_index %></td>
+    <td><%= link_to 'Show', user_request %></td>
+    <td><%= link_to 'Edit', edit_user_request_path(user_request) %></td>
+    <td><%= link_to 'Destroy', user_request, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New User request', new_user_request_path %>
