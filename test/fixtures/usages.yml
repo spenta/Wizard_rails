@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+occasionnel:
+  name: occasionnel
+  super_usage: jeux
+
+regulier:
+  name: regulier
+  super_usage: jeux
+  
+passionne:
+  name: passionne
+  super_usage: jeux
