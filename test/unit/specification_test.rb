@@ -3,7 +3,7 @@ require 'test_helper'
 class SpecificationTest < ActiveSupport::TestCase
   fixtures :specifications
   setup do
-    @specification = specifications(:specification_1)
+    @specification = specifications(:processeur)
   end
   
   test "should be valid" do

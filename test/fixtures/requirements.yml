@@ -1,0 +1,5 @@
+requirement_1:
+  target_score: 5.5
+  weight: 30
+  specification: processeur
+  usage: occasionnel
