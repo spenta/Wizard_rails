@@ -1,8 +1,8 @@
 require 'test_helper'
-
 class ProductsControllerTest < ActionController::TestCase
+  fixtures :products, :brands
   setup do
-    @product = products(:one)
+    @product = products(:toshiba_satellite)
   end
 
   test "should get index" do
