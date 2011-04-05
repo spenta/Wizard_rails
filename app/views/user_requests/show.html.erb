@@ -14,6 +14,18 @@
   <b>Start index:</b>
   <%= @user_request.start_index %>
 </p>
+<%SuperUsage.all.each do |su|%>
+  <h1>Super Usage : <%=su.name%></h1>
+  <%su.usages.each do |u|%>
+    <h2>Usage : <%=u.name%></h2>
+    <%@user_request.usage_choices.where(:usage_id => u.id).each do |uc|%>
+      <p>choix : <%=uc.weight_for_user%></p>
+    <%end%>
+  <%end%>
+  <p></p>
+  <p></p>
+  
+<%end%>
 
 
 <%= link_to 'Edit', edit_user_request_path(@user_request) %> |

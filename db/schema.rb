@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110404230214) do
+ActiveRecord::Schema.define(:version => 20110404233216) do
 
   create_table "brands", :force => true do |t|
     t.string   "name"
@@ -45,6 +45,14 @@ ActiveRecord::Schema.define(:version => 20110404230214) do
 
   create_table "super_usages", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "usage_choices", :force => true do |t|
+    t.float    "weight_for_user"
+    t.integer  "usage_id"
+    t.integer  "user_request_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

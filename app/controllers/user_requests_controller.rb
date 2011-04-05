@@ -44,6 +44,14 @@ class UserRequestsController < ApplicationController
 
     respond_to do |format|
       if @user_request.save
+        SuperUsage.all.each do |su|
+          su.usages.each do |u|
+            usage_choice = UsageChoice.new(:weight_for_user => 0,
+                                           :usage_id => u.id,
+                                           :user_request_id => @user_request.id)
+            usage_choice.save
+          end
+        end
         format.html { redirect_to(@user_request, :notice => 'User request was successfully created.') }
         format.xml  { render :xml => @user_request, :status => :created, :location => @user_request }
       else

@@ -1,0 +1,34 @@
+valid:
+  weight_for_user: 1.5
+  usage: regulier 
+  user_request: valid
+
+no_weight:
+  weight_for_user: 
+  usage: regulier
+  user_request: valid
+
+invalid_weight:
+  weight_for_user: 102
+  usage: regulier
+  user_request: valid
+  
+no_usage:
+  weight_for_user: 
+  usage: 
+  user_request: valid
+  
+invalid_usage:
+  weight_for_user: 
+  usage: invalid_usage
+  user_request: valid
+  
+no_request:
+  weight_for_user: 
+  usage: invalid_usage
+  user_request: 
+
+invalid_request:
+  weight_for_user: 
+  usage: invalid_usage
+  user_request: invalid_request

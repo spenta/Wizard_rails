@@ -1,4 +1,5 @@
 WizardRails::Application.routes.draw do
+
   resources :user_requests
 
   resources :products
