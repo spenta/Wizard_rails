@@ -3,6 +3,8 @@ WizardRails::Application.routes.draw do
   resources :user_requests
 
   resources :products
+  
+  resources :usage_choices
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

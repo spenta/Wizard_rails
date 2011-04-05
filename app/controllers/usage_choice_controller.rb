@@ -1,2 +1,0 @@
-class UsageChoiceController < ApplicationController
-end
