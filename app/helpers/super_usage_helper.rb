@@ -1,0 +1,2 @@
+module SuperUsageHelper
+end

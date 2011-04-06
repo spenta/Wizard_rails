@@ -3,7 +3,7 @@ require 'test_helper'
 class SuperUsageTest < ActiveSupport::TestCase
   fixtures :usages, :super_usages
   setup do
-    @usage = usages(:regulier)
+    @usage = usages(:jeux_regulier)
     @super_usage = super_usages(:jeux)
   end
   

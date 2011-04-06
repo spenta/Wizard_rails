@@ -2,7 +2,7 @@ require 'test_helper'
 
 class UserRequestsControllerTest < ActionController::TestCase
   setup do
-    @user_request = user_requests(:valid)
+    @user_request = user_requests(:gamer)
   end
 
   test "should get index" do

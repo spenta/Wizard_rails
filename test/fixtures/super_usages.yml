@@ -1,4 +1,17 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+bureautique:
+  name: Bureautique
+
+internet:
+  name: Internet
+
+communication:
+  name: Communication
 
 jeux:
   name: jeux
+
+traitement:
+  name: Traitement
+
+multimedia:
+  name: Multimedia

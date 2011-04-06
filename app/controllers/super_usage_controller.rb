@@ -1,0 +1,3 @@
+class SuperUsageController < ApplicationController
+  
+end

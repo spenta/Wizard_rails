@@ -1,34 +1,82 @@
-valid:
-  weight_for_user: 1.5
-  usage: regulier 
-  user_request: valid
+jeux_regulier_choice:
+  weight_for_user: 45
+  usage: jeux_regulier 
+  user_request: gamer
 
-no_weight:
-  weight_for_user: 
-  usage: regulier
-  user_request: valid
+jeux_passionne_choice:
+  weight_for_user: 45
+  usage: jeux_passionne
+  user_request: gamer
 
-invalid_weight:
-  weight_for_user: 102
-  usage: regulier
-  user_request: valid
-  
-no_usage:
-  weight_for_user: 
-  usage: 
-  user_request: valid
-  
-invalid_usage:
-  weight_for_user: 
-  usage: invalid_usage
-  user_request: valid
-  
-no_request:
-  weight_for_user: 
-  usage: invalid_usage
-  user_request: 
+internet_rechercher_choice:
+  weight_for_user: 45
+  usage: internet_rechercher 
+  user_request: gamer
 
-invalid_request:
-  weight_for_user: 
-  usage: invalid_usage
-  user_request: invalid_request
+internet_regarder_choice:
+  weight_for_user: 45
+  usage: internet_regarder 
+  user_request: gamer
+
+multimedia_ordinateur_choice:
+  weight_for_user: 10
+  usage: multimedia_ordinateur 
+  user_request: gamer
+  
+multimedia_ecouter_choice:
+  weight_for_user: 10
+  usage: multimedia_ecouter 
+  user_request: gamer
+
+multimedia_bluray_choice:
+  weight_for_user: 10
+  usage: multimedia_bluray
+  user_request: gamer  
+  
+multimedia_tv_choice:
+  weight_for_user: 10
+  usage: multimedia_tv
+  user_request: gamer
+
+#usages nuls
+
+bureautique_simple_choice:
+  weight_for_user: 0
+  usage: bureautique_simple 
+  user_request: gamer
+
+bureautique_avance_choice:
+  weight_for_user: 0
+  usage: bureautique_avance
+  user_request: gamer
+
+internet_echanger_choice:
+  weight_for_user: 0
+  usage: internet_echanger 
+  user_request: gamer
+
+communication_email_choice:
+  weight_for_user: 0
+  usage: communication_email 
+  user_request: gamer
+
+communication_voix_choice:
+  weight_for_user: 0
+  usage: communication_voix 
+  user_request: gamer
+
+communication_image_choice:
+  weight_for_user: 0
+  usage: communication_image
+  user_request: gamer
+
+traitement_tri_choice:
+  weight_for_user: 0
+  usage: traitement_tri
+  user_request: gamer
+
+traitement_retouche_choice:
+  weight_for_user: 0
+  usage: traitement_retouche
+  user_request: gamer
+  

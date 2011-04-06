@@ -88,4 +88,14 @@ class UserRequestsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  #needs to be corrected
+  #def update_usage_choices 
+   # @user_request = UserRequest.find(params[:id])
+    #@usage = usage_choice.usage
+    #@similar_usages = @usage.super_usage.usages
+    #@user_request.usage_choices.where(:usage_id => @similar_usages).each do |uc|
+    #  uc.update_attributes(params[:usage_choice])
+    #end
+  #end
 end

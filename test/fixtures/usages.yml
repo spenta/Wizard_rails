@@ -1,13 +1,69 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+bureautique_simple: 
+  name: bureautique_simple
+  super_usage: bureautique
 
-occasionnel:
-  name: occasionnel
+bureautique_avance:
+  name: bureautique_avance
+  super_usage: bureautique
+
+internet_rechercher:
+  name: internet_rechercher
+  super_usage: internet
+
+internet_echanger:
+  name: internet_echanger
+  super_usage: internet 
+
+internet_regarder:
+  name: internet_regarder
+  super_usage: internet 
+
+communication_email:
+  name: communication_email
+  super_usage: communication
+
+communication_voix:
+  name: communication_voix
+  super_usage: communication
+
+communication_image:
+  name: communication_image
+  super_usage: communication
+
+jeux_occasionnel:
+  name: jeux_occasionnel
   super_usage: jeux
 
-regulier:
-  name: regulier
+jeux_regulier:
+  name: jeux_regulier
   super_usage: jeux
   
-passionne:
-  name: passionne
+jeux_passionne:
+  name: jeux_passionne
   super_usage: jeux
+
+traitement_tri:
+  name: traitement_tri
+  super_usage: traitement
+
+traitement_retouche:
+  name: traitement_retouche
+  super_usage: traitement
+  
+multimedia_ecouter:
+  name: multimedia_ecouter
+  super_usage: multimedia
+
+multimedia_bluray:
+  name: multimedia_bluray
+  super_usage: multimedia
+
+multimedia_tv:
+  name: multimedia_tv
+  super_usage: multimedia
+  
+multimedia_ordinateur:
+  name: multimedia_ordinateur
+  super_usage: multimedia
+
+
