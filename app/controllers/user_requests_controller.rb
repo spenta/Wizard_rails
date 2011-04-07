@@ -67,20 +67,26 @@ class UserRequestsController < ApplicationController
     @user_request = UserRequest.find(params[:id])
     @super_usage_choices = {}
     begin
+      @usage_choices_selected=[]
       params.keys.each do |param_key|
         if param_key =~ /super_usage_choice_./
           @super_usage_to_update_id = param_key.split('_').last
           @usages_to_update_id = SuperUsage.find(@super_usage_to_update_id).usages
           @usage_choices_to_update = @user_request.usage_choices.where(:usage_id => @usages_to_update_id)
           @usage_choices_to_update.each do |uc|
-            raise unless uc.update_attributes :weight_for_user => params[param_key]
+            raise "invalid number given for usage #{uc.usage.name}" unless uc.update_attributes :weight_for_user => params[param_key]
           end
+        elsif param_key =~ /usage_choice_selected_./
+          @usage_choices_selected << Integer(param_key.split('_').last) 
         end
       end
-      raise unless @user_request.update_attributes(params[:user_request])
-    rescue
+      raise "invalid response parameters given" unless @user_request.update_attributes(params[:user_request])
+      @user_request.usage_choices.each do |uc|
+        uc.update_attributes :is_selected => @usage_choices_selected.include?(uc.id)
+      end
+    rescue Exception => e
       respond_to do |format|
-        format.html { redirect_to edit_user_request_path, :notice => "Errors in choices !" }
+        format.html { redirect_to edit_user_request_path, :notice => "Errors in choices !\n error : #{e.message}" }
         format.xml  { render :xml => @user_request.errors, :status => :unprocessable_entity }
       end
     else

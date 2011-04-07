@@ -1,42 +1,62 @@
+jeux_regulier_occasionnel:
+  weight_for_user: 45
+  usage: jeux_occasionnel 
+  user_request: gamer
+  is_selected: "0"
+
 jeux_regulier_choice:
   weight_for_user: 45
   usage: jeux_regulier 
   user_request: gamer
+  is_selected: "1"
 
 jeux_passionne_choice:
   weight_for_user: 45
   usage: jeux_passionne
   user_request: gamer
+  is_selected: "1"
 
 internet_rechercher_choice:
   weight_for_user: 45
   usage: internet_rechercher 
   user_request: gamer
+  is_selected: "1"
 
 internet_regarder_choice:
   weight_for_user: 45
   usage: internet_regarder 
   user_request: gamer
+  is_selected: "1"
 
+internet_echanger_choice:
+  weight_for_user: 45
+  usage: internet_echanger 
+  user_request: gamer
+  is_selected: "0"
+  
 multimedia_ordinateur_choice:
   weight_for_user: 10
   usage: multimedia_ordinateur 
   user_request: gamer
+  is_selected: "0"
   
 multimedia_ecouter_choice:
   weight_for_user: 10
   usage: multimedia_ecouter 
   user_request: gamer
+  is_selected: "0"
 
 multimedia_bluray_choice:
   weight_for_user: 10
   usage: multimedia_bluray
-  user_request: gamer  
+  user_request: gamer
+  is_selected: "0"  
   
 multimedia_tv_choice:
   weight_for_user: 10
   usage: multimedia_tv
   user_request: gamer
+  is_selected: "1"
 
 #usages nuls
 
@@ -44,39 +64,41 @@ bureautique_simple_choice:
   weight_for_user: 0
   usage: bureautique_simple 
   user_request: gamer
+  is_selected: "0"
 
 bureautique_avance_choice:
   weight_for_user: 0
   usage: bureautique_avance
   user_request: gamer
-
-internet_echanger_choice:
-  weight_for_user: 0
-  usage: internet_echanger 
-  user_request: gamer
+  is_selected: "0"
 
 communication_email_choice:
   weight_for_user: 0
   usage: communication_email 
   user_request: gamer
+  is_selected: "0"
 
 communication_voix_choice:
   weight_for_user: 0
   usage: communication_voix 
   user_request: gamer
+  is_selected: "0"
 
 communication_image_choice:
   weight_for_user: 0
   usage: communication_image
   user_request: gamer
+  is_selected: "0"
 
 traitement_tri_choice:
   weight_for_user: 0
   usage: traitement_tri
   user_request: gamer
+  is_selected: "0"
 
 traitement_retouche_choice:
   weight_for_user: 0
   usage: traitement_retouche
   user_request: gamer
+  is_selected: "0"
   

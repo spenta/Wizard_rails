@@ -25,11 +25,14 @@
   </div>
   
   <%SuperUsage.all.each do |su|%>  
-    <h1>Super Usage : <%=su.name%></h1>
-    <% first_usage_choice = @user_request.usage_choices.where(:usage_id => su.usages.first.id).first %>
-    <%=text_field_tag "super_usage_choice_#{su.id}", first_usage_choice.weight_for_user%>
-    <%su.usages.each do |u|%>
-      <h2>Usage : <%=u.name%></h2>
+    <h1><%=su.name%></h1>
+    <%#weight choices%>
+    <%@usage_choices=@user_request.usage_choices.where(:usage_id => su.usages)%>
+    <%=text_field_tag "super_usage_choice_#{su.id}", @usage_choices.first.weight_for_user%>
+    <%@usage_choices.each do |uc|%>
+      <%#usage selection%>
+      <%=check_box_tag "usage_choice_selected_#{uc.id}", 1, uc.is_selected%>
+      <%=uc.usage.name%>
     <%end%>
   <%end%>
   

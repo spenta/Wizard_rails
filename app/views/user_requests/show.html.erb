@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
-
+<%= link_to 'Edit', edit_user_request_path(@user_request) %> |
+<%= link_to 'Back', user_requests_path %>
 <p>
   <b>Order by:</b>
   <%= @user_request.order_by %>
@@ -15,11 +16,11 @@
   <%= @user_request.start_index %>
 </p>
 <%SuperUsage.all.each do |su|%>
-  <h1>Super Usage : <%=su.name%></h1>
+  <h1><%=su.name%></h1>
   <% first_usage_choice = @user_request.usage_choices.where(:usage_id => su.usages.first.id).first %>
   Choix : <%=first_usage_choice.weight_for_user%>
-  <%su.usages.each do |u|%>
-    <h2>Usage : <%=u.name%></h2>
+  <%@user_request.usage_choices.each do |uc|%>
+    <h2><%=uc.usage.name if uc.is_selected && su.usages.include?(uc.usage)%></h2>
   <%end%>
   <p></p>
   <p></p>
@@ -27,5 +28,4 @@
 <%end%>
 
 
-<%= link_to 'Edit', edit_user_request_path(@user_request) %> |
-<%= link_to 'Back', user_requests_path %>
+
