@@ -65,14 +65,28 @@ class UserRequestsController < ApplicationController
   # PUT /user_requests/1.xml
   def update
     @user_request = UserRequest.find(params[:id])
-
-    respond_to do |format|
-      if @user_request.update_attributes(params[:user_request])
-        format.html { redirect_to(@user_request, :notice => 'User request was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
+    @super_usage_choices = {}
+    begin
+      params.keys.each do |param_key|
+        if param_key =~ /super_usage_choice_./
+          @super_usage_to_update_id = param_key.split('_').last
+          @usages_to_update_id = SuperUsage.find(@super_usage_to_update_id).usages
+          @usage_choices_to_update = @user_request.usage_choices.where(:usage_id => @usages_to_update_id)
+          @usage_choices_to_update.each do |uc|
+            raise unless uc.update_attributes :weight_for_user => params[param_key]
+          end
+        end
+      end
+      raise unless @user_request.update_attributes(params[:user_request])
+    rescue
+      respond_to do |format|
+        format.html { redirect_to edit_user_request_path, :notice => "Errors in choices !" }
         format.xml  { render :xml => @user_request.errors, :status => :unprocessable_entity }
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to(@user_request, :notice => "User request was successfully updated.") }
+        format.xml  { head :ok }
       end
     end
   end
@@ -89,13 +103,4 @@ class UserRequestsController < ApplicationController
     end
   end
   
-  #needs to be corrected
-  #def update_usage_choices 
-   # @user_request = UserRequest.find(params[:id])
-    #@usage = usage_choice.usage
-    #@similar_usages = @usage.super_usage.usages
-    #@user_request.usage_choices.where(:usage_id => @similar_usages).each do |uc|
-    #  uc.update_attributes(params[:usage_choice])
-    #end
-  #end
 end

@@ -18,11 +18,8 @@
   <h1>Super Usage : <%=su.name%></h1>
   <% first_usage_choice = @user_request.usage_choices.where(:usage_id => su.usages.first.id).first %>
   Choix : <%=first_usage_choice.weight_for_user%>
-  <%=text_field first_usage_choice, :weight_for_user%> 
   <%su.usages.each do |u|%>
     <h2>Usage : <%=u.name%></h2>
-    <%@user_request.usage_choices.where(:usage_id => u.id).each do |uc|%>
-    <%end%>
   <%end%>
   <p></p>
   <p></p>
