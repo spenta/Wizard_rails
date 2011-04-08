@@ -66,6 +66,7 @@ class UserRequestsController < ApplicationController
   def update
     @user_request = UserRequest.find(params[:id])
     @super_usage_choices = {}
+    @user_request.update!
     begin
       @usage_choices_selected=[]
       params.keys.each do |param_key|

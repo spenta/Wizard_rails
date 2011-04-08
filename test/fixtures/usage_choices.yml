@@ -1,122 +1,122 @@
 jeux_regulier_occasionnel:
   weight_for_user: 45
-  usage: jeux_occasionnel 
+  usage_id: 8 
   user_request: gamer
   is_selected: "0"
 
 jeux_regulier_choice:
   weight_for_user: 45
-  usage: jeux_regulier 
+  usage_id: 9 
   user_request: gamer
   is_selected: "1"
 
 jeux_passionne_choice:
   weight_for_user: 45
-  usage: jeux_passionne
+  usage_id: 10
   user_request: gamer
   is_selected: "1"
 
 internet_rechercher_choice:
   weight_for_user: 45
-  usage: internet_rechercher 
+  usage_id: 2 
   user_request: gamer
   is_selected: "1"
 
 internet_regarder_choice:
   weight_for_user: 45
-  usage: internet_regarder 
+  usage_id: 4 
   user_request: gamer
   is_selected: "1"
 
 internet_echanger_choice:
   weight_for_user: 45
-  usage: internet_echanger 
+  usage_id: 3 
   user_request: gamer
   is_selected: "0"
   
 multimedia_ordinateur_choice:
   weight_for_user: 10
-  usage: multimedia_ordinateur 
+  usage_id: 16 
   user_request: gamer
   is_selected: "0"
   
 multimedia_ecouter_choice:
   weight_for_user: 10
-  usage: multimedia_ecouter 
+  usage_id: 13 
   user_request: gamer
   is_selected: "0"
 
 multimedia_bluray_choice:
   weight_for_user: 10
-  usage: multimedia_bluray
+  usage_id: 14
   user_request: gamer
   is_selected: "0"  
   
 multimedia_tv_choice:
   weight_for_user: 10
-  usage: multimedia_tv
+  usage_id: 15
   user_request: gamer
   is_selected: "1"
 
 mobilite_deplacement_choice:
   weight_for_user: 20
-  usage: mobilite_deplacement
+  usage_id: 17
   user_request: gamer
   is_selected: "1"
   
 mobilite_nomadisme_choice:
   weight_for_user: 25
-  usage: mobilite_nomadisme
+  usage_id: 18
   user_request: gamer
   is_selected: "1"
   
 mobilite_transport_choice:
   weight_for_user: 30
-  usage: mobilite_transport
+  usage_id: 19
   user_request: gamer
   is_selected: "1"
 
-#usages nuls
+#usage_ids nuls
 
 bureautique_simple_choice:
   weight_for_user: 0
-  usage: bureautique_simple 
+  usage_id: 0 
   user_request: gamer
   is_selected: "0"
 
 bureautique_avance_choice:
   weight_for_user: 0
-  usage: bureautique_avance
+  usage_id: 1
   user_request: gamer
   is_selected: "0"
 
 communication_email_choice:
   weight_for_user: 0
-  usage: communication_email 
+  usage_id: 5 
   user_request: gamer
   is_selected: "0"
 
 communication_voix_choice:
   weight_for_user: 0
-  usage: communication_voix 
+  usage_id: 6 
   user_request: gamer
   is_selected: "0"
 
 communication_image_choice:
   weight_for_user: 0
-  usage: communication_image
+  usage_id: 7
   user_request: gamer
   is_selected: "0"
 
 traitement_tri_choice:
   weight_for_user: 0
-  usage: traitement_tri
+  usage_id: 11
   user_request: gamer
   is_selected: "0"
 
 traitement_retouche_choice:
   weight_for_user: 0
-  usage: traitement_retouche
+  usage_id: 12
   user_request: gamer
   is_selected: "0"
   
