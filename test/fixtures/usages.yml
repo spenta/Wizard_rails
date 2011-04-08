@@ -65,5 +65,17 @@ multimedia_tv:
 multimedia_ordinateur:
   name: multimedia_ordinateur
   super_usage: multimedia
+  
+mobilite_deplacement:
+  name: mobilite_deplacement
+  super_usage: mobilite
+  
+mobilite_nomadisme:
+  name: mobilite_nomadisme
+  super_usage: mobilite
+  
+mobilite_transport:
+  name: mobilite_transport
+  super_usage: mobilite
 
 

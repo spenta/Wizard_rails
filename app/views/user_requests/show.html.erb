@@ -16,15 +16,19 @@
   <%= @user_request.start_index %>
 </p>
 <%SuperUsage.all.each do |su|%>
-  <h1><%=su.name%></h1>
-  <% first_usage_choice = @user_request.usage_choices.where(:usage_id => su.usages.first.id).first %>
-  Choix : <%=first_usage_choice.weight_for_user%>
-  <%@user_request.usage_choices.each do |uc|%>
-    <h2><%=uc.usage.name if uc.is_selected && su.usages.include?(uc.usage)%></h2>
-  <%end%>
-  <p></p>
-  <p></p>
-  
+  <% unless su.name == "Mobilite"%>
+    <h1><%=su.name%></h1>
+    <% first_usage_choice = @user_request.usage_choices.where(:usage_id => su.usages.first.id).first %>
+    Choix : <%=first_usage_choice.weight_for_user%>
+    <%@user_request.usage_choices.each do |uc|%>
+      <h2><%=uc.usage.name if uc.is_selected && su.usages.include?(uc.usage)%></h2>
+    <%end%>
+  <% end %>
+  <% if su.name == "Mobilite"%>
+    <% @user_request.usage_choices.where(:usage_id => su.usages).each do |uc|%>
+      <%= uc.usage.name %> : <%= uc.weight_for_user %> | 
+    <% end %>
+  <% end %>
 <%end%>
 
 

@@ -58,6 +58,24 @@ multimedia_tv_choice:
   user_request: gamer
   is_selected: "1"
 
+mobilite_deplacement_choice:
+  weight_for_user: 20
+  usage: mobilite_deplacement
+  user_request: gamer
+  is_selected: "1"
+  
+mobilite_nomadisme_choice:
+  weight_for_user: 25
+  usage: mobilite_nomadisme
+  user_request: gamer
+  is_selected: "1"
+  
+mobilite_transport_choice:
+  weight_for_user: 30
+  usage: mobilite_transport
+  user_request: gamer
+  is_selected: "1"
+
 #usages nuls
 
 bureautique_simple_choice:
