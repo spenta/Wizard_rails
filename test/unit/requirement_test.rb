@@ -45,21 +45,21 @@ class RequirementTest < ActiveSupport::TestCase
   test "requirement should have a specification_id" do
     @requirement.specification=nil
     assert @requirement.invalid?
-    @requirement.specification=specifications(:processeur)
+    @requirement.specification=specifications(:specification_1)
     assert @requirement.valid?
   end
   
   test "requirement should have a usage" do
     @requirement.usage=nil
     assert @requirement.invalid?
-    @requirement.usage=usages(:jeux_regulier)
+    @requirement.usage_id=1
     assert @requirement.valid?
   end
   
   test "requirement should have a valid usage" do
     @requirement.usage_id=-1
     assert @requirement.invalid?
-    @requirement.usage=usages(:jeux_regulier)
+    @requirement.usage_id=1
     assert @requirement.valid?
   end
 end

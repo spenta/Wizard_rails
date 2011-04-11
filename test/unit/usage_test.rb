@@ -3,8 +3,8 @@ require 'test_helper'
 class UsageTest < ActiveSupport::TestCase
   fixtures :usages, :super_usages
   setup do
-    @usage = usages(:jeux_regulier)
-    @super_usage = super_usages(:jeux)
+    @usage = usages(:usage_1)
+    @super_usage = super_usages(:bureautique)
   end
   
   test "should be valid" do

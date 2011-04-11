@@ -25,9 +25,12 @@
     <%end%>
   <% end %>
   <% if su.name == "Mobilite"%>
-    <% @user_request.usage_choices.where(:usage_id => su.usages).each do |uc|%>
-      <%= uc.usage.name %> : <%= uc.weight_for_user %> | 
-    <% end %>
+    <h1><%=su.name%></h1>
+    <p>
+      <% @user_request.usage_choices.where(:usage_id => su.usages).each do |uc|%>
+        <%= uc.usage.name %> : <%= uc.weight_for_user %> | 
+      <% end %>
+    </p>
   <% end %>
 <%end%>
 

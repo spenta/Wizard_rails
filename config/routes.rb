@@ -1,13 +1,15 @@
 WizardRails::Application.routes.draw do
 
-  resources :user_requests 
+  resources :user_requests, :except => :new do
+    get 'user_response', :on => :member
+  end
 
   resources :products
   
   resources :usage_choices
   
   resources :super_usages
-
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

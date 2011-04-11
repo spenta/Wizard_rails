@@ -3,7 +3,7 @@ require 'test_helper'
 class UserRequestTest < ActiveSupport::TestCase
   fixtures :user_requests
   def setup
-    @user_request = user_requests(:gamer).clone 
+    @user_request = user_requests(:test_request).clone 
   end
   
   def teardown
@@ -11,7 +11,7 @@ class UserRequestTest < ActiveSupport::TestCase
   end
   
   test "should be valid" do
-    assert user_requests(:gamer).valid?
+    assert user_requests(:test_request).valid?
   end
   
   test "should have a valid order by" do
