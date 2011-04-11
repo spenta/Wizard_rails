@@ -78,18 +78,16 @@ class UserRequestsController < ApplicationController
       format.xml  { head :ok }
     end
   end
-  
+
   #GET /user_request/1/user_response
   def user_response
     load 'user_response/user_response.rb'
     @user_request = UserRequest.find(params[:id])
-    @director = UserResponseDirector.new
-    @director.builder = UserResponseBuilder.new
-    @director.test @user_request.usage_choices
     respond_to do |format|
       format.html {render :action => 'user_response'}
       format.xml  { head :ok }
     end
   end
-  
+
 end
+
