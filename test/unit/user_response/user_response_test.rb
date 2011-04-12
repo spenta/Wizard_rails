@@ -14,7 +14,7 @@ class UserResponseTest < ActiveSupport::TestCase
     @director.builder = nil
   end
 
-  test 'should process all usages and all specs' do
+  test 'should process usages correctly' do
     @director = UserResponseDirector.new
     @director.builder = UserResponseBuilder.new
     assert !@user_request.nil? , "@user_request is nil"
@@ -22,8 +22,8 @@ class UserResponseTest < ActiveSupport::TestCase
     assert @user_request.usage_choices.size == 20, "usage_choices size is #{@user_request.usage_choices.size}"
     @director.builder.process_specification_needs! @user_request.usage_choices
     actual_response = @director.get_response
-    actual_specs_needs_for_mobilities = actual_response.specification_needs_for_mobilities
-    actual_specs_needs_for_usages = actual_response.specification_needs_for_usages
+    actual_specs_needs_for_mobilities = @director.builder.specification_needs_for_mobilities
+    actual_specs_needs_for_usages = @director.builder.specification_needs_for_usages
 
     assert @user_request.usage_choices.size == 20, "#{@user_request.usage_choices.size} user_choices"
     assert actual_specs_needs_for_usages.size == 44, "#{actual_specs_needs_for_usages.size} specs for usages instead of 44"
@@ -53,17 +53,17 @@ class UserResponseTest < ActiveSupport::TestCase
 
     multimedia_choice = nil
     @user_request.usage_choices.each { |uc| multimedia_choice = uc }
-    assert_in_delta actual_response.specification_needs_for_usages[5][0][1], 12.5, 0.001
-    assert_in_delta actual_response.specification_needs_for_usages[11][0][0], 6, 0.001
-    assert_in_delta actual_response.specification_needs_for_usages[32][0][0], 0, 0.001
+    assert_in_delta actual_specs_needs_for_usages[5][0][1], 12.5, 0.001
+    assert_in_delta actual_specs_needs_for_usages[11][0][0], 6, 0.001
+    assert_in_delta actual_specs_needs_for_usages[32][0][0], 0, 0.001
 
-    assert_in_delta actual_response.specification_needs_for_usages[5][1][0], 3, 0.001
-    assert_in_delta actual_response.specification_needs_for_usages[6][1][1], 15, 0.001
-    assert_in_delta actual_response.specification_needs_for_usages[16][1][0], 0, 0.001
+    assert_in_delta actual_specs_needs_for_usages[5][1][0], 3, 0.001
+    assert_in_delta actual_specs_needs_for_usages[6][1][1], 15, 0.001
+    assert_in_delta actual_specs_needs_for_usages[16][1][0], 0, 0.001
 
-    assert_in_delta actual_response.specification_needs_for_usages[3][5][1], 16.66667, 0.001
-    assert_in_delta actual_response.specification_needs_for_usages[13][5][0], 10, 0.001
-    assert_in_delta actual_response.specification_needs_for_usages[39][5][0], 0, 0.001
+    assert_in_delta actual_specs_needs_for_usages[3][5][1], 16.66667, 0.001
+    assert_in_delta actual_specs_needs_for_usages[13][5][0], 10, 0.001
+    assert_in_delta actual_specs_needs_for_usages[39][5][0], 0, 0.001
 
   end
 end

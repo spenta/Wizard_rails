@@ -9,21 +9,21 @@ end
 
 #laptop-wizard-specific
 class UserResponseBuilder
-  attr_accessor :user_response
+  attr_accessor :specification_needs_for_mobilities, :specification_needs_for_usages,:user_response, :products_scored
 
   def initialize
     @user_response = UserResponse.new
 
     #hash specification_id => {mobility_id => [U, alpha, beta]}
-    @user_response.specification_needs_for_mobilities = {}
+    @specification_needs_for_mobilities = {}
 
     #hash specification_id => {super_usage_id => [U, alpha, beta]}
-    @user_response.specification_needs_for_usages = {}
+    @specification_needs_for_usages = {}
 
     #empty hash for each spec
     Specification.all.each do |spec|
-      @user_response.specification_needs_for_mobilities[spec.id]={}
-      @user_response.specification_needs_for_usages[spec.id]={}
+      @specification_needs_for_mobilities[spec.id]={}
+      @specification_needs_for_usages[spec.id]={}
     end
 
   end
@@ -41,7 +41,7 @@ class UserResponseBuilder
           mobility_choice = usage_choices.where(:usage_id => m.id).first
           unless mobility_choice.nil?
             m.requirements.each do |req|
-              @user_response.specification_needs_for_mobilities[req.specification_id][m.id] = [req.target_score, req.weight, mobility_choice.weight_for_user]
+              @specification_needs_for_mobilities[req.specification_id][m.id] = [req.target_score, req.weight, mobility_choice.weight_for_user]
             end
           end
         end
@@ -56,7 +56,7 @@ class UserResponseBuilder
 
         Specification.all.each do |spec|
           if num_selections == 0
-            @user_response.specification_needs_for_usages[spec.id][su.id] = [0, 0, 0]
+            @specification_needs_for_usages[spec.id][su.id] = [0, 0, 0]
           else
             target_score = 0
             weight = 0
@@ -64,7 +64,7 @@ class UserResponseBuilder
               req = uc.usage.requirements.where(:specification_id => spec.id).first
               target_score = req.target_score if req.target_score > target_score
               weight += req.weight/num_selections
-              @user_response.specification_needs_for_usages[spec.id][su.id] = [target_score, weight, uc.weight_for_user]
+              @specification_needs_for_usages[spec.id][su.id] = [target_score, weight, uc.weight_for_user]
             end
           end
         end
@@ -75,7 +75,7 @@ class UserResponseBuilder
 end
 
 class UserResponse
-  attr_accessor :specification_needs_for_mobilities, :specification_needs_for_usages, :products_scored
+  attr_accessor  :products_scored
 end
 
 class ProductScored
