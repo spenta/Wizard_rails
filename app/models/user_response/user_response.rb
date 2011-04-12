@@ -1,15 +1,19 @@
+#We use a builder pattern to create a user_response. see the algo doc for the notations.
 class UserResponseDirector
   attr_accessor :builder
-
   def get_response
     @builder.user_response
   end
-
 end
 
 #laptop-wizard-specific
 class UserResponseBuilder
-  attr_accessor :specification_needs_for_mobilities, :specification_needs_for_usages,:user_response, :products_scored
+  attr_accessor :specification_needs_for_mobilities, :specification_needs_for_usages, :gammas, :sigmas, :user_response, :products_scored, :user_request
+  #parameters are defined here instead of a config file because they heavily depend on the implementation.
+  AFU = 0.5
+  RWU = 40
+  AFM = 0.25
+  RWM = 100
 
   def initialize
     @user_response = UserResponse.new
@@ -25,30 +29,34 @@ class UserResponseBuilder
       @specification_needs_for_mobilities[spec.id]={}
       @specification_needs_for_usages[spec.id]={}
     end
+    #hash {specification_id => sigma}
+    @sigmas={}
 
+    #hash {specification_id => gamma}
+    @gammas={}
   end
 
-  def process_specification_needs! usage_choices
+  def process_specification_needs!
     #selected usages without mobilities
     @selected_usages_choices = []
-    usage_choices.each do |uc|
+    @user_request.usage_choices.each do |uc|
       @selected_usages_choices << uc unless uc.usage.super_usage.name == 'Mobilite' || !uc.is_selected
     end
     SuperUsage.all.each do |su|
       #handling of mobilities
       if su.name == 'Mobilite'
         su.usages.each do |m|
-          mobility_choice = usage_choices.where(:usage_id => m.id).first
+          mobility_choice = @user_request.usage_choices.where(:usage_id => m.id).first
           unless mobility_choice.nil?
             m.requirements.each do |req|
+              #needs should be the same as requirements.
               @specification_needs_for_mobilities[req.specification_id][m.id] = [req.target_score, req.weight, mobility_choice.weight_for_user]
             end
           end
         end
       #handling of usages
-      else;
+      else
         @selected_usage_choices_for_super_usage = []
-
         @selected_usages_choices.each do |selected_uc|
           @selected_usage_choices_for_super_usage << selected_uc if su.usages.include?(selected_uc.usage)
         end
@@ -62,7 +70,9 @@ class UserResponseBuilder
             weight = 0
             @selected_usage_choices_for_super_usage.each do |uc|
               req = uc.usage.requirements.where(:specification_id => spec.id).first
+              #target_score need is the maximal value among target_score for each requirement
               target_score = req.target_score if req.target_score > target_score
+              #weight need is the average among weights for each requirement
               weight += req.weight/num_selections
               @specification_needs_for_usages[spec.id][su.id] = [target_score, weight, uc.weight_for_user]
             end
@@ -72,21 +82,55 @@ class UserResponseBuilder
     end
   end
 
-end
+  def process_sigmas!
+    sigmas ={}
+    Specification.all.each do |spec|
+      #modified target scores for spec. for usages
+      u_star_for_spec = specification_needs_to_u_star @specification_needs_for_usages, spec, 'usages'
 
+      #modified target scores for spec. for mobilities
+      u_prime_star_for_spec = specification_needs_to_u_star @specification_needs_for_mobilities, spec, 'mobilities'
+
+      #sigma is the maximal value among U* for each spec
+      sigmas[spec.id]=(u_star_for_spec | u_prime_star_for_spec).max
+    end
+  end
+
+  def process_gammas!
+    #calculate sum_beta_usages et sum_beta_mobilities
+    sum_beta_usages, sum_beta_mobilities = 0,0
+    specification_needs_for_usages[Specification.first.id].each_value {|needs| sum_beta_usages += needs[2]}
+    specification_needs_for_mobilities[Specification.first.id].each_value {|needs| sum_beta_mobilities += needs[2]}
+
+  end
+
+  #builds an array of U* from specification_needs. The third argument tells wether the needs refers to usages or mobilities
+  def specification_needs_to_u_star specification_needs, spec, usages_or_mobilities
+    u_star_for_spec = []
+    specification_needs[spec.id].each_value do |needs_for_spec|
+        u_star_for_spec << get_modified_target_score(needs_for_spec, usages_or_mobilities, spec.specification_type)
+    end
+    u_star_for_spec
+  end
+
+  def get_modified_target_score needs_for_spec, usages_or_mobilities, specification_type
+    case usages_or_mobilities
+      when 'usages' then af, rw = AFU, RWU
+      when 'mobilities' then af, rw = AFM, RWM
+    end
+
+    case specification_type
+      when 'continuous' then result = needs_for_spec[0] * [1, (1-af)*needs_for_spec[2]/rw +af].min
+      when 'discrete' then result = needs_for_spec[0]
+      when 'not_marked' then result = 0
+    end
+  end
+end
 class UserResponse
-  attr_accessor  :products_scored
+  attr_accessor  :gammas, :sigmas, :products_scored
 end
 
 class ProductScored
   attr_accessor :spenta_score, :product
-end
-
-class ProcessedUsageChoice
-  def initialize weight_for_user, usage
-    @weight_for_user = weight_for_user
-    @usage = usage
-  end
-  attr_accessor :weight_for_user, :usage
 end
 
