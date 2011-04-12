@@ -14,6 +14,7 @@ class UserResponseBuilder
   RWU = 40
   AFM = 0.25
   RWM = 100
+  R = 350
 
   def initialize
     @user_response = UserResponse.new
@@ -99,8 +100,9 @@ class UserResponseBuilder
   def process_gammas!
     #calculate sum_beta_usages et sum_beta_mobilities
     sum_beta_usages, sum_beta_mobilities = 0,0
-    specification_needs_for_usages[Specification.first.id].each_value {|needs| sum_beta_usages += needs[2]}
-    specification_needs_for_mobilities[Specification.first.id].each_value {|needs| sum_beta_mobilities += needs[2]}
+    @specification_needs_for_usages[Specification.first.id].each_value {|needs| sum_beta_usages += needs[2]}
+    @specification_needs_for_mobilities[Specification.first.id].each_value {|needs| sum_beta_mobilities += needs[2]}
+
 
   end
 
