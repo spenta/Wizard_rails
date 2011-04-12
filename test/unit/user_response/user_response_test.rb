@@ -82,10 +82,14 @@ class UserResponseTest < ActiveSupport::TestCase
     end
   end
 
-  #see user_response_test.xslx
+  #see user_response_test.xslx and gammas.csv
   test 'should process gammas correctly' do
+    expected_gammas = {1 => 0,2 => 27.74390244,3 => 0,4 => 0,5 => 10.67073171,6 => 19.20731707,7 => 0,9 => 9.024390244,10 => 0,11 => 27.74390244,12 => 0,13 => 0,14 => 0,15 => 0,16 => 0,17 => 0,18 => 0,19 => 0,20 => 0,23 => 0,30 => 0,31 => 0,32 => 0,33 => 0,34 => 0,35 => 0,36 => 0,37 => 0,38 => 0,39 => 0,40 => 0,41 => 0,42 => 0,43 => 0,44 => 0,45 => 0,46 => 0,47 => 0,48 => 0,49 => 0,81 => 0,82 => 0,83 => 0,84 => 5.609756098}
     @director.builder.process_specification_needs!
     @director.builder.process_gammas!
+    @director.builder.gammas.each do |spec_id, actual_gamma|
+      assert_in_delta expected_gammas[spec_id], actual_gamma, 0.001, "unexpected gamma for specification #{spec_id}"
+    end
   end
 end
 

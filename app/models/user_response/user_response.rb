@@ -102,8 +102,19 @@ class UserResponseBuilder
     sum_beta_usages, sum_beta_mobilities = 0,0
     @specification_needs_for_usages[Specification.first.id].each_value {|needs| sum_beta_usages += needs[2]}
     @specification_needs_for_mobilities[Specification.first.id].each_value {|needs| sum_beta_mobilities += needs[2]}
-
-
+    Specification.all.each do |spec|
+      #gammas for usages
+      theta, theta_prime = 0,0
+      #calculate theta
+      unless sum_beta_usages == 0
+        @specification_needs_for_usages[spec.id].each_value {|needs| theta += needs[1]*needs[2]}
+        theta *= R/sum_beta_usages
+      end
+      #calculate theta_prime
+      @specification_needs_for_mobilities[spec.id].each_value {|needs| theta_prime += needs[1]*needs[2]}
+      #calculate sigma
+      sigmas[spec.id] = (theta + theta_prime)/(R+sum_beta_mobilities)
+    end
   end
 
   #builds an array of U* from specification_needs. The third argument tells wether the needs refers to usages or mobilities
@@ -128,6 +139,7 @@ class UserResponseBuilder
     end
   end
 end
+
 class UserResponse
   attr_accessor  :gammas, :sigmas, :products_scored
 end
