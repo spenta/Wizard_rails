@@ -35,6 +35,10 @@ class UserResponseBuilder
 
     #hash {specification_id => gamma}
     @gammas={}
+
+    #array of products_scored
+    @products_scored=[]
+    Products.all.each { |p| @products_scored << ProductScored.new p}
   end
 
   def process_specification_needs!
@@ -117,6 +121,9 @@ class UserResponseBuilder
     end
   end
 
+  def process_sigmas!
+  end
+
   #builds an array of U* from specification_needs. The third argument tells wether the needs refers to usages or mobilities
   def specification_needs_to_u_star specification_needs, spec, usages_or_mobilities
     u_star_for_spec = []
@@ -145,6 +152,9 @@ class UserResponse
 end
 
 class ProductScored
-  attr_accessor :spenta_score, :product
+  attr_accessor :delta, :pi, :spenta_score, :product
+  def initialize
+    @product = product
+  end
 end
 
