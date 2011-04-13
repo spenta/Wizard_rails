@@ -83,6 +83,7 @@ class UserRequestsController < ApplicationController
   def user_response
     load 'user_response/user_response.rb'
     @user_request = UserRequest.find(params[:id])
+    director = UserResponseDirector
     respond_to do |format|
       format.html {render :action => 'user_response'}
       format.xml  { head :ok }

@@ -9,6 +9,7 @@ end
 #laptop-wizard-specific
 class UserResponseBuilder
   attr_accessor :specification_needs_for_mobilities, :specification_needs_for_usages, :gammas, :sigmas, :user_response, :products_scored, :user_request
+
   #parameters are defined here instead of a config file because they heavily depend on the implementation.
   AFU = 0.5
   RWU = 40
@@ -18,6 +19,7 @@ class UserResponseBuilder
   GAP_MAX = 6
   ZETA = 1
   NU = 1.5
+  LAMBDA = 0.5
 
   def initialize
     @user_response = UserResponse.new
@@ -130,11 +132,9 @@ class UserResponseBuilder
         #null scores replaced with 0
         sigma, gamma, tau = sigmas[spec.id], gammas[spec.id], specification_value ? specification_value.score : 0
         #delta
-        begin
-          ps.delta += gamma*([GAP_MAX, ZETA*(([0,(sigma-tau)/ZETA].max)**NU)]).min
-        rescue
-          puts "error \n sigma : #{sigma}\n gamma : #{gamma} \n tau : #{tau}\n=========================="
-        end
+        ps.delta += gamma*([GAP_MAX, ZETA*(([0,(sigma-tau)/ZETA].max)**NU)]).min
+        #pi
+        ps.pi +=gamma*((tau-sigma)<=>0)*Math.log(1+LAMBDA*(tau-sigma).abs)/LAMBDA
       end
     end
   end
