@@ -91,5 +91,12 @@ class UserResponseTest < ActiveSupport::TestCase
       assert_in_delta expected_gammas[spec_id], actual_gamma, 0.001, "unexpected gamma for specification #{spec_id}"
     end
   end
+
+  test 'should process pi and delta correctly' do
+    @director.builder.process_specification_needs!
+    @director.builder.process_sigmas!
+    @director.builder.process_gammas!
+    @director.builder.process_pi_and_delta!
+  end
 end
 

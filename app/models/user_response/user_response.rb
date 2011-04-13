@@ -15,6 +15,9 @@ class UserResponseBuilder
   AFM = 0.25
   RWM = 100
   R = 350
+  GAP_MAX = 6
+  ZETA = 1
+  NU = 1.5
 
   def initialize
     @user_response = UserResponse.new
@@ -38,7 +41,7 @@ class UserResponseBuilder
 
     #array of products_scored
     @products_scored=[]
-    Products.all.each { |p| @products_scored << ProductScored.new(p)}
+    Product.all.each { |p| @products_scored << ProductScored.new(p)}
   end
 
   def process_specification_needs!
@@ -88,7 +91,6 @@ class UserResponseBuilder
   end
 
   def process_sigmas!
-    sigmas ={}
     Specification.all.each do |spec|
       #modified target scores for spec. for usages
       u_star_for_spec = specification_needs_to_u_star @specification_needs_for_usages, spec, 'usages'
@@ -97,7 +99,7 @@ class UserResponseBuilder
       u_prime_star_for_spec = specification_needs_to_u_star @specification_needs_for_mobilities, spec, 'mobilities'
 
       #sigma is the maximal value among U* for each spec
-      sigmas[spec.id]=(u_star_for_spec | u_prime_star_for_spec).max
+      @sigmas[spec.id]=(u_star_for_spec | u_prime_star_for_spec).max
     end
   end
 
@@ -116,12 +118,25 @@ class UserResponseBuilder
       end
       #calculate theta_prime
       @specification_needs_for_mobilities[spec.id].each_value {|needs| theta_prime += needs[1]*needs[2]}
-      #calculate sigma
-      sigmas[spec.id] = (theta + theta_prime)/(R+sum_beta_mobilities)
+      #calculate gamma
+      @gammas[spec.id] = (theta + theta_prime)/(R+sum_beta_mobilities)
     end
   end
 
-  def process_sigmas!
+  def process_pi_and_delta!
+    @products_scored.each do |ps|
+      Specification.all.each do |spec|
+        specification_value = ps.product.specification_values.where(:specification_id => spec.id).first
+        #null scores replaced with 0
+        sigma, gamma, tau = sigmas[spec.id], gammas[spec.id], specification_value ? specification_value.score : 0
+        #delta
+        begin
+          ps.delta += gamma*([GAP_MAX, ZETA*(([0,(sigma-tau)/ZETA].max)**NU)]).min
+        rescue
+          puts "error \n sigma : #{sigma}\n gamma : #{gamma} \n tau : #{tau}\n=========================="
+        end
+      end
+    end
   end
 
   #builds an array of U* from specification_needs. The third argument tells wether the needs refers to usages or mobilities
@@ -153,8 +168,9 @@ end
 
 class ProductScored
   attr_accessor :delta, :pi, :spenta_score, :product
-  def initialize
+  def initialize product
     @product = product
+    @delta, @pi = 0,0
   end
 end
 
