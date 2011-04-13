@@ -41,7 +41,7 @@ class UserResponseBuilder
     @specification_needs_for_usages = {}
 
     #empty hash for each spec
-    Specification.all.each do |spec|
+    SPECIFICATIONS.each do |spec|
       @specification_needs_for_mobilities[spec.id]={}
       @specification_needs_for_usages[spec.id]={}
     end
@@ -53,7 +53,7 @@ class UserResponseBuilder
 
     #array of products_scored
     @products_scored=[]
-    Product.all.each { |p| @products_scored << ProductScored.new(p)}
+    PRODUCTS.each { |p| @products_scored << ProductScored.new(p)}
   end
 
   def process_specification_needs!
@@ -82,7 +82,7 @@ class UserResponseBuilder
         end
         num_selections = @selected_usage_choices_for_super_usage.size
 
-        Specification.all.each do |spec|
+        SPECIFICATIONS.each do |spec|
           if num_selections == 0
             @specification_needs_for_usages[spec.id][su.id] = [0, 0, 0]
           else
@@ -103,7 +103,7 @@ class UserResponseBuilder
   end
 
   def process_sigmas!
-    Specification.all.each do |spec|
+    SPECIFICATIONS.each do |spec|
       #modified target scores for spec. for usages
       u_star_for_spec = specification_needs_to_u_star @specification_needs_for_usages, spec, 'usages'
 
@@ -120,7 +120,7 @@ class UserResponseBuilder
     sum_beta_usages, sum_beta_mobilities = 0,0
     @specification_needs_for_usages[Specification.first.id].each_value {|needs| sum_beta_usages += needs[2]}
     @specification_needs_for_mobilities[Specification.first.id].each_value {|needs| sum_beta_mobilities += needs[2]}
-    Specification.all.each do |spec|
+    SPECIFICATIONS.each do |spec|
       #gammas for usages
       theta, theta_prime = 0,0
       #calculate theta
@@ -137,8 +137,13 @@ class UserResponseBuilder
 
   def process_pi_and_delta!
     @products_scored.each do |ps|
-      Specification.all.each do |spec|
-        specification_value = ps.product.specification_values.where(:specification_id => spec.id).first
+      #create a hash specification_id => specification_value for serious performance reasons
+      specification_values_hash={}
+      ps.product.specification_values.each do |sv|
+        specification_values_hash[sv.specification_id]=sv
+      end
+      SPECIFICATIONS.each do |spec|
+        specification_value = specification_values_hash[spec.id]
         #null scores replaced with 0
         sigma, gamma, tau = sigmas[spec.id], gammas[spec.id], specification_value ? specification_value.score : 0
         #delta
