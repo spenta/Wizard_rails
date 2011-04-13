@@ -26,7 +26,11 @@
   </tr>
   <% user_response.products_scored.each do |ps| %>
     <tr>
-      <td><%= image_tag ps.product.small_img_url, {:height => 60} %></td>
+      <td>
+      <%= link_to ps.product do%>
+      <%= image_tag ps.product.small_img_url, {:height => 60} %>
+      <% end %>
+      </td>
       <td><%= ps.product.name %></td>
       <% ps.product.specification_values.each do |sv| %>
         <td><%= sv.name %> (<%= sv.score %>)</td>
