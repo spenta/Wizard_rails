@@ -15,6 +15,12 @@
   <%= @product.big_img_url %>
 </p>
 
+<p>
+  <%@product.specification_values.each do |sv|%>
+    <p><b><%= sv.specification.name %> : </b><%= sv.name %></p>
+  <% end %>
+</p>
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
+
