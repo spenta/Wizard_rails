@@ -1,2 +1,37 @@
 <p id="notice"><%= notice %></p>
-TODO
+<h1>Response</h1>
+<h2>Specifications : </h2>
+<table>
+  <tr>
+    <td>name</td>
+    <td>sigma</td>
+    <td>gamma</td>
+  </tr>
+    <% Specification.all.each do |spec| %>
+      <tr>
+        <td><%= spec.name %></td>
+        <td><%= user_response.sigmas[spec.id] %></td>
+        <td><%= user_response.gammas[spec.id] %></td>
+      </tr>
+    <% end %>
+</table>
+<h2>Products</h2>
+<table>
+  <tr>
+    <td/>
+    <td/>
+    <% user_response.products_scored.first.product.specification_values do |sv| %>
+      <td><b><%= Specification.find(sv.specification_id) %></b></td>
+    <% end %>
+  </tr>
+  <% user_response.products_scored.each do |ps| %>
+    <tr>
+      <td><%= image_tag ps.product.small_img_url, {:height => 60} %></td>
+      <td><%= ps.product.name %></td>
+      <% ps.product.specification_values.each do |sv| %>
+        <td><%= sv.name %> (<%= sv.score %>)</td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
+

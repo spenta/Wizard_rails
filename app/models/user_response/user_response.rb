@@ -1,8 +1,20 @@
 #We use a builder pattern to create a user_response. see the algo doc for the notations.
 class UserResponseDirector
   attr_accessor :builder
+  def init_builder user_request
+    @builder = UserResponseBuilder.new if @builder.nil?
+    @builder.user_request = user_request
+  end
+
+  def process_response
+    @builder.process_specification_needs!
+    @builder.process_sigmas!
+    @builder.process_gammas!
+    @builder.process_pi_and_delta!
+  end
+
   def get_response
-    @builder.user_response
+    @builder.user_response ? @builder.user_response : @builder.build_user_response
   end
 end
 
@@ -22,8 +34,6 @@ class UserResponseBuilder
   LAMBDA = 0.5
 
   def initialize
-    @user_response = UserResponse.new
-
     #hash specification_id => {mobility_id => [U, alpha, beta]}
     @specification_needs_for_mobilities = {}
 
@@ -160,10 +170,19 @@ class UserResponseBuilder
       when 'not_marked' then result = 0
     end
   end
+
+  def build_user_response
+    @user_response = UserResponse.new(gammas, sigmas, products_scored)
+  end
 end
 
 class UserResponse
   attr_accessor  :gammas, :sigmas, :products_scored
+  def initialize gammas, sigmas, products_scored
+    @gammas = gammas
+    @sigmas = sigmas
+    @products_scored = products_scored
+  end
 end
 
 class ProductScored
