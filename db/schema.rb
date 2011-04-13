@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110407135101) do
+ActiveRecord::Schema.define(:version => 20110413084430) do
 
   create_table "brands", :force => true do |t|
     t.string   "name"
@@ -22,9 +22,14 @@ ActiveRecord::Schema.define(:version => 20110407135101) do
     t.string   "name"
     t.string   "small_img_url"
     t.string   "big_img_url"
+    t.integer  "brand_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "brand_id"
+  end
+
+  create_table "products_specification_values", :id => false, :force => true do |t|
+    t.integer "product_id"
+    t.integer "specification_value_id"
   end
 
   create_table "requirements", :force => true do |t|
@@ -32,6 +37,14 @@ ActiveRecord::Schema.define(:version => 20110407135101) do
     t.float    "weight"
     t.integer  "specification_id"
     t.integer  "usage_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "specification_values", :force => true do |t|
+    t.string   "name"
+    t.float    "score"
+    t.integer  "specification_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -74,3 +87,4 @@ ActiveRecord::Schema.define(:version => 20110407135101) do
   end
 
 end
+

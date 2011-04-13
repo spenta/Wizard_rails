@@ -1,8 +1,0 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-
-toshiba_satellite:
-  name: Satellite A 665-147
-  small_img_url: http://195.22.136.23/images/ecxget.asp?url=/2/6MUVGI1RILF44QC/6MUVGI1RILF44QC-796986.jpg
-  big_img_url: http://195.22.136.23/images/ecxget.asp?url=/5/6MUVGI1RILF44QC/6MUVGI1RILF44QC-796986.jpg
-  brand: toshiba
-
