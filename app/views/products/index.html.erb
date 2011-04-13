@@ -10,9 +10,8 @@
 
 <% @products.each do |product| %>
   <tr>
+    <td><%= image_tag product.small_img_url, {:height => 60}%></td>
     <td><%= product.name %></td>
-    <td><%= product.small_img_url %></td>
-    <td><%= product.big_img_url %></td>
     <td><%= product.brand.name %></td>
     <td><%= link_to 'Show', product %></td>
     <td><%= link_to 'Edit', edit_product_path(product) %></td>
@@ -24,3 +23,4 @@
 <br />
 
 <%= link_to 'New Product', new_product_path %>
+

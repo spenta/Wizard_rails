@@ -15,6 +15,8 @@
   <%= @product.big_img_url %>
 </p>
 
+<p><%= image_tag @product.big_img_url%></p>
+
 <p>
   <%@product.specification_values.each do |sv|%>
     <p><b><%= sv.specification.name %> : </b><%= sv.name %></p>

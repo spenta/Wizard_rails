@@ -2,7 +2,7 @@ require 'test_helper'
 class ProductsControllerTest < ActionController::TestCase
   fixtures :products, :brands
   setup do
-    @product = products(:toshiba_satellite)
+    @product = products(:product_76)
   end
 
   test "should get index" do
@@ -47,3 +47,4 @@ class ProductsControllerTest < ActionController::TestCase
     assert_redirected_to products_path
   end
 end
+

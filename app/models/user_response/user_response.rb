@@ -38,7 +38,7 @@ class UserResponseBuilder
 
     #array of products_scored
     @products_scored=[]
-    Products.all.each { |p| @products_scored << ProductScored.new p}
+    Products.all.each { |p| @products_scored << ProductScored.new(p)}
   end
 
   def process_specification_needs!
