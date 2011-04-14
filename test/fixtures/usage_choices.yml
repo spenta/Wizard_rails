@@ -60,7 +60,7 @@ mobilite_transport_choice:
 #usages not selected
 
 jeux_regulier_occasionnel:
-  weight_for_user: 45
+  weight_for_user: 0
   usage_id: 9
   user_request: test_request
   is_selected: "0"
@@ -118,4 +118,3 @@ traitement_retouche_choice:
   usage_id: 13
   user_request: test_request
   is_selected: "0"
-

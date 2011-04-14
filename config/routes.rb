@@ -4,12 +4,12 @@ WizardRails::Application.routes.draw do
     get 'user_response', :on => :member
   end
 
-  resources :products
-  
+  resources :products, :only => [:index, :show]
+
   resources :usage_choices
-  
+
   resources :super_usages
-  
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -67,3 +67,4 @@ WizardRails::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
 end
+

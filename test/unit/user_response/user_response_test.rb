@@ -94,6 +94,11 @@ class UserResponseTest < ActiveSupport::TestCase
     # good_deals processing
     #----------------------------
     @director.builder.process_good_deals!
+    expected_good_deals = [211, 136, 208, 175, 201, 191, 111, 117, 120]
+    actual_good_deals = []
+    @director.builder.products_scored.each { |ps| actual_good_deals << ps.product.id if ps.is_good_deal}
+    assert (expected_good_deals.eql? actual_good_deals), "actual_good_deals : #{actual_good_deals}"
+    expected_stars = [211, 136, 208, 175, 191, 120]
   end
 
 

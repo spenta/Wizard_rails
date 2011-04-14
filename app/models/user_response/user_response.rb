@@ -37,6 +37,10 @@ class UserResponseBuilder
   GAP_TOL = 0.2
   S_R = 100
   KAPPA = 40
+  C_P = 50
+  C_S = 5
+  S_MIN = 70
+  N_MIN = 4
 
   def initialize
     #hash specification_id => {mobility_id => [U, alpha, beta]}
@@ -183,26 +187,170 @@ class UserResponseBuilder
   end
 
   def process_good_deals!
-    #TEMP*********************
-    #handle offers first !
     #array containing good_deals (P+)
     good_deals = []
     #products_scored sorted by increasing price
-    #@products_scored = @products_scored.sort {|p1, p2| p1.price <=> p2.price}
-    #good_deals << @products_scored.first
+    @products_scored = sort_by_price @products_scored
+    good_deals << @products_scored.first
+    #TEMP*********************
+    puts "id, price, spenta_score, deal_score"
+    @products_scored.each { |ps| puts "#{ps.product.id},#{ps.price},#{ps.spenta_score},#{ps.spenta_score/ps.price}"  }
+     #TEMP*********************
+    puts "----------------"
+     #TEMP*********************
+    puts "----------------"
+    #-----------------
+    #  first step : we keep products that may be ordered by increasing price and score
+    #-----------------
     #the first element of products_scored is removed and added back at the end in order not to mess the loop
-    #first_product = products_scored.slice! 0
-    #@products_scored.each do |current_ps|
-      #last_ps = good_deals.last
-      #if (current_ps.price == last_ps.price and current_ps.spenta_score == last_ps.spenta_score) or (current_ps.price > last_ps.price and current_ps.spenta_score > last_ps.spenta_score)
-        #good_deals << current_ps
-      #elsif current_ps.price = last_ps.price and current_ps.spenta_score > last_ps.spenta_score
-        #good_deals << current_ps
-        #good_deals.delete last_ps
-     #end
-    #end
+    first_product = @products_scored.slice! 0
+    @products_scored.each do |current_ps|
+      last_ps = good_deals.last
+      if (current_ps.price == last_ps.price and current_ps.spenta_score == last_ps.spenta_score) or (current_ps.price > last_ps.price and current_ps.spenta_score > last_ps.spenta_score)
+        good_deals << current_ps
+      elsif current_ps.price == last_ps.price and current_ps.spenta_score > last_ps.spenta_score
+        good_deals << current_ps
+        good_deals.delete last_ps
+      end
+    end
+    #TEMP*********************
+    puts "@products_scored"
+    @products_scored.each { |ps| puts "#{ps.product.id},#{ps.price},#{ps.spenta_score},#{ps.spenta_score/ps.price}"  }
+     #TEMP*********************
+    puts "----------------"
+    #set is_good_deal to true for each member of good_deals
+    good_deals.each { |ps| ps.is_good_deal = true }
     #put the first element back
-    #products_scored.insert first_product
+    @products_scored.insert first_product
+    #create products_scored\good_deals (P-)
+    remaining_products = []
+    @products_scored.each { |ps| remaining_products << ps unless ps.is_good_deal }
+    #P- and P+ are sorted by increasing price
+    remaining_products = sort_by_price remaining_products
+    good_deals = sort_by_price good_deals
+    #TEMP **************************
+    puts "step 1 complete"
+    #TEMP **************************
+    puts "good_deals "
+    #TEMP*********************
+    puts "id, price, spenta_score, deal_score"
+    #TEMP*********************
+    good_deals.each { |ps| puts "#{ps.product.id}, price: #{ps.price}, score: #{ps.spenta_score}, deal_score: #{ps.spenta_score/ps.price}"  }
+    #TEMP*********************
+    puts "----------------"
+    #TEMP **************************
+    puts "remaining_products "
+    #TEMP*********************
+    remaining_products.each { |ps| puts "#{ps.product.id}, price: #{ps.price}, score: #{ps.spenta_score}, deal_score: #{ps.spenta_score/ps.price}"  }
+    #TEMP*********************
+    puts "----------------"
+    #TEMP*********************
+    puts "----------------"
+     #TEMP*********************
+    puts "----------------"
+
+    #-----------------
+    #  second step : tolerance
+    #-----------------
+    new_good_deals = []
+    good_deals.each do |good_ps|
+      #best distance to good_ps among remaining products
+      best_distance = 10
+      #best candidate among remaining_products
+      best_candidate = nil
+      remaining_products.each do |candidate_ps| #aka DSK
+        distance = distance good_ps, candidate_ps
+        if distance < 1 and distance < best_distance
+          best_candidate, best_distance = candidate_ps, distance
+        end
+      end
+      #move the best candidate, if any, from remaining_products to new_good_deals
+      unless best_candidate.nil?
+        new_good_deals << best_candidate
+        remaining_products.delete best_candidate
+      end
+    end
+    #TEMP **************************
+    puts "good_deals "
+    #TEMP **************************
+    good_deals.each { |ps| puts "#{ps.product.id}, price: #{ps.price}, score: #{ps.spenta_score}, deal_score: #{ps.spenta_score/ps.price}"  }
+    #TEMP*********************
+    puts "----------------"
+    #TEMP **************************
+    #TEMP **************************
+    puts "new_good_deals "
+    new_good_deals.each { |ps| puts "#{ps.product.id}, price: #{ps.price}, score: #{ps.spenta_score}, deal_score: #{ps.spenta_score/ps.price}"  }
+    #TEMP*********************
+    puts "----------------"
+    good_deals = good_deals | new_good_deals
+    #TEMP **************************
+    puts "step 2 complete"
+    #TEMP **************************
+    puts "good_deals "
+    #TEMP*********************
+    good_deals.each { |ps| puts "#{ps.product.id}, price: #{ps.price}, score: #{ps.spenta_score}, deal_score: #{ps.spenta_score/ps.price}"  }
+    #TEMP*********************
+    puts "----------------"
+     #TEMP*********************
+    puts "----------------"
+
+    #-----------------
+    #  third step : filtering by spenta_score
+    #-----------------
+    good_deals.each { |ps| good_deals.delete ps if ps.spenta_score < S_MIN}
+    #TEMP **************************
+    puts "step 3 complete"
+    #TEMP **************************
+    puts "good_deals "
+    #TEMP*********************
+    good_deals.each { |ps| puts "#{ps.product.id}, price: #{ps.price}, score: #{ps.spenta_score}, deal_score: #{ps.spenta_score/ps.price}"  }
+
+    #-----------------
+    #  fourth step : adding products_scored with spenta_score > S_MIN
+    #-----------------
+    #if need be, remaining_products are ordered by decreasing spenta_score/price
+    if good_deals.size < N_MIN
+      remaining_products.sort {|p2, p1| p1.spenta_score/p1.price <=> p2.spenta_score/p2.price}
+      remaining_products.each do |best_remaining_product|
+        if good_deals.size < N_MIN and best_remaining_product.spenta_score > S_MIN
+          good_deals << best_remaining_product
+          remaining_products.delete best_remaining_product
+        end
+      end
+      #TEMP **************************
+      puts "step 4 complete"
+    end
+
+    #-----------------
+    #  fifth step : adding products_scored with best spenta_score
+    #-----------------
+    #if need be, remaining_products are ordered by decreasing spenta_score
+    if good_deals.size < N_MIN
+      remaining_products.sort {|p2, p1| p1.spenta_score <=> p2.spenta_score}
+      remaining_products.each do |ps|
+        if good_deals.size < N_MIN
+          good_deals << ps
+          remaining_products.delete ps
+        end
+      end
+      #TEMP **************************
+      puts "step 5 complete"
+    end
+
+    #-----------------
+    #  sixth step : flagging good_deals products
+    #-----------------
+    good_deals.each { |ps| ps.is_good_deal = true }
+  end
+
+  def sort_by_price ary
+    ary = ary.sort {|p1, p2| p1.price <=> p2.price}
+  end
+
+  def distance p1, p2
+    price_spread = (p1.price - p2.price)/C_P
+    score_spread = (p1.spenta_score - p2.spenta_score)/C_S
+    d = Math.sqrt(price_spread**2+score_spread**2)
   end
 
   #builds an array of U* from specification_needs. The third argument tells wether the needs refers to usages or mobilities
@@ -242,10 +390,11 @@ class UserResponse
 end
 
 class ProductScored
-  attr_accessor :delta, :pi, :spenta_score, :product, :is_good_deal, :is_star
+  attr_accessor :delta, :pi, :spenta_score, :product, :is_good_deal, :is_star, :price
   def initialize product
     @product = product
     @delta, @pi, @is_good_deal, @is_star = 0, 0, false, false
+    @price = @product.price
   end
 end
 
