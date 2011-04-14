@@ -24,11 +24,15 @@
       <td><b><%= Specification.find(sv.specification_id) %></b></td>
     <% end %>
   </tr>
+  <% user_response.products_scored = user_response.products_scored.sort {|p1, p2| p2.spenta_score <=> p1.spenta_score}%>
   <% user_response.products_scored.each do |ps| %>
     <tr>
       <td>
       <%= link_to ps.product do%>
       <%= image_tag ps.product.small_img_url, {:height => 60} %>
+      <td>
+        <h3><%= ps.spenta_score.round%>&nbsp;% </h3>
+      </td>
       <% end %>
       </td>
       <td><%= ps.product.name %></td>

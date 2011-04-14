@@ -11,6 +11,7 @@ class UserResponseDirector
     @builder.process_sigmas!
     @builder.process_gammas!
     @builder.process_pi_and_delta!
+    @builder.process_scores!
   end
 
   def get_response
@@ -32,6 +33,9 @@ class UserResponseBuilder
   ZETA = 1
   NU = 1.5
   LAMBDA = 0.5
+  GAP_TOL = 0.2
+  S_R = 100
+  KAPPA = 40
 
   def initialize
     #hash specification_id => {mobility_id => [U, alpha, beta]}
@@ -152,6 +156,29 @@ class UserResponseBuilder
         ps.pi +=gamma*((tau-sigma)<=>0)*Math.log(1+LAMBDA*(tau-sigma).abs)/LAMBDA
       end
     end
+  end
+
+  def process_scores!
+    #delta_ok
+    sum_gamma = 0
+    @gammas.each_value { |gamma| sum_gamma+=gamma }
+    delta_ok = sum_gamma * GAP_TOL
+    #products_scored is separated in two subgroups : recommended products and not recommended  products
+    recommended_products = []
+    not_recommended_products = []
+    @products_scored.each {|ps| ps.delta <= delta_ok ? recommended_products << ps : not_recommended_products << ps}
+    #scores for recommended_products
+    unless recommended_products.empty?
+      #recommended_products is sorted by increasing pi
+      recommended_products = recommended_products.sort {|p1, p2| p1.pi <=> p2.pi}
+      pi_min = recommended_products.first.pi
+      recommended_products.each { |ps| ps.spenta_score = S_R + KAPPA * (ps.pi - pi_min)/sum_gamma }
+    end
+    #scores for not_recommended_products
+    # s = a.delta + b for each product_scored
+    a = - S_R/(sum_gamma*(GAP_MAX-GAP_TOL))
+    b = S_R * GAP_MAX/(GAP_MAX - GAP_TOL)
+    not_recommended_products.each { |ps| ps.spenta_score = a*ps.delta + b}
   end
 
   #builds an array of U* from specification_needs. The third argument tells wether the needs refers to usages or mobilities
