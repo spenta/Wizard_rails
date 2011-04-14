@@ -6,5 +6,7 @@ class AddBrandFKToProducts < ActiveRecord::Migration
   end
 
   def self.down
+    remove_column :products, :brand
   end
 end
+

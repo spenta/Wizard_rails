@@ -12,6 +12,7 @@ class UserResponseDirector
     @builder.process_gammas!
     @builder.process_pi_and_delta!
     @builder.process_scores!
+    @builder.process_good_deals!
   end
 
   def get_response
@@ -181,6 +182,29 @@ class UserResponseBuilder
     not_recommended_products.each { |ps| ps.spenta_score = a*ps.delta + b}
   end
 
+  def process_good_deals!
+    #TEMP*********************
+    #handle offers first !
+    #array containing good_deals (P+)
+    good_deals = []
+    #products_scored sorted by increasing price
+    #@products_scored = @products_scored.sort {|p1, p2| p1.price <=> p2.price}
+    #good_deals << @products_scored.first
+    #the first element of products_scored is removed and added back at the end in order not to mess the loop
+    #first_product = products_scored.slice! 0
+    #@products_scored.each do |current_ps|
+      #last_ps = good_deals.last
+      #if (current_ps.price == last_ps.price and current_ps.spenta_score == last_ps.spenta_score) or (current_ps.price > last_ps.price and current_ps.spenta_score > last_ps.spenta_score)
+        #good_deals << current_ps
+      #elsif current_ps.price = last_ps.price and current_ps.spenta_score > last_ps.spenta_score
+        #good_deals << current_ps
+        #good_deals.delete last_ps
+     #end
+    #end
+    #put the first element back
+    #products_scored.insert first_product
+  end
+
   #builds an array of U* from specification_needs. The third argument tells wether the needs refers to usages or mobilities
   def specification_needs_to_u_star specification_needs, spec, usages_or_mobilities
     u_star_for_spec = []
@@ -218,10 +242,10 @@ class UserResponse
 end
 
 class ProductScored
-  attr_accessor :delta, :pi, :spenta_score, :product
+  attr_accessor :delta, :pi, :spenta_score, :product, :is_good_deal, :is_star
   def initialize product
     @product = product
-    @delta, @pi = 0,0
+    @delta, @pi, @is_good_deal, @is_star = 0, 0, false, false
   end
 end
 

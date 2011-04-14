@@ -10,12 +10,28 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110413084430) do
+ActiveRecord::Schema.define(:version => 20110414134224) do
+
+  create_table "affiliation_platforms", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "brands", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "offers", :force => true do |t|
+    t.float    "price"
+    t.text     "link"
+    t.integer  "affiliation_platform_id"
+    t.integer  "retailer_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "product_id"
   end
 
   create_table "products", :force => true do |t|
@@ -37,6 +53,13 @@ ActiveRecord::Schema.define(:version => 20110413084430) do
     t.float    "weight"
     t.integer  "specification_id"
     t.integer  "usage_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "retailers", :force => true do |t|
+    t.string   "name"
+    t.text     "logo_url"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -87,4 +110,3 @@ ActiveRecord::Schema.define(:version => 20110413084430) do
   end
 
 end
-

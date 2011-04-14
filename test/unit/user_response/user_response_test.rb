@@ -90,6 +90,10 @@ class UserResponseTest < ActiveSupport::TestCase
     product_scored_218 = nil
     @director.builder.products_scored.each {|ps| product_scored_218 = ps if ps.product.id==218}
     assert_in_delta product_scored_218.spenta_score, 104.71, 0.01
+    #----------------------------
+    # good_deals processing
+    #----------------------------
+    @director.builder.process_good_deals!
   end
 
 
