@@ -50,17 +50,17 @@ class UserResponseTest < ActiveSupport::TestCase
 
     multimedia_choice = nil
     @user_request.usage_choices.each { |uc| multimedia_choice = uc }
-    assert_in_delta actual_specs_needs_for_usages[5][0][1], 12.5, 0.001
-    assert_in_delta actual_specs_needs_for_usages[11][0][0], 6, 0.001
-    assert_in_delta actual_specs_needs_for_usages[32][0][0], 0, 0.001
+    assert_in_delta actual_specs_needs_for_usages[5][1][1], 12.5, 0.001
+    assert_in_delta actual_specs_needs_for_usages[11][1][0], 6, 0.001
+    assert_in_delta actual_specs_needs_for_usages[32][1][0], 0, 0.001
 
-    assert_in_delta actual_specs_needs_for_usages[5][1][0], 3, 0.001
-    assert_in_delta actual_specs_needs_for_usages[6][1][1], 15, 0.001
-    assert_in_delta actual_specs_needs_for_usages[16][1][0], 0, 0.001
+    assert_in_delta actual_specs_needs_for_usages[5][2][0], 3, 0.001
+    assert_in_delta actual_specs_needs_for_usages[6][2][1], 15, 0.001
+    assert_in_delta actual_specs_needs_for_usages[16][2][0], 0, 0.001
 
-    assert_in_delta actual_specs_needs_for_usages[3][5][1], 16.66667, 0.001
-    assert_in_delta actual_specs_needs_for_usages[13][5][0], 10, 0.001
-    assert_in_delta actual_specs_needs_for_usages[39][5][0], 0, 0.001
+    assert_in_delta actual_specs_needs_for_usages[3][6][1], 16.66667, 0.001
+    assert_in_delta actual_specs_needs_for_usages[13][6][0], 10, 0.001
+    assert_in_delta actual_specs_needs_for_usages[39][6][0], 0, 0.001
   end
 
   #see user_response_test.xlsx and sigmas.csv

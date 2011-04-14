@@ -1,27 +1,28 @@
 bureautique:
-  id: 0
+  id: 1
   name: Bureautique
 
 internet:
-  id: 1
+  id: 2
   name: Internet
 
 communication:
-  id: 2
+  id: 3
   name: Communication
 
 jeux:
-  id: 3
+  id: 4
   name: jeux
 
 traitement:
-  id: 4
+  id: 5
   name: Traitement
 
 multimedia:
-  id: 5
-  name: Multimedia
-  
-mobilite:
   id: 6
+  name: Multimedia
+
+mobilite:
+  id: 7
   name: Mobilite
+
