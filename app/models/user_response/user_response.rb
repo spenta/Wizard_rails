@@ -213,11 +213,6 @@ class UserResponseBuilder
         good_deals.delete last_ps
       end
     end
-    #TEMP*********************
-    puts "@products_scored"
-    @products_scored.each { |ps| puts "#{ps.product.id},#{ps.price},#{ps.spenta_score},#{ps.spenta_score/ps.price}"  }
-     #TEMP*********************
-    puts "----------------"
     #set is_good_deal to true for each member of good_deals
     good_deals.each { |ps| ps.is_good_deal = true }
     #put the first element back

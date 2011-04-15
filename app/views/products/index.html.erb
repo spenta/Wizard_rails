@@ -1,4 +1,4 @@
-<h1>Listing products</h1>
+<!-- <h1>Listing products</h1>
 
 <table>
   <tr>
@@ -8,15 +8,25 @@
     <th>brand</th>
   </tr>
 
+</table> -->
+<p>
+,<% Specification.order(:id).each do |spec| %>
+  <%= spec.id %>,
+<% end %>
 <% @products.each do |product| %>
-  <tr>
+</p>
+  <!-- <tr>
     <td><%= image_tag product.small_img_url, {:height => 60}%></td>
     <td><%= product.name %></td>
     <td><%= product.brand.name %></td>
     <td><%= link_to 'Show', product %></td>
-  </tr>
+  </tr> -->
+  <!-- TEMP ************************************ -->
+  <p><%= product.id %>,
+  <% Specification.order(:id).each do |spec| %>
+    <% sv = product.specification_values.where(:specification_id => spec.id).first %>
+    <%= sv.nil? ? 0 : sv.score %>,
+  <% end %>
+  </p>
 <% end %>
-</table>
-
-<br />
 
