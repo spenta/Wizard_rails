@@ -95,6 +95,12 @@ class UserResponseTest < ActiveSupport::TestCase
     #----------------------------
     # good_deals processing
     #----------------------------
+    @director.builder.process_good_deals!
+    actual_good_deals = @director.builder.good_deals
+    expected_good_deals = [83, 151, 166, 174, 178, 201, 205, 218, 228, 191]
+    assert actual_good_deals.size == 10, "size : #{actual_good_deals.size}"
+    actual_good_deals.each { |p| assert expected_good_deals.include? p.product.id }
+    assert actual_good_deals = actual_good_deals.uniq
   end
 
   test 'should remove products with low scores' do
@@ -127,6 +133,56 @@ class UserResponseTest < ActiveSupport::TestCase
     remaining_products = @director.builder.add_to_good_deals_from products_scored
     assert @director.builder.good_deals == [ps_134, ps_37, ps_163], "good_deals : #{@director.builder.good_deals}"
     assert remaining_products == [ps_162, ps_211], "remaining_products : #{remaining_products}"
+  end
+
+  test 'should complete array' do
+    initial_array = %w{one two}
+    first_new_array = %w{three four}
+    second_new_array = %w{five six}
+    @director.builder.complete initial_array, :with => first_new_array, :until_size_is => 3, :by => :length, :order =>:desc,:and_delete_from_source => true
+    assert initial_array = %{one two three}
+    assert first_new_array = ["four"]
+    @director.builder.complete initial_array, :with => second_new_array, :until_size_is => 4, :by => :length, :order =>:asc,:and_delete_from_source => false
+    assert initial_array = %{one two three six}
+    assert second_new_array = ["five", "six"]
+  end
+
+  test 'should complete good deals' do
+    expected_good_deals = [191, 157,137,156,105,73,154,195,97,111]
+    builder = @director.builder
+    builder.process_specification_needs!
+    builder.process_sigmas!
+    builder.process_gammas!
+    builder.process_pi_and_delta!
+    builder.process_scores!
+    #removes all products with scores > 75. See good_deals_test_compl sheet in the xlsx file for more details
+    low_scores = []
+    builder.products_scored.each {|p| low_scores << p if p.spenta_score > 75}
+    low_scores.each { |p| builder.products_scored.delete p }
+    builder.process_good_deals!
+    actual_good_deals = builder.good_deals
+    assert actual_good_deals.size == 10, "size : #{actual_good_deals.size}"
+    actual_good_deals.each { |p| assert expected_good_deals.include? p.product.id }
+    assert actual_good_deals = actual_good_deals.uniq
+  end
+
+  test 'should restrict good deals' do
+    expected_good_deals = [151,238,180,117,160,202,174,218,83,166]
+    builder = @director.builder
+    builder.process_specification_needs!
+    builder.process_sigmas!
+    builder.process_gammas!
+    builder.process_pi_and_delta!
+    builder.process_scores!
+    #removes some products to get enough good deals after the first step. See good_deals_test_compl sheet in the xlsx file for more details
+    products_to_remove = []
+    builder.products_scored.each { |p| products_to_remove << p if [201,192,178,200,205,219,228].include? p.product.id  }
+    products_to_remove.each { |p| builder.products_scored.delete p }
+    builder.process_good_deals!
+    actual_good_deals = builder.good_deals
+    assert actual_good_deals.size == 10, "size : #{actual_good_deals.size}"
+    actual_good_deals.each { |p| assert expected_good_deals.include? p.product.id }
+    assert actual_good_deals = actual_good_deals.uniq
   end
 end
 
