@@ -7,38 +7,24 @@
     <td>sigma</td>
     <td>gamma</td>
   </tr>
-    <% Specification.all.each do |spec| %>
-      <tr>
-        <td><%= spec.name %></td>
-        <td><%= user_response.sigmas[spec.id] %></td>
-        <td><%= user_response.gammas[spec.id] %></td>
-      </tr>
-    <% end %>
 </table>
 <h2>Products</h2>
 <table>
   <tr>
     <td/>
     <td/>
-    <% user_response.products_scored.first.product.specification_values do |sv| %>
-      <td><b><%= Specification.find(sv.specification_id) %></b></td>
-    <% end %>
   </tr>
   <% user_response.products_scored = user_response.products_scored.sort {|p1, p2| p2.spenta_score <=> p1.spenta_score}%>
   <% user_response.products_scored.each do |ps| %>
     <tr>
       <td>
       <%= link_to ps.product do%>
-      <%= image_tag ps.product.small_img_url, {:height => 60} %>
       <td>
         <h3><%= ps.spenta_score.round%>&nbsp;% </h3>
       </td>
       <% end %>
       </td>
       <td><%= ps.product.name %></td>
-      <% ps.product.specification_values.each do |sv| %>
-        <td><%= sv.name %> (<%= sv.score %>)</td>
-      <% end %>
     </tr>
   <% end %>
 </table>

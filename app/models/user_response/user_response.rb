@@ -22,7 +22,7 @@ end
 
 #laptop-wizard-specific
 class UserResponseBuilder
-  attr_accessor :specification_needs_for_mobilities, :specification_needs_for_usages, :gammas, :sigmas, :user_response, :products_scored, :user_request
+  attr_accessor :specification_needs_for_mobilities, :specification_needs_for_usages, :gammas, :sigmas, :user_response, :products_scored, :user_request, :good_deals
 
   #parameters are defined here instead of a config file because they heavily depend on the implementation.
   AFU = 0.5
@@ -63,6 +63,8 @@ class UserResponseBuilder
     #array of products_scored
     @products_scored=[]
     Product.all.each { |p| @products_scored << ProductScored.new(p)}
+
+    @good_deals = []
   end
 
   def process_specification_needs!
@@ -186,19 +188,12 @@ class UserResponseBuilder
     not_recommended_products.each { |ps| ps.spenta_score = a*ps.delta + b}
   end
 
-  def process_good_deals!
+  def process_good_deals_old!
     #array containing good_deals (P+)
     good_deals = []
     #products_scored sorted by increasing price
     @products_scored = sort_by_price @products_scored
     good_deals << @products_scored.first
-    #TEMP*********************
-    puts "id, price, spenta_score, deal_score"
-    @products_scored.each { |ps| puts "#{ps.product.id},#{ps.price},#{ps.spenta_score},#{ps.spenta_score/ps.price}"  }
-     #TEMP*********************
-    puts "----------------"
-     #TEMP*********************
-    puts "----------------"
     #-----------------
     #  first step : we keep products that may be ordered by increasing price and score
     #-----------------
@@ -216,34 +211,13 @@ class UserResponseBuilder
     #set is_good_deal to true for each member of good_deals
     good_deals.each { |ps| ps.is_good_deal = true }
     #put the first element back
-    @products_scored.insert first_product
+    @products_scored << first_product
     #create products_scored\good_deals (P-)
     remaining_products = []
     @products_scored.each { |ps| remaining_products << ps unless ps.is_good_deal }
     #P- and P+ are sorted by increasing price
     remaining_products = sort_by_price remaining_products
     good_deals = sort_by_price good_deals
-    #TEMP **************************
-    puts "step 1 complete"
-    #TEMP **************************
-    puts "good_deals "
-    #TEMP*********************
-    puts "id, price, spenta_score, deal_score"
-    #TEMP*********************
-    good_deals.each { |ps| puts "#{ps.product.id}, price: #{ps.price}, score: #{ps.spenta_score}, deal_score: #{ps.spenta_score/ps.price}"  }
-    #TEMP*********************
-    puts "----------------"
-    #TEMP **************************
-    puts "remaining_products "
-    #TEMP*********************
-    remaining_products.each { |ps| puts "#{ps.product.id}, price: #{ps.price}, score: #{ps.spenta_score}, deal_score: #{ps.spenta_score/ps.price}"  }
-    #TEMP*********************
-    puts "----------------"
-    #TEMP*********************
-    puts "----------------"
-     #TEMP*********************
-    puts "----------------"
-
     #-----------------
     #  second step : tolerance
     #-----------------
@@ -265,41 +239,10 @@ class UserResponseBuilder
         remaining_products.delete best_candidate
       end
     end
-    #TEMP **************************
-    puts "good_deals "
-    #TEMP **************************
-    good_deals.each { |ps| puts "#{ps.product.id}, price: #{ps.price}, score: #{ps.spenta_score}, deal_score: #{ps.spenta_score/ps.price}"  }
-    #TEMP*********************
-    puts "----------------"
-    #TEMP **************************
-    #TEMP **************************
-    puts "new_good_deals "
-    new_good_deals.each { |ps| puts "#{ps.product.id}, price: #{ps.price}, score: #{ps.spenta_score}, deal_score: #{ps.spenta_score/ps.price}"  }
-    #TEMP*********************
-    puts "----------------"
-    good_deals = good_deals | new_good_deals
-    #TEMP **************************
-    puts "step 2 complete"
-    #TEMP **************************
-    puts "good_deals "
-    #TEMP*********************
-    good_deals.each { |ps| puts "#{ps.product.id}, price: #{ps.price}, score: #{ps.spenta_score}, deal_score: #{ps.spenta_score/ps.price}"  }
-    #TEMP*********************
-    puts "----------------"
-     #TEMP*********************
-    puts "----------------"
-
     #-----------------
     #  third step : filtering by spenta_score
     #-----------------
     good_deals.each { |ps| good_deals.delete ps if ps.spenta_score < S_MIN}
-    #TEMP **************************
-    puts "step 3 complete"
-    #TEMP **************************
-    puts "good_deals "
-    #TEMP*********************
-    good_deals.each { |ps| puts "#{ps.product.id}, price: #{ps.price}, score: #{ps.spenta_score}, deal_score: #{ps.spenta_score/ps.price}"  }
-
     #-----------------
     #  fourth step : adding products_scored with spenta_score > S_MIN
     #-----------------
@@ -312,8 +255,6 @@ class UserResponseBuilder
           remaining_products.delete best_remaining_product
         end
       end
-      #TEMP **************************
-      puts "step 4 complete"
     end
 
     #-----------------
@@ -328,8 +269,6 @@ class UserResponseBuilder
           remaining_products.delete ps
         end
       end
-      #TEMP **************************
-      puts "step 5 complete"
     end
 
     #-----------------
@@ -338,14 +277,74 @@ class UserResponseBuilder
     good_deals.each { |ps| ps.is_good_deal = true }
   end
 
+  def process_good_deals!
+    #good score means >= S_MIN
+    products_with_good_scores = []
+    @products_scored.each { |p| products_with_good_scores << p }
+    remaining_products = remove_low_scores_from products_with_good_scores
+  end
+
   def sort_by_price ary
-    ary = ary.sort {|p1, p2| p1.price <=> p2.price}
+    ary.sort! {|p1, p2| p1.price <=> p2.price}
   end
 
   def distance p1, p2
     price_spread = (p1.price - p2.price)/C_P
     score_spread = (p1.spenta_score - p2.spenta_score)/C_S
     d = Math.sqrt(price_spread**2+score_spread**2)
+  end
+
+  #returns removed products
+  def remove_low_scores_from products
+    products_with_low_scores = []
+    products.each do |p|
+      if p.spenta_score < S_MIN
+        products_with_low_scores << p
+        products.delete p
+      end
+    end
+    products_with_low_scores
+  end
+
+  #returns the products which where not added to good_deals
+  def add_to_good_deals_from products
+    remaining_products = []
+    sort_by_price products
+    products.each do |current_ps|
+      # TEMP *********************
+      puts "current product id : #{current_ps.product.id}"
+      if @good_deals.empty?
+        # TEMP *********************
+        puts "no element in good deals"
+        # TEMP *********************
+        puts "----------------------"
+        @good_deals << current_ps
+      else
+        last_ps = @good_deals.last
+        #if the current product is as good as and as cheap as the previous one, or if it is
+        #more expensive, but better, then put it in good_deals
+        if (current_ps.price == last_ps.price and current_ps.spenta_score == last_ps.spenta_score) or (current_ps.price > last_ps.price and current_ps.spenta_score > last_ps.spenta_score)
+          # TEMP *********************
+          puts "first case"
+          # TEMP *********************
+          puts "----------------------"
+          @good_deals << current_ps
+        #if the current product is as cheap as the previous one but better,
+        #add it to good_deals and remove the previous one
+        elsif current_ps.price == last_ps.price and current_ps.spenta_score > last_ps.spenta_score
+          # TEMP *********************
+          puts "second case"
+          # TEMP *********************
+          puts "----------------------"
+          @good_deals.delete last_ps
+          remaining_products << last_ps
+          @good_deals << current_ps
+        else
+          remaining_products << current_ps
+        end
+      end
+    end
+    remaining_products
   end
 
   #builds an array of U* from specification_needs. The third argument tells wether the needs refers to usages or mobilities

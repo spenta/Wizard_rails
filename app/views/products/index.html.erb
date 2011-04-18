@@ -23,10 +23,10 @@
   </tr> -->
   <!-- TEMP ************************************ -->
   <p><%= product.id %>,
-  <% Specification.order(:id).each do |spec| %>
+  <!-- <% Specification.order(:id).each do |spec| %>
     <% sv = product.specification_values.where(:specification_id => spec.id).first %>
     <%= sv.nil? ? 0 : sv.score %>,
-  <% end %>
+  <% end %> -->
   </p>
 <% end %>
 

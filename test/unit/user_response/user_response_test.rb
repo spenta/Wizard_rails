@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class UserResponseTest < ActiveSupport::TestCase
-  fixtures :user_requests, :usage_choices
+  fixtures :user_requests, :usage_choices, :products
 
   def setup
     @user_request = user_requests(:test_request)
@@ -95,12 +95,38 @@ class UserResponseTest < ActiveSupport::TestCase
     #----------------------------
     # good_deals processing
     #----------------------------
-    @director.builder.process_good_deals!
-    expected_good_deals = [211, 136, 208, 175, 201, 191, 111, 117, 120]
-    actual_good_deals = []
-    @director.builder.products_scored.each { |ps| actual_good_deals << ps.product.id if ps.is_good_deal}
-    assert (expected_good_deals.eql? actual_good_deals), "actual_good_deals : #{actual_good_deals}"
-    expected_stars = [211, 136, 208, 175, 191, 120]
+  end
+
+  test 'should remove products with low scores' do
+    product = products(:product_76)
+    p1, p2, p3, p4 = ProductScored.new(product), ProductScored.new(product), ProductScored.new(product), ProductScored.new(product)
+    p1.spenta_score, p2.spenta_score, p3.spenta_score, p4.spenta_score = 30, 70, 71, 100
+    products_scored = [p1, p2, p3, p4]
+    products_with_low_scores = @director.builder.remove_low_scores_from products_scored
+    assert products_with_low_scores == [p1]
+    assert products_scored == [p2, p3, p4]
+  end
+
+  test 'should add products to good deals' do
+    p_162 = Product.find(162) #price = 229. The usual syntax p_162 = products(:product_162) doesn't work for some reason
+    p_134 = Product.find(134) #price = 229
+    p_37 = Product.find(37) #price = 239
+    p_163 = Product.find(163) #price = 249
+    p_211 = Product.find(211) #price = 249
+
+    ps_37, ps_163, ps_162, ps_211, ps_134 = ProductScored.new(p_37), ProductScored.new(p_163), ProductScored.new(p_162), ProductScored.new(p_211), ProductScored.new(p_134)
+
+    ps_134.spenta_score = 25
+    ps_162.spenta_score = 20
+    ps_37.spenta_score = 27
+    ps_211.spenta_score = 42
+    ps_163.spenta_score = 43
+
+    products_scored = [ps_37, ps_163, ps_162, ps_211, ps_134]
+
+    remaining_products = @director.builder.add_to_good_deals_from products_scored
+    assert @director.builder.good_deals == [ps_134, ps_37, ps_163], "good_deals : #{@director.builder.good_deals}"
+    assert remaining_products == [ps_162, ps_211], "remaining_products : #{remaining_products}"
   end
 end
 
