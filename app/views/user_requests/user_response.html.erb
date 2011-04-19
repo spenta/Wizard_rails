@@ -1,13 +1,6 @@
 <p id="notice"><%= notice %></p>
 <h1>Response</h1>
-<h2>Specifications : </h2>
-<table>
-  <tr>
-    <td>name</td>
-    <td>sigma</td>
-    <td>gamma</td>
-  </tr>
-</table>
+<%= link_to 'edit request', edit_user_request_path %>
 <h2>Products</h2>
 <table>
   <tr>
@@ -20,7 +13,7 @@
       <td>
       <%= link_to ps.product do%>
       <td>
-        <h3><%= ps.spenta_score.round%>&nbsp;% </h3>
+        <h3><%= ps.spenta_score.round(2)%>&nbsp;% </h3>
       </td>
       <% end %>
       </td>

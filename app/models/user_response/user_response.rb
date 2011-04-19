@@ -149,15 +149,15 @@ class UserResponseBuilder
 
   def process_pi_and_delta!
     @products_scored.each do |ps|
-      #create a hash specification_id => specification_value for serious performance reasons
+      #create a hash specification_id => specification_value.score for serious performance reasons
       specification_values_hash={}
       ps.product.specification_values.each do |sv|
-        specification_values_hash[sv.specification_id]=sv
+        specification_values_hash[sv.specification_id] = sv.score
       end
       Specification.all.each do |spec|
-        specification_value = specification_values_hash[spec.id]
+        score = specification_values_hash[spec.id]
         #null scores replaced with 0
-        sigma, gamma, tau = sigmas[spec.id], gammas[spec.id], specification_value ? specification_value.score : 0
+        sigma, gamma, tau = sigmas[spec.id], gammas[spec.id], score ? score : 0
         #delta
         ps.delta += gamma*([GAP_MAX, ZETA*(([0,(sigma-tau)/ZETA].max)**NU)]).min
         #pi
