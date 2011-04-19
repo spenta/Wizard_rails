@@ -211,7 +211,7 @@ class UserResponseBuilder
     sort_by_score_over_price products_with_perfect_score
     if products_with_perfect_score.empty?
       sort_by_Q other_good_deals
-      stars << other_products.last
+      stars << other_good_deals.last
     else
       stars << products_with_perfect_score.last
     end
