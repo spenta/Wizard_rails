@@ -10,17 +10,6 @@ class UserRequestsController < ApplicationController
     end
   end
 
-  # GET /user_requests/1
-  # GET /user_requests/1.xml
-  def show
-    @user_request = UserRequest.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @user_request }
-    end
-  end
-
   # GET /user_requests/1/edit
   def edit
     @user_request = UserRequest.find(params[:id])
@@ -29,7 +18,7 @@ class UserRequestsController < ApplicationController
   # POST /user_requests
   # POST /user_requests.xml
   def create
-    @user_request = UserRequest.new(params[:user_request])
+    @user_request = UserRequest.new(:is_complete => false)
 
     respond_to do |format|
       if @user_request.save
@@ -41,7 +30,7 @@ class UserRequestsController < ApplicationController
             usage_choice.save
           end
         end
-        format.html { redirect_to @user_request, :notice => 'User request was successfully created.' }
+        format.html { redirect_to edit_user_request_path(@user_request), :notice => 'User request was successfully created.' }
         format.xml  { render :xml => @user_request, :status => :created, :location => @user_request }
       else
         format.html { render :action => "new" }
@@ -54,14 +43,21 @@ class UserRequestsController < ApplicationController
   # PUT /user_requests/1.xml
   def update
     @user_request = UserRequest.find(params[:id])
-    if @user_request.update! params
+    begin
+      @user_request.update! params
+      load 'user_response/user_response.rb'
+      director = UserResponseDirector.new
+      director.init_builder @user_request
+      director.process_response
+      user_response = director.get_response
+      @user_request.update_attributes(:is_complete => true)
       respond_to do |format|
-        format.html { redirect_to @user_request, :notice => "User request was successfully updated." }
+        format.html {render :action => 'user_response', :locals => {:user_response => user_response}}
         format.xml  { head :ok }
       end
-    else
+    rescue => e
       respond_to do |format|
-        format.html { redirect_to edit_user_request_path, :notice => "Errors in choices !\n error : #{e.message}" }
+        format.html { redirect_to edit_user_request_path(@user_request), :notice => "Errors in choices !\n #{e.message}" }
         format.xml  { render :xml => errors, :status => :unprocessable_entity }
       end
     end
@@ -78,20 +74,5 @@ class UserRequestsController < ApplicationController
       format.xml  { head :ok }
     end
   end
-
-  #GET /user_request/1/user_response
-  def user_response
-    load 'user_response/user_response.rb'
-    @user_request = UserRequest.find(params[:id])
-    director = UserResponseDirector.new
-    director.init_builder @user_request
-    director.process_response
-    user_response = director.get_response
-    respond_to do |format|
-      format.html {render :action => 'user_response', :locals => {:user_response => user_response}}
-      format.xml  { head :ok }
-    end
-  end
-
 end
 

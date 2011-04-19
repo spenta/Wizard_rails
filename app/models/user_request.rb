@@ -1,8 +1,7 @@
 class UserRequest < ActiveRecord::Base
-  validates :order_by, :format => /spenta_score|price|name|brand/
-  validates :num_result, :start_index , :numericality => {:greater_than_or_equal_to => 0}
   has_many :usage_choices, :dependent => :destroy
-  
+
+
   def update! params
     @super_usage_choices = {}
     @usage_choices_selected=[]
@@ -17,7 +16,7 @@ class UserRequest < ActiveRecord::Base
         end
       #list of usage_choices to be selected
       elsif param_key =~ /usage_choice_selected_./
-        @usage_choices_selected << Integer(param_key.split('_').last) 
+        @usage_choices_selected << Integer(param_key.split('_').last)
       #update of weight for mobilities
       elsif param_key =~ /mobility_choice_./
         @mobility_choice_to_update = UsageChoice.find(param_key.split('_').last)
@@ -28,8 +27,10 @@ class UserRequest < ActiveRecord::Base
     #update of is_selected for each usage_choice
     usage_choices.each do |uc|
       unless uc.usage.super_usage.name == "Mobilite"
-        uc.update_attributes :is_selected => @usage_choices_selected.include?(uc.id) 
+        uc.update_attributes :is_selected => @usage_choices_selected.include?(uc.id)
       end
     end
+    raise "Veuillez choisir au moins un usage !" if @usage_choices_selected.empty?
   end
 end
+

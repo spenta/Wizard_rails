@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<%= link_to "Accueil", :root %>
 <p>
   <b>name:</b>
   <%= @product.name %>
@@ -22,6 +22,3 @@
     <p><b><%= sv.specification.name %> : </b><%= sv.name %></p>
   <% end %>
 </p>
-
-<%= link_to 'Back', products_path %>
-

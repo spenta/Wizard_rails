@@ -13,6 +13,7 @@ class UserResponseDirector
     @builder.process_pi_and_delta!
     @builder.process_scores!
     @builder.process_good_deals!
+    @builder.process_stars!
   end
 
   def get_response

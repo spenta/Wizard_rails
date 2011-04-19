@@ -1,8 +1,6 @@
 WizardRails::Application.routes.draw do
 
-  resources :user_requests, :except => :new do
-    get 'user_response', :on => :member
-  end
+  resources :user_requests, :except => [:new, :show]
 
   resources :products, :only => [:index, :show]
 
@@ -59,7 +57,7 @@ WizardRails::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => "welcome#index"
+  root :to => "welcome#index"
 
   # See how all your routes lay out with "rake routes"
 

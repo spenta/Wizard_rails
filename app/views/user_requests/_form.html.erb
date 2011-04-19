@@ -11,20 +11,8 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :order_by %><br />
-    <%= f.text_field :order_by %>
-  </div>
-  <div class="field">
-    <%= f.label :num_result %><br />
-    <%= f.text_field :num_result %>
-  </div>
-  <div class="field">
-    <%= f.label :start_index %><br />
-    <%= f.text_field :start_index %>
-  </div>
-  
-  <%SuperUsage.all.each do |su|%>  
+
+  <%SuperUsage.all.each do |su|%>
     <%unless su.name == "Mobilite"%>
       <h1><%=su.name%></h1>
       <%#weight choices%>
@@ -37,18 +25,18 @@
       <%end%>
     <%end%>
   <%end%>
-  
+
   <%@mobility_super_usage = SuperUsage.where(:name => "Mobilite").first%>
   <%@mobility_choices=@user_request.usage_choices.where(:usage_id => @mobility_super_usage.usages)%>
   <h1><%=@mobility_super_usage.name%></h1>
   <%@mobility_choices.each do |mc|%>
     <p>
-      <%= mc.usage.name %> : 
+      <%= mc.usage.name %> :
       <%=text_field_tag "mobility_choice_#{mc.id}", mc.weight_for_user%>
     </p>
-  <% end %> 
+  <% end %>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "OK"%>
   </div>
 <% end %>

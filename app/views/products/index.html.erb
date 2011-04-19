@@ -1,32 +1,11 @@
-<!-- <h1>Listing products</h1>
-
+<%= link_to "Accueil", :root%>
 <table>
+  <% Product.all.each do |p| -%>
   <tr>
-    <th>name</th>
-    <th>small_img_url</th>
-    <th>big_img_url</th>
-    <th>brand</th>
+    <td><%= image_tag p.small_img_url, {:height => 60}%></td>
+    <td><%=  p.brand.name%> </td>
+    <td><%=  p.name%></td>
+    </td>
   </tr>
-
-</table> -->
-<p>
-,<% Specification.order(:id).each do |spec| %>
-  <%= spec.id %>,
-<% end %>
-<% @products.each do |product| %>
-</p>
-  <!-- <tr>
-    <td><%= image_tag product.small_img_url, {:height => 60}%></td>
-    <td><%= product.name %></td>
-    <td><%= product.brand.name %></td>
-    <td><%= link_to 'Show', product %></td>
-  </tr> -->
-  <!-- TEMP ************************************ -->
-  <p><%= product.id %>,
-  <!-- <% Specification.order(:id).each do |spec| %>
-    <% sv = product.specification_values.where(:specification_id => spec.id).first %>
-    <%= sv.nil? ? 0 : sv.score %>,
-  <% end %> -->
-  </p>
-<% end %>
-
+  <% end -%>
+</table>

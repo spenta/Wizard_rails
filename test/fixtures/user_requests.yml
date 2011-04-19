@@ -1,5 +1,3 @@
 test_request:
-  order_by: spenta_score
-  num_result: 10
-  start_index: 0
+  is_complete: '0'
 

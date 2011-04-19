@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
 <h1>Response</h1>
-<%= link_to 'edit request', edit_user_request_path %>
+<%= link_to "Accueil", :root %>
+<%= link_to 'new request', user_requests_path, :method => :post %>
 <h2>Products</h2>
 <table>
   <tr>
@@ -11,14 +12,24 @@
   <% user_response.products_scored.each do |ps| %>
     <tr>
       <td>
+      <% if ps.is_star -%>
+        Or
+      <% elsif ps.is_good_deal -%>
+        Argent
+      <% end -%>
+      </td>
+      <td>
       <%= link_to ps.product do%>
+        <%= image_tag ps.product.small_img_url,{:height => 60} %>
+      <% end %>
+      </td>
       <td>
         <h3><%= ps.spenta_score.round(2)%>&nbsp;% </h3>
       </td>
-      <% end %>
+      <td><h3><%= ps.price%>&nbsp;€ </h3></td>
       </td>
+      <td><b><%= ps.product.brand.name %></b></td>
       <td><%= ps.product.name %></td>
     </tr>
   <% end %>
 </table>
-
