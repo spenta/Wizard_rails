@@ -198,6 +198,30 @@ class UserResponseBuilder
     remaining_products = remaining_products | add_to_good_deals_from(products_with_good_scores)
     complete_good_deals_from remaining_products if @good_deals.size < N_BA
     restrict_good_deals if @good_deals.size > N_BA
+    @products_scored.each {|p| p.is_good_deal = true if @good_deals.include? p}
+  end
+
+  def process_stars!
+    products_with_perfect_score = []
+    other_good_deals = []
+    stars = []
+    @good_deals.each { |p| p.spenta_score == S_R ? products_with_perfect_score << p : other_good_deals << p  }
+    #put the product with score S_R with the best s/p in stars if any, otherwise the product with the highest Q
+    sort_by_score_over_price products_with_perfect_score
+    if products_with_perfect_score.empty?
+      sort_by_Q other_good_deals
+      stars << other_products.last
+    else
+      stars << products_with_perfect_score.last
+    end
+    #then put the best performing product
+    @good_deals.sort! {|p1,p2| p1.spenta_score <=> p2.spenta_score}
+    complete stars, :with => @good_deals, :until_size_is => 2, :allowing_duplicate => false
+    #then complete with good_deals with best s/p
+    sort_by_score_over_price @good_deals
+    complete stars, :with => @good_deals, :until_size_is => N_S, :allowing_duplicate => false
+    #finally tag star products
+    stars.each { |p| p.is_star = true }
   end
 
   def complete_good_deals_from remaining_products
@@ -236,7 +260,7 @@ class UserResponseBuilder
     end
     #complete with low_scores b score desc
     if @good_deals.size < N_BA
-      low_scores.sort! {|p1, p2| p1.score <=> p2.score}
+      low_scores.sort! {|p1, p2| p1.spenta_score <=> p2.spenta_score}
       complete @good_deals, :with => low_scores, :until_size_is => N_BA, :and_delete_from_source => false
     end
   end
@@ -247,20 +271,15 @@ class UserResponseBuilder
     products_with_perfect_score = []
     other_products = []
     @good_deals.each {|p| p.spenta_score == S_R ? products_with_perfect_score << p : other_products << p}
-    #calculate Q for other_products
-    other_products_with_Q_score = []
-    other_products.each do |p|
-      q = p.spenta_score/(p.price*(p.spenta_score - S_R).abs)
-      other_products_with_Q_score << [p, q]
-    end
-    #sort other_products_with_Q_score by decreasing Q
-    other_products_with_Q_score.sort! {|p2, p1| p1[1] <=> p2[1]}
+    #sort other_products by descending Q
+    sort_by_Q other_products
+    other_products.reverse!
     #products with the least spenta_scores are removed
-    until (@good_deals.size <=N_BA or other_products_with_Q_score.empty?)
-      @good_deals.delete other_products_with_Q_score.last[0]
-      other_products_with_Q_score.pop
+    until (@good_deals.size <=N_BA or other_products.empty?)
+      @good_deals.delete other_products.last
+      other_products.pop
     end
-    #sort products_with_perfect_score by increasing price
+    #sort products_with_perfect_score by ascending price
     sort_by_price products_with_perfect_score
     #the most expensive products with perfect scores are removed
     until (@good_deals.size <=N_BA or products_with_perfect_score.empty?)
@@ -277,6 +296,11 @@ class UserResponseBuilder
     ary.sort! {|p1, p2| p1.spenta_score/p1.price <=> p2.spenta_score/p2.price}
   end
 
+  #careful not to sort an array with products with score S_R !
+  def sort_by_Q ary
+    ary.sort! {|p1, p2| p1.spenta_score/(p1.price*(p1.spenta_score-S_R).abs) <=>  p2.spenta_score/(p2.price*(p2.spenta_score-S_R).abs)}
+  end
+
   def distance p1, p2
     price_spread = (p1.price - p2.price)/C_P
     score_spread = (p1.spenta_score - p2.spenta_score)/C_S
@@ -284,17 +308,20 @@ class UserResponseBuilder
   end
 
   #completes an array with another by beginning from last position
-  #ex: complete good_deals, :with => remaining_products, :until_size_is => 10, :and_delete_from_source => true
+  #ex: complete good_deals, :with => remaining_products, :until_size_is => 10, :allowing_duplicate => false, :and_delete_from_source => true
   # => true if ary.size == :until_size_is
   # => :not_enough_elements if ary.size < :until_size_is
-  def complete(ary, params={:and_delete_from_source => false})
-    ary_to_add = params[:with]
+  def complete(ary, params={:and_delete_from_source => false, :allowing_duplicate => true})
+    ary_to_add = []
+    params[:with].each { |p| ary_to_add << p }
     ary_to_add_size = ary_to_add.size
-    count=0
-    while (ary.size < params[:until_size_is] and count < ary_to_add_size)
-      ary << ary_to_add.last
-      ary_to_add.pop if params[:and_delete_from_source]
-      count+=1
+    until (ary.size >= params[:until_size_is] or ary_to_add.empty?)
+      current_item = ary_to_add.last
+      unless (:allowing_duplicate and ary.include?(current_item))
+        ary << current_item
+        params[:with].delete current_item if params[:and_delete_from_source]
+      end
+      ary_to_add.pop
     end
   end
 

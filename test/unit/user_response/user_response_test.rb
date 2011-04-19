@@ -96,11 +96,22 @@ class UserResponseTest < ActiveSupport::TestCase
     # good_deals processing
     #----------------------------
     @director.builder.process_good_deals!
-    actual_good_deals = @director.builder.good_deals
+    actual_good_deals = []
+    @director.builder.products_scored.each { |p| actual_good_deals << p if p.is_good_deal }
     expected_good_deals = [83, 151, 166, 174, 178, 201, 205, 218, 228, 191]
-    assert actual_good_deals.size == 10, "size : #{actual_good_deals.size}"
-    actual_good_deals.each { |p| assert expected_good_deals.include? p.product.id }
-    assert actual_good_deals = actual_good_deals.uniq
+    assert actual_good_deals.size == 10, "size of good_deals : #{actual_good_deals.size}"
+    actual_good_deals.each { |p| assert expected_good_deals.include?(p.product.id), "product #{p.product.id} not in expected good_deals" }
+    assert actual_good_deals = actual_good_deals.uniq, "duplicate products in good_deals"
+    #----------------------------
+    # stars processing
+    #----------------------------
+    @director.builder.process_stars!
+    actual_stars = []
+    @director.builder.products_scored.each { |p| actual_stars << p if p.is_star }
+    expected_stars = [166,201,218]
+    assert actual_stars.size == 3, "size of stars : #{actual_stars.size}"
+    actual_stars.each { |p| assert expected_stars.include?(p.product.id) , "product #{p.product.id} not in expected stars"}
+    assert actual_stars = actual_stars.uniq, "duplicate products in stars"
   end
 
   test 'should remove products with low scores' do
