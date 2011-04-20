@@ -19,6 +19,10 @@ class UserResponseDirector
   def get_response
     @builder.user_response ? @builder.user_response : @builder.build_user_response
   end
+
+  def clear!
+    @builder = nil
+  end
 end
 
 #laptop-wizard-specific
@@ -387,16 +391,18 @@ class UserResponseBuilder
   end
 
   def build_user_response
-    @user_response = UserResponse.new(gammas, sigmas, products_scored)
+    products_for_display = []
+    @products_scored.each { |p| products_for_display << ProductForDisplay.new(p) }
+    @user_response = UserResponse.new(gammas, sigmas, products_for_display)
   end
 end
 
 class UserResponse
-  attr_accessor  :gammas, :sigmas, :products_scored
-  def initialize gammas, sigmas, products_scored
+  attr_accessor  :gammas, :sigmas, :products_for_display
+  def initialize gammas, sigmas, products_for_display
     @gammas = gammas
     @sigmas = sigmas
-    @products_scored = products_scored
+    @products_for_display = products_for_display
   end
 end
 
@@ -406,6 +412,19 @@ class ProductScored
     @product = product
     @delta, @pi, @is_good_deal, @is_star = 0, 0, false, false
     @price = @product.price
+  end
+end
+
+#similar to ProductScored, only with a @product_id attribute instead of a
+#@product attribute to facilitate serialization, and no delta and pi
+class ProductForDisplay
+  attr_accessor :spenta_score, :product_id, :is_good_deal, :is_star, :price
+  def initialize product_scored
+    @product_id = product_scored.product.id
+    @price = product_scored.price
+    @spenta_score = product_scored.spenta_score
+    @is_good_deal = product_scored.is_good_deal
+    @is_star = product_scored.is_star
   end
 end
 

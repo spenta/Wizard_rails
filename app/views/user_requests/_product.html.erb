@@ -1,0 +1,22 @@
+<% p = Product.find(ps.product_id) -%>
+<tr>
+  <td>
+  <% if ps.is_star -%>
+    Or
+  <% elsif ps.is_good_deal -%>
+    Argent
+  <% end -%>
+  </td>
+  <td>
+  <%= link_to p do%>
+    <%= image_tag p.small_img_url,{:height => 60} %>
+  <% end %>
+  </td>
+  <td>
+    <h3><%= ps.spenta_score.round(2)%>&nbsp;% </h3>
+  </td>
+  <td><h3><%= ps.price%>&nbsp;€ </h3></td>
+  </td>
+  <td><b><%= p.brand.name %></b></td>
+  <td><%= p.name %></td>
+</tr>

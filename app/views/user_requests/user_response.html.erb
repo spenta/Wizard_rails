@@ -5,31 +5,16 @@
 <h2>Products</h2>
 <table>
   <tr>
-    <td/>
-    <td/>
+    <td><%= sortable "medals", "Médailles"%> </td>
+    <td></td>
+    <td><%= sortable "score", "Score"%></td>
+    <td><%= sortable "price", "Prix" %></td>
+    <td><%= sortable 'brand', "Marque"%></td>
+    <td><%= sortable 'name', "Modèle" %></td>
   </tr>
-  <% user_response.products_scored = user_response.products_scored.sort {|p1, p2| p2.spenta_score <=> p1.spenta_score}%>
-  <% user_response.products_scored.each do |ps| %>
-    <tr>
-      <td>
-      <% if ps.is_star -%>
-        Or
-      <% elsif ps.is_good_deal -%>
-        Argent
-      <% end -%>
-      </td>
-      <td>
-      <%= link_to ps.product do%>
-        <%= image_tag ps.product.small_img_url,{:height => 60} %>
-      <% end %>
-      </td>
-      <td>
-        <h3><%= ps.spenta_score.round(2)%>&nbsp;% </h3>
-      </td>
-      <td><h3><%= ps.price%>&nbsp;€ </h3></td>
-      </td>
-      <td><b><%= ps.product.brand.name %></b></td>
-      <td><%= ps.product.name %></td>
-    </tr>
+  <% @user_response.products_for_display[@start_index..[@start_index+@num_result-1, @user_response.products_for_display.size-1].min].each do |ps| %>
+    <%= render :partial => "product", :locals => {:ps => ps} %>
   <% end %>
+
+
 </table>

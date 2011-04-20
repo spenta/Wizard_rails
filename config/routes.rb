@@ -1,6 +1,8 @@
 WizardRails::Application.routes.draw do
 
-  resources :user_requests, :except => [:new, :show]
+  resources :user_requests, :except => [:new, :show] do
+    get 'user_response', :on => :member
+  end
 
   resources :products, :only => [:index, :show]
 
