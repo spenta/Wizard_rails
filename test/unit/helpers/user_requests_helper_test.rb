@@ -31,6 +31,7 @@ class UserRequestsHelperTest < ActionView::TestCase
     10 => 0,
     11 => 0,
     }
+
     result = get_important_specs_id_from(gammas_2)
     assert  result == [9, 1, 8, 5, 2], "result for gammas_2: #{result}"
   end
