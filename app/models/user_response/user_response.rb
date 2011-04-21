@@ -27,26 +27,11 @@ end
 
 #laptop-wizard-specific
 class UserResponseBuilder
+  include WizardParameters
+  include WizardUtilities
+
   attr_accessor :specification_needs_for_mobilities, :specification_needs_for_usages, :gammas, :sigmas, :user_response, :products_scored, :user_request, :good_deals
 
-  #parameters are defined here instead of a config file because they heavily depend on the implementation.
-  AFU = 0.5
-  RWU = 40
-  AFM = 0.25
-  RWM = 100
-  R = 350
-  GAP_MAX = 6
-  ZETA = 1
-  NU = 1.5
-  LAMBDA = 0.5
-  GAP_TOL = 0.2
-  S_R = 100
-  KAPPA = 40
-  C_P = 50
-  C_S = 5
-  S_MIN = 70
-  N_BA = 10
-  N_S = 3
 
   def initialize
     #hash specification_id => {mobility_id => [U, alpha, beta]}
@@ -63,8 +48,8 @@ class UserResponseBuilder
     #hash {specification_id => sigma}
     @sigmas={}
 
-    #hash {specification_id => gamma}
-    @gammas={}
+    #array [[specification_id,gamma]]
+    @gammas= {}
 
     #array of products_scored
     @products_scored=[]
@@ -293,54 +278,6 @@ class UserResponseBuilder
     end
   end
 
-  def sort_by_price ary
-    ary.sort! {|p1, p2| p1.price <=> p2.price}
-  end
-
-  def sort_by_score_over_price ary
-    ary.sort! {|p1, p2| p1.spenta_score/p1.price <=> p2.spenta_score/p2.price}
-  end
-
-  #careful not to sort an array with products with score S_R !
-  def sort_by_Q ary
-    ary.sort! {|p1, p2| p1.spenta_score/(p1.price*(p1.spenta_score-S_R).abs) <=>  p2.spenta_score/(p2.price*(p2.spenta_score-S_R).abs)}
-  end
-
-  def distance p1, p2
-    price_spread = (p1.price - p2.price)/C_P
-    score_spread = (p1.spenta_score - p2.spenta_score)/C_S
-    d = Math.sqrt(price_spread**2+score_spread**2)
-  end
-
-  #completes an array with another by beginning from last position
-  #ex: complete good_deals, :with => remaining_products, :until_size_is => 10, :allowing_duplicate => false, :and_delete_from_source => true
-  # => true if ary.size == :until_size_is
-  # => :not_enough_elements if ary.size < :until_size_is
-  def complete(ary, params={:and_delete_from_source => false, :allowing_duplicate => true})
-    ary_to_add = []
-    params[:with].each { |p| ary_to_add << p }
-    ary_to_add_size = ary_to_add.size
-    until (ary.size >= params[:until_size_is] or ary_to_add.empty?)
-      current_item = ary_to_add.last
-      unless (:allowing_duplicate and ary.include?(current_item))
-        ary << current_item
-        params[:with].delete current_item if params[:and_delete_from_source]
-      end
-      ary_to_add.pop
-    end
-  end
-
-  #returns removed products
-  def remove_low_scores_from products
-    products_with_low_scores = []
-    products.each do |p|
-      if p.spenta_score < S_MIN
-        products_with_low_scores << p
-      end
-    end
-    products_with_low_scores.each {|p| products.delete p}
-  end
-
   #returns the products which where not added to good_deals
   def add_to_good_deals_from products
     remaining_products = []
@@ -366,28 +303,6 @@ class UserResponseBuilder
       end
     end
     remaining_products
-  end
-
-  #builds an array of U* from specification_needs. The third argument tells wether the needs refers to usages or mobilities
-  def specification_needs_to_u_star specification_needs, spec, usages_or_mobilities
-    u_star_for_spec = []
-    specification_needs[spec.id].each_value do |needs_for_spec|
-        u_star_for_spec << get_modified_target_score(needs_for_spec, usages_or_mobilities, spec.specification_type)
-    end
-    u_star_for_spec
-  end
-
-  def get_modified_target_score needs_for_spec, usages_or_mobilities, specification_type
-    case usages_or_mobilities
-      when 'usages' then af, rw = AFU, RWU
-      when 'mobilities' then af, rw = AFM, RWM
-    end
-
-    case specification_type
-      when 'continuous' then result = needs_for_spec[0] * [1, (1-af)*needs_for_spec[2]/rw +af].min
-      when 'discrete' then result = needs_for_spec[0]
-      when 'not_marked' then result = 0
-    end
   end
 
   def build_user_response
@@ -427,4 +342,3 @@ class ProductForDisplay
     @is_star = product_scored.is_star
   end
 end
-

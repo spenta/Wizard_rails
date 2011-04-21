@@ -2,6 +2,7 @@ require 'test_helper'
 
 class UserResponseTest < ActiveSupport::TestCase
   fixtures :user_requests, :usage_choices, :products
+  include WizardUtilities
 
   def setup
     @user_request = user_requests(:test_request)
@@ -196,4 +197,3 @@ class UserResponseTest < ActiveSupport::TestCase
     assert actual_good_deals = actual_good_deals.uniq
   end
 end
-

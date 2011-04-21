@@ -1,0 +1,5 @@
+<h2>Points importants</h2>
+<% @important_specs.inject(1) do |rank, spec| -%>
+  <p><%= rank%> | <%=spec.name %> : <%= @user_response.sigmas[spec.id].round(1)%></p>
+  <% rank += 1 -%>
+<% end -%>

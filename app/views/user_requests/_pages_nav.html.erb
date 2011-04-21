@@ -1,0 +1,9 @@
+<%= link_to "Précédent", {:sort => params[:sort], :order => params[:order], :start_index => @start_index-@num_result, :num_result=> @num_result} unless @start_index == 0%>
+
+<% page = 1 -%>
+<% while (page-1)*@num_result < @user_response.products_for_display.size  %>
+<%= link_to "  #{page}  ",  {:sort => params[:sort], :order => params[:order], :start_index => @num_result*(page-1), :num_result=> @num_result}%>
+<% page += 1 -%>
+<% end -%>
+
+<%= link_to "Suivant", {:sort => params[:sort], :order => params[:order], :start_index => @start_index+@num_result, :num_result=> @num_result} unless @start_index+@num_result+1 >= @user_response.products_for_display.size%>

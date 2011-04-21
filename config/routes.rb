@@ -1,6 +1,6 @@
 WizardRails::Application.routes.draw do
 
-  resources :user_requests, :except => [:new, :show] do
+  resources :user_requests, :only => [:create, :update, :edit] do
     get 'user_response', :on => :member
   end
 
@@ -67,4 +67,3 @@ WizardRails::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
 end
-

@@ -2,7 +2,33 @@
 <h1>Response</h1>
 <%= link_to "Accueil", :root %>
 <%= link_to 'new request', user_requests_path, :method => :post %>
-<h2>Products</h2>
+
+
+<% important_specs_id = get_important_specs_id_from @user_response.gammas -%>
+<% @important_specs = Specification.all.select{|s| important_specs_id.include?(s.id)}%>
+<%= render :partial => "_important_specs" %>
+<h2>Notre sélection</h2>
+<% @user_response.products_for_display.select{|ps| ps.is_star}.each do |ps|-%>
+  <% p = Product.find(ps.product_id) %>
+  <%= link_to p do%>
+    <%= image_tag p.big_img_url,{:height => 200} %>
+  <% end %> </br>
+  <%= p.name %> </br>
+  <%= ps.price %> € </br>
+  <%= ps.spenta_score.round(1) %> % <br/>
+  <% @important_specs.each do |spec| -%>
+    <% sv = p.specification_values.where(:specification_id => spec.id).first -%>
+    <p><%= spec.name %> : <%= sv.name %>  (<%= sv.score %>)</p>
+  <% end -%>
+<% end %>
+
+<h2>Produits</h2>
+<div>
+  <%= render :partial => "pages_nav" %>
+</div>
+</br>
+</br>
+</br>
 <table>
   <tr>
     <td><%= sortable "medals", "Médailles"%> </td>
@@ -16,8 +42,9 @@
     <%= render :partial => "product", :locals => {:ps => ps} %>
   <% end %>
 </table>
-
+</br>
+</br>
+</br>
 <div>
-<%= link_to "Précédent", {:sort => params[:sort], :order => params[:order], :start_index => @start_index-@num_result, :num_result=> @num_result} unless @start_index == 0%>
-<%= link_to "Suivant", {:sort => params[:sort], :order => params[:order], :start_index => @start_index+@num_result, :num_result=> @num_result} unless @start_index+@num_result+1 >= @user_response.products_for_display.size%>
+  <%= render :partial => "pages_nav" %>
 </div>
