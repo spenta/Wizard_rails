@@ -2,7 +2,9 @@
 <table>
   <% Product.all.each do |p| -%>
   <tr>
-    <td><%= image_tag p.small_img_url, {:height => 60}%></td>
+    <td><%= link_to p do%>
+    <%= image_tag p.small_img_url,{:height => 60} %>
+  <% end %></td>
     <td><%=  p.brand.name%> </td>
     <td><%=  p.name%></td>
     </td>

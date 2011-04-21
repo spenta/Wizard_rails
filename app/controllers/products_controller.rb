@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+  caches_page :index
+
   # GET /products
   # GET /products.xml
   def index
@@ -21,4 +23,3 @@ class ProductsController < ApplicationController
     end
   end
 end
-

@@ -5,6 +5,7 @@ class UserRequest < ActiveRecord::Base
   def update! params
     @super_usage_choices = {}
     @usage_choices_selected=[]
+    are_any_usage_scored = 0
     params.keys.each do |param_key|
       #update of weight for usage_choices except for mobilities
       if param_key =~ /super_usage_choice_./
@@ -12,7 +13,9 @@ class UserRequest < ActiveRecord::Base
         @usages_to_update_id = SuperUsage.find(@super_usage_to_update_id).usages
         @usage_choices_to_update = usage_choices.where(:usage_id => @usages_to_update_id)
         @usage_choices_to_update.each do |uc|
+          #if there is at least one usage chosen, tell that at least one usage is scored
           raise "invalid number given for usage #{uc.usage.name}" unless uc.update_attributes :weight_for_user => params[param_key]
+          are_any_usage_scored += 1 if params[param_key].to_i > 0
         end
       #list of usage_choices to be selected
       elsif param_key =~ /usage_choice_selected_./
@@ -31,6 +34,6 @@ class UserRequest < ActiveRecord::Base
       end
     end
     raise "Veuillez choisir au moins un usage !" if @usage_choices_selected.empty?
+    raise "Veuillez noter au moins un usage !" if are_any_usage_scored == 0
   end
 end
-
