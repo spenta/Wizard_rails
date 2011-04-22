@@ -12,7 +12,7 @@ module UserRequestsHelper
     #sort by descending value
     gamma_array.sort! {|s2, s1| s1[1] <=> s2[1]}
     #only keeps positive gammas
-    gamma_array.select! {|s| s[1]>0}
+    gamma_array = gamma_array.select {|s| s[1]>0}
     #array or spec_id by descending importance
     result = gamma_array.collect{|s| s[0]}.first(5)
     #complete with default important specs. In order
