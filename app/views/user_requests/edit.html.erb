@@ -1,5 +1,75 @@
-<p id="notice"><%= notice %></p>
-<%= link_to "Accueil", :root %>
-<h1>Entrez vos besoins</h1>
+<% content_for :head do -%>
+  <%= stylesheet_link_tag  "reset"%>
+  <%= stylesheet_link_tag  "main"%>
+  <%= stylesheet_link_tag  "usages.css"%>
+  <%= stylesheet_link_tag  "usages.selectSlider.css"%>
+  <%= stylesheet_link_tag  "usages.labelCheckbox.css"%>
+  <%= stylesheet_link_tag  "usages.tabbedForm.css"%>
+  <script type="text/javascript">
+  $(document).ready(function()
+          {
+              // convert a <form> into a tabbed form
+              $('form.tabbed').tabbedForm({
+                  // custom text of the close button created by the javascript
+                  closeText:'Valider',
+                  // container for the .qinfo into the questions
+                  infoContainer:$('#myFormInfoContainer')
+              });
 
-<%= render 'form' %>
+              // convert all <div class="answer"> with the
+              // class 'multichoice' into a set of checkboxes
+              $('.answer.multichoice').answerMultichoice({
+                  // if we want the js to add a none checkbox
+                  addNone:true,
+                  // text of the none checkbox
+                  noneText:'&Ccedil;a ne m&acute;int&eacute;resse pas'
+              });
+          });
+
+</script>
+
+<style>
+    .error {
+ color: #ff0000;
+ font-weight: bold;
+    }
+</style>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-20988541-2']);
+  _gaq.push(['_setDomainName', 'none']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<% end -%>
+
+
+
+
+
+<%= link_to "Accueil", :root %>
+
+
+
+<h1>Entrez vos besoins</h1>
+<div id="main" class="usages">
+  <h1>&Eacute;tape 1&#47;3 - Qu'allez-vous faire avec votre ordinateur ?</h1>
+  <p class="explain usageSubtitle">Choisissez et renseignez seulement les usages qui vous int&eacute;ressent.</p>
+  <div class="sideinfo" id="myFormInfoContainer">
+      <h5>Trouver le meilleur ordinateur </h5>
+      <p>Le bon ordinateur, c&#39;est celui qui fait bien <strong>tout ce que vous voulez</strong>, au bon prix. Ce n&#39;est pas le m&ecirc;me pour tout le monde !</p>
+      <p>Le conseiller virtuel analyse vos besoins pour vous donner un conseil <strong>personnalis&eacute;</strong> et <strong>objectif</strong>.</p>
+      <h5>Dites-nous toutes vos envies</h5>
+      <p>Choisissez tout ce que vous allez faire avec votre ordinateur, m&ecirc;me si &ccedil;a ve vous para&icirc;t pas tr&egrave;s important. Vous pourrez faire le tri de ce qui compte vraiment &agrave; l&#39;&eacute;tape suivante.</p>
+  </div>
+  <%= render 'form' %>
+</div>
