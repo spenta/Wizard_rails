@@ -8,22 +8,22 @@
 
 * {
 	font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-size:13px; 	   
-	color:#4B4B4B; 
+	font-size:13px;
+	color:#4B4B4B;
 }
 
-small { 
-	font-size:0.8em; 
+small {
+	font-size:0.8em;
 	color:inherit;
 }
-strong { 
-	font-size:inherit; 
-	font-weight:bold; 
+strong {
+	font-size:inherit;
+	font-weight:bold;
 }
 
-var { 
+var {
 	font-size:1em;
-	font-style:normal; 
+	font-style:normal;
 	color:inherit;
 	}
 
@@ -60,18 +60,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {    /* Les questions en haut de la page. */
-	letter-spacing: -1px;	
+	letter-spacing: -1px;
 	color: #D88900;
 	font-weight: bold;
-	font-size:2.4em;	
-	text-shadow: 0px 1px 1px rgba(255,255,255,1); 
+	font-size:2.4em;
+	text-shadow: 0px 1px 1px rgba(255,255,255,1);
 }
 
 h2 {   /*Les noms des usages - Parent de usageTitle > Voir pour r�soudre les conflits d'h�ritage. Nouveau style pour h2 : qname.h2 ? */
 	font-size:1.5em;
 	color: #4B4B4B;
 	margin:0 0 5px 0;
-	text-shadow: 0px 1px 1px white; 
+	text-shadow: 0px 1px 1px white;
 }
 
 h3 {   /*La question lorsqu'on d�roule un usage - Parent de usageSubQuestion*/
@@ -81,9 +81,9 @@ h3 {   /*La question lorsqu'on d�roule un usage - Parent de usageSubQuestion*/
 
 h4 { font-size:1.2em; }
 
-h5 { 
+h5 {
 	font-size:1.1em;
-	color:#638EBC; 
+	color:#638EBC;
 }
 
 /* Textes explicatifs sous le titre de la page*/
@@ -93,7 +93,7 @@ p.explain {
 	color:#4B4B4B;
 	margin:5px 0;
 }
-	
+
 
 /*----------------------------------------------------------------
 	LAYOUT
@@ -110,13 +110,8 @@ body, html {
 	background-color:#EFEFEC; /*Fond de le zone de contenus principale*/
 }
 
-/* INUTILISE - Div du header d�sactiv�e
-#header {
-	width:960px;
-	height:50px;
-	margin:0px auto 0 auto;
-	background-color:#008dd7;
-	background-repeat:repeat-x;
-	background-position:top left;
-	background-image:url('img/header-bg.gif');
-} */
+.error {
+ color: #ff0000;
+ font-weight: bold;
+    }
+
