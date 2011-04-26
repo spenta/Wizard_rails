@@ -1,9 +1,5 @@
 WizardRails::Application.routes.draw do
 
-  scope '/conseillervirtuel' do
-    resources :user_requests, :products, :usage_choices, :super_usages
-  end
-
   resources :user_requests, :only => [:create, :update, :edit] do
     get 'user_response', :on => :member
   end
