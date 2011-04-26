@@ -1,0 +1,389 @@
+
+/*Améliorer : les sliders et les QCM partagent certaines métriques : dissocier cela quand on remettra au propre*/
+
+
+/*----------------------------------------------------------------
+	USAGES
+------------------------------------------------------------------*/
+
+/*----------------------------------------------------------------
+	COULEURS ET EFFETS DE TEXTE
+------------------------------------------------------------------*/
+
+/* NOM DES USAGES */
+
+#question h3 {
+	color:white;
+}
+
+
+h2.usageTitle {
+	color: inherit;
+	text-shadow: 0px 1px 1px white;
+	margin:0 0 5px 0;
+	font-size:1.5em;
+}
+
+/* Question explicative sur les sous-usages*/
+
+h3.usageSubQuestion {
+	color: #D0D0D0;
+	text-shadow: 0px 1px 1px black;
+	font-weight:bold;
+	letter-spacing:1px;
+	margin:0px 0px 0px 0px;
+}
+
+/* Explication sous les sous-usages */
+p.usageExplain {
+	color:#C0C0C0;
+	margin:5px 0 10px 0;
+}
+
+/*Explication sous les mobilit�s*/
+
+p.weightExplain {
+	color:#4A4A4A;
+	font-weight:normal;
+	margin:0 0 10px 0;
+}
+
+p.usageSubtitle {
+	font-size:1.3em;
+}
+
+/*----------------------------------------------------------------
+	.SIDEINFO
+------------------------------------------------------------------*/
+
+.sideinfo
+{
+	width:380px;
+	margin:25px 0 25px 0;
+	float:right;
+}
+
+.sideinfo h3
+{
+	margin-top:0px;
+}
+
+/*----------------------------------------------------------------
+	FORM
+------------------------------------------------------------------*/
+
+form {
+	width:500px;
+	padding:5px 0;
+	margin-bottom:20px;
+	position:relative;
+	float:left;
+}
+
+/*----------------------------------------------------------------
+	.QUESTION
+------------------------------------------------------------------*/
+
+.question
+{
+	min-height:40px;
+
+	padding:8px 5px;
+	margin:5px 0;
+
+	color:#333333;
+
+	background-color:#D0D0D0;     /*Couleur du fond des boites d'usage non sélectionnés*/
+	-webkit-border-radius:4px;
+	-khtml-border-radius:4px;
+	-moz-border-radius:4px;
+	-o-border-radius:4px;
+	border-radius:4px;
+
+}
+
+.question hr
+{
+	height:2px;
+	margin:20px 0;
+	background-image:url(/images/usages/hr.gif);
+	background-repeat:repeat-x;
+	background-position:top left;
+	border:none;
+}
+
+
+/*--------------------------------
+	> .QICON
+----------------------------------*/
+
+.question .qicon
+{
+	width:40px;
+	height:40px;
+	display:inline-block;
+
+	float:left;
+	margin-left:5px;
+	margin-right:5px;
+
+	background-image:url(/images/usages/usage-icon.png);
+	background-repeat:no-repeat;
+	background-position:0px 0px;
+}
+
+.question#super-usage1 .qicon { background-image:url(/images/usages/super-usage1-icon.png); }
+.question#super-usage2 .qicon { background-image:url(/images/usages/super-usage2-icon.png); }
+.question#super-usage3 .qicon { background-image:url(/images/usages/super-usage3-icon.png); }
+.question#super-usage4 .qicon { background-image:url(/images/usages/super-usage4-icon.png); }
+.question#super-usage5 .qicon { background-image:url(/images/usages/super-usage5-icon.png); }
+.question#super-usage6 .qicon { background-image:url(/images/usages/super-usage6-icon.png); }
+
+.question#mobility0 .qicon { background-image:url(/images/usages/mobility0-icon.png); }
+.question#mobility1 .qicon { background-image:url(/images/usages/mobility1-icon.png); }
+.question#mobility2 .qicon { background-image:url(/images/usages/mobility2-icon.png); }
+
+/*--------------------------------
+	> .QINFO
+----------------------------------*/
+
+.question .qinfo
+{
+	margin:10px 5px;
+	padding:15px;
+	background-color:#e3e3e3;
+}
+
+.question .qinfo p
+{
+	text-align:justify;
+}
+
+/*--------------------------------
+	> .QBODY
+----------------------------------*/
+
+.question .qbody
+{
+	margin-left:50px;
+	padding:5px 10px;
+}
+
+/* Style pour l'intitul� des usages dans les form */
+
+.question .qbody .qname
+{
+	margin:2px 0 -14px 0;
+	font-size:1.15em;
+	font-weight:bold;
+}
+
+
+.question .qbody .qdesc,
+.question .qbody .qabst
+{
+	margin:0 0 -5px 0;
+	padding:10px 0 0 0;
+	color:#4B4B4B;
+}
+
+.question .qbody .answer
+{
+	padding:0 10px;
+}
+
+/*--------------------------------
+	> label
+----------------------------------*/
+
+.question label
+{
+	display:block;
+	margin:20px 0px;
+	position:relative;
+}
+
+/* Regarder si je peux contr�ler la couleur du bazard ouvert avec �a */
+
+.question label .name
+{
+	display:block;
+	color:inherit;
+	font-size:1.4em;
+	font-weight:bold;
+	text-shadow: 0px 1px 1px black;
+}
+
+
+.question label .desc
+{
+	display:block;
+	color:#C0C0C0;
+}
+
+/*----------------------------------------------------------------
+	QUESTION.OPENED
+------------------------------------------------------------------*/
+
+.question.opened,
+.question.opened.selected
+{
+	color:#ffffff;
+	background-color:#4d4d4d;
+}
+
+/*Intitul� des usages lorsque c'est ouvert*/
+.question.opened h2 {
+	color:white;
+	text-shadow: 0px 1px 1px black;
+}
+
+.question.opened hr,
+.question.opened.selected hr
+{
+	background-image:url(/images/usages/hr-opened.gif);
+}
+
+.question.opened .qicon
+{
+	background-position:0px -40px;
+}
+
+.question.opened .qabst,
+.question.opened .qdesc,
+.question.opened .answer label .desc,
+.question.opened.selected .qabst,
+.question.opened.selected .qdesc,
+.question.opened.selected .answer label .desc
+{
+	color:#d2d2d2;
+}
+
+.question.opened .qabst,
+.question.opened.selected .qabst
+{
+	display:none;
+}
+
+.question.opened .qinfo,
+.question.opened.selected .qinfo
+{
+	background-color:#595959;
+}
+
+/*--------------------------------
+	...SELECTED
+----------------------------------*/
+
+.question.opened.selected .qicon {
+	background-position:0px -80px;
+}
+
+/*----------------------------------------------------------------
+	QUESTION.SELECTED
+------------------------------------------------------------------*/
+
+.question.selected {
+	color:#fff;
+	background-color:#73a5db; /*Fond des usages s�lectionn�s (initialement : 66a73f)*/
+}
+
+.question.slideroverride {
+	background-color:#D0D0D0;
+}
+
+.question.selected .qicon {
+	background-position:0px -40px;
+}
+
+.question.selected .qabst,
+.question.selected .qdesc,
+.question.selected .answer label .desc {
+	color:white;
+}
+
+.question.selected .qinfo
+{
+	background-color:#5f993a;
+}
+
+/*----------------------------------------------------------------
+	UI-SLIDER
+------------------------------------------------------------------*/
+
+/* Bouton de validation des sous-usages*/
+.answer .close {
+	z-index:2;
+	min-height:20px;
+	/*margin-bottom:10px;*/
+	margin-top:-40px;
+	padding:5px 5px 5px 8px;
+	position:relative;
+	float:right;
+	cursor:pointer;
+
+	font-size:1.3em;
+	font-weight:bold;
+	text-decoration:none;
+	background:#4B4B4B;
+	border:1px solid #a6a6a6;
+	-webkit-border-radius:4px;
+	-khtml-border-radius:4px;
+	-moz-border-radius:4px;
+	-o-border-radius:4px;
+	border-radius:4px; }
+	.answer .close:hover {
+		background:#8e8e8e; }
+
+
+.answer .close .label {
+	font-size:inherit;
+	color:#fff; /*Couleur du texte du bouton de validation des sous-usages*/
+	display:inline-block;
+}
+
+.answer .close .icon {
+	float:right;
+	margin-left:5px;
+	display:inline-block;
+	width:20px; height:20px;
+	background-image:url(/images/usages/valid-icon.png);
+	background-repeat:no-repeat;
+	background-position:0px 0px;
+}
+
+/*----------------------------------------------------------------
+	Submmit
+------------------------------------------------------------------*/
+
+.next-button,
+.prev-button {
+	margin-top:5px;
+	cursor:pointer;
+	height:40px;
+	display:inline-block;
+	overflow:hidden;
+	text-indent:9999px;
+	border:0px solid #000;
+	background:none;
+	background-image:url(/images/buttons.png);
+	background-repeat:no-repeat;
+	background-position:0px 0px;
+}
+
+.next-button {
+	float:right;
+	width:181px;
+	background-position:-201px 0px; }
+.next-button:hover { background-position:-201px -40px; }
+.next-button:active { background-position:-201px -80px; }
+.next-button:focus { background-position:-201px -80px; }
+
+.prev-button {
+	float:left;
+	width:201px;
+	background-position:0px 0px; }
+	.prev-button:hover { background-position:0px -40px; }
+	.prev-button:active { background-position:0px -80px; }
+	.prev-button:focus { background-position:0px -80px; }
+

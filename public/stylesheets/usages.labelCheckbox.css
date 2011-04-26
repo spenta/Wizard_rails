@@ -1,0 +1,147 @@
+
+/*----------------------------------------------------------------
+	LABEL.CHECKBOX
+------------------------------------------------------------------*/
+
+label.checkbox
+{
+	padding-left:30px;
+
+	cursor:pointer;
+/* Couleur de base des textes dans les questions ouvertes, hormis titre, explications et sous-question*/
+	color:white;
+}
+
+label.checkbox .icon
+{
+	width:24px;
+	height:20px;
+	display:block;
+
+	position:absolute;
+	top:0px; left:0px;
+
+	background-image:url(/images/usages/checkboxes.png);
+	background-repeat:no-repeat;
+	background-position:0px 0px;
+}
+
+label.checkbox input
+{
+	position:absolute;
+	top:4px; left:5px;
+}
+
+/*--------------------------------
+	.SELECTED
+----------------------------------*/
+
+label.checkbox.selected
+{
+	color:#327f05;
+}
+
+label.checkbox.selected .icon
+{
+	background-position:-24px 0px;
+}
+
+/*--------------------------------
+	.NONE
+----------------------------------*/
+
+label.checkbox.none
+{
+	padding-top:4px;
+
+	font-weight:bold;
+}
+
+label.checkbox.none .name
+{
+	font-size:1.1em;
+}
+
+/*--------------------------------
+	.NONE.SELECTED
+----------------------------------*/
+
+label.checkbox.none.selected
+{
+	color:#e8aa05;
+}
+
+label.checkbox.none.selected .icon
+{
+	background-position:-48px 0px;
+}
+
+/*----------------------------------------------------------------
+	.QUESTION.OPENED > LABEL.CHECKBOX
+------------------------------------------------------------------*/
+
+.question.opened label.checkbox .icon,
+.question.opened.selected label.checkbox .icon
+{
+	background-position:+00px -20px;
+}
+
+/*--------------------------------
+	.SELECTED
+----------------------------------*/
+
+/* Couleur des checkboxes sŽlectionnŽes*/
+.question.opened label.checkbox.selected,
+.question.opened.selected label.checkbox.selected
+{
+	color:#DAFF44;!important
+}
+
+.question.opened label.checkbox.selected .icon,
+.question.opened.selected label.checkbox.selected .icon
+{
+	background-position:-24px -20px;
+}
+
+/*--------------------------------
+	.NONE.SELECTED
+----------------------------------*/
+
+.question.opened label.checkbox.selected.none .icon,
+.question.opened.selected label.checkbox.selected.none .icon
+{
+	background-position:-48px -20px;
+}
+
+/*----------------------------------------------------------------
+	.QUESTION.SELECTED > LABEL.CHECKBOX
+------------------------------------------------------------------*/
+
+.question.selected label.checkbox .icon
+{
+	background-position:+00px -20px;
+}
+
+/*--------------------------------
+	.SELECTED
+----------------------------------*/
+
+.question.selected label.checkbox.selected
+{
+	color:#daff44;
+}
+
+.question.selected label.checkbox.selected .icon
+{
+	background-position:-24px -20px;
+}
+
+/*--------------------------------
+	.NONE.SELECTED
+----------------------------------*/
+
+.question.selected label.checkbox.selected.none .icon
+{
+	background-position:-48px -20px;
+}
+

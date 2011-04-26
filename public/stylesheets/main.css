@@ -1,0 +1,122 @@
+
+/*----------------------------------------------------------------
+	GLOBAL
+------------------------------------------------------------------*/
+
+/*Taille par défaut de la police*/
+/*Couleur = intitulés des checkboxes dans le questionnaire*/
+
+* {
+	font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size:13px; 	   
+	color:#4B4B4B; 
+}
+
+small { 
+	font-size:0.8em; 
+	color:inherit;
+}
+strong { 
+	font-size:inherit; 
+	font-weight:bold; 
+}
+
+var { 
+	font-size:1em;
+	font-style:normal; 
+	color:inherit;
+	}
+
+a { color:#638EBC; /* Couleur des liens*/
+	text-decoration:underline; }
+	a:hover { color:#73A5DB; }
+
+p {
+	margin:10px 0;
+	text-align:justify;
+	color: #4B4B4B;    /*Couleur par défaut du texte*/
+}
+
+ul {
+	margin:10px 0;
+}
+
+li {
+	list-style:disc inside;
+	margin:5px 10px;
+	text-align:justify;
+}
+
+
+/*----------------------------------------------------------------
+	LAYOUT
+------------------------------------------------------------------*/
+
+
+h1, h2, h3, h4, h5, h6 {
+	display:block;
+	margin:0 0 10px 0;
+	font-weight:bold;
+}
+
+h1 {    /* Les questions en haut de la page. */
+	letter-spacing: -1px;	
+	color: #D88900;
+	font-weight: bold;
+	font-size:2.4em;	
+	text-shadow: 0px 1px 1px rgba(255,255,255,1); 
+}
+
+h2 {   /*Les noms des usages - Parent de usageTitle > Voir pour r�soudre les conflits d'h�ritage. Nouveau style pour h2 : qname.h2 ? */
+	font-size:1.5em;
+	color: #4B4B4B;
+	margin:0 0 5px 0;
+	text-shadow: 0px 1px 1px white; 
+}
+
+h3 {   /*La question lorsqu'on d�roule un usage - Parent de usageSubQuestion*/
+	font-size:1.4em;
+	color:#4B4B4B;
+}
+
+h4 { font-size:1.2em; }
+
+h5 { 
+	font-size:1.1em;
+	color:#638EBC; 
+}
+
+/* Textes explicatifs sous le titre de la page*/
+
+p.explain {
+	font-style:italic;
+	color:#4B4B4B;
+	margin:5px 0;
+}
+	
+
+/*----------------------------------------------------------------
+	LAYOUT
+------------------------------------------------------------------*/
+
+body, html {
+	background-color:#EFEFEC; /*Fond de la page - inutile si l'iframe est ajusté*/
+}
+
+#main {
+	width:910px;
+	padding:15px;
+	margin:0 auto; /*Centre le container sur la verticale de la page*/
+	background-color:#EFEFEC; /*Fond de le zone de contenus principale*/
+}
+
+/* INUTILISE - Div du header d�sactiv�e
+#header {
+	width:960px;
+	height:50px;
+	margin:0px auto 0 auto;
+	background-color:#008dd7;
+	background-repeat:repeat-x;
+	background-position:top left;
+	background-image:url('img/header-bg.gif');
+} */

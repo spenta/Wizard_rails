@@ -1,0 +1,150 @@
+#main h1 { text-align:center; }
+
+#infoWrapper { 	margin:10px auto; height:200px;}
+
+/* Cartouche pour les infos principales et les boutons acheter */
+.frame {	
+	padding:10px 12px;
+	margin:10px auto;
+	width:420px;
+	background-color:white;
+	-webkit-border-radius:5px;
+	-khtml-border-radius:5px;
+	-moz-border-radius:5px;
+	-o-border-radius:5px;
+	border-radius:5px;
+	height:110px;
+}
+
+/* Positionnement des deux cartouches Infos et Acheter */
+#productInfo {
+	float:left;
+}
+
+#buy {
+	float:right;
+}
+
+/*Formattage du texte dans les cartouches frame*/
+.frame h2 {
+	text-shadow:0px 1px 1px #CCC;
+	font-size:1.3em;
+}
+
+.frame h3 { 
+	font-size:1.1em;
+	color:#638EBC; 
+	margin:0 0 5px 0;
+}
+
+.frame .explain { margin:0 0 5px 0; }
+
+/* Positionnement des éléments dans le cartouche d'infos générales */
+
+#productName {
+	position:relative;
+	left:140px;
+	top:30px;	
+}
+
+#productPrice {
+	position:relative;
+	top:-15px;
+	right:0px;
+}
+
+#productPrice p {
+	text-align:right;
+	font-size:1.2em;
+	font-style:italic;
+}
+
+/* Positionnement des éléments dans le cartouche acheter */
+
+#buy h3, p { text-align:center; }
+
+#merchants {
+	width:400px;
+}
+
+#merchants td {
+	margin:1px;
+	text-align:center;
+}
+
+
+/*Positionnement des deux tables de caractéristiques*/
+#tableWrapper {
+	width:910px;
+	margin:10px auto;
+}
+
+.tableContainer {
+	width:400px;
+	padding:15px 15px;
+	margin:0px 0px;
+}
+
+/*Mise en forme des tableaux de caractéristiques*/
+.specsTable {
+	width:460px;
+	margin:5px auto;
+	float:left;
+}
+
+
+.specsTable td {
+	padding:4px 4px 4px 4px;
+	vertical-align:bottom;
+	background-color:white;
+	border-style:solid;
+	border-color:#EFEFEC;
+	border-width:2px;
+}
+
+.specsTable .rating {
+	text-align:center;
+}
+
+.specsTable tr.spec:hover td {
+	background-color:#EEE;
+}
+
+.specsleft {
+	text-align:left;
+}
+
+/* Cadre flottant pour la grande photo*/
+.floatright {
+	float:right;
+	height:255px;
+	width:360px;
+	padding:10px auto;	
+}
+
+/*Image du produit */
+
+/*Miniature*/
+.productPic img {
+	height:80px;
+	width:120px;
+	position:relative;
+	top:-82px;
+}
+
+/*Grand format*/
+.productPicLarge img {
+	height:240px;
+	width:360px;	
+}
+
+.productPicLarge img:hover {
+	border-style:solid;
+	border-width:1px;
+	border-color:silver;
+	margin:0 0 0 -360px;
+	height:480px;
+	width:720px;
+	position:relative;
+	z-layer:1;	
+}

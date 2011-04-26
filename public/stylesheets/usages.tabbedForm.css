@@ -1,0 +1,97 @@
+
+/*----------------------------------------------------------------
+	LABEL.CHECKBOX
+------------------------------------------------------------------*/
+
+/*----------------------------------------------------------------
+	.QUESTION.BUTTON
+------------------------------------------------------------------*/
+
+form.tabbed .question.button 
+{
+	cursor:pointer;
+}
+
+.question.button:hover {
+	background-color:silver;
+}
+
+form.tabbed .question.button .qinfo,
+form.tabbed .question.button .qdesc,
+form.tabbed .question.button .answer,
+form.tabbed .question.button .close
+{
+	display:none;
+}
+
+/*--------------------------------
+	...SELECTED
+----------------------------------*/
+
+form.tabbed .question.button.selected .qbody
+{
+	padding-top:0;
+	padding-bottom:0;
+}
+
+
+/* Fond des boites d'usage au survol */
+.question.button.selected:hover {
+	background-color:#638EBC;
+}
+
+/* Modifie la taille du titre des usages lorsqu'ils sont sélectionnés. Désactivé.
+
+form.tabbed .question.button.selected .qname 
+{
+	font-size:1.0em;    
+}
+*/
+
+
+/*--------------------------------
+	QUESTION.OPENED
+----------------------------------*/
+
+form.tabbed .question.opened .qbody 
+{
+	margin-left:60px;
+	padding-left:20px;
+	
+	position:absolute;
+	top:0; left:0; right:0;
+	
+	background-color:#4d4d4d;
+	-webkit-border-radius:4px;
+	-khtml-border-radius:4px;
+	-moz-border-radius:4px;
+	-o-border-radius:4px;
+	border-radius:4px;
+}
+
+/*--------------------------------
+	QUESTION.TABBED
+----------------------------------*/
+
+form.tabbed .question.tabbed 
+{
+	width:50px;
+	overflow:hidden;
+	
+	cursor:pointer;
+	-webkit-border-bottom-right-radius:0px 0px;
+	-khtml-border-bottom-right-radius:0px 0px;
+	-moz-border-bottom-right-radius:0px 0px;
+	-o-border-bottom-right-radius:0px 0px;
+	border-bottom-right-radius:0px 0px;
+	-webkit-border-top-right-radius:0px 0px;
+	-khtml-border-top-right-radius:0px 0px;
+	-moz-border-top-right-radius:0px 0px;
+	-o-border-top-right-radius:0px 0px;
+	border-top-right-radius:0px 0px;
+}
+
+form.tabbed .question.tabbed .qbody
+{
+	display:none;
+}
