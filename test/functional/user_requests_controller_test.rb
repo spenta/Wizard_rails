@@ -10,12 +10,12 @@ class UserRequestsControllerTest < ActionController::TestCase
       post :create, :user_request => @user_request.attributes
     end
 
-    assert_redirected_to edit_user_request_path(assigns(:user_request))
+    assert_redirected_to form_step1_user_request_path(assigns(:user_request))
   end
 
 
-  test "should get edit" do
-    get :edit, :id => @user_request.to_param
+  test "should get form_step1" do
+    get :form_step1, :id => @user_request.to_param
     assert_response :success
   end
 

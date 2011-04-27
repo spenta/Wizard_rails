@@ -1,6 +1,6 @@
 class UserRequestsController < ApplicationController
-  # GET /user_requests/1/edit
-  def edit
+  # GET /user_requests/1/form_step1
+  def form_step1
     @user_request = UserRequest.find(params[:id])
   end
 
@@ -20,7 +20,7 @@ class UserRequestsController < ApplicationController
             usage_choice.save
           end
         end
-        format.html { redirect_to edit_user_request_path(@user_request), :notice => 'User request was successfully created.' }
+        format.html { redirect_to form_step1_user_request_path(@user_request), :notice => 'User request was successfully created.' }
         format.xml  { render :xml => @user_request, :status => :created, :location => @user_request }
       else
         format.html { render :action => "new" }

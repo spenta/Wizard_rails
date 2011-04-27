@@ -1,10 +1,10 @@
-(function($){
+(function($j){
 
 //--------------------------------------------------------------------
 //  TABBED FORM
 //--------------------------------------------------------------------
 
-$.fn.tabbedForm = function(options)
+$j.fn.tabbedForm = function(options)
 {
 
 //----------------------------------
@@ -27,34 +27,34 @@ return this.each(function()
 	//----------------------------------
 	//  init
 	//----------------------------------
-	
+
 	// get the jQuery element for this
-	var $this = $(this)
+	var $jthis = $j(this)
 		// auto add the 'tabbed' class
 		.addClass('tabbed');
-	
+
 	// extends default settings
-	if (options) $.extend(settings, options);
-	
+	if (options) $j.extend(settings, options);
+
 	//----------------------------------
 	//  questions
 	//----------------------------------
-	
+
 	// get all <.questions> in the form
-	var questions = $this.find('.question')
+	var questions = $jthis.find('.question')
 		// init of the tabbed behavior
 		.tabbedQuestion({closeText:settings.closeText})
 		// listen for events
 		.bind('clickToOpen',question_clickToOpenHandler)
 		.bind('clickToClose',question_clickToCloseHandler);
-	
+
 	// set the default state
 	setQuestionState(questions, 'button');
-	
+
 	//----------------------------------
 	//  infoContainer
 	//----------------------------------
-	
+
 	var defaultInfoContent;
 	if (settings.infoContainer)
 	{
@@ -63,70 +63,70 @@ return this.each(function()
 		// hide all <.qinfo> of the questions
 		questions.find('.qinfo').hide();
 	}
-	
+
 	//----------------------------------
 	//  question_clickToOpenHandler
 	//----------------------------------
-	
+
 	// event listener
-	function question_clickToOpenHandler(e) 
+	function question_clickToOpenHandler(e)
 	{
-		var $target = $(this);
-		
+		var $jtarget = $j(this);
+
 		// set the 'opened' state to the target
-		setQuestionState($target, 'opened');
+		setQuestionState($jtarget, 'opened');
 		// set the 'tabbed' state for all other questions
 		setQuestionState(questions.not(this), 'tabbed');
-		
+
 		// hide the submit button when a <.question> is opened
-		$this.find('input:submit').hide();
-		$this.find('a.prev-button').hide();
-		
+		$jthis.find('input:submit').hide();
+		$jthis.find('a.prev-button').hide();
+
 		// update the infoContainer content
 		if (settings.infoContainer) {
-			var qinfo = $target.find('.qinfo:first');
+			var qinfo = $jtarget.find('.qinfo:first');
 			switchContent(qinfo.length > 0 ? qinfo.html() : defaultInfoContent);
 		}
-		
-		// fix : set a min-height to the content, to prevent 
+
+		// fix : set a min-height to the content, to prevent
 		// be sure that the .qbody will be over all buttons
-		$this.css('min-height', 0);
-		$target.find('.qbody').css('min-height',$this.height());
-		
-		// fix : set a min-height to the form, to prevent 
+		$jthis.css('min-height', 0);
+		$jtarget.find('.qbody').css('min-height',$jthis.height());
+
+		// fix : set a min-height to the form, to prevent
 		// the position:absolute css behavior of the <.qbody>
-		$this.css('min-height', $target.find('.qbody').outerHeight() + 'px');
+		$jthis.css('min-height', $jtarget.find('.qbody').outerHeight() + 'px');
 	}
-	
+
 	//----------------------------------
 	//  question_clickToCloseHandler
 	//----------------------------------
-	
+
 	// event listener
-	function question_clickToCloseHandler(e) 
+	function question_clickToCloseHandler(e)
 	{
-		var $target = $(this);
-		
+		var $jtarget = $j(this);
+
 		// set the 'button' state for all questions
 		setQuestionState(questions, 'button');
-		
+
 		// show the submit button when no question is opened
-		$this.find('input:submit').show();
-		$this.find('a.prev-button').show();
-		
+		$jthis.find('input:submit').show();
+		$jthis.find('a.prev-button').show();
+
 		// update the infoContainer content
 		if (settings.infoContainer)
 			switchContent(defaultInfoContent);
-		
+
 		// removes the form min-height
-		$this.css('min-height', 0);
+		$jthis.css('min-height', 0);
 		questions.find('.qbody').css('min-height', 0);
 	}
-	
+
 	//----------------------------------
 	//  setQuestionState
 	//----------------------------------
-	
+
 	// helper : set a state to a group of <.question>
 	function setQuestionState(questions, state)
 	{
@@ -140,19 +140,19 @@ return this.each(function()
 				questions.trigger('open');
 				break;
 		}
-		
+
 		// set the right class and remove others
 		questions.toggleClass('button', state == 'button');
 		questions.toggleClass('tabbed', state == 'tabbed');
 		questions.toggleClass('opened', state == 'opened');
 	}
-	
+
 	//----------------------------------
 	//  switchContent
 	//----------------------------------
-	
+
 	// helper : changes the content of the infoContainer with a fade transition
-	function switchContent(content) 
+	function switchContent(content)
 	{
 		settings.infoContainer
 			// stop current transition
@@ -167,16 +167,16 @@ return this.each(function()
 					.fadeTo(200, 1);
 			});
 	}
-	
+
 }); // end of return this.each...
-}; // end of $.fn.function
+}; // end of $j.fn.function
 
 
 //--------------------------------------------------------------------
 //  TABBED QUESTION
 //--------------------------------------------------------------------
 
-$.fn.tabbedQuestion = function(options)
+$j.fn.tabbedQuestion = function(options)
 {
 
 //----------------------------------
@@ -195,130 +195,131 @@ var settings = {
 // return this for jQuery chainability
 return this.each(function()
 {
-	
+
 	//----------------------------------
 	//  init
 	//----------------------------------
-	
+
 	// get the jQuery element for this
-	var $this = $(this)
+	var $jthis = $j(this)
 		// listen for open/close events
 		.bind('open', openHandler)
 		.bind('close', closeHandler);
-	
+
 	// extends default settings
-	if (options) $.extend(settings, options);
-	
+	if (options) $j.extend(settings, options);
+
 	//----------------------------------
 	//  ansers
 	//----------------------------------
-	
+
 	// get all <.answer>
-	var ansers = $this.find('.answer');
-	
+	var ansers = $jthis.find('.answer');
+
 	// get the <.qdesc>
-	var qdesc = $this.find('.qdesc');
-	
+	var qdesc = $jthis.find('.qdesc');
+
 	//----------------------------------
 	//  closeBtn
 	//----------------------------------
-	
+
 	// create the <.close> button
-	var closeBtn = $('<span/>')
+	var closeBtn = $j('<span/>')
 		.addClass('close')
 		// label & icon
-		.append($('<span/>').addClass('label').html(settings.closeText))
-		.append($('<span/>').addClass('icon'))
+		.append($j('<span/>').addClass('label').html(settings.closeText))
+		.append($j('<span/>').addClass('icon'))
 		// added to the DOM into the last anwser
 		.appendTo(ansers.first())
 		// listen for click events
 		.bind('click', close_clickHandler);
-	
+
 	//----------------------------------
 	//  qabst
 	//----------------------------------
-	
+
 	// create the <.qabst> paragraph
-	var qabst = $('<p/>')
+	var qabst = $j('<p/>')
 		.addClass('qabst');
-	
+
 	// added to the DOM after the <.qname>
-	$this.find('.qname').after(qabst);
-	
+	$jthis.find('.qname').after(qabst);
+
 	// listen for change event of the first multichoice answer
-	$this.find('.answer.multichoice:first')
+	$jthis.find('.answer.multichoice:first')
 		.bind('change', function(e,selected,resume) {
 			// set the question 'selected' class
-			$this.toggleClass('selected', selected);
+			$jthis.toggleClass('selected', selected);
 			// update the <.qabst> content
 			qabst.html(resume);
 		});
-	
+
 	//----------------------------------
 	//  openHandler
 	//----------------------------------
-	
+
 	// event listener
-	function openHandler(e) 
+	function openHandler(e)
 	{
 		/*// show content
 		qdesc.show();
 		ansers.show();
 		closeBtn.show();*/
-		
+
 		// hide abstract
 		qabst.hide();
-		
+
 		// remove event listener
-		$this.unbind('click', clickHandler);
+		$jthis.unbind('click', clickHandler);
 	}
-	
+
 	//----------------------------------
 	//  closeHandler
 	//----------------------------------
-	
+
 	// event listener
-	function closeHandler(e) 
+	function closeHandler(e)
 	{
 		/*// hide content
 		qdesc.hide();
 		ansers.hide();
 		closeBtn.hide();*/
-		
+
 		// show the abstract
 		qabst.show();
-		
+
 		// add event listener
-		$this.unbind('click', clickHandler); // bugfix...
-		$this.bind('click', clickHandler);
+		$jthis.unbind('click', clickHandler); // bugfix...
+		$jthis.bind('click', clickHandler);
 	}
-	
+
 	//----------------------------------
 	//  clickHandler
 	//----------------------------------
-	
+
 	// event listener
-	function clickHandler(e) 
+	function clickHandler(e)
 	{
 		e.preventDefault();
 		e.stopPropagation();
 		// dispath the event
-		$this.trigger('clickToOpen');
+		$jthis.trigger('clickToOpen');
 	}
-	
+
 	//----------------------------------
 	//  close_clickHandler
 	//----------------------------------
-	
+
 	// event listener
-	function close_clickHandler(e) 
+	function close_clickHandler(e)
 	{
 		e.preventDefault();
 		e.stopPropagation();
 		// dispath the event
-		$this.trigger('clickToClose');
+		$jthis.trigger('clickToClose');
 	}
-	
+
 }); // end of return this.each...
-}; // end of $.fn.function
+}; // end of $j.fn.function
 })(jQuery);
+
