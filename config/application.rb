@@ -14,7 +14,6 @@ module WizardRails
     # Custom directories with classes and modules you want to be autoloadable.
     # config.autoload_paths += %W(#{Rails.root}/app/models)
     config.autoload_paths += Dir["#{config.root}/lib/**/"] # include all subdirectories
-
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.
     # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
@@ -28,7 +27,8 @@ module WizardRails
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
-    # config.i18n.default_locale = :de
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
+    config.i18n.default_locale = :fr
 
     # JavaScript files you want as :defaults (application.js is always included).
     #config.action_view.javascript_expansions[:defaults] = %w(jquery rails)

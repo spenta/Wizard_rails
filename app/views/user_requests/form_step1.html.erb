@@ -32,14 +32,10 @@
   </script>
 <% end -%>
 <div id="main" class="usages">
-  <h1>&Eacute;tape 1&#47;3 - Qu'allez-vous faire avec votre ordinateur ?</h1>
-  <p class="explain usageSubtitle">Choisissez et renseignez seulement les usages qui vous int&eacute;ressent.</p>
+  <h1><%= t(:first_step_title).html_safe %></h1>
+  <p class="explain usageSubtitle"><%= t(:first_step_subtitle).html_safe%></p>
   <div class="sideinfo" id="myFormInfoContainer">
-      <h5>Trouver le meilleur ordinateur </h5>
-      <p>Le bon ordinateur, c&#39;est celui qui fait bien <strong>tout ce que vous voulez</strong>, au bon prix. Ce n&#39;est pas le m&ecirc;me pour tout le monde !</p>
-      <p>Le conseiller virtuel analyse vos besoins pour vous donner un conseil <strong>personnalis&eacute;</strong> et <strong>objectif</strong>.</p>
-      <h5>Dites-nous toutes vos envies</h5>
-      <p>Choisissez tout ce que vous allez faire avec votre ordinateur, m&ecirc;me si &ccedil;a ve vous para&icirc;t pas tr&egrave;s important. Vous pourrez faire le tri de ce qui compte vraiment &agrave; l&#39;&eacute;tape suivante.</p>
+      <%= t(:first_step_sideinfo_general).html_safe %>
   </div>
-  <%= render 'form' %>
+  <%= render 'usage_selection_form' %>
 </div>
