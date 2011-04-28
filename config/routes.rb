@@ -1,8 +1,7 @@
 WizardRails::Application.routes.draw do
 
-  resources :user_requests, :only => [:create, :update] do
+ resources :user_requests, :only => [:create, :update, :edit] do
     get 'user_response', :on => :member
-    get 'form_step1', :on => :member
   end
 
   resources :products, :only => [:index, :show]

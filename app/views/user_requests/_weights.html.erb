@@ -1,0 +1,30 @@
+<h1>weights</h1>
+<%SuperUsage.all.each do |su|%>
+  <%unless su.name == "Mobilite"%>
+    <% su_id = su.id -%>
+    <div class="question" id=<%= "super-usage#{su_id}" %>>
+      <span class="qicon"></span>
+      <div class="qbody">
+        <div class="qname"><h2 class="usageTitle"><%=t "super_usage_title#{su_id}".to_sym%></h2></div>
+        <div class="qdesc">
+              <h3 class="usageSubQuestion"><%=t "super_usage_question#{su_id}".to_sym%></h3>
+              <p class="usageExplain"><%=t :first_step_hint %></p>
+        </div>
+        <div class="qinfo">
+          <%= t("first_step_sideinfo_superusage#{su_id}".to_sym).html_safe %>
+        </div>
+        <%@usage_choices=@user_request.usage_choices.where(:usage_id => su.usages)%>
+        <div class="answer multichoice">
+            <%@usage_choices.each do |uc|%>
+              <% usage_id = uc.usage.id -%>
+              <label>
+                <%=check_box_tag "usage_choice_selected_#{uc.id}", 1, uc.is_selected%><input type="hidden" value="on"/>
+                <span class="name"><%=t "usage_title#{usage_id}".to_sym%></span>
+                <span class="desc"><%=t "usage_description#{usage_id}".to_sym%></span>
+              </label>
+            <%end%>
+        </div>
+      </div>
+    </div>
+  <%end%>
+<%end%>

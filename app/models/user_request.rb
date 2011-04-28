@@ -1,6 +1,25 @@
 class UserRequest < ActiveRecord::Base
-  has_many :usage_choices, :dependent => :destroy
+  attr_writer :current_step
 
+  def current_step
+    @current_step || steps.first
+  end
+
+  def next_step
+    self.current_step = steps[steps.index(current_step)+1]
+  end
+
+  def previous_step
+    self.current_step = steps[steps.index(current_step)-1]
+  end
+
+  has_many :usage_choices, :dependent => :destroy
+  
+  # Multi-step form done in the same way as in this Railscast :http://media.railscasts.com/videos/217_multistep_forms.mov. This keeps the current state>
+  def steps
+    %w[selection weights mobilities]
+  end
+   
 
   def update! params
     @super_usage_choices = {}
@@ -36,4 +55,43 @@ class UserRequest < ActiveRecord::Base
     raise "Veuillez choisir au moins un usage !" if @usage_choices_selected.empty?
     raise "Veuillez noter au moins un usage !" if are_any_usage_scored == 0
   end
+
+  def update_selection params
+    @usage_choices_selected=[]
+    params.keys.each do |param_key|
+      #list of usage_choices to be selected
+      if param_key =~ /usage_choice_selected_./
+        @usage_choices_selected << Integer(param_key.split('_').last)
+      end
+    end
+    raise I18n.t(:usage_selection_error) unless update_attributes(params[:user_request])
+    #update of is_selected for each usage_choice
+    usage_choices.each do |uc|
+      unless uc.usage.super_usage.name == "Mobilite"
+        uc.update_attributes :is_selected => @usage_choices_selected.include?(uc.id)
+      end
+    end
+    raise I18n.t(:no_usage_selected_error) if @usage_choices_selected.empty?
+  end
+
+  def update_weights params
+  end
+
+  def submit params
+    @user_request = UserRequest.find(params[:id])
+    load 'user_response/user_response.rb'
+    director = UserResponseDirector.new
+    director.init_builder @user_request
+    director.process_response
+    user_response = director.get_response
+    director.clear!
+    session[:user_response] = user_response
+    session[:sort_order] = :spenta_score
+    @user_request.update_attributes(:is_complete => true)
+    respond_to do |format|
+      format.html {redirect_to user_response_user_request_path}
+      format.xml  { head :ok }
+    end
+  end
+
 end

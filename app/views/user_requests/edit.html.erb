@@ -1,3 +1,6 @@
+<%# Multi-step form done in the same way as in this Railscast :http://media.railscasts.com/videos/217_multistep_forms.mov%> 
+
+
 <% content_for :head do -%>
   <%= stylesheet_link_tag  "reset"%>
   <%= stylesheet_link_tag  "main"%>
@@ -32,10 +35,17 @@
   </script>
 <% end -%>
 <div id="main" class="usages">
-  <h1><%= t(:first_step_title).html_safe %></h1>
-  <p class="explain usageSubtitle"><%= t(:first_step_subtitle).html_safe%></p>
+  <h1><%= t(:selection_step_title).html_safe=%></h1>
+  <p class="explain usageSubtitle"><%= t(:selection_step_subtitle).html_safe%></p>
   <div class="sideinfo" id="myFormInfoContainer">
-      <%= t(:first_step_sideinfo_general).html_safe %>
+      <%= t(:selection_step_sideinfo_general).html_safe %>
   </div>
-  <%= render 'usage_selection_form' %>
+  <%= form_for(@user_request, :html => {:class => "tabbed"}) do |f| %>
+    <%= render :partial => @user_request.current_step %>
+    <div style="clear:both;"></div>
+    <div class="actions">
+      <%= link_to "Back", :back => "true" %>
+      <%= f.submit "Next", :class => "next-button"%>
+    </div>
+  <% end %>
 </div>

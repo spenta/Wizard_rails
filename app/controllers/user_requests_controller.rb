@@ -1,13 +1,19 @@
 class UserRequestsController < ApplicationController
-  # GET /user_requests/1/form_step1
-  def form_step1
+  # GET /user_requests/1/edit
+  def edit 
     @user_request = UserRequest.find(params[:id])
+    @user_request.current_step = session[:user_request_step]
+    if params[:back]
+      @user_request.previous_step
+      session[:user_request_step] = @user_request.current_step
+    end
   end
 
   # POST /user_requests
   # POST /user_requests.xml
   def create
-    session[:user_response] = nil
+    #session[:user_response] = nil
+    reset_session
     @user_request = UserRequest.new(:is_complete => false)
 
     respond_to do |format|
@@ -20,7 +26,7 @@ class UserRequestsController < ApplicationController
             usage_choice.save
           end
         end
-        format.html { redirect_to form_step1_user_request_path(@user_request), :notice => 'User request was successfully created.' }
+        format.html { redirect_to edit_user_request_path(@user_request), :notice => 'User request was successfully created.' }
         format.xml  { render :xml => @user_request, :status => :created, :location => @user_request }
       else
         format.html { render :action => "new" }
@@ -33,19 +39,17 @@ class UserRequestsController < ApplicationController
   # PUT /user_requests/1.xml
   def update
     @user_request = UserRequest.find(params[:id])
-    @user_request.update! params
-    load 'user_response/user_response.rb'
-    director = UserResponseDirector.new
-    director.init_builder @user_request
-    director.process_response
-    user_response = director.get_response
-    director.clear!
-    session[:user_response] = user_response
-    session[:sort_order] = :spenta_score
-    @user_request.update_attributes(:is_complete => true)
-    respond_to do |format|
-      format.html {redirect_to user_response_user_request_path}
-      format.xml  { head :ok }
+    case @user_request.current_step
+    when "selection"
+      @user_request.update_selection params
+      session[:user_request_step] =  @user_request.next_step
+      redirect_to edit_user_request_path 
+    when "weights"
+      @user_request.update_weights params
+      session[:user_request_step]  = @user_request.next_step
+      redirect_to edit_user_request_path
+    when "mobilities"
+      @user_request.submit params
     end
   end
 
