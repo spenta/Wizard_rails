@@ -1,0 +1,16 @@
+fr:
+  weights_step_title: Étape 2/3 - Qu'est-ce qui compte vraiment pour vous ?
+  weights_step_subtitle: Indiquez l'importance de chaque utilisation en faisant glisser les curseurs, puis validez.  
+  weights_step_sideinfo: |
+    <h5>Ne mettez pas tout au maximum ! </h5>
+    <ul>
+    <li>Certaines utilisations demandent des PC assez puissants. <strong>Ne payez pas ce dont vous ne vous servez pas</strong> !</li>
+    <li>Le conseiller virtuel privilégie ce qui est important pour vous lorsqu'il faut faire des compromis.</li>
+    </ul>
+    <h5>Réfléchissez à ce qui est réellement important</h5>
+    <ul>
+    <li>Sur quoi allez vous passer <strong>beaucoup de temps</strong> ?</li>
+    <li>Pour quelles utilisations voulez-vous un <strong>confort optimal</strong> ?</li>
+    <li>Êtes-vous prêt à faire des <strong>compromis</strong> ?</li> 
+
+  weight_step_hint: Indiquez l'importance de chaque utilisation en faisant glisser les curseurs, puis validez. 

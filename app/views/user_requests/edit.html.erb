@@ -35,16 +35,18 @@
   </script>
 <% end -%>
 <div id="main" class="usages">
-  <h1><%= t(:selection_step_title).html_safe=%></h1>
-  <p class="explain usageSubtitle"><%= t(:selection_step_subtitle).html_safe%></p>
+  <h1><%= t(("#{@user_request.current_step}_step_title".to_sym)).html_safe%></h1>
+  <p class="explain usageSubtitle"><%= t(("#{@user_request.current_step}_step_subtitle".to_sym)).html_safe%></p>
   <div class="sideinfo" id="myFormInfoContainer">
-      <%= t(:selection_step_sideinfo_general).html_safe %>
+      <%= t(("#{@user_request.current_step}_step_sideinfo".to_sym)).html_safe%>
   </div>
   <%= form_for(@user_request, :html => {:class => "tabbed"}) do |f| %>
     <%= render :partial => @user_request.current_step %>
     <div style="clear:both;"></div>
     <div class="actions">
-      <%= link_to "Back", :back => "true" %>
+      <% unless @user_request.current_step == "selection"%>
+        <%= link_to  "Back", edit_user_request_path(:back => "true"), :class => "prev-button"%>
+      <% end -%>
       <%= f.submit "Next", :class => "next-button"%>
     </div>
   <% end %>

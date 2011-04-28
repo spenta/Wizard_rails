@@ -3,7 +3,7 @@ class UserRequestsController < ApplicationController
   def edit 
     @user_request = UserRequest.find(params[:id])
     @user_request.current_step = session[:user_request_step]
-    if params[:back]
+    if params[:back] &&  @user_request.current_step != @user_request.steps.first
       @user_request.previous_step
       session[:user_request_step] = @user_request.current_step
     end
@@ -39,6 +39,7 @@ class UserRequestsController < ApplicationController
   # PUT /user_requests/1.xml
   def update
     @user_request = UserRequest.find(params[:id])
+    @user_request.current_step = session[:user_request_step]
     case @user_request.current_step
     when "selection"
       @user_request.update_selection params
@@ -50,6 +51,8 @@ class UserRequestsController < ApplicationController
       redirect_to edit_user_request_path
     when "mobilities"
       @user_request.submit params
+    else
+      raise "unknown form state : #{session[:user_request_step]}"
     end
   end
 
