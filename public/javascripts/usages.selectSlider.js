@@ -1,10 +1,10 @@
-(function($){
+(function($j){
 
 //--------------------------------------------------------------------
 //  SELECT SLIDER
 //--------------------------------------------------------------------
 
-$.fn.selectSlider = function(){
+$j.fn.selectSlider = function(){
 
 //----------------------------------
 //  main loop
@@ -19,17 +19,17 @@ return this.each(function()
 	//----------------------------------
 	
 	// get and hide the jQuery element for this
-	var $this = $(this).hide();
+	var $jthis = $j(this).hide();
 	
 	// get the slider settings
-	var nosnap = $this.hasClass('nosnap');
+	var nosnap = $jthis.hasClass('nosnap');
 	
 	//----------------------------------
 	//  options
 	//----------------------------------
 	
 	// get all <option> elements
-	var options = $this.find('option');
+	var options = $jthis.find('option');
 	
 	// get the last index in options
 	var lastIndex = options.length - 1;
@@ -53,17 +53,17 @@ return this.each(function()
 	slideSettings.slide = function(event,ui){
 		if (nosnap) {
 			nosnapOpt.attr('value', ui.value);
-			$this.attr('value', ui.value);
+			$jthis.attr('value', ui.value);
 		} else {
-			$this.attr('value', $(options[ui.value]).attr('value'))
+			$jthis.attr('value', $j(options[ui.value]).attr('value'))
 		}
 	};
 	
 	// creating the jQuery slider component
-	var slider = $('<span></span>').slider(slideSettings);
+	var slider = $j('<span></span>').slider(slideSettings);
 	
 	// append it to the DOM after the <select>
-	$this.after(slider);
+	$jthis.after(slider);
 	
 	//----------------------------------
 	//  options init
@@ -72,16 +72,16 @@ return this.each(function()
 	// create a <span> step for each <option>
 	options.each(function(i,node){
 		slider.append(
-			$('<span />')
+			$j('<span />')
 				// adding the content
-				.html(!$(node).attr('disabled') ? $(node).html() : "")
+				.html(!$j(node).attr('disabled') ? $j(node).html() : "")
 				// positionning in the slider
 				.css('left', i/lastIndex*100 + '%')
 		);
 		// sets the current value of the slider if the <option> is selected
-		if ($this.attr('value') == $(node).attr('value')) {
+		if ($jthis.attr('value') == $j(node).attr('value')) {
 			slider.slider('value',
-				nosnap ? $this.attr('value') : i
+				nosnap ? $jthis.attr('value') : i
 			);
 		}
 	});
@@ -97,12 +97,12 @@ return this.each(function()
 	var nosnapOpt;
 	if (nosnap) {
 		// remove all options
-		$this.html('');
-		nosnapOpt = $('<option></option>')
+		$jthis.html('');
+		nosnapOpt = $j('<option></option>')
 			.html('ratio')
 			.attr('value', slider.slider('value'))
 			.attr('selected', true)
-			.appendTo($this);
+			.appendTo($jthis);
 	}
 	
 }); // end of return this.each...

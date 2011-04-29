@@ -5,34 +5,16 @@
   <%= stylesheet_link_tag  "reset"%>
   <%= stylesheet_link_tag  "main"%>
   <%= stylesheet_link_tag  "usages.css"%>
+  <%= stylesheet_link_tag  "usages.selectSlider.css"%>
   <%= stylesheet_link_tag  "usages.labelCheckbox.css"%>
   <%= stylesheet_link_tag  "usages.tabbedForm.css"%>
   <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"%>
+  <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.js"%>
   <%= javascript_include_tag "/javascripts/usages.tabbedForm.js"%>
   <%= javascript_include_tag "/javascripts/usages.answerMultichoice.js"%>
   <%= javascript_include_tag "/javascripts/usages.labelCheckbox.js"%>
-  <script type="text/javascript">
-    var $j = jQuery.noConflict();
-    $j(document).ready(function()
-      {
-          // convert a <form> into a tabbed form
-          $j('form.tabbed').tabbedForm({
-              // custom text of the close button created by the javascript
-              closeText:'Valider',
-              // container for the .qinfo into the questions
-              infoContainer:$j('#myFormInfoContainer')
-          });
-
-          // convert all <div class="answer"> with the
-          // class 'multichoice' into a set of checkboxes
-          $j('.answer.multichoice').answerMultichoice({
-              // if we want the js to add a none checkbox
-              addNone:true,
-              // text of the none checkbox
-              noneText:'&Ccedil;a ne m&acute;int&eacute;resse pas'
-          });
-      });
-  </script>
+  <%= javascript_include_tag "/javascripts/usages.selectSlider.js"%>
+  
 <% end -%>
 <div id="main" class="usages">
   <h1><%= t(("#{@user_request.current_step}_step_title".to_sym)).html_safe%></h1>

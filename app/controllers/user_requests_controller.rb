@@ -15,14 +15,14 @@ class UserRequestsController < ApplicationController
     #session[:user_response] = nil
     reset_session
     @user_request = UserRequest.new(:is_complete => false)
-
     respond_to do |format|
       if @user_request.save
         SuperUsage.all.each do |su|
           su.usages.each do |u|
-            usage_choice = UsageChoice.new(:weight_for_user => 0,
+            usage_choice = UsageChoice.new(:weight_for_user => 50,
                                            :usage_id => u.id,
-                                           :user_request_id => @user_request.id)
+                                           :user_request_id => @user_request.id,
+                                           :is_selected => false)
             usage_choice.save
           end
         end

@@ -19,7 +19,15 @@ class UserRequest < ActiveRecord::Base
   def steps
     %w[selection weights mobilities]
   end
-   
+  
+  #array of [super_usage_id, weight_for_user] 
+  def selected_super_usages
+    #gets all selected super usages
+    result = []
+    usage_choices.where(:is_selected => true).all.each {|uc| result << [Usage.find(uc.usage_id).super_usage_id, uc.weight_for_user]}
+    result.uniq!
+    result
+  end
 
   def update! params
     @super_usage_choices = {}
@@ -75,6 +83,15 @@ class UserRequest < ActiveRecord::Base
   end
 
   def update_weights params
+    params.each do |key, weight_for_user|
+      if key =~ /super_usage_weight_./
+        super_usage_id = key.split('_').last
+        usage_choices_to_update = SuperUsage.find(super_usage_id).usages.collect {|u| usage_choices.where(:usage_id => u.id).first}
+        usage_choices_to_update.each {|uc| uc.update_attributes :weight_for_user => weight_for_user.to_i}
+        # TEMP
+        puts "super_usage : #{super_usage_id}, weight #{weight_for_user}"
+      end
+    end
   end
 
   def submit params

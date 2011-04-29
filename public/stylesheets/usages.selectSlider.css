@@ -13,7 +13,7 @@
 	position:relative;
 	
 	background:none;
-	background-image:url(img/slider-track.png);
+	background-image:url(/images/slider-track.png);
 	background-repeat:repeat-x;
 	background-position:0px 11px;
 }
@@ -32,7 +32,7 @@
 	
 	outline:none;
 	
-	background-image:url(img/slider-thumb.png);
+	background-image:url(/images/slider-thumb.png);
 	background-repeat:no-repeat;
 	background-position:0px 0px;
 }
@@ -55,7 +55,7 @@
 	
 	cursor:pointer;
 	
-	background-image:url(img/slider-step.png);
+	background-image:url(/images/slider-step.png);
 	background-repeat:no-repeat;
 	background-position:top center;
 }
