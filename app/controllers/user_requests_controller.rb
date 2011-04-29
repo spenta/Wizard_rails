@@ -18,12 +18,10 @@ class UserRequestsController < ApplicationController
     respond_to do |format|
       if @user_request.save
         SuperUsage.all.each do |su|
-          su.usages.each do |u|
-            usage_choice = UsageChoice.new(:weight_for_user => 50,
-                                           :usage_id => u.id,
-                                           :user_request_id => @user_request.id,
-                                           :is_selected => false)
-            usage_choice.save
+          if su.name == "Mobilite"
+            create_usage_choices_for su 
+          else
+            create_usage_choices_for su, :with_initial_weight => 50
           end
         end
         format.html { redirect_to edit_user_request_path(@user_request), :notice => 'User request was successfully created.' }
@@ -50,7 +48,13 @@ class UserRequestsController < ApplicationController
       session[:user_request_step]  = @user_request.next_step
       redirect_to edit_user_request_path
     when "mobilities"
-      @user_request.submit params
+      session[:user_response] = @user_request.submit_and_get_response params
+      session[:sort_order] = :spenta_score
+      @user_request.update_attributes(:is_complete => true)
+      respond_to do |format|
+        format.html {redirect_to user_response_user_request_path}
+        format.xml  { head :ok }
+      end
     else
       raise "unknown form state : #{session[:user_request_step]}"
     end
@@ -107,5 +111,15 @@ class UserRequestsController < ApplicationController
     start_index = [options[:start_index].to_i, 0].max
     num_result = [options[:num_result].to_i, 5].max
     result = {:start_index => start_index, :num_result => num_result}
+  end
+
+  def create_usage_choices_for super_usage, options = {:with_initial_weight => 0}
+    super_usage.usages.each do |u|
+      usage_choice = UsageChoice.new(:weight_for_user => options[:with_initial_weight],
+                                     :usage_id => u.id,
+                                     :user_request_id => @user_request.id,
+                                     :is_selected => false)
+      usage_choice.save
+    end
   end
 end

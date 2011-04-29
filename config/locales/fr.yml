@@ -198,3 +198,24 @@ fr:
   #--------------------
   usage_title17: Voir vos films sur votre ordinateur
   usage_description17: A la place d'une TV ou pour les vacances
+
+  #--------------------
+  # Mobility 18
+  #--------------------
+  mobility_title18: Hors de chez vous
+  mobilities_step_question_mobility18: |
+    Utilisez-vous votre PC en <strong>rendez-vous</strong>, <strong>dans le train</strong>, en <strong>vacances</strong> ? 
+ 
+  #--------------------
+  # Mobility 19
+  #--------------------
+  mobility_title19: À la maison 
+  mobilities_step_question_mobility19: |
+    D&eacute;placez-vous beaucoup votre ordinateur <strong>d'une pi&egrave;ce &agrave; l'autre</strong> ? 
+  
+  #--------------------
+  # Mobility 20
+  #--------------------
+  mobility_title20: Dans les tranports
+  mobilities_step_question_mobility20: |
+    <strong>Portez-vous</strong> beaucoup votre ordinateur, en marchant ou dans le bus ?
