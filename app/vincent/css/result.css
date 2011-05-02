@@ -1,0 +1,605 @@
+@charset "UTF-8";
+
+/* ---------------- PALETTE ---------------- */
+
+/*
+Bleu clair = #50A5D7
+Bleu sombre = #036CAA
+Gris pâle = #E5E5E5
+Gris foncé = #666666
+Anthracite = #33332F
+Vert pâle = #D4FCD9
+Vert foncé = #057619
+*/
+
+/* ---------------- COLOR PICKER = mettre les scores dans la bonne couleur ---------------- */
+.colorid0 { color:#8e8e8e; }
+.colorid1 { color:#e93511; }
+.colorid2 { color:#f5880c; }
+.colorid3 { color:#e8aa05; }
+.colorid4 { color:#b1be1f; }
+.colorid5 { color:#5fa53f; }
+.colorid6 { color:#08c383; }
+.colorid7 { color:#08b1b3; }
+.colorid8 { color:#039ae6; }
+.colorid9 { color:#385feb; }
+
+/* Pour des cases colorées */
+.bckgcolorid0 { background-color:#8e8e8e; color:white; }
+.bckgcolorid1 { background-color:#e93511; color:white; }
+.bckgcolorid2 { background-color:#f5880c; color:white; }
+.bckgcolorid3 { background-color:#e8aa05; color:white; }
+.bckgcolorid4 { background-color:#b1be1f; color:white; }
+.bckgcolorid5 { background-color:#5fa53f; color:white; }
+.bckgcolorid6 { background-color:#08c383; color:white; }
+.bckgcolorid7 { background-color:#08b1b3; color:white; }
+.bckgcolorid8 { background-color:#039ae6; color:white; }
+.bckgcolorid9 { background-color:#385feb; color:white; }
+
+/* ---------------- Conteneurs pour la mise en page des sections du haut ---------------- */
+
+#topwrapper {
+	background-color:#50A5D7;
+	margin:0 auto;
+}
+
+#bestpicks {
+	width:960px;
+	margin:0 auto;
+}
+
+/* ---------------- FORMATAGE DES TEXTES PAR DEFAUT ---------------- */
+
+* {
+	font-family:"Arial", Arial, sans-serif;
+	font-size:10px; 	    
+}
+
+/* ---------------- Titre & sous-titres de la page ---------------- */
+
+#toptitle {
+	text-align:center;
+	padding:15px 0;
+	margin-bottom:15px;
+}
+
+#toptitle h1 {
+	font-size:2.8em;
+	color:white;
+	text-shadow:1px 1px 0 #666666;
+}
+
+#toptitle h2 {
+	font-size:1.4em;
+	color:white;
+}
+
+#toptitle strong {
+	font-size:1.2em;
+	font-weight:500;
+	color:white;
+}
+
+/* ---------------- Tableau des 3 PC mis en avant ---------------- */
+/* Intitulé des 3 box */
+.bestpickcolumn h1 {
+	font-size:2.5em;
+	text-shadow:1px 1px 0 #E5E5E5;
+	color:#33332F;
+}
+
+/* Nom des modèles (ce sont aussi des liens vers la fiche technique) */
+.bestpickcolumn h2 {
+	font-size:1.8em;
+	margin-top:8px;
+	text-shadow:1px 1px 0 #E5E5E5;
+	color:#036CAA;
+	text-align:center;
+}
+
+.bestpickcolumn a {
+	text-decoration:none;
+}
+
+.bestpickcolumn strong {
+	font-size:1em;
+	text-shadow:1px 1px 0 #E5E5E5;
+	color:#036CAA;
+	font-weight:bold;	
+}
+
+/* Paragraphes d'explication sur les 3 PC retenus & lien "+ d'informations" */
+
+p.bestpickcolumn {
+	margin:8px 15px;
+	font-size:1.3em;
+	color:#666666;
+	font-style:italic;
+	text-align:justify;
+}
+
+a.more {
+	display:block;
+	margin-right:20px;
+	font-size:1.3em;
+	color:#036CAA;
+	text-align:right;
+	text-decoration:underline;
+}
+
+/* Scoresdes PC mis en avant */
+.scorebox h3 {
+	font-size:5.5em;
+	text-shadow:1px 1px 0 #E5E5E5;
+	text-align:center;
+	margin:-5px 10px 0px 10px;
+}
+
+small {
+	font-size:0.5em;
+}
+
+.scorebox p {
+	font-size:1.35em;
+	color:#33332F;
+	margin:-5px 0px 0px 20px;
+}
+
+/* Prix des PC mis en avant */
+.pricebox h3 {
+	font-size:3.8em;
+	text-shadow:1px 1px 0 #E5E5E5;
+	text-align:center;
+	margin:0px 10px;
+}
+
+.pricebox p {
+	font-size:1.35em;
+	color:#33332F;
+	margin:15px 0px 0px 0px;
+	text-align:center;
+}
+
+/* --- Formatage du tableau --- */
+
+#bestpicktable {
+	margin:0 auto;
+}
+
+/* Arrondis en haut du tableau */
+td.bestpickcolumntop {
+	background-image:url('img/bestpickbox-top.png');
+	width:280px;
+	height:15px;
+}
+
+/* Cases préseantant les PC : Modèle, Image, etc */
+td.bestpickcolumn {
+	background-color:white;
+	width:280px;
+	border-left:1px solid #E5E5E5;
+	border-right:1px solid #E5E5E5;
+	margin:0 10px;
+}
+
+td.bestpickvspacer {
+	width:30px;
+}
+
+.bestpickheader {
+	display:block;
+	margin:0 auto;
+}
+
+.featuredimg {
+	width:260px;
+	height:173px;
+	margin:10px auto;
+}
+
+/* Médailles pour accrocher le regard */
+.medal {
+	float:left;
+	margin:-2px 10px 0px 10px;
+}
+
+/* Cases avec dégradé pour le score et le prix */
+td.scorebox {
+	background-image:url('img/scorebox.png');
+	height:80px;
+	width:140px;
+	border:1px solid #E5E5E5;
+}
+
+td.pricebox {
+	background-image:url('img/scorebox.png');
+	height:80px;
+	width:140px;
+	border:1px solid #E5E5E5;
+}
+
+/* Icône du tooltip */
+.scoretooltipicon {
+	float:right;
+	margin:-17px 10px 0 0;
+}
+
+/* --- Tooltip du Spenta Score --- */
+
+a.scoretooltip {
+	position:relative;
+	text-decoration:none;
+}
+
+a.scoretooltip:hover {
+	background: none;
+	z-index: 1;  
+}
+   
+a.scoretooltip span { 
+	display: none;
+	position:relative;
+}
+
+/* Style du popup lorsqu'il s'affiche */   
+a.scoretooltip:hover span {
+	display: block; 
+	position: absolute;
+	width:300px;
+	top:-20px; 
+	left:10px;
+	background:#D4FCD9;
+	padding: 8px;
+	border: 1px solid #057619;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+}
+
+/* Formatage du texte du tooltip */
+
+.scoretooltip strong {
+	font-size:1.3em;
+	font-weight:bold;
+	color:#33332F;
+	text-align:justify;
+}
+
+.scoretooltip li {
+	font-size:1.3em;
+	color:#33332F;
+	margin:1px 5px;
+	text-align:justify;
+	list-style-type:disc;
+	list-style-position:inside;
+}
+
+/* --- Bouton pour aller sur la fiche produit --- */
+.productbutton {
+	width:188px;
+	height:41px;
+	margin:20px auto;
+	background-image:url('img/productbutton.png');
+}
+
+.productbutton h4 {
+	font-size:2.3em;
+	text-shadow:1px 1px 0 #666666;
+	color:white;
+	position:absolute;
+	margin:9px 0px 0px 15px; 
+}
+
+.productbutton:hover {
+	background-image:url('img/productbutton-hover.png');
+}
+
+/* ---------------- Caractéristiques des 3 PC mis en avant ---------------- */
+/* Positionnement des elements image, carac et score soient sur la même ligne */
+.specsrankimage {
+	float:left;
+	padding:15px 10px 15px 10px;
+}
+
+.specsleft {
+	width:210px;
+	float:left;
+	padding:10px 0;
+}
+
+.specsright {
+	width:70px;
+	float:left;
+}
+
+.specsname {
+	color:#33332F;
+	font-size:1.6em;
+	font-weight:bold;
+	margin:5px 0;
+}
+
+p.specsvalue {
+	color:#666666;
+	font-size:1.3em;
+	font-style:normal;
+	margin:5px 0;
+}
+
+p.specscore {
+	font-size:3em;
+	font-weight:bold;
+	margin:15px 10px 0 0;
+	text-align:right;
+}
+
+/* Lignes horizontales entre les specs */
+
+.bestpickhspacer {
+	background-image:url('img/hspacer.png');
+	height:1px;
+}
+
+/* --- Tooltip des caracteristiques --- */
+
+a.specstooltip {
+	position:relative;
+	text-decoration:none;
+}
+
+a.specstooltip:hover {
+	background: none;
+	z-index: 1;  
+}
+   
+a.specstooltip span { 
+	display: none;
+	position:relative;
+}
+
+/* Style du popup lorsqu'il s'affiche */   
+a.specstooltip:hover span {
+	display: block; 
+	position: absolute;
+	width:180px;
+	top:-10px; 
+	left:-20px;
+	background:#D4FCD9;
+	padding: 8px;
+	border: 1px solid #057619;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+}
+
+/* Formatage du texte du tooltip */
+
+p.specstooltip {
+	font-size:1.2em;
+	color:#33332F;
+	text-align:justify;
+}
+
+/* ---------------- Bouton pour dérouler les caractéristiques ---------------- */
+
+.toggle {
+	background-image:url('img/toggle-background.png');
+	height:28px;
+	text-align:center;
+	border:1px #56DC70 solid;
+	border-bottom-color:#057619;
+}
+
+.toggle:hover {
+	background-image:url('img/toggle-background-hover.png');
+}
+
+.toggle a {
+	font-size:1.7em;
+	color:white;
+	text-decoration:none;
+}
+
+/* ---------------- Conteneurs pour la mise en page des sections du bas ---------------- */
+
+#bottomwrapper {
+	background-color:white;
+	margin:0 auto;
+	padding:25px 0 25px 0;
+}
+
+#extras {
+	width:958px;
+	position:relative;
+	margin:40px auto;
+	border:1px #50A5D7 solid;
+}
+
+/* --- Arrondi en haut du cadre contenant le tableau --- */
+#bottomhead {
+	background-color:white;
+	margin:0 auto;
+	width:960px;
+	display:block;
+}
+
+#bottomhead h1 {
+	font-size:2.5em;
+	color:white;
+	text-shadow:1px 1px 0 #666666;
+	margin-top:8px
+}
+
+.bottomheaderleft {
+	background-image:url('img/bottomheader-left.png');
+	float:left;
+	width:12px;
+	height:40px;
+}
+
+.bottomheader {
+	background-image:url('img/bottomheader.png');
+	width:937px;
+	float:left;
+	height:40px;
+	text-align:center;
+}
+
+.bottomheaderright {
+	background-image:url('img/bottomheader-right.png');
+	float:right;
+	width:12px;
+	height:40px;
+}
+
+/* ---------------- Table des 10 produits supplémentaires ---------------- */
+
+/* Texte d'explications avant le tableau */
+.extrasexplain {
+	margin:20px 30px 0px 30px;
+	color:#33332F;
+	font-size:1.3em;
+	text-align:justify;
+}
+
+.fulllist { 
+	margin:10px 30px 20px 30px;
+	color:#666666;
+	font-size:1.3em;
+	text-align:right;
+	font-style:italic;
+}
+
+.fulllist a {
+	color:#036CAA;
+	font-size:1em;
+	font-style:italic;
+}
+
+/* --- Formatage des cellules de la table --- */
+
+#extras td, #extras th {
+	border-width:2px 1px;
+	border-style:solid;
+	border-color:#E5E5E5;
+}
+
+#extras th {
+	padding:2px 4px 2px 16px;
+}
+
+#extras td {
+	padding:4px 4px;
+}
+
+/* Pas de bordures sur les infos produit et les en-têtes associés */
+#extras td.thumb { border-right-width:0px; }
+#extras td.infos { 
+	border-right-width:0px;
+	border-left-width:0px; 
+	text-align:left;
+}
+#extras td.price { border-left-width:0px; }
+
+#extras .empty { 
+	border-right-width:0px;
+	border-left-width:0px;
+}
+
+/* --- En-têtes --- */
+tr.headers {
+	background-image:url('img/table-header-bckg.gif');
+	height:39px;
+}
+
+#extras .header {
+	background-image:url('img/small.gif');
+	background-repeat:no-repeat;
+	background-position:left;
+	text-align:center;
+	font-size:1.2em;
+	text-shadow:1px 1px 0 #E5E5E5;
+}
+
+#extras .headerSortDown {
+	background-image:url('img/small_asc.gif');
+	background-repeat:no-repeat;
+	background-position:left;
+	background-color:#999999;
+	text-shadow:1px 1px 0 #777777;
+}
+
+#extras .headerSortUp {
+	background-image:url('img/small_desc.gif');
+	background-repeat:no-repeat;
+	background-position:left;
+	background-color:#999999;
+	text-shadow:1px 1px 0 #777777;
+}
+
+/* --- Rangées --- */
+
+#extras td { 
+	height:61px; 
+	text-align:center;
+	font-size:3em;
+	font-weight:bold;
+}
+
+#extras .thumb {
+	width:90px;
+	height:60px;
+	padding:0;
+}
+
+.brand {
+	color:#33332F;
+	font-size:1.3em;
+	text-transform:uppercase;
+}
+
+.name {
+	font-size:1.3em;
+	color:#666666;
+	overflow:hidden;
+	font-weight:normal;
+}
+
+a.nounderline {
+	text-decoration:none;
+}
+
+.price {
+	color:#33332F;
+	font-size:2em;
+}
+
+.more {
+	color:#036CAA;
+	font-size:1.1em;
+	text-align:right;
+	text-decoration:underline;
+}
+
+.specvalue {
+	font-weight:normal;
+	text-shadow:none;
+}
+
+.textshading {
+	text-shadow:1px 1px 0 #E5E5E5;
+}
+
+.textshadingdark {
+	text-shadow:1px 1px 0 #666666;
+}
+
+/* Inversion de couleur texte/fond au survol du rang */
+#extras tr.product:hover td.colorid0 { background-color:#8e8e8e; color:white; text-shadow:1px 1px 0 #666666 }
+#extras tr.product:hover td.colorid1 { background-color:#e93511; color:white; text-shadow:1px 1px 0 #666666 }
+#extras tr.product:hover td.colorid2 { background-color:#f5880c; color:white; text-shadow:1px 1px 0 #666666 }
+#extras tr.product:hover td.colorid3 { background-color:#e8aa05; color:white; text-shadow:1px 1px 0 #666666 }
+#extras tr.product:hover td.colorid4 { background-color:#b1be1f; color:white; text-shadow:1px 1px 0 #666666 }
+#extras tr.product:hover td.colorid5 { background-color:#5fa53f; color:white; text-shadow:1px 1px 0 #666666 }
+#extras tr.product:hover td.colorid6 { background-color:#08c383; color:white; text-shadow:1px 1px 0 #666666 }
+#extras tr.product:hover td.colorid7 { background-color:#08b1b3; color:white; text-shadow:1px 1px 0 #666666 }
+#extras tr.product:hover td.colorid8 { background-color:#039ae6; color:white; text-shadow:1px 1px 0 #666666 }
+#extras tr.product:hover td.colorid9 { background-color:#385feb; color:white; text-shadow:1px 1px 0 #666666 }
