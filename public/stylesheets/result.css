@@ -1,681 +1,605 @@
+@charset "UTF-8";
 
-/*----------------------------------------------------------------
-	RESULT
-------------------------------------------------------------------*/
+/* ---------------- PALETTE ---------------- */
 
-#biglist {
-	clear:both;
-	padding-top:15px;
-	background:transparent; }
+/*
+Bleu clair = #50A5D7
+Bleu sombre = #036CAA
+Gris pâle = #E5E5E5
+Gris foncé = #666666
+Anthracite = #33332F
+Vert pâle = #D4FCD9
+Vert foncé = #057619
+*/
 
-/*--------------------------------
-	STEP TITLE
-----------------------------------*/
+/* ---------------- COLOR PICKER = mettre les scores dans la bonne couleur ---------------- */
+.colorid0 { color:#8e8e8e; }
+.colorid1 { color:#e93511; }
+.colorid2 { color:#f5880c; }
+.colorid3 { color:#e8aa05; }
+.colorid4 { color:#b1be1f; }
+.colorid5 { color:#5fa53f; }
+.colorid6 { color:#08c383; }
+.colorid7 { color:#08b1b3; }
+.colorid8 { color:#039ae6; }
+.colorid9 { color:#385feb; }
 
-.steptitle {
-	padding:10px; }
-	table td.steptitle {
-		vertical-align:top; }
+/* Pour des cases colorées */
+.bckgcolorid0 { background-color:#8e8e8e; color:white; }
+.bckgcolorid1 { background-color:#e93511; color:white; }
+.bckgcolorid2 { background-color:#f5880c; color:white; }
+.bckgcolorid3 { background-color:#e8aa05; color:white; }
+.bckgcolorid4 { background-color:#b1be1f; color:white; }
+.bckgcolorid5 { background-color:#5fa53f; color:white; }
+.bckgcolorid6 { background-color:#08c383; color:white; }
+.bckgcolorid7 { background-color:#08b1b3; color:white; }
+.bckgcolorid8 { background-color:#039ae6; color:white; }
+.bckgcolorid9 { background-color:#385feb; color:white; }
 
-.steptitle h2 {
-	color:#1a1a1a;
-	font-size:1.5em;
-	padding-left:22px;
-	background-repeat:no-repeat;
-	background-position:center left; }
-	.steptitle.step1 h2 {
-		background-image:url('img/results/title-bullet-1.png'); }
-	.steptitle.step2 h2 {
-		background-image:url('img/results/title-bullet-2.png'); }
-	.steptitle.step3 h2 {
-		background-image:url('img/results/title-bullet-3.png'); }
+/* ---------------- Conteneurs pour la mise en page des sections du haut ---------------- */
 
-.steptitle p {
-	color:#666666;
-	font-size:1.0em;
-	padding-left:22px;
+#topwrapper {
+	background-color:#50A5D7;
+	margin:0 auto;
 }
 
-/*--------------------------------
-	TOOGLE
-----------------------------------*/
+#bestpicks {
+	width:960px;
+	margin:0 auto;
+}
 
-.toggle a 
-{
-	width:165px;
-	height:20px;
-	display:inline-block;
-	
-	color:#fff;
-	font-size:0.9em;
-	font-weight:bold;
+/* ---------------- FORMATAGE DES TEXTES PAR DEFAUT ---------------- */
+
+* {
+	font-family:"Arial", Arial, sans-serif;
+	font-size:10px; 	    
+}
+
+/* ---------------- Titre & sous-titres de la page ---------------- */
+
+#toptitle {
 	text-align:center;
-	text-decoration:none;
-	position:relative;
-	
-	padding:6px 24px 3px 3px;
-	
-	background-image:url('img/results/toggle.png');
-	background-repeat:no-repeat;
-	background-position:top left; }
-	#summary td.toggle a:hover {
-		background-position:0px -29px; }
-	
-.toggle .on .icon,
-.toggle .off .icon 
-{
-	width:14px;
-	height:8px;
-	display:inline-block;
-	margin:-3px 0 0 0; padding:0;
-	top:50%; right:8px;
-	position:absolute;
-	
-	background-image:url('img/results/toggle-icons.png');
-	background-repeat:no-repeat;
-	background-position:0 0; }
-	.toggle .on .icon { background-position:0 -8px; }
-	.toggle .off .icon { background-position:0 0; }
-	
-.footerText {
-	padding:0px 15px;
-} 
-
-/*--------------------------------
-	MISE EN PAGE DES CELLULES
-----------------------------------*/
-
-/* couleur des fiches */
-td.thumb, 
-td.infos, 
-td.price,
-td.label,
-td.empty {
-	background:white;
+	padding:15px 0;
+	margin-bottom:15px;
 }
 
-/* miniature */
-td.thumb {
-	text-align:center;
-	vertical-align:center;
-	/*Hauteur par défaut des images de produits, pour ne pas saccager lorsqu'il manque un thumb - VP*/
-	height:80px;
-}
-
-/* informations */
-td.infos a {
-	color:#000;
-	text-decoration:none; }
-	td.infos a:hover { 
-		text-decoration:underline; }
-
-td.infos .brand {
-	display:block;
-	font-weight:bold;
-	font-size:12px;
-	text-transform:uppercase; }
-
-/* Pour contrôler la hauteur de ce rang, on peut utiliser	overflow:hidden; et spécifier une height*/
-
-td.infos .name {
-	display:block;
-	font-size:12px;
-	color:#4c4c4c;
-	width:120px;
-	height:14px;
-	overflow:hidden; }
-
-/* prix */
-td.price {
-	font-weight:bold;
-	text-align:right;
-	font-size:1.2em; }
-	td.price a.buy {
-		display:block;
-		font-size:0.7em; }
-
-/* score */
-td.score {
+#toptitle h1 {
 	font-size:2.8em;
-	font-weight:bold;
-	text-align:center; }
-	td.score small { 
-		font-size:0.5em; 
-		font-weight:normal; }
-
-/* specification */
-td.spec {
-	font-size:2em;
-	font-weight:bold;
-	text-align:center; }
-	td.spec small { 
-		font-size:0.5em; }
-    td.spec .sub {
-        display:block;
-        font-size:0.4em;
-        width:120px;
-        height:12px;
-        overflow:hidden;
-        font-weight:normal;
-        color:inherit; }
-    td.spec .completeSub {
-        display:block;
-        font-size:0.4em;
-        font-weight:normal;
-        color:inherit; }
-
-/*----------------------------------------------------------------
-	SUMMARY
-------------------------------------------------------------------*/
-
-/* Separateur vertical */
-#summary td.vspacer {
-	padding:15px;
+	color:white;
+	text-shadow:1px 1px 0 #666666;
 }
 
-/* Couleur des bordures dans les mini fiches de la s�lection*/
-#summary td.thumb,
-#summary td.infos,
-#summary td.price {
-	border-top-color:white;
-	border-bottom-color:white;
-	border-right-color:#EFEFEC;
+#toptitle h2 {
+	font-size:1.4em;
+	color:white;
 }
 
-
-#summary td.infos {
-	vertical-align:top;
-	min-height: 30px;
-}
-
-/* Bordures */
-#summary td, #summary th {
-	border-color:#EFEFEC;
-	border-width:1px;
-	border-style:solid; }
-	
-	/* couleurs */
-	#summary td.intro,
-	#summary tr.score th,
-	#summary tr.spec th,
-	#summary th.empty,
-	#summary th.target,
-	#summary td.toggle {
-		border-color:#EFEFEC;
-		background-color:#EFEFEC; }
-		#summary td.target {
-			border-color:#EFEFEC; }
-		#summary td.product,
-		#summary td.target {
-			border-left-width:2px;
-			border-right-width:2px;
-}
-
-/* Separateurs horizontaux */
-#summary tr.score td,
-#summary tr.score th,
-#summary tr.spec.last td,
-#summary tr.spec.last th {
-	 border-bottom-width:10px; }
-
-#summary td.price .icon {
-	display:inline-block;
-	width:19px;
-	height:31px;
-	float:left;
-	background-image:url(img/results/medal-gold.png);
-}
-
-/*--------------------------------
-	INTRO
-----------------------------------*/
-
-#summary td.intro {
-	padding:15px;
-	text-align:justify;
-	vertical-align:top;
-
-}
-
-#summary td.intro h3 {
-	font-size:1.1em;
-	text-shadow: 0px 1px 1px white;
-	margin:0px 0px 5px 0px;
-}
-
-#summary td.intro p {
-	margin:0px 0px 5px 0px;
-}
-
-/*--------------------------------
-	HEADERS
-----------------------------------*/
-
-/* Header vides */
-#summary th.empty,
-#summary th.target {
-	font-size:0.9em;
-	font-weight:bold;
-	text-align:center;
-	text-transform:uppercase;
-	vertical-align:bottom;
-	padding-bottom:3px;
-}
-
-/* Headers pleins */
-#summary tr.score th,
-#summary tr.spec th {
-	color:#4B4B4B; /*Texte des en-t�tes � gauche de la s�lection */
-	text-shadow:0px 1px 1px white;
-	font-size:1.3em;
-	text-align: left;
-	text-transform:uppercase;
-	font-weight:bold;
-	padding:5px 15px;
-	background:#E4E4E4;
-	/*background-image:url('img/results/summary-table-header-bg.gif');*/
-	background-position:top 0px;
-	background-repeat:repeat-y; }
-	#summary tr.spec th {
-		font-size:1.2em;
-		background-position:top 40px; }
-		
-		
-/* Hotfix pour la largeur des tables dans IE. Il est probable que ça pourrisse les tables en basse res. */		
-#summary tr.score th {
-	min-width:277px; }
-
-/*--------------------------------
-	PRODUITS
-----------------------------------*/
-
-/* masque les valeurs des specs */
-/* #summary td.product.spec .sub { display:none; } */
-
-/* taille des colonnes */
-#summary td.target,
-#summary td.product {
-	width:120px;
-	padding:5px 10px; }
-
-/*--------------------------------
-	TOGGLE (details)
-----------------------------------*/
-
-#summary .toggle
-{
-	text-align:right;
-	vertical-align:top;
-	padding-top:5px;
-	padding-right:6px;
-	padding-bottom:6px;
-}
-
-/*----------------------------------------------------------------
-	SUMMARY NAV
-------------------------------------------------------------------*/
-
-#summary .nav 
-{ 
-	padding-top:10px;
-	margin-top:-42px;
-	position:relative;
-	
-	background-image:url(img/results/nav-track.png);
-	background-position:center 10px;
-	background-repeat:no-repeat; 
-}
-
-/*--------------------------------
-	ARROW (prev/next)
-----------------------------------*/
-
-#summary .nav .arrow 
-{
-	padding-top:35px;
-	position:absolute;
-	
-	outline:none;
-	
-	color:#0974ab;
-	font-size:0.8em;
-	font-weight:bold; }
-	#summary .nav a.arrow.prev { left:20px; }
-	#summary .nav a.arrow.next { right:50px; }
-
-#summary .nav .arrow .icon 
-{
-	top:0px;
-	position:absolute;
-	
-	width:27px;
-	height:30px;
-	display:block;
-	
-	cursor:pointer;
-	
-	background-image:url(img/results/nav-arrows.png);
-	background-position:0px 0px;
-	background-repeat:no-repeat; }
-	#summary .nav .arrow.prev .icon  { background-position:0 0; }
-	#summary .nav .arrow.prev:hover .icon { background-position:0 -30px; }
-	#summary .nav .arrow.next .icon  { background-position:-27px 0; }
-	#summary .nav .arrow.next:hover .icon { background-position:-27px -30px; }
-
-/*--------------------------------
-	SCROLLBAR
-----------------------------------*/
-
-#summary .nav .scrollbar {
-	position:relative;
-	width:300px;
-	display:block;
-	margin:auto;
-}
-
-/*--------------------------------
-	SCROLLBAR > TRACK
-----------------------------------*/
-
-#summary .nav .track 
-{
-	top:0px;
-	position:absolute;
-	margin:0; padding:0;
-	
-	width:300px;
-	height:30px;
-	display:block;
-	
-	cursor:pointer;
-}
-
-#summary .nav .track .content
-{ 
-	padding:0;
-	margin:4px auto;
-	
-	width:300px;
-	height:20px;
-	display:block;
-}
-
-/*--------------------------------
-	SCROLLBAR > THUMB
-----------------------------------*/
-
-#summary .nav .thumb 
-{
-	right:0px;
-	bottom:0px;
-	position:relative;
-	
-	width:36px;
-	height:30px;
-	display:block;
-	
-	cursor:pointer;
-}
-
-/* composantes du thumb */
-#summary .nav .thumb .left,
-#summary .nav .thumb .right,
-#summary .nav .thumb .center 
-{
-	top:0px;
-	position:absolute;
-	margin:0; padding:0;
-	
-	width:12px;
-	height:30px;
-	display:inline-block; }
-	#summary .nav .thumb .left {
-		left:0px; 
-		margin-left:-8px;
-		background-image:url(img/results/nav-thumb-left.png);
-		background-position:top right;
-		background-repeat:no-repeat; }
-	#summary .nav .thumb .right {
-		right:0px; 
-		margin-right:-8px;
-		background-image:url(img/results/nav-thumb-right.png);
-		background-position:top left;
-		background-repeat:no-repeat; }
-	#summary .nav .thumb .center {
-		left:4px;
-		right:4px;
-		background-image:url(img/results/nav-thumb-center.png);
-		background-position:top left;
-		background-repeat:repeat-x; }
-
-/*--------------------------------
-	SCROLLBAR > MIN/MID/MAX
-----------------------------------*/
-
-/* min et max */
-#summary .nav .scrollbar .min,
-#summary .nav .scrollbar .max 
-{ 
-	top:19px;
-	position:absolute;
-	padding-top:15px;
-	
+#toptitle strong {
 	font-size:1.2em;
-	line-height:0.9em;
-	
-	background-image:url(img/results/pointer-up.gif);
-	background-position:top center;
-	background-repeat:no-repeat; }
-	#summary .nav .scrollbar .min { left:5px; text-align:left; background-position:top left; }
-	#summary .nav .scrollbar .max { right:5px; text-align:right; background-position:top right; }
+	font-weight:500;
+	color:white;
+}
 
-	#summary .nav .scrollbar .min span,
-	#summary .nav .scrollbar .max span { 
-		color:#666; 
-		font-size:0.6em;
-		text-transform:uppercase; }
+/* ---------------- Tableau des 3 PC mis en avant ---------------- */
+/* Intitulé des 3 box */
+.bestpickcolumn h1 {
+	font-size:2.5em;
+	text-shadow:1px 1px 0 #E5E5E5;
+	color:#33332F;
+}
 
-/* mid */
-#summary .nav .scrollbar .mid 
-{
-	bottom:6px;
-	position:absolute;
-	padding-bottom:5px;
-	
-	display:block;
-	
-	color:#fff;
-	font-weight:bold;
+/* Nom des modèles (ce sont aussi des liens vers la fiche technique) */
+.bestpickcolumn h2 {
+	font-size:1.8em;
+	margin-top:8px;
+	text-shadow:1px 1px 0 #E5E5E5;
+	color:#036CAA;
 	text-align:center;
-	
-	background-image:url(img/results/pointer-up.gif);
-	background-position:bottom center;
-	background-repeat:no-repeat; }
+}
 
+.bestpickcolumn a {
+	text-decoration:none;
+}
 
-/*----------------------------------------------------------------
-	BIGLIST
-------------------------------------------------------------------*/
+.bestpickcolumn strong {
+	font-size:1em;
+	text-shadow:1px 1px 0 #E5E5E5;
+	color:#036CAA;
+	font-weight:bold;	
+}
 
-/* bordures */
-#biglist td, 
-#biglist th 
-{
-	padding:2px 2px;
+/* Paragraphes d'explication sur les 3 PC retenus & lien "+ d'informations" */
+
+p.bestpickcolumn {
+	margin:8px 15px;
+	font-size:1.3em;
+	color:#666666;
+	font-style:italic;
+	text-align:justify;
+}
+
+a.more {
+	display:block;
+	margin-right:20px;
+	font-size:1.3em;
+	color:#036CAA;
+	text-align:right;
+	text-decoration:underline;
+}
+
+/* Scoresdes PC mis en avant */
+.scorebox h3 {
+	font-size:5.5em;
+	text-shadow:1px 1px 0 #E5E5E5;
+	text-align:center;
+	margin:-5px 10px 0px 10px;
+}
+
+small {
+	font-size:0.5em;
+}
+
+.scorebox p {
+	font-size:1.35em;
+	color:#33332F;
+	margin:-5px 0px 0px 20px;
+}
+
+/* Prix des PC mis en avant */
+.pricebox h3 {
+	font-size:3.8em;
+	text-shadow:1px 1px 0 #E5E5E5;
+	text-align:center;
+	margin:0px 10px;
+}
+
+.pricebox p {
+	font-size:1.35em;
+	color:#33332F;
+	margin:15px 0px 0px 0px;
+	text-align:center;
+}
+
+/* --- Formatage du tableau --- */
+
+#bestpicktable {
+	margin:0 auto;
+}
+
+/* Arrondis en haut du tableau */
+td.bestpickcolumntop {
+	background-image:url('/images/results/bestpickbox-top.png');
+	width:280px;
+	height:15px;
+}
+
+/* Cases préseantant les PC : Modèle, Image, etc */
+td.bestpickcolumn {
+	background-color:white;
+	width:280px;
+	border-left:1px solid #E5E5E5;
+	border-right:1px solid #E5E5E5;
+	margin:0 10px;
+}
+
+td.bestpickvspacer {
+	width:30px;
+}
+
+.bestpickheader {
+	display:block;
+	margin:0 auto;
+}
+
+.featured/images/results {
+	width:260px;
+	height:173px;
+	margin:10px auto;
+}
+
+/* Médailles pour accrocher le regard */
+.medal {
+	float:left;
+	margin:-2px 10px 0px 10px;
+}
+
+/* Cases avec dégradé pour le score et le prix */
+td.scorebox {
+	background-image:url('/images/results/scorebox.png');
+	height:80px;
+	width:140px;
+	border:1px solid #E5E5E5;
+}
+
+td.pricebox {
+	background-image:url('/images/results/scorebox.png');
+	height:80px;
+	width:140px;
+	border:1px solid #E5E5E5;
+}
+
+/* Icône du tooltip */
+.scoretooltipicon {
+	float:right;
+	margin:-17px 10px 0 0;
+}
+
+/* --- Tooltip du Spenta Score --- */
+
+a.scoretooltip {
+	position:relative;
+	text-decoration:none;
+}
+
+a.scoretooltip:hover {
+	background: none;
+	z-index: 1;  
+}
+   
+a.scoretooltip span { 
+	display: none;
+	position:relative;
+}
+
+/* Style du popup lorsqu'il s'affiche */   
+a.scoretooltip:hover span {
+	display: block; 
+	position: absolute;
+	width:300px;
+	top:-20px; 
+	left:10px;
+	background:#D4FCD9;
+	padding: 8px;
+	border: 1px solid #057619;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+}
+
+/* Formatage du texte du tooltip */
+
+.scoretooltip strong {
+	font-size:1.3em;
+	font-weight:bold;
+	color:#33332F;
+	text-align:justify;
+}
+
+.scoretooltip li {
+	font-size:1.3em;
+	color:#33332F;
+	margin:1px 5px;
+	text-align:justify;
+	list-style-type:disc;
+	list-style-position:inside;
+}
+
+/* --- Bouton pour aller sur la fiche produit --- */
+.productbutton {
+	width:188px;
+	height:41px;
+	margin:20px auto;
+	background-image:url('/images/results/productbutton.png');
+}
+
+.productbutton h4 {
+	font-size:2.3em;
+	text-shadow:1px 1px 0 #666666;
+	color:white;
+	position:absolute;
+	margin:9px 0px 0px 15px; 
+}
+
+.productbutton:hover {
+	background-image:url('/images/results/productbutton-hover.png');
+}
+
+/* ---------------- Caractéristiques des 3 PC mis en avant ---------------- */
+/* Positionnement des elements image, carac et score soient sur la même ligne */
+.specsrankimage {
+	float:left;
+	padding:15px 10px 15px 10px;
+}
+
+.specsleft {
+	width:210px;
+	float:left;
+	padding:10px 0;
+}
+
+.specsright {
+	width:70px;
+	float:left;
+}
+
+.specsname {
+	color:#33332F;
+	font-size:1.6em;
+	font-weight:bold;
+	margin:5px 0;
+}
+
+p.specsvalue {
+	color:#666666;
+	font-size:1.3em;
+	font-style:normal;
+	margin:5px 0;
+}
+
+p.specscore {
+	font-size:3em;
+	font-weight:bold;
+	margin:15px 10px 0 0;
+	text-align:right;
+}
+
+/* Lignes horizontales entre les specs */
+
+.bestpickhspacer {
+	background-image:url('/images/results/hspacer.png');
+	height:1px;
+}
+
+/* --- Tooltip des caracteristiques --- */
+
+a.specstooltip {
+	position:relative;
+	text-decoration:none;
+}
+
+a.specstooltip:hover {
+	background: none;
+	z-index: 1;  
+}
+   
+a.specstooltip span { 
+	display: none;
+	position:relative;
+}
+
+/* Style du popup lorsqu'il s'affiche */   
+a.specstooltip:hover span {
+	display: block; 
+	position: absolute;
+	width:180px;
+	top:-10px; 
+	left:-20px;
+	background:#D4FCD9;
+	padding: 8px;
+	border: 1px solid #057619;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+}
+
+/* Formatage du texte du tooltip */
+
+p.specstooltip {
+	font-size:1.2em;
+	color:#33332F;
+	text-align:justify;
+}
+
+/* ---------------- Bouton pour dérouler les caractéristiques ---------------- */
+
+.toggle {
+	background-image:url('/images/results/toggle-background.png');
+	height:28px;
+	text-align:center;
+	border:1px #56DC70 solid;
+	border-bottom-color:#057619;
+}
+
+.toggle:hover {
+	background-image:url('/images/results/toggle-background-hover.png');
+}
+
+.toggle a {
+	font-size:1.7em;
+	color:white;
+	text-decoration:none;
+}
+
+/* ---------------- Conteneurs pour la mise en page des sections du bas ---------------- */
+
+#bottomwrapper {
+	background-color:white;
+	margin:0 auto;
+	padding:25px 0 25px 0;
+}
+
+#extras {
+	width:958px;
+	position:relative;
+	margin:40px auto;
+	border:1px #50A5D7 solid;
+}
+
+/* --- Arrondi en haut du cadre contenant le tableau --- */
+#bottomhead {
+	background-color:white;
+	margin:0 auto;
+	width:960px;
+	display:block;
+}
+
+#bottomhead h1 {
+	font-size:2.5em;
+	color:white;
+	text-shadow:1px 1px 0 #666666;
+	margin-top:8px
+}
+
+.bottomheaderleft {
+	background-image:url('/images/results/bottomheader-left.png');
+	float:left;
+	width:12px;
+	height:40px;
+}
+
+.bottomheader {
+	background-image:url('/images/results/bottomheader.png');
+	width:937px;
+	float:left;
+	height:40px;
+	text-align:center;
+}
+
+.bottomheaderright {
+	background-image:url('/images/results/bottomheader-right.png');
+	float:right;
+	width:12px;
+	height:40px;
+}
+
+/* ---------------- Table des 10 produits supplémentaires ---------------- */
+
+/* Texte d'explications avant le tableau */
+.extrasexplain {
+	margin:20px 30px 0px 30px;
+	color:#33332F;
+	font-size:1.3em;
+	text-align:justify;
+}
+
+.fulllist { 
+	margin:10px 30px 20px 30px;
+	color:#666666;
+	font-size:1.3em;
+	text-align:right;
+	font-style:italic;
+}
+
+.fulllist a {
+	color:#036CAA;
+	font-size:1em;
+	font-style:italic;
+}
+
+/* --- Formatage des cellules de la table --- */
+
+#extras td, #extras th {
 	border-width:2px 1px;
 	border-style:solid;
-	
-	/*Mettre la bordure de la couleur du fond*/
-	border-color:#efefec; 
+	border-color:#E5E5E5;
 }
 
-/* pas de bordures entre la miniature et les infos */
-#biglist td.thumb { border-right-width:0; }
-#biglist td.infos { border-left-width:0; }
-
-/*--------------------------------
-	TOGGLE
-----------------------------------*/
-
-#biglist .toggle
-{
-	margin-top:10px;
+#extras th {
+	padding:2px 4px 2px 16px;
 }
 
-/*--------------------------------
-	TARGET
-----------------------------------*/
+#extras td {
+	padding:4px 4px;
+}
 
-#biglist tr.target td.infos
-{
-	padding-left:45px;
+/* Pas de bordures sur les infos produit et les en-têtes associés */
+#extras td.thumb { border-right-width:0px; }
+#extras td.infos { 
+	border-right-width:0px;
+	border-left-width:0px; 
+	text-align:left;
+}
+#extras td.price { border-left-width:0px; }
+
+#extras .empty { 
+	border-right-width:0px;
+	border-left-width:0px;
+}
+
+/* --- En-têtes --- */
+tr.headers {
+	background-image:url('/images/results/table-header-bckg.gif');
+	height:39px;
+}
+
+#extras .header {
+	background-image:url('/images/results/small.gif');
+	background-repeat:no-repeat;
+	background-position:left;
 	text-align:center;
+	font-size:1.2em;
+	text-shadow:1px 1px 0 #E5E5E5;
+}
+
+#extras .headerSortDown {
+	background-image:url('/images/results/small_asc.gif');
+	background-repeat:no-repeat;
+	background-position:left;
+	background-color:#999999;
+	text-shadow:1px 1px 0 #777777;
+}
+
+#extras .headerSortUp {
+	background-image:url('/images/results/small_desc.gif');
+	background-repeat:no-repeat;
+	background-position:left;
+	background-color:#999999;
+	text-shadow:1px 1px 0 #777777;
+}
+
+/* --- Rangées --- */
+
+#extras td { 
+	height:61px; 
+	text-align:center;
+	font-size:3em;
 	font-weight:bold;
-	font-size:0.8em;
+}
+
+#extras .thumb {
+	width:90px;
+	height:60px;
+	padding:0;
+}
+
+.brand {
+	color:#33332F;
+	font-size:1.3em;
 	text-transform:uppercase;
-	background-image:url(img/results/target.png);  
-    background-repeat:no-repeat; 
-    background-position:5px center;
 }
 
-/*--------------------------------
-	HEADERS
-----------------------------------*/
-
-#biglist tr.header th {
-	padding:3px 16px 3px 3px; }
-	#biglist tr.header.repeated th { padding-right:10px; }
-	
-#biglist .headerText {
-	font-size:0.8em;
-    font-weight:bold;
-    text-align:center;
-    margin:0px;
-    max-height:30px;
-    overflow:hidden;
+.name {
+	font-size:1.3em;
+	color:#666666;
+	overflow:hidden;
+	font-weight:normal;
 }
 
-#biglist tr.header 
-{
-    background-image:url(img/results/list-table-header-bg.gif);  
-    background-repeat:repeat-x; 
-    background-position:bottom left; 
+a.nounderline {
+	text-decoration:none;
 }
 
-/* classe générées par le plugin jquery */
-th.header 
-{
-	cursor:pointer;
-	background-image: url(img/bg.gif);
-	background-repeat:no-repeat; 
-	background-position:center right; 
-} 
-th.headerSortUp, 
-th.headerSortDown 
-{ 
-	background-color:#b2b2b2; 
-}
-	th.headerSortUp {
-		background-image:url(img/asc.gif); } 
-	th.headerSortDown { 
-		background-image:url(img/desc.gif); } 
-
-/*--------------------------------
-	HEADERS
-----------------------------------*/
-
-#biglist tr.product td.label { text-align:center; }
-#biglist tr.product.star td.label .icon,
-#biglist tr.product.gooddeal td.label .icon {
-	display:inline-block;
-	width:19px;
-	height:31px;
-	cursor:help;
-	padding:0; margin:0;
-    background-repeat:no-repeat; 
-    background-position:top left; }
-	#biglist tr.product.gooddeal td.label .icon {
-		background-image:url(img/results/medal-silver.png); }
-	#biglist tr.product.star td.label .icon {
-		background-image:url(img/results/medal-gold.png); }
-
-
-#biglist th.label .icon {
-	display:inline-block;
-	width:17px;
-	height:27px;
-	background-image:url(img/results/medal-header.png);
+.price {
+	color:#33332F;
+	font-size:2em;
 }
 
-
-/*----------------------------------------------------------------
-	COLOR ID
-------------------------------------------------------------------*/
-
-/*--------------------------------
-	GENERAL
-----------------------------------*/
-
-/* Pour le score des PC de la s�lection */
-
-.colorid0 { background-color:#8e8e8e; color:#ffffff; }
-.colorid1 { background-color:#e93511; color:#ffffff; }
-.colorid2 { background-color:#f5880c; color:#ffffff; }
-.colorid3 { background-color:#e8aa05; color:#ffffff; }
-.colorid4 { background-color:#b1be1f; color:#ffffff; }
-.colorid5 { background-color:#5fa53f; color:#ffffff; }
-.colorid6 { background-color:#08c383; color:#ffffff; }
-.colorid7 { background-color:#08b1b3; color:#ffffff; }
-.colorid8 { background-color:#039ae6; color:#ffffff; }
-.colorid9 { background-color:#385feb; color:#ffffff; }
-
-/* Pour les caract�ristiques techniques de la s�lection*/
-.selectionSpecs.colorid0 { background-color:white; color:#8e8e8e; }
-.selectionSpecs.colorid1 { background-color:white; color:#e93511; }
-.selectionSpecs.colorid2 { background-color:white; color:#f5880c; }
-.selectionSpecs.colorid3 { background-color:white; color:#e8aa05; }
-.selectionSpecs.colorid4 { background-color:white; color:#b1be1f; }
-.selectionSpecs.colorid5 { background-color:white; color:#5fa53f; }
-.selectionSpecs.colorid6 { background-color:white; color:#08c383; }
-.selectionSpecs.colorid7 { background-color:white; color:#08b1b3; }
-.selectionSpecs.colorid8 { background-color:white; color:#039ae6; }
-.selectionSpecs.colorid9 { background-color:white; color:#385feb; }
-
-/*--------------------------------
-	LISTE
-----------------------------------*/
-
-/* La border de target doit �tre mise dans la couleur du fond (recouvre le haut des colonnes) */
-#biglist tr.target {
- border-bottom:2px solid #efefec;
+.more {
+	color:#036CAA;
+	font-size:1.1em;
+	text-align:right;
+	text-decoration:underline;
 }
 
-/* pour les specs la couleur est sur le texte */
-#biglist td.spec { background-color:white; }
-#biglist td.spec .sub { color:#444; }
+.specvalue {
+	font-weight:normal;
+	text-shadow:none;
+}
 
-/* pour les specs la couleur est sur le texte */
-#biglist td.spec.colorid0 { color:#8e8e8e; }
-#biglist td.spec.colorid1 { color:#e93511; }
-#biglist td.spec.colorid2 { color:#f5880c; }
-#biglist td.spec.colorid3 { color:#e8aa05; }
-#biglist td.spec.colorid4 { color:#b1be1f; }
-#biglist td.spec.colorid5 { color:#5fa53f; }
-#biglist td.spec.colorid6 { color:#08c383; }
-#biglist td.spec.colorid7 { color:#08b1b3; }
-#biglist td.spec.colorid8 { color:#039ae6; }
-#biglist td.spec.colorid9 { color:#385feb; }
+.textshading {
+	text-shadow:1px 1px 0 #E5E5E5;
+}
 
-/* et au roll over les couleurs changent */
-#biglist tr.product:hover td.spec.colorid0 { background-color:#8e8e8e; color:#ffffff; }
-#biglist tr.product:hover td.spec.colorid1 { background-color:#e93511; color:#ffffff; }
-#biglist tr.product:hover td.spec.colorid2 { background-color:#f5880c; color:#ffffff; }
-#biglist tr.product:hover td.spec.colorid3 { background-color:#e8aa05; color:#ffffff; }
-#biglist tr.product:hover td.spec.colorid4 { background-color:#b1be1f; color:#ffffff; }
-#biglist tr.product:hover td.spec.colorid5 { background-color:#5fa53f; color:#ffffff; }
-#biglist tr.product:hover td.spec.colorid6 { background-color:#08c383; color:#ffffff; }
-#biglist tr.product:hover td.spec.colorid7 { background-color:#08b1b3; color:#ffffff; }
-#biglist tr.product:hover td.spec.colorid8 { background-color:#039ae6; color:#ffffff; }
-#biglist tr.product:hover td.spec.colorid9 { background-color:#385feb; color:#ffffff; }
+.textshadingdark {
+	text-shadow:1px 1px 0 #666666;
+}
 
-#biglist tr.product:hover td.spec .sub { color:#eee; }
+/* Inversion de couleur texte/fond au survol du rang */
+#extras tr.product:hover td.colorid0 { background-color:#8e8e8e; color:white; text-shadow:1px 1px 0 #666666 }
+#extras tr.product:hover td.colorid1 { background-color:#e93511; color:white; text-shadow:1px 1px 0 #666666 }
+#extras tr.product:hover td.colorid2 { background-color:#f5880c; color:white; text-shadow:1px 1px 0 #666666 }
+#extras tr.product:hover td.colorid3 { background-color:#e8aa05; color:white; text-shadow:1px 1px 0 #666666 }
+#extras tr.product:hover td.colorid4 { background-color:#b1be1f; color:white; text-shadow:1px 1px 0 #666666 }
+#extras tr.product:hover td.colorid5 { background-color:#5fa53f; color:white; text-shadow:1px 1px 0 #666666 }
+#extras tr.product:hover td.colorid6 { background-color:#08c383; color:white; text-shadow:1px 1px 0 #666666 }
+#extras tr.product:hover td.colorid7 { background-color:#08b1b3; color:white; text-shadow:1px 1px 0 #666666 }
+#extras tr.product:hover td.colorid8 { background-color:#039ae6; color:white; text-shadow:1px 1px 0 #666666 }
+#extras tr.product:hover td.colorid9 { background-color:#385feb; color:white; text-shadow:1px 1px 0 #666666 }

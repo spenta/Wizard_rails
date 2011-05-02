@@ -1,0 +1,19 @@
+<% is_first_column = true -%>
+<% star_products.each do |p| -%>
+  <% unless is_first_column == true%>
+    <td class="bestpickvspacer" />
+  <% end -%>
+  <% is_first_column = false -%>
+  <td class="bestpickcolumn" colspan="2">
+  <div class="bestpickheader">
+    <img class="medal" src="/images/results/silver.png" alt="PC au meilleur rapport qualit&eacute;-prix" />
+    <h1>Rapport qualit&eacute;-prix</h1>
+  </div>
+  <a href="/fiche-technique.html">
+    <h2><strong>ACER</strong> HDF 657 XP-34</h2>
+  </a>
+  <p class="bestpickcolumn">Cet ordinateur a un prix tr&egrave;s int&eacute;ressant pour sa performance. Une bonne affaire !</p>
+  <a class="more" href="/fiche-technique.html">+ d'informations</a>
+  <img class="featuredimg" src="/images/results/placeholders/1.jpg" alt="Ordinateur PC portable MARQUE MODELE" />
+  </td>
+<% end -%>

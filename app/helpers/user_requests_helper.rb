@@ -26,4 +26,8 @@ module UserRequestsHelper
     complete result, :with => default_specs, :until_size_is => 5, :allowing_duplicate => false
     result
   end
+
+  def get_star_products
+    @user_response.products_for_display.select{|ps| ps.is_star}
+  end
 end
