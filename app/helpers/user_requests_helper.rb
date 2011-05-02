@@ -27,7 +27,9 @@ module UserRequestsHelper
     result
   end
 
-  def get_star_products
-    @user_response.products_for_display.select{|ps| ps.is_star}
+  def get_cents_from price
+    result = Integer(price.modulo(1).round(2)*100.floor).to_s
+    result += "0"
+    result[0,2]
   end
 end

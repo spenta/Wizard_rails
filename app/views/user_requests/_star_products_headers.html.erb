@@ -6,14 +6,16 @@
   <% is_first_column = false -%>
   <td class="bestpickcolumn" colspan="2">
   <div class="bestpickheader">
-    <img class="medal" src="/images/results/silver.png" alt="PC au meilleur rapport qualit&eacute;-prix" />
+    <%= image_tag "/images/results/gold.png", :alt =>  "PC au meilleur rapport qualit&eacute;-prix", :class => "medal"%>
     <h1>Rapport qualit&eacute;-prix</h1>
   </div>
   <a href="/fiche-technique.html">
-    <h2><strong>ACER</strong> HDF 657 XP-34</h2>
+    <h2><strong><%= p.brand_name %></strong> <%= p.name %></h2>
   </a>
   <p class="bestpickcolumn">Cet ordinateur a un prix tr&egrave;s int&eacute;ressant pour sa performance. Une bonne affaire !</p>
-  <a class="more" href="/fiche-technique.html">+ d'informations</a>
-  <img class="featuredimg" src="/images/results/placeholders/1.jpg" alt="Ordinateur PC portable MARQUE MODELE" />
+  <%= link_to "+ d'informations", product_path(p.product_id), :class => "more" %>
+  <%= link_to  product_path(p.product_id) do%>
+    <%= image_tag p.big_img_url, :alt => "Ordinateur PC portable MARQUE MODELE", :class => "featuredimg"%>
+  <% end -%>
   </td>
 <% end -%>

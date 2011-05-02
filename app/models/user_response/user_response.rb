@@ -319,6 +319,12 @@ class UserResponse
     @sigmas = sigmas
     @products_for_display = products_for_display
   end
+
+  #star_products plus some additionnal properties from related products in the database.
+  def get_star_products_to_display
+    star_products = products_for_display.select{|ps| ps.is_star}
+    star_products_to_display = star_products.collect {|p| ProductToDisplay.new p}
+  end
 end
 
 class ProductScored
@@ -340,5 +346,22 @@ class ProductForDisplay
     @spenta_score = product_scored.spenta_score
     @is_good_deal = product_scored.is_good_deal
     @is_star = product_scored.is_star
+  end
+end
+#similar to ProductForDisplay, but with attributes from related product with were to big to be serialized
+class ProductToDisplay < ProductForDisplay
+attr_accessor :small_img_url, :big_img_url, :brand_name, :name
+  def initialize product_for_display
+    @product_id = product_for_display.product_id
+    @price = product_for_display.price
+    @spenta_score = product_for_display.spenta_score
+    @is_good_deal = product_for_display.is_good_deal
+    @is_star = product_for_display.is_star
+    product = Product.find(@product_id)
+    @small_img_url = product.small_img_url
+    @big_img_url = product.big_img_url
+    @brand_name = Brand.find(product.brand_id).name
+    @name = product.name
+    @link = product.link
   end
 end

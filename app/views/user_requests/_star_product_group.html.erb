@@ -1,4 +1,4 @@
-<% star_products = get_star_products -%>
+<% star_products = @user_response.get_star_products_to_display -%>
 <div id="topwrapper">
   <div id="bestpicks">
     <div id="toptitle">
@@ -23,92 +23,12 @@
           </tr>
           <%# Boxes avec le score et les prix %>
           <tr>
-            <td class="scorebox">
-              <h3 class="colorid3">83<small>&#37;</small></h3>
-              <p>de vos besoins</p>
-              <a href="#" class="scoretooltip">
-                <img class="scoretooltipicon" src="/images/results/tooltip.png" alt="Aide" />
-                <span>
-                  <strong>Le % de vos besoins vous dit immédiatement si le PC est bien adapté à vos attentes.</strong>
-                  <ul>
-                    <li>Autour de 100%, vous pourrez faire confortablement tout ce que vous avez choisi dans le questionnaire.</li>
-                    <li>Au-dessus, le PC est plus performant que nécessaire. Cela vous laisse de la marge si vous voulez l'utiliser pour des usages plus exigeants.</li>
-                    <li>Plus le score est bas, moins l'utilisation sera agréable. Nous avons éliminé tous les PC à moins de 70% : ils ne sont pas suffisants pour vous !</li>
-                  </ul>
-                </span>
-              </a>
-            </td>
-            <td class="pricebox">
-              <p>&agrave; partir de</p>
-              <h3>798<small>&euro;95</small></h3>
-            </td>
-            <td class="bestpickvspacer" />
-              <td class="scorebox">
-                <h3 class="colorid5">102<small>&#37;</small></h3>
-                <p>de vos besoins</p>
-                <a href="#" class="scoretooltip">
-                  <img class="scoretooltipicon" src="/images/results/tooltip.png" alt="Aide" />
-                  <span>
-                    <strong>Le % de vos besoins vous dit immédiatement si le PC est bien adapté à vos attentes.</strong>
-                    <ul>
-                      <li>Autour de 100%, vous pourrez faire confortablement tout ce que vous avez choisi dans le questionnaire.</li>
-                      <li>Au-dessus, le PC est plus performant que nécessaire. Cela vous laisse de la marge si vous voulez l'utiliser pour des usages plus exigeants.</li>
-                      <li>Plus le score est bas, moins l'utilisation sera agréable. Nous avons éliminé tous les PC à moins de 70% : ils ne sont pas suffisants pour vous !</li>
-                    </ul>
-                  </span>
-                </a>
-              </td>
-              <td class="pricebox">
-                <p>&agrave; partir de</p>
-                <h3>1247<small>&euro;34</small></h3>
-              </td>
-              <td class="bestpickvspacer" />
-                <td class="scorebox">
-                  <h3 class="colorid7">124<small>&#37;</small></h3>
-                  <p>de vos besoins</p>
-                  <a href="#" class="scoretooltip">
-                    <img class="scoretooltipicon" src="/images/results/tooltip.png" alt="Aide" />
-                    <span>
-                      <strong>Le % de vos besoins vous dit immédiatement si le PC est bien adapté à vos attentes.</strong>
-                      <ul>
-                        <li>Autour de 100%, vous pourrez faire confortablement tout ce que vous avez choisi dans le questionnaire.</li>
-                        <li>Au-dessus, le PC est plus performant que nécessaire. Cela vous laisse de la marge si vous voulez l'utiliser pour des usages plus exigeants.</li>
-                        <li>Plus le score est bas, moins l'utilisation sera agréable. Nous avons éliminé tous les PC à moins de 70% : ils ne sont pas suffisants pour vous !</li>
-                      </ul>
-                    </span>
-                  </a>
-                </td>
-                <td class="pricebox">
-                  <p>&agrave; partir de</p>
-                  <h3>2310<small>&euro;50</small></h3>
-                </td>
-              </tr>
-              <%# Boutons pour aller sur la fiche produit %>
-              <tr>
-                <td class="bestpickcolumn" colspan="2">
-                  <a href="/fichetechnique.html" target="_blank">
-                    <div class="productbutton">
-                      <h4>J&#39;en profite !</h4>
-                    </div>
-                  </a>
-                </td>
-                <td class="bestpickvspacer" />
-                  <td class="bestpickcolumn" colspan="2">
-                    <a href="/fichetechnique.html" target="_blank">
-                      <div class="productbutton">
-                        <h4>J&#39;en profite !</h4>
-                      </div>
-                    </a>
-                  </td>
-                  <td class="bestpickvspacer" />
-                    <td class="bestpickcolumn" colspan="2">
-                      <a href="/fichetechnique.html" target="_blank">
-                        <div class="productbutton">
-                          <h4>J&#39;en profite !</h4>
-                        </div>
-                      </a>
-                    </td>
-                  </tr>
+            <%= render :partial => 'star_products_price_and_score', :locals => {:star_products => star_products}%>
+          </tr>
+          <%# Boutons pour aller sur la fiche produit %>
+          <tr>
+            <%= render :partial => 'star_products_go_buttons', :locals => {:star_products => star_products}%>
+           </tr>
                 </tbody>
                 <%# Caracteristiques detaillées des produits (le toggle est declare en dessous) %>
                 <tbody id="Collapsable">
