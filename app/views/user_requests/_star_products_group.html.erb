@@ -1,0 +1,20 @@
+<div id="topwrapper">
+  <div id="bestpicks">
+    <div id="toptitle">
+      <h1>Nos recommandations : les 3 meilleurs PC</h1>
+      <h2>parmi les <strong><%= Product.count %> mod&egrave;les</strong> disponibles chez nos partenaires</h2>
+    </div>
+    <%# Table pour afficher les 3 PC recommandes %>
+    <div id="bestpicktablewrapper">
+      <table id="bestpicktable">
+        <%= render :partial => 'star_products_top', :locals => {:star_products => star_products} %>
+        <%# Caracteristiques detaillé des produits (le toggle est declare en dessous) %>
+        <tbody id="Collapsable">
+          <%= render :partial => 'star_products_bottom', :locals => {:star_products => star_products, :important_specs_id => important_specs_id} %>
+        <%# Bouton pour afficher ou masquer les caracteristiques completes %>
+        <tbody id="ExpandButton"></tbody>
+        <tbody id="HideButton"></tbody>
+      </table> 
+    </div>	
+  </div>
+</div>

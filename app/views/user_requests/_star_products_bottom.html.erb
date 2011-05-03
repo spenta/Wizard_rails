@@ -1,0 +1,43 @@
+<% num_line = 1-%>
+<% important_specs_id.each do |spec_id| -%>
+  <% specification = Specification.find(spec_id) -%>
+  <% spec_name = specification.name -%>
+  <% unless num_line == 1%>
+    <tr>
+      <td class="bestpickcolumn bestpickhspacer" colspan="2" />
+      <td class="bestpickvspacer" />
+      <td class="bestpickcolumn bestpickhspacer" colspan="2" />
+      <td class="bestpickvspacer" />
+      <td class="bestpickcolumn bestpickhspacer" colspan="2" />
+    </tr>
+  <% end -%>
+  <% is_first_column = true -%>
+  <tr>
+    <% star_products.each do |p| -%>
+      <% unless is_first_column == true%>
+        <td class="bestpickvspacer" />
+      <% end -%>
+      <% is_first_column = false -%>
+        <td class="bestpickcolumn" colspan="2">
+          <div class="specsleft">
+            <a href="#" class="specstooltip">
+              <%= image_tag "/images/results/rank#{num_line}.png", :class => "specsrankimage" %>
+              <span><p class="specstooltip">Les caract&eacute;ristiques techniques qui comptent le plus pour vous, dans l&#39;ordre d&#39;importance.</p></span>
+            </a>
+            <a href="#" class="specstooltip">
+              <h5 class="specsname"><%= spec_name %></h5>
+              <p class="specsvalue"><%= p.specification_values[spec_id][:name] %></p>
+              <span><p class="specstooltip">La carte graphique fabrique les images qui s&#39;affichent sur votre &eacute;cran. Elle est surtout utilis&eacute;e pour les jeux vid&eacute;o en 3D et un peu pour la lecture de films en HD.</p></span>
+            </a>
+          </div>
+          <div class="specsright">
+            <a href="#" class="specstooltip">
+              <p class="specscore colorid4"><%= get_percentage_from(p.specification_values[spec_id][:score], @user_response.sigmas[spec_id]) %><small>%</small></p>
+              <span><p class="specstooltip">Ce score vous dit si cette caract&eacute;ristique est suffisante pour vous. &Agrave; 100&#37;, vous avez la configuration recommand&eacute;e !</p></span>
+            </a>
+          </div>
+        </td>
+    <% end -%>
+  </tr>
+  <% num_line += 1 -%>
+<% end -%>

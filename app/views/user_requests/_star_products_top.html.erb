@@ -1,0 +1,22 @@
+<tbody>
+  <%# Rang superieur = arrondis des vignettes %>
+  <tr>
+    <td class="bestpickcolumntop" colspan="2" />
+    <td class="bestpickvspacer" />
+    <td class="bestpickcolumntop" colspan="2" />
+    <td class="bestpickvspacer" />
+    <td class="bestpickcolumntop" colspan="2" />
+  </tr>
+  <%# Intitulé, modèle du PC, texte descriptif, image %>
+  <tr>
+    <%= render :partial => 'star_products_headers', :locals => {:star_products => star_products}%>
+  </tr>
+  <%# Boxes avec le score et les prix %>
+  <tr>
+    <%= render :partial => 'star_products_price_and_score', :locals => {:star_products => star_products}%>
+  </tr>
+  <%# Boutons pour aller sur la fiche produit %>
+  <tr>
+    <%= render :partial => 'star_products_go_buttons', :locals => {:star_products => star_products}%>
+  </tr>
+</tbody>

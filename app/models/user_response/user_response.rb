@@ -325,6 +325,12 @@ class UserResponse
     star_products = products_for_display.select{|ps| ps.is_star}
     star_products_to_display = star_products.collect {|p| ProductToDisplay.new p}
   end
+
+  #good_deal_products plus some additionnal properties from related products in the database.
+  def get_good_deal_products_to_display
+    good_deal_products = products_for_display.select{|ps| ps.is_good_deal and !ps.is_star}
+    good_deal_products_to_display = good_deal_products.collect {|p| ProductToDisplay.new p}
+  end
 end
 
 class ProductScored
@@ -362,5 +368,23 @@ attr_accessor :small_img_url, :big_img_url, :brand_name, :name
     @big_img_url = product.big_img_url
     @brand_name = Brand.find(product.brand_id).name
     @name = product.name
+    @specification_values = specification_values
+  end
+
+  # returns a hash representing the product's specs value
+  # ex: specification_values = p1.specification_values
+  # specification_values #=> {1 => {:name => Core i7, :scorer => 8.3}}
+  def specification_values
+    specs_values = {}
+    Specification.where(:specification_type => ["continuous", "discrete"]).each do |spec|
+      spec_id = spec.id
+      product_specification_value = ProductsSpecsValue.where(:product_id => @product_id, :specification_id => spec_id).where("specification_value_id > 0").first
+      specification_value = SpecificationValue.find(product_specification_value.specification_value_id)
+      spec_value_name_and_score={}
+      spec_value_name_and_score[:name] = specification_value.name
+      spec_value_name_and_score[:score] = specification_value.score
+      specs_values[spec_id] = spec_value_name_and_score 
+    end
+    specs_values
   end
 end

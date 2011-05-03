@@ -1,0 +1,32 @@
+<tbody>
+  <% good_deal_products.each do |p| -%>
+  <%# Produit %>
+  <tr class="product">
+    <td class="thumb">
+      <%= link_to product_path(p.product_id), :target => "_blank" do%>
+        <%= image_tag p.small_img_url, :alt => p.brand_name+' '+p.name, :class => "thumb" %>
+      <% end -%>
+    </td>
+    <td class="infos">
+      <%= link_to product_path(p.product_id), :target => "_blank", :class => "nounderline" do%>
+        <span class="brand"><%= p.brand_name %></span>
+        <span class="name"><%= p.name %></span>
+      <% end -%>
+    </td>
+    <td class="price">
+      <%= link_to product_path(p.product_id), :target => "_blank", :class => "nounderline" do%>
+        <div class="price"><%= p.price %><small>€<%= get_cents_from p.price %></small></div>                            
+        <div class="more">+ d'infos</div>
+      <% end -%>
+    </td>
+    <%# Spenta score %>
+    <td class="score textshadingdark bckgcolorid5"><%= p.spenta_score.round %><small>&#37;</small></td>
+    <%# Specs %>
+    <% important_specs_id.each do |spec_id| -%>
+      <td class="textshading colorid6"><%= get_percentage_from(p.specification_values[spec_id][:score], @user_response.sigmas[spec_id]) %><small>&#37;</small>
+        <p class="specvalue"><%= p.specification_values[spec_id][:name] %></p>
+      </td>
+    <% end -%>
+  </tr>
+  <% end -%>
+</tbody>

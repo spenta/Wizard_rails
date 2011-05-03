@@ -1,6 +1,10 @@
 module UserRequestsHelper
   include WizardUtilities
 
+  #Temp!
+  def test
+    result =   
+  end
   def sortable column, title = nil
     title ||= column.titleize
     direction = column == params[:sort] && params[:direction] == "desc" ? "asc" :"desc"
@@ -31,5 +35,10 @@ module UserRequestsHelper
     result = Integer(price.modulo(1).round(2)*100.floor).to_s
     result += "0"
     result[0,2]
+  end
+
+  def get_percentage_from score, score_recommended
+    ratio = score/score_recommended
+    result = (ratio*100).round
   end
 end

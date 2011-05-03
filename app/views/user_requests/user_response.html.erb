@@ -1,4 +1,6 @@
 <% star_products = @user_response.get_star_products_to_display -%>
+<% good_deal_products = @user_response.get_good_deal_products_to_display -%>
+<% important_specs_id = get_important_specs_id_from @user_response.gammas -%>
 <% content_for :head do -%> 
   <title>Les PC portables les plus adapt&eacute; &agrave; vos besoins.</title>
   <%= stylesheet_link_tag  "reset"%>
@@ -12,10 +14,9 @@
   </script>
 
 <% end -%>  
-<% important_specs_id = get_important_specs_id_from @user_response.gammas -%>
 <div id="resultpage">
   <%# Section du haut : produits recommandés  %>
-  <%= render :partial => 'star_product_group', :locals => {:star_products => star_products} %>
+  <%= render :partial => 'star_products_group', :locals => {:star_products => star_products, :important_specs_id =>  important_specs_id} %>
   <%# Section du bas : autres produits adaptés %>            
-  <%= render :partial => 'good_deal_products_group', :locals => {:star_products => star_products} %>
+  <%= render :partial => 'good_deal_products_group', :locals => {:good_deal_products => good_deal_products, :important_specs_id =>  important_specs_id} %>
 </div>

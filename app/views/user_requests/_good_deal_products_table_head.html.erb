@@ -1,0 +1,15 @@
+<thead>
+  <tr class="headers">
+    <%# Colonne d'infos sur le PC %>
+    <th class="empty"></th>
+    <th class="empty"></th>
+    <%# Prix et score %>
+    <th>&Agrave; partir de</th>
+    <th>&#37; de vos besoins</th>
+    <%# Caractéristiques %>
+    <% important_specs_id.each do |spec_id| -%>
+      <th><%= truncate(Specification.find(spec_id).name, :length => 15)%></th>
+    <% end -%>
+  </tr>
+</thead>
+
