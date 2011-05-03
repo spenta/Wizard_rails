@@ -1,0 +1,190 @@
+fr:
+  #---------------------------------------------------------------------------
+  # HTML Page title
+  #---------------------------------------------------------------------------
+  result_page_html_title: Choisir Facile - Nos suggestions
+
+  #---------------------------------------------------------------------------
+  # Page title > Displayed before the 3 best picks 
+  #---------------------------------------------------------------------------
+  
+  # In the #toptitle <h1> tag
+  result_page_title: |
+    Nos recommandations : les 3 meilleurs PC
+
+  # In the <h2> tag, before the number of products in the database
+  result_page_subtitle1: |
+    parmi les <strong>
+
+  #In the <h2> tag, after the number of products in the database
+  result_page_subtitle2: |
+    modèles</strong> disponibles chez nos partenaires
+
+  #---------------------------------------------------------------------------
+  # Nav button labels (Top left)
+  #---------------------------------------------------------------------------
+
+  result_nav_back: Étape précédente
+  result_nav_restart: Recommencer
+
+  #---------------------------------------------------------------------------
+  # Bestpickcolumn > info about the 3 best picks 
+  #---------------------------------------------------------------------------
+
+
+  # Bestpick information > The 3 featured PCs.
+  # They get content based on their score, using the following suffixes :
+  # L = score<90
+  # M = 90<score<110
+  # H = 110<score
+  #---------------------------------------------------------------------------
+
+  # This is used to set the alternate text of the medal icon.
+  bestpick_medal_L: Un prix modéré.
+  bestpick_medal_M: Très bon compromis pour vos besoins.
+  bestpick_medal_H: Des performances supérieures à vos besoins.
+
+  # Type of the best picks in the <h2> tag. 
+  bestpick_header_L: PC économique
+  bestpick_header_M: PC équilibré
+  bestpick_header_H: PC performance
+
+  # Describes the type of the offer. Inside the <p> tag.
+  bestpick_column_L: Vous acceptez de sacrifier un peu de performance ? Cet ordinateur a un bon rapport qualité-prix et un coût raisonnable.
+  bestpick_column_M: Ce modèle est proche du PC idéal pour vos besoins. C'est un très bon compromis entre les performances et le prix !
+  bestpick_column_H: Si vos besoins augmentent à l'avenir, ce modèle a de la puissance de réserve et ne vous laissera pas tomber.
+
+  # Link to the product sheet
+  bestpick_more: + d'informations
+
+  # Sets the alternate text for the deals. The brand and model are to be appended to this.
+  bestpick_img: Ordinateur PC portable
+
+  # Bestpick scores and price
+  #---------------------------------------------------------------------------
+
+  # Metric of the % score
+  bestpick_metric: de vos besoins
+
+  # Tooltip icon alternate text
+  bestpick_score_tooltip_icon: Aide
+
+  # Tooltip for the % score. 
+  bestpick_spenta_score_tooltip: |
+    <strong>Le % de vos besoins vous dit immédiatement si le PC est bien adapté à vos attentes.</strong>
+    <ul>
+    <li>Autour de 100%, vous pourrez faire confortablement tout ce que vous avez choisi dans le questionnaire.</li>
+    <li>Au-dessus, le PC est plus performant que nécessaire. Cela vous laisse de la marge si vous voulez l'utiliser pour des usages plus exigeants.</li>
+    <li>Plus le score est bas, moins l'utilisation sera agréable. Nous avons éliminé tous les PC à moins de 70% : ils ne sont pas suffisants pour vous !</li>
+                </ul>
+
+  # Price : in the <p> tag of the "pricebox" <td>
+  bestpick_price: à partir de
+
+  # Currency. After the <small> tag
+  bestpick_currency: €
+
+  # Button linking to the product sheet
+  #---------------------------------------------------------------------------
+
+  bestpick_button: J'en profite !
+
+  #---------------------------------------------------------------------------
+  # Detailed specs of the 3 featured PCs
+  #---------------------------------------------------------------------------
+
+  # Tooltip for the specs ranking (most important specs). Inside the <p class="specstooltip"> after the <img> tag.
+  bestpick_rank_tooltip: Les caractéristiques techniques qui comptent le plus pour vous, dans l'ordre d'importance.
+
+  # Tooltip for the specs score. Inside the last <p class="specstooltip"> of each featured PC.
+  bestpick_score_tooltip: Ce score vous dit si cette caractéristique est suffisante pour vous. À 100%, vous avez la configuration recommandée !
+
+  # Name, description and unit (to be displayed after the spec value) of the important specs. Uses the IDs of the wizard.
+  #---------------------------------------------------------------------------
+
+  # ID=4 > HDD
+  spec_name_4: Disque dur
+  spec_metrics_4: Go
+  spec_tooltip_4: Pour stocker tous vos fichiers et installer des applications. Les jeux et le montage de films consomment beaucoup d'espace sur le disque dur.
+
+  # ID=31 > Screen ratio
+  spec_name_31: Format d'écran
+  spec_tooltip_31: Vous profiterez mieux de vos films si votre écran est dans un format adapté !
+
+  # ID=13 > CD_DVD
+  spec_name_13: Lecteur optique
+  spec_tooltip_13: Pour lire les CD, DVD et Blu-Ray.
+
+  # ID=14 > Memcard reader
+  spec_name_14: Lecteur de cartes mémoires
+  spec_tooltip_14: Il permet de récupérer vos photos très facilement, sans brancher votre appareil avec un câble USB.
+
+  # ID=3 > GPU
+  spec_name_3: Carte graphique
+  spec_tooltip_3: La carte graphique fabrique les images qui s'affichent sur votre écran. Elle est surtout utilisée pour les jeux vidéo en 3D et un peu pour la lecture de films en HD.
+
+  # ID=9 > Weight
+  spec_name_9: Poids
+  spec_metrics_9: kg
+  spec_tooltip_9: Lorsque vous transporterez votre ordinateur, vous apprécierez qu'il soit assez léger !
+
+  # ID=6 > Display resolution
+  spec_name_6: Résolution d'écran
+  spec_tooltip_6: |
+    Plus la résolution est élevée, plus votre écran affiche de détails : les films et les jeux sont plus beaux et travailler devient plus confortable.
+
+  # ID=2 > RAM
+  spec_name_2: Mémoire vive
+  spec_metrics_2: Go
+  spec_tooltip_2: Pour que vos logiciels puissent tourner de manière fluide, votre ordinateur y stocke des données. Il en faut beaucoup pour le graphisme, les jeux et la création de documents avancés.
+
+  # ID=5 > Screen size
+  spec_name_5: Taille d'écran
+  spec_metrics_5: pouces
+  spec_tooltip_5: Un grand écran vous apportera un réel confort pour regarder des films, faire du graphisme et pour jouer. C'est aussi un plus appréciable lorsque l'on rédige des documents ! 
+
+  # ID=12 > Webcam
+  spec_name_12: Webcam
+  spec_tooltip_12: Certains ordinateurs portables n'ont pas de Webcam. Si vous souhaitez faire de la visioconférence, il vaut mieux choisir un PC avec Webcam intégrée.
+
+  # ID=11 > CPU
+  spec_name_11: Processeur
+  spec_tooltip_11: Le processeur fait tourner tous les logiciels. Il est particulièrement sollicité pour faire du montage de vidéos, de la retouche photo, des documents avancés et des jeux vidéos.
+
+  # ID=84 > Size
+  spec_name_84: Dimensions
+  spec_metrics_84: cm
+  spec_tooltip_84: Un PC de petite taille est un atout lorsque l'on se déplace beaucoup.
+
+  #---------------------------------------------------------------------------
+  # Toggle button to expand/collapse the specs of the featured PCs
+  #---------------------------------------------------------------------------
+
+  toggle_expand: &#62; Pourquoi recommandons-nous ces PC ? Cliquez ici &#60;
+  toggle_collapse: &#62; Cacher le détail des notes &#60;
+
+  #---------------------------------------------------------------------------
+  # Bottom wrapper : the extended list
+  #---------------------------------------------------------------------------
+
+  # Title of the frame. In the <h1> tag of bottomwrapper.
+  extras_title: D'autres modèles intéressants
+
+  # Short paragraph to introduce the complete list. In the <p class="extrasexplain"> tags.
+  extras_explain: Nous avons sélectionné dix ordinateurs bien adaptés à pour vos besoins grâce à vos réponses. Tous ces modèles ont de très bons rapports performance-prix, pour tous les budgets. Nous avons affiché les points les plus importants pour vous. Comparez-les facilement en triant les colonnes !
+  
+  # Link to the full list. The second part goes between the <a> tags.
+  extras_full: Vous pouvez également consulter 
+  extras_full_link: la liste complète des ordinateurs
+
+  # Extras table : the other PCs
+  #---------------------------------------------------------------------------
+
+  # Header of the price (3rd) column
+  extras_price: à partir de
+
+  # Header of the score (4th) column
+  extras_score: % de vos besoins
+
+  # Anchor text for the link to get to the specs sheet
+  extras_more: + d'infos
