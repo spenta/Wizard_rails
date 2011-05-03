@@ -362,6 +362,5 @@ attr_accessor :small_img_url, :big_img_url, :brand_name, :name
     @big_img_url = product.big_img_url
     @brand_name = Brand.find(product.brand_id).name
     @name = product.name
-    @link = product.link
   end
 end

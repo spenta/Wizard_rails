@@ -1,0 +1,135 @@
+<% important_specs_id = get_important_specs_id_from @user_response.gammas -%>
+<div id="bottomwrapper">
+  <%# Encadré & mise en page %>
+  <div id="bottomhead">
+    <div class="bottomheaderleft"></div>
+    <div class="bottomheader">
+      <h1>D&#39;autres mod&egrave;les int&eacute;ressants</h1>
+    </div>
+    <div class="bottomheaderright"></div>
+  </div>
+  <%# Tableau des 10 produits "argent" %>
+  <div id="extras">
+    <p class="extrasexplain">Nous avons sélectionn&eacute; dix ordinateurs bien adapt&eacute;s &agrave; pour vos besoins gr&acirc;ce &agrave; vos r&eacute;ponses. Tous ces modèles ont de tr&egrave;s bons rapports performance-prix, pour tous les budgets. Nous avons affich&eacute; les points les plus importants pour vous. Comparez-les facilement en triant les colonnes !</p>
+    <p class="fulllist">Vous pouvez &eacute;galement consulter <a href="listecomplete.htm" target="_blank">la liste compl&egrave;te des ordinateurs</a></p>
+    <table id="extratable" class="tablesorter">
+      <%# En-têtes du tableau %>
+      <thead>
+        <tr class="headers">
+          <%# Colonne d'infos sur le PC %>
+          <th class="empty"></th>
+          <th class="empty"></th>
+          <%# Prix et score %>
+          <th>&Agrave; partir de</th>
+          <th>&#37; de vos besoins</th>
+          <%# Caractéristiques %>
+          <th>Carte Graphique</th>
+          <th>Processeur</th>
+          <th>Disque Dur</th>
+          <th>Taille de l'&eacute;cran</th>
+          <th>R&eacute;solution</th>
+          <th>Caract&eacute;ristique</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <%# Produit %>
+        <tr class="product">
+          <td class="thumb">
+            <a target="_blank" href="fiche-technique.html">
+              <%# Image redimmensionnee en 90x60 %>
+              <img class="thumb" src="/images/results/placeholders/1.jpg" alt="PC portable marque-modèle"/>
+            </a>
+          </td>
+          <td class="infos">
+            <a class="nounderline" target="_blank" href="fiche-technique.html">
+              <span class="brand">Toshiba</span>
+              <span class="name">Pavilion DV8-1220EF</span>
+            </a>
+          </td>
+          <td class="price">
+            <a class="nounderline" href="fichetechnique.htm" target="_blank">
+              <div class="price">1255<small>€55</small></div>                            
+              <div class="more">+ d'infos</div>
+            </a>
+          </td>
+          <%# Spenta score %>
+          <td class="score textshadingdark bckgcolorid5">104<small>&#37;</small></td>
+          <%# Specs %>
+          <td class="textshading colorid6">
+            121<small>&#37;</small>
+            <p class="specvalue">Mobility Radeon HD4500</p>
+          </td>
+          <td class="textshading colorid6">
+            113<small>&#37;</small>
+            <p class="specvalue">Intel Core i7 740QM</p>
+          </td>
+          <td class="textshading colorid5">
+            86<small>&#37;</small>
+            <p class="specvalue">Mobility Radeon HD4500</p>
+          </td>
+          <td class="textshading colorid9">
+            146<small>&#37;</small>
+            <p class="specvalue">Composant</p>
+          </td>
+          <td class="textshading colorid4">
+            83<small>&#37;</small>
+            <p class="specvalue">Composant</p>
+          </td>
+          <td class="textshading colorid3">
+            72<small>&#37;</small>
+            <p class="specvalue">Composant</p>
+          </td>
+        </tr>
+        <%# Produit %>
+        <tr class="product">
+          <td class="thumb">
+            <a target="_blank" href="fiche-technique.html">
+              <%# Image redimmensionnee en 90x60 %>
+              <img class="thumb" src="/images/results/placeholders/1.jpg" alt="PC portable marque-modèle"/>
+            </a>
+          </td>
+          <td class="infos">
+            <a class="nounderline" target="_blank" href="fiche-technique.html">
+              <span class="brand">Toshiba</span>
+              <span class="name">Pavilion DV8-1220EF</span>
+            </a>
+          </td>
+          <td class="price">
+            <a class="nounderline" href="fichetechnique.htm" target="_blank">
+              <div class="price">1255<small>€55</small></div>                            
+              <div class="more">+ d'infos</div>
+            </a>
+          </td>
+          <%# Spenta score %>
+          <td class="score textshadingdark bckgcolorid5">121<small>&#37;</small></td>
+          <%# Specs %>
+          <td class="textshading colorid9">
+            149<small>&#37;</small>
+            <p class="specvalue">Mobility Radeon HD4500</p>
+          </td>
+          <td class="textshading colorid7">
+            132<small>&#37;</small>
+            <p class="specvalue">Intel Core i7 740QM</p>
+          </td>
+          <td class="textshading colorid6">
+            106<small>&#37;</small>
+            <p class="specvalue">Mobility Radeon HD4500</p>
+          </td>
+          <td class="textshading colorid2">
+            66<small>&#37;</small>
+            <p class="specvalue">Composant</p>
+          </td>
+          <td class="textshading colorid1">
+            51<small>&#37;</small>
+            <p class="specvalue">Composant</p>
+          </td>
+          <td class="textshading colorid5">
+            89<small>&#37;</small>
+            <p class="specvalue">Composant</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>    
