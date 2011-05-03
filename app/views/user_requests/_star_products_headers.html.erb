@@ -5,14 +5,14 @@
   <% end -%>
   <% is_first_column = false -%>
   <td class="bestpickcolumn" colspan="2">
-  <div class="bestpickheader">
-    <%= image_tag "/images/results/gold.png", :alt =>  "PC au meilleur rapport qualit&eacute;-prix", :class => "medal"%>
-    <h1>Rapport qualit&eacute;-prix</h1>
+    <%= link_to product_path(p.product_id) do %>
+      <h1><strong><%= p.brand_name %></strong> <%= p.name %></h1>
+    <% end -%>
+  <div class="bestpickcategory">
+    <img class="medal" src="/images/results/silver.png" alt="PC au meilleur rapport qualit&eacute;-prix" />
+    <h2>PC économique</h2>
   </div>
-  <a href="/fiche-technique.html">
-    <h2><strong><%= p.brand_name %></strong> <%= p.name %></h2>
-  </a>
-  <p class="bestpickcolumn">Cet ordinateur a un prix tr&egrave;s int&eacute;ressant pour sa performance. Une bonne affaire !</p>
+  <p class="bestpickcolumn">Vous acceptez de sacrifier un peu de performance ? Cet ordinateur a un bon rapport qualité-prix et un coût raisonnable.</p>
   <%= link_to "+ d'informations", product_path(p.product_id), :class => "more" %>
   <%= link_to  product_path(p.product_id) do%>
     <%= image_tag p.big_img_url, :alt => "Ordinateur PC portable MARQUE MODELE", :class => "featuredimg"%>

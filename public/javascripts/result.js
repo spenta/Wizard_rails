@@ -1,33 +1,32 @@
-var $j = jQuery.noConflict();
-$j(document).ready(
-    function() {
-      $j("#ExpandButton").html("<tr><td colspan='8' class='toggle'><a href='#'>&#62; Pourquoi recommandons-nous ces PC ? Cliquez ici &#60;</a></td></tr>");
-      $j("#HideButton").html("<td colspan='8' class='toggle'><a href='#'>&#62; Cacher le d&eacute;tail des notes &#60;</a></td></tr>");
-      $j("#Collapsable").hide();
-      $j("#HideButton").hide();
+// ----- Toggle pour dérouler les caractéristiques des PC stars -----
+		$(document).ready(
+			function() {
+				$("#Collapsable").hide();
+				$("#HideButton").hide();
 
-      $j('#ExpandButton,#HideButton').click( 
-        function() 
-        {
-          $j('#Collapsable').toggle();  
-          $j('#ExpandButton').toggle();
-          $j('#HideButton').toggle();
-        }
-        );
-    }
-    );
-
-  $j(document).ready(
-      function() 
-      { 
-        $j("#extratable").tablesorter(
-          {
-            headers: 
-        {
-          0: { sorter:false },
-          1: { sorter:false }
-        }
-          }
-          ); 
-      } 
-      ); 
+				$('#ExpandButton,#HideButton').click( 
+					function() 
+						{
+							$('#Collapsable').toggle();  
+							$('#ExpandButton').toggle();
+							$('#HideButton').toggle();
+						}
+					);
+				}
+			);
+		
+// ----- Tri de la table -----
+		$(document).ready(
+			function() 
+				{ 
+        			$("#extratable").tablesorter(
+						{
+							headers: 
+								{
+									0: { sorter:false },
+									1: { sorter:false }
+								}
+						}
+						); 
+    			} 
+		); 

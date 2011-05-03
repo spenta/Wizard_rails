@@ -1,10 +1,6 @@
 module UserRequestsHelper
   include WizardUtilities
 
-  #Temp!
-  def test
-    result =   
-  end
   def sortable column, title = nil
     title ||= column.titleize
     direction = column == params[:sort] && params[:direction] == "desc" ? "asc" :"desc"

@@ -58,15 +58,17 @@ Vert foncé = #057619
 /* ---------------- Titre & sous-titres de la page ---------------- */
 
 #toptitle {
+	display:block;
 	text-align:center;
-	padding:15px 0;
+	padding:15px 50px 15px 0;
 	margin-bottom:15px;
 }
 
 #toptitle h1 {
-	font-size:2.8em;
+	font-size:3em;
 	color:white;
 	text-shadow:1px 1px 0 #666666;
+	margin-top:5px;
 }
 
 #toptitle h2 {
@@ -80,20 +82,49 @@ Vert foncé = #057619
 	color:white;
 }
 
-/* ---------------- Tableau des 3 PC mis en avant ---------------- */
-/* Intitulé des 3 box */
-.bestpickcolumn h1 {
-	font-size:2.5em;
-	text-shadow:1px 1px 0 #E5E5E5;
-	color:#33332F;
+/* ---------------- Boutons de retour au wizard ---------------- */
+
+#navbuttons {
+	padding:15px 0px;
+	margin-left:35px;
+	float:left;
 }
 
-/* Nom des modèles (ce sont aussi des liens vers la fiche technique) */
-.bestpickcolumn h2 {
+.backbutton {
+	background-image:url('/images/results/backbutton.png');
+	width:200px;
+	height:30px;
+}
+
+.backbutton:hover {
+	background-image:url('/images/results/backbutton_hover.png');
+}
+
+.restartbutton {
+	background-image:url('/images/results/restartbutton.png');
+	width:200px;
+	height:30px;
+	margin-top:10px;
+}
+
+.restartbutton:hover {
+	background-image:url('/images/results/restartbutton_hover.png');
+}
+
+.buttonlabel {
 	font-size:1.8em;
-	margin-top:8px;
+	color:white;
+	padding:5px 0 0 40px; 
+}
+
+#navbuttons a { text-decoration:none; }
+
+/* ---------------- Tableau des 3 PC mis en avant ---------------- */
+/* Nom des modèles (ce sont aussi des liens vers la fiche technique) */
+.bestpickcolumn h1 {
+	font-size:2.0em;
 	text-shadow:1px 1px 0 #E5E5E5;
-	color:#036CAA;
+	color:#33332F;
 	text-align:center;
 }
 
@@ -103,12 +134,27 @@ Vert foncé = #057619
 
 .bestpickcolumn strong {
 	font-size:1em;
-	text-shadow:1px 1px 0 #E5E5E5;
-	color:#036CAA;
 	font-weight:bold;	
 }
 
 /* Paragraphes d'explication sur les 3 PC retenus & lien "+ d'informations" */
+
+.bestpickcategory {
+	text-align:center;
+}
+
+.bestpickcolumn h2 {
+	font-size:1.8em;
+	text-shadow:1px 1px 0 #E5E5E5;
+	color:#036CAA;
+	text-align:center;
+	display:inline;
+}
+
+.medal {
+	margin-right:10px;
+	vertical-align:-8px;
+}
 
 p.bestpickcolumn {
 	margin:8px 15px;
@@ -142,7 +188,9 @@ small {
 .scorebox p {
 	font-size:1.35em;
 	color:#33332F;
-	margin:-5px 0px 0px 20px;
+	text-align:right;
+	margin:0px 8px 5px 10px;
+	float:left;
 }
 
 /* Prix des PC mis en avant */
@@ -170,7 +218,7 @@ small {
 td.bestpickcolumntop {
 	background-image:url('/images/results/bestpickbox-top.png');
 	width:280px;
-	height:15px;
+	height:10px;
 }
 
 /* Cases préseantant les PC : Modèle, Image, etc */
@@ -186,21 +234,12 @@ td.bestpickvspacer {
 	width:30px;
 }
 
-.bestpickheader {
-	display:block;
-	margin:0 auto;
-}
-
 .featuredimg {
 	width:260px;
 	margin:10px auto;
 }
 
-/* Médailles pour accrocher le regard */
-.medal {
-	float:left;
-	margin:-2px 10px 0px 10px;
-}
+
 
 /* Cases avec dégradé pour le score et le prix */
 td.scorebox {
@@ -219,8 +258,8 @@ td.pricebox {
 
 /* Icône du tooltip */
 .scoretooltipicon {
-	float:right;
-	margin:-17px 10px 0 0;
+	float:left;
+	margin:-3px 5px 0 0;
 }
 
 /* --- Tooltip du Spenta Score --- */
@@ -436,15 +475,15 @@ p.specstooltip {
 
 .bottomheader {
 	background-image:url('/images/results/bottomheader.png');
-	width:937px;
 	float:left;
+	width:936px;
 	height:40px;
 	text-align:center;
 }
 
 .bottomheaderright {
 	background-image:url('/images/results/bottomheader-right.png');
-	float:right;
+	float:left;
 	width:12px;
 	height:40px;
 }

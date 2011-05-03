@@ -1,5 +1,19 @@
 <div id="topwrapper">
   <div id="bestpicks">
+  <!-- Navigation -->
+    <div id="navbuttons">
+      <a href="back.htm">
+        <div class="backbutton">
+          <h3 class="buttonlabel">Étape précédente</h3>
+        </div>
+      </a>
+      <a href="restart.htm">
+        <div class="restartbutton">
+          <h3 class="buttonlabel">Recommencer</h3>
+        </div>
+      </a>
+    </div>
+
     <div id="toptitle">
       <h1>Nos recommandations : les 3 meilleurs PC</h1>
       <h2>parmi les <strong><%= Product.count %> mod&egrave;les</strong> disponibles chez nos partenaires</h2>
@@ -11,9 +25,15 @@
         <%# Caracteristiques detaillé des produits (le toggle est declare en dessous) %>
         <tbody id="Collapsable">
           <%= render :partial => 'star_products_bottom', :locals => {:star_products => star_products, :important_specs_id => important_specs_id} %>
+        </tbody>
+        <tbody>
+          <%# Boutons pour aller sur la fiche produit %>
+          <tr>
+            <%= render :partial => 'star_products_go_buttons', :locals => {:star_products => star_products}%>
+          </tr>
+        </tbody>
         <%# Bouton pour afficher ou masquer les caracteristiques completes %>
-        <tbody id="ExpandButton"></tbody>
-        <tbody id="HideButton"></tbody>
+        <%= render :partial => 'star_products_expand_buttons' %>
       </table> 
     </div>	
   </div>

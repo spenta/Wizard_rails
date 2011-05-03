@@ -10,7 +10,7 @@
   <%# Tableau des 10 produits "argent" %>
   <div id="extras">
     <p class="extrasexplain">Nous avons sélectionn&eacute; dix ordinateurs bien adapt&eacute;s &agrave; pour vos besoins gr&acirc;ce &agrave; vos r&eacute;ponses. Tous ces modèles ont de tr&egrave;s bons rapports performance-prix, pour tous les budgets. Nous avons affich&eacute; les points les plus importants pour vous. Comparez-les facilement en triant les colonnes !</p>
-    <p class="fulllist">Vous pouvez &eacute;galement consulter <a href="listecomplete.htm" target="_blank">la liste compl&egrave;te des ordinateurs</a></p>
+    <p class="fulllist">Vous pouvez également consulter <%= link_to "la liste complète des ordinateurs", products_path, :taget => "_blank" %></a></p>
     <table id="extratable" class="tablesorter">
       <%# En-têtes du tableau %>
       <%= render :partial => 'good_deal_products_table_head', :locals => {:important_specs_id =>  important_specs_id} %>
