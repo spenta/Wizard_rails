@@ -2,7 +2,7 @@
 <% good_deal_products = @user_response.get_good_deal_products_to_display -%>
 <% important_specs_id = get_important_specs_id_from @user_response.gammas -%>
 <% content_for :head do -%> 
-  <title>Les PC portables les plus adapt&eacute; &agrave; vos besoins.</title>
+  <title><%= t :result_page_title %></title>
   <%= stylesheet_link_tag  "reset"%>
   <%= stylesheet_link_tag  "result"%>
 

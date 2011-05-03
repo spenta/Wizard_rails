@@ -16,7 +16,7 @@
     <td class="price">
       <%= link_to product_path(p.product_id), :target => "_blank", :class => "nounderline" do%>
         <div class="price"><%= p.price %><small>€<%= get_cents_from p.price %></small></div>                            
-        <div class="more">+ d'infos</div>
+        <div class="more"><%= t :extras_more -%></div>
       <% end -%>
     </td>
     <%# Spenta score %>
@@ -24,7 +24,7 @@
     <%# Specs %>
     <% important_specs_id.each do |spec_id| -%>
       <td class="textshading colorid6"><%= get_percentage_from(p.specification_values[spec_id][:score], @user_response.sigmas[spec_id]) %><small>&#37;</small>
-        <p class="specvalue"><%= p.specification_values[spec_id][:name] %></p>
+        <p class="specvalue"><%= spec_value_with_unit p, spec_id%></p>
       </td>
     <% end -%>
   </tr>

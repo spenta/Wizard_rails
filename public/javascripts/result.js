@@ -1,25 +1,26 @@
+$j = jQuery.noConflict();
 // ----- Toggle pour dérouler les caractéristiques des PC stars -----
-		$(document).ready(
+		$j(document).ready(
 			function() {
-				$("#Collapsable").hide();
-				$("#HideButton").hide();
+				$j("#Collapsable").hide();
+				$j("#HideButton").hide();
 
-				$('#ExpandButton,#HideButton').click( 
+				$j('#ExpandButton,#HideButton').click( 
 					function() 
 						{
-							$('#Collapsable').toggle();  
-							$('#ExpandButton').toggle();
-							$('#HideButton').toggle();
+							$j('#Collapsable').toggle();  
+							$j('#ExpandButton').toggle();
+							$j('#HideButton').toggle();
 						}
 					);
 				}
 			);
 		
 // ----- Tri de la table -----
-		$(document).ready(
+		$j(document).ready(
 			function() 
 				{ 
-        			$("#extratable").tablesorter(
+        			$j("#extratable").tablesorter(
 						{
 							headers: 
 								{

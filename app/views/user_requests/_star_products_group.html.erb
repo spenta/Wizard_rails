@@ -1,22 +1,22 @@
 <div id="topwrapper">
   <div id="bestpicks">
-  <!-- Navigation -->
+    <!-- Navigation -->
     <div id="navbuttons">
-      <a href="back.htm">
+      <%= link_to edit_user_request_path do %>
         <div class="backbutton">
-          <h3 class="buttonlabel">Étape précédente</h3>
+          <h3 class="buttonlabel"><%= t :result_nav_back %></h3>
         </div>
-      </a>
-      <a href="restart.htm">
+      <% end -%>
+      <%= link_to user_requests_path, :method => :post do %>
         <div class="restartbutton">
-          <h3 class="buttonlabel">Recommencer</h3>
+          <h3 class="buttonlabel"><%= t :result_nav_restart %></h3>
         </div>
-      </a>
+      <% end -%>
     </div>
 
     <div id="toptitle">
-      <h1>Nos recommandations : les 3 meilleurs PC</h1>
-      <h2>parmi les <strong><%= Product.count %> mod&egrave;les</strong> disponibles chez nos partenaires</h2>
+      <h1><%= t :result_page_title %></h1>
+      <h2><%= t_safe :result_page_subtitle1 %><%= Product.count %> <%= t_safe :result_page_subtitle2 %></h2>
     </div>
     <%# Table pour afficher les 3 PC recommandes %>
     <div id="bestpicktablewrapper">

@@ -37,4 +37,21 @@ module UserRequestsHelper
     ratio = score/score_recommended
     result = (ratio*100).round
   end
+
+  # A product is said to have a low performance (L) if score < 90
+  # A product is said to have a medium performance (M) if 90 <= score < 110
+  # A product is said to have a high performance (H) if 110 < score
+  def category_of product
+    if product.spenta_score < 90
+      "L"
+    elsif product.spenta_score > 110
+      "H"
+    else
+      "M"
+    end
+  end
+
+  def spec_value_with_unit product, spec_id
+    product.specification_values[spec_id][:name]+" "+ t_safe("spec_metrics_#{spec_id}")
+  end
 end

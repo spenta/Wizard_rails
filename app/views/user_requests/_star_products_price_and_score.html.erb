@@ -6,21 +6,14 @@
   <% is_first_column = false -%>
   <td class="scorebox">
     <h3 class="colorid3"><%= p.spenta_score.round%><small>&#37;</small></h3>
-    <p>de vos besoins</p>
+    <p><%= t :bestpick_metric %></p>
     <a href="#" class="scoretooltip">
-      <img class="scoretooltipicon" src="/images/results/tooltip.png" alt="Aide" />
-      <span>
-        <strong>Le % de vos besoins vous dit immédiatement si le PC est bien adapté à vos attentes.</strong>
-        <ul>
-          <li>Autour de 100%, vous pourrez faire confortablement tout ce que vous avez choisi dans le questionnaire.</li>
-          <li>Au-dessus, le PC est plus performant que nécessaire. Cela vous laisse de la marge si vous voulez l'utiliser pour des usages plus exigeants.</li>
-          <li>Plus le score est bas, moins l'utilisation sera agréable. Nous avons éliminé tous les PC à moins de 70% : ils ne sont pas suffisants pour vous !</li>
-        </ul>
-      </span>
+      <%= image_tag "/images/results/tooltip.png", :class => "scoretooltipicon", :alt => t(:bestpick_score_tooltip_icon)%>
+      <span><%= t_safe :bestpick_spenta_score_tooltip%></span>
     </a>
   </td>
   <td class="pricebox">
-    <p>&agrave; partir de</p>
-    <h3><%= p.price.floor %><small>&euro;<%= get_cents_from p.price  -%></small></h3>
+    <p><%= t :bestpick_price %></p>
+    <h3><%= p.price.floor %><small><%= t(:bestpick_currency)+get_cents_from(p.price) -%></small></h3>
   </td>
 <% end -%>

@@ -9,13 +9,15 @@
       <h1><strong><%= p.brand_name %></strong> <%= p.name %></h1>
     <% end -%>
   <div class="bestpickcategory">
-    <img class="medal" src="/images/results/silver.png" alt="PC au meilleur rapport qualit&eacute;-prix" />
-    <h2>PC économique</h2>
+    <% category_of_p = category_of p -%>
+    <% category_of_p == "M" ? medal_color = "gold" : medal_color = "silver" -%>
+    <%= image_tag "/images/results/#{medal_color}.png", :alt => t_safe("bestpick_medal_#{category_of_p}"), :class => "medal" %>
+    <h2><%= t_safe("bestpick_header_#{category_of_p}") %></h2>
   </div>
-  <p class="bestpickcolumn">Vous acceptez de sacrifier un peu de performance ? Cet ordinateur a un bon rapport qualité-prix et un coût raisonnable.</p>
-  <%= link_to "+ d'informations", product_path(p.product_id), :class => "more" %>
+  <p class="bestpickcolumn"><%= t_safe("bestpick_column_#{category_of_p}") %></p>
+  <%= link_to t(:bestpick_more), product_path(p.product_id), :class => "more" %>
   <%= link_to  product_path(p.product_id) do%>
-    <%= image_tag p.big_img_url, :alt => "Ordinateur PC portable MARQUE MODELE", :class => "featuredimg"%>
+    <%= image_tag p.big_img_url, :alt => t(:bestpick_img)+" "+p.brand_name+" "+p.name, :class => "featuredimg"%>
   <% end -%>
   </td>
 <% end -%>
