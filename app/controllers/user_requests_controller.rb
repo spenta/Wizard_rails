@@ -1,14 +1,4 @@
 class UserRequestsController < ApplicationController
-  # GET /user_requests/1/edit
-  def edit 
-    @user_request = UserRequest.find(params[:id])
-    @user_request.current_step = session[:user_request_step]
-    if params[:back] &&  @user_request.current_step != @user_request.steps.first
-      @user_request.previous_step
-      session[:user_request_step] = @user_request.current_step
-    end
-  end
-
   # POST /user_requests
   # POST /user_requests.xml
   def create
@@ -30,6 +20,16 @@ class UserRequestsController < ApplicationController
         format.html { render :action => "new" }
         format.xml  { render :xml => @user_request.errors, :status => :unprocessable_entity }
       end
+    end
+  end
+
+  # GET /user_requests/1/edit
+  def edit 
+    @user_request = UserRequest.find(params[:id])
+    @user_request.current_step = session[:user_request_step]
+    if params[:back] &&  @user_request.current_step != @user_request.steps.first
+      @user_request.previous_step
+      session[:user_request_step] = @user_request.current_step
     end
   end
 
