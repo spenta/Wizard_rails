@@ -70,7 +70,7 @@ class UserRequest < ActiveRecord::Base
         UsageChoice.find(mobility_choice_id).update_attributes(:weight_for_user => weight_for_user)
       end
     end
-    load 'user_response/user_response.rb'
+    load 'user_response.rb'
     director = UserResponseDirector.new
     director.init_builder self 
     director.process_response
