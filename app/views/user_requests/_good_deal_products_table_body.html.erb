@@ -15,7 +15,7 @@
     </td>
     <td class="price">
       <%= link_to product_path(p.product_id), :target => "_blank", :class => "nounderline" do%>
-        <div class="price"><%= p.price %><small>€<%= get_cents_from p.price %></small></div>                            
+        <div class="price"><%= p.price.floor %><small>€<%= get_cents_from p.price %></small></div>                            
         <div class="more"><%= t :extras_more -%></div>
       <% end -%>
     </td>
