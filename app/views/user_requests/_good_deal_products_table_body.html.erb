@@ -20,12 +20,16 @@
       <% end -%>
     </td>
     <%# Spenta score %>
-    <td class="score textshadingdark bckgcolorid5"><%= p.spenta_score.round %><small>&#37;</small></td>
+    <%= content_tag :td, :class => "score textshadingdark bckgcolorid#{get_color_number(p.spenta_score/100)}" do %>
+      <%= p.spenta_score.round %><small>%</small>
+    <% end -%>
     <%# Specs %>
     <% important_specs_id.each do |spec_id| -%>
-      <td class="textshading colorid6"><%= get_percentage_from(p.specification_values[spec_id][:score], @user_response.sigmas[spec_id]) %><small>&#37;</small>
+      <%spec_score_percent = get_percentage_from(p.specification_values[spec_id][:score], @user_response.sigmas[spec_id]) %>
+      <%= content_tag :td, :class => "textshading colorid#{get_color_number(spec_score_percent.to_f/100)}" do%>
+        <%= spec_score_percent%><small>%</small>
         <p class="specvalue"><%= spec_value_with_unit p, spec_id%></p>
-      </td>
+      <% end -%>
     <% end -%>
   </tr>
   <% end -%>

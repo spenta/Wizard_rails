@@ -31,7 +31,8 @@
           </div>
           <div class="specsright">
             <a href="#" class="specstooltip">
-              <p class="specscore colorid4"><%= get_percentage_from(p.specification_values[spec_id][:score], @user_response.sigmas[spec_id]) %><small>%</small></p>
+              <%spec_score_percent = get_percentage_from(p.specification_values[spec_id][:score], @user_response.sigmas[spec_id]) %>
+              <p class="specscore <%= "colorid#{get_color_number(spec_score_percent.to_f/100)}" %>"><%= spec_score_percent %><small>%</small></p>
               <span><p class="specstooltip"><%= t :bestpick_score_tooltip %></p></span>
             </a>
           </div>

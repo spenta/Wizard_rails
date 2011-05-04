@@ -35,4 +35,18 @@ class UserRequestsHelperTest < ActionView::TestCase
     result = get_important_specs_id_from(gammas_2)
     assert  result == [9, 1, 8, 5, 2], "result for gammas_2: #{result}"
   end
+
+  test 'should give right color numbers' do
+    assert_equal 0, get_color_number(0)
+    assert_equal 1, get_color_number(0.3)
+    assert_equal 1, get_color_number(0.5)
+    assert_equal 2, get_color_number(0.6)
+    assert_equal 3, get_color_number(0.75)
+    assert_equal 4, get_color_number(0.83)
+    assert_equal 5, get_color_number(1)
+    assert_equal 6, get_color_number(1.2)
+    assert_equal 7, get_color_number(1.5)
+    assert_equal 8, get_color_number(1.8)
+    assert_equal 9, get_color_number(3)
+  end
 end

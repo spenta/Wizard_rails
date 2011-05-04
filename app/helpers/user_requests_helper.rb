@@ -1,6 +1,9 @@
 module UserRequestsHelper
   include WizardUtilities
 
+  #thresholds for colors display, in proportion on value corresponding to a "right" value
+  COLOR_THRESHOLDS = [0, 0.5, 0.7, 0.8, 0.9, 1.1, 1.3, 1.6, 2]
+
   def sortable column, title = nil
     title ||= column.titleize
     direction = column == params[:sort] && params[:direction] == "desc" ? "asc" :"desc"
@@ -16,11 +19,11 @@ module UserRequestsHelper
     #array or spec_id by descending importance
     result = gamma_array.collect{|s| s[0]}.first(5)
     #complete with default important specs. In order
-    # Screen size (speccification_id 5)
-    # CPU (speccification_id 1)
-    # Weight (speccification_id 9)
-    # RAM (speccification_id 2)
-    # HDD (speccification_id 4)
+    # Screen size (specification_id 5)
+    # CPU (specification_id 1)
+    # Weight (specification_id 9)
+    # RAM (specification_id 2)
+    # HDD (specification_id 4)
     default_specs = [5, 1, 9, 2, 4]
     default_specs.reverse!
     complete result, :with => default_specs, :until_size_is => 5, :allowing_duplicate => false
@@ -53,5 +56,11 @@ module UserRequestsHelper
 
   def spec_value_with_unit product, spec_id
     product.specification_values[spec_id][:name]+" "+ t_safe("spec_metrics_#{spec_id}")
+  end
+
+  def get_color_number value
+    color_number = 0
+    color_number += 1 while (value > (COLOR_THRESHOLDS[color_number]||0) and color_number < COLOR_THRESHOLDS.size)  
+    color_number
   end
 end
