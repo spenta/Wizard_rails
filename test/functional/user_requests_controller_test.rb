@@ -7,7 +7,14 @@ class UserRequestsControllerTest < ActionController::TestCase
 
   test "should create user_request" do
     assert_difference('UserRequest.count') do
-      post :create, :user_request => @user_request.attributes
+      post :create
+    end
+  
+    new_user_request = UserRequest.last
+    assert_equal new_user_request.usage_choices.size, Usage.count
+    new_user_request.usage_choices.all do |uc|
+     assert_equal(uc.weight_for_user, 0) if uc.usage.super_usage.name == "Mobilite" 
+     assert_equal(uc.weight_for_user, 50) unless uc.usage.super_usage.name == "Mobilite" 
     end
 
     assert_redirected_to edit_user_request_path(assigns(:user_request))
