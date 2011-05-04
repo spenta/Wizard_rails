@@ -1,0 +1,16 @@
+<%= render :partial => 'vspacer', :locals => {:is_first_column => is_first_column} %>
+<td class="bestpickcolumn" colspan="2">
+  <%= link_to product_path(p.product_id) do %>
+    <h1><strong><%= p.brand_name %></strong><br/> <%= p.name %></h1>
+  <% end -%>
+<div class="bestpickcategory">
+  <% category_of_p = category_of p -%>
+  <% category_of_p == "M" ? medal_color = "gold" : medal_color = "silver" -%>
+  <%= image_tag "/images/results/#{medal_color}.png", :alt => t_safe("bestpick_medal_#{category_of_p}"), :class => "medal" %>
+  <h2><%= t_safe("bestpick_header_#{category_of_p}") %></h2>
+</div>
+<p class="bestpickcolumn"><%= t_safe("bestpick_column_#{category_of_p}") %></p>
+<%= link_to t(:bestpick_more), product_path(p.product_id), :class => "more" %>
+<%= link_to  product_path(p.product_id) do%>
+<% end -%>
+</td>
