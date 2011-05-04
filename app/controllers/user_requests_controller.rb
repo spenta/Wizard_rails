@@ -40,9 +40,16 @@ class UserRequestsController < ApplicationController
     @user_request.current_step = session[:user_request_step]
     case @user_request.current_step
     when "selection"
-      @user_request.update_selection params
-      session[:user_request_step] =  @user_request.next_step
-      redirect_to edit_user_request_path 
+      begin
+        @user_request.update_selection params
+      rescue => error
+      end
+      if error
+        redirect_to edit_user_request_path, :flash => {:error => error.message}
+      else
+        session[:user_request_step] =  @user_request.next_step
+        redirect_to edit_user_request_path 
+      end
     when "weights"
       @user_request.update_weights params
       session[:user_request_step]  = @user_request.next_step
@@ -53,7 +60,6 @@ class UserRequestsController < ApplicationController
       @user_request.update_attributes(:is_complete => true)
       respond_to do |format|
         format.html {redirect_to user_response_user_request_path}
-        format.xml  { head :ok }
       end
     else
       raise "unknown form state : #{session[:user_request_step]}"

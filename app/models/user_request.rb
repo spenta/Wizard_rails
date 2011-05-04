@@ -42,14 +42,13 @@ class UserRequest < ActiveRecord::Base
         @usage_choices_selected << Integer(param_key.split('_').last)
       end
     end
-    raise I18n.t(:usage_selection_error) unless update_attributes(params[:user_request])
+    raise I18n.t(:no_usage_selected_error) if @usage_choices_selected.empty?
     #update of is_selected for each usage_choice
     usage_choices.each do |uc|
       unless uc.usage.super_usage.name == "Mobilite"
         uc.update_attributes :is_selected => @usage_choices_selected.include?(uc.id)
       end
     end
-    raise I18n.t(:no_usage_selected_error) if @usage_choices_selected.empty?
   end
 
   def update_weights params
@@ -70,6 +69,7 @@ class UserRequest < ActiveRecord::Base
         UsageChoice.find(mobility_choice_id).update_attributes(:weight_for_user => weight_for_user)
       end
     end
+    UserRequest.find(params[:id]).update_attributes(:is_complete => true)
     load 'user_response.rb'
     director = UserResponseDirector.new
     director.init_builder self 
