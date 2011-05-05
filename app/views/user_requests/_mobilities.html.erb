@@ -21,11 +21,11 @@
       </div>
       <div class="answer">
         <select name=<%= "mobility_weight_#{mc_id}" %> class="slider nosnap">
-            <option value="0">Peu important</option>
+            <option value="0"><%= t :weights_step_not_important %></option>
             <option value=""></option>
             <option value="<%= mc.weight_for_user.to_s %>" selected="selected"></option>
             <option value=""></option>
-            <option value="100">Tr&egrave;s important</option>
+            <option value="100"><%= t :weights_step_very_important %></option>
         </select>
        </div>
     </div>

@@ -12,3 +12,5 @@ fr:
 
   mobilities_step_hint: Cochez ce qui vous intéresse puis validez.
   mobilities_step_wrong_choices: Une erreur est survenue dans l'enregistrement de vos choix. Veuillez nous en excuser
+  mobilities_step_not_important: Peu important
+  mobilities_step_very_important: Très important

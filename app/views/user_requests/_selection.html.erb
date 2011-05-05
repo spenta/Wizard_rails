@@ -4,24 +4,25 @@
     var $j = jQuery.noConflict();
     $j(document).ready(function()
       {
-          // convert a <form> into a tabbed form
-          $j('form.tabbed').tabbedForm({
-              // custom text of the close button created by the javascript
-              closeText:'Valider',
-              // container for the .qinfo into the questions
-              infoContainer:$j('#myFormInfoContainer')
-          });
+        // convert a <form> into a tabbed form
+        $j('form.tabbed').tabbedForm({
+          // custom text of the close button created by the javascript
+          closeText:'<%= t :selection_step_validate %>',
+          //closeText:'<%= t_safe :selection_step_validate %>',
+          // container for the .qinfo into the questions
+          infoContainer:$j('#myFormInfoContainer')
+        });
 
-          // convert all <div class="answer"> with the
-          // class 'multichoice' into a set of checkboxes
-          $j('.answer.multichoice').answerMultichoice({
-              // if we want the js to add a none checkbox
-              addNone:true,
-              // text of the none checkbox
-              noneText:'&Ccedil;a ne m&acute;int&eacute;resse pas'
-              });
-      });
-  </script>
+        // convert all <div class="answer"> with the
+        // class 'multichoice' into a set of checkboxes
+        $j('.answer.multichoice').answerMultichoice({
+          // if we want the js to add a none checkbox
+          addNone:true,
+          // text of the none checkbox
+          noneText:"<%=t_safe :selection_step_dont_care %>"
+          });
+        });
+    </script>
 <% end -%>
 <%SuperUsage.all.each do |su|%>
   <%unless su.name == "Mobilite"%>

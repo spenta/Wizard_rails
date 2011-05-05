@@ -16,3 +16,5 @@ fr:
   weights_step_hint: Indiquez l'importance de chaque utilisation en faisant glisser les curseurs, puis validez. 
   weights_step_wrong_choices: Une erreur est survenue dans l'enregistrement de vos choix. Veuillez nous en excuser
   weights_step_no_choices: Veuillez noter au moins un usage.
+  weights_step_not_important: Peu important
+  weights_step_very_important: Très important

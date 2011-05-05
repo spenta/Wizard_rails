@@ -11,6 +11,11 @@ fr:
     <p>Choisissez tout ce que vous allez faire avec votre ordinateur, même si ça ve vous paraît pas très important. Vous pourrez faire le tri de ce qui compte vraiment à l'étape suivante.</p>
 
   selection_step_hint: Cochez ce qui vous intéresse puis validez.
+  
+  selection_step_validate: Valider
+
+  selection_step_dont_care: Ça ne m&acute;int&eacute;resse pas
+
   no_usage_selected_error: Veuillez sélectionner au moins un usage !
   usage_selection_error: Problème dans la sélection des usages !
 

@@ -20,11 +20,11 @@ module UserRequestsHelper
     result = gamma_array.collect{|s| s[0]}.first(5)
     #complete with default important specs. In order
     # Screen size (specification_id 5)
-    # CPU (specification_id 1)
+    # CPU (specification_id 11)
     # Weight (specification_id 9)
     # RAM (specification_id 2)
     # HDD (specification_id 4)
-    default_specs = [5, 1, 9, 2, 4]
+    default_specs = [5, 11, 9, 2, 4]
     default_specs.reverse!
     complete result, :with => default_specs, :until_size_is => 5, :allowing_duplicate => false
     result

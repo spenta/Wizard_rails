@@ -21,11 +21,11 @@
 
         <div class="answer">
           <select name=<%= "super_usage_weight_#{su[0]}" %> class="slider nosnap">
-              <option value="0">Peu important</option>
+              <option value="0"><%= t :weights_step_not_important %></option>
               <option value=""></option>
               <option value="<%= su[1].to_s %>" selected="selected"></option>
               <option value=""></option>
-              <option value="100">Tr&egrave;s important</option>
+              <option value="100"><%= t :weights_step_very_important %></option>
           </select>
        </div>
     </div>
