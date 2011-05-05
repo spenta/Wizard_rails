@@ -11,3 +11,4 @@ fr:
     <p>Choisissez tout ce que vous allez faire avec votre ordinateur, m&ecirc;me si &ccedil;a ve vous para&icirc;t pas tr&egrave;s important. Vous pourrez faire le tri de ce qui compte vraiment &agrave; l&#39;&eacute;tape suivante.</p>
 
   mobilities_step_hint: Cochez ce qui vous intéresse puis validez.
+  mobilities_step_wrong_choices: Une erreur est survenue dans l'enregistrement de vos choix. Veuillez nous en excuser

@@ -1,5 +1,6 @@
 class UserRequest < ActiveRecord::Base
   attr_writer :current_step
+  has_many :usage_choices, :dependent => :destroy
 
   def current_step
     @current_step || steps.first
@@ -13,7 +14,6 @@ class UserRequest < ActiveRecord::Base
     self.current_step = steps[steps.index(current_step)-1]
   end
 
-  has_many :usage_choices, :dependent => :destroy
   
   # Multi-step form done in the same way as in this Railscast :http://media.railscasts.com/videos/217_multistep_forms.mov. This keeps the current state>
   def steps
@@ -52,13 +52,22 @@ class UserRequest < ActiveRecord::Base
   end
 
   def update_weights params
+    are_weights_selected = false
     params.each do |key, weight_for_user|
       if key =~ /super_usage_weight_./
+        are_weights_selected = true if weight_for_user.to_i > 0
         super_usage_id = key.split('_').last
-        usage_choices_to_update = SuperUsage.find(super_usage_id).usages.collect {|u| usage_choices.where(:usage_id => u.id).first}
-        usage_choices_to_update.each {|uc| uc.update_attributes :weight_for_user => weight_for_user.to_i}
+        begin
+          usage_choices_to_update = SuperUsage.find(super_usage_id).usages.collect {|u| usage_choices.where(:usage_id => u.id).first}
+        rescue
+          raise I18n.t(:weights_step_wrong_choices) unless uc.update_attributes(:weight_for_user => weight_for_user.to_i)
+        end
+        usage_choices_to_update.each do |uc|
+        raise I18n.t(:weights_step_wrong_choices) unless uc.update_attributes(:weight_for_user => weight_for_user.to_i)
+        end
       end
     end
+    raise I18n.t(:weights_step_no_choices) unless are_weights_selected
   end
 
   def submit_and_get_response params
@@ -66,7 +75,12 @@ class UserRequest < ActiveRecord::Base
     params.each do |key, weight_for_user|
       if key =~ /mobility_weight_./
         mobility_choice_id = key.split('_').last
-        UsageChoice.find(mobility_choice_id).update_attributes(:weight_for_user => weight_for_user)
+        begin
+          usage_choice = UsageChoice.find(mobility_choice_id)
+        rescue 
+          raise I18n.t(:mobilities_step_wrong_choices)
+        end
+        raise I18n.t(:mobilities_step_wrong_choices) unless usage_choice.update_attributes(:weight_for_user => weight_for_user)
       end
     end
     UserRequest.find(params[:id]).update_attributes(:is_complete => true)

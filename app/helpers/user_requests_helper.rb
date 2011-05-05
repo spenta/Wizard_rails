@@ -37,8 +37,12 @@ module UserRequestsHelper
   end
 
   def get_percentage_from score, score_recommended
-    ratio = score/score_recommended
-    result = (ratio*100).round
+    if score_recommended == 0
+      result = 100
+    else
+      ratio = score/score_recommended
+      result = (ratio*100).round
+    end
   end
 
   # A product is said to have a low performance (L) if score < 90

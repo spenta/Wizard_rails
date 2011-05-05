@@ -47,4 +47,64 @@ class UserRequestsControllerTest < ActionController::TestCase
     assert_nil flash[:error], "unexpected error flash"
     assert UsageChoice.find(bureautique_simple_choice_id).is_selected, "usage choice should have been selected"
   end
+
+  test 'should not update on weights step with wrong weights' do
+    put :update, {:id => @user_request.id, :super_usage_weight_1 => 102}, {:user_request_step => "weights"}
+    assert_redirected_to edit_user_request_path
+    assert_equal I18n.t(:weights_step_wrong_choices), flash[:error]
+
+    put :update, {:id => @user_request.id, :super_usage_weight_1 => -2}, {:user_request_step => "weights"}
+    assert_redirected_to edit_user_request_path, 'no redirection'
+    assert_equal I18n.t(:weights_step_wrong_choices), flash[:error]
+  end
+
+  test 'should not update on weights step with no weights' do
+    put :update, {:id => @user_request.id}, {:user_request_step => "weights"}
+    assert_redirected_to edit_user_request_path, 'no redirection'
+    assert_equal I18n.t(:weights_step_no_choices), flash[:error]
+  end
+
+  test 'should update on weights step' do
+    put :update, {:id => @user_request.id, :super_usage_weight_1 => 42}, {:user_request_step => "weights"}
+    assert_redirected_to edit_user_request_path, 'no redirection'
+    assert_nil flash[:error], "unexpected error flash"
+  end
+
+  test 'should not update on mobilities step with wrong weights' do
+    mobility_choice = usage_choices(:mobilite_deplacement_choice)
+    mobility_choice_id = mobility_choice.id
+    mobility_choice_sym = "mobility_weight_#{mobility_choice_id}".to_sym
+    put :update, {:id => @user_request.id, mobility_choice_sym => 102}, {:user_request_step => "mobilities"}
+    assert_redirected_to edit_user_request_path
+    assert_equal I18n.t(:mobilities_step_wrong_choices), flash[:error]
+
+    put :update, {:id => @user_request.id, mobility_choice_sym => -2}, {:user_request_step => "mobilities"}
+    assert_redirected_to edit_user_request_path, 'no redirection'
+    assert_equal I18n.t(:mobilities_step_wrong_choices), flash[:error]
+  end
+
+  test 'should update on mobilities step' do
+    mobility_choice = usage_choices(:mobilite_deplacement_choice)
+    mobility_choice_id = mobility_choice.id
+    mobility_choice_sym = "mobility_weight_#{mobility_choice_id}".to_sym
+    put :update, {:id => @user_request.id, mobility_choice_sym => 42}, {:user_request_step => "mobilities"}
+    assert_redirected_to user_response_user_request_path, 'bad redirection'
+    assert_nil flash[:error], "unexpected error flash"
+  end
+
+  test 'should go to user_response page' do
+    mobility_choice = usage_choices(:mobilite_deplacement_choice)
+    mobility_choice_id = mobility_choice.id
+    mobility_choice_str = "mobility_weight_#{mobility_choice_id}".to_str
+    params = {mobility_choice_str => 12, :id => @user_request.to_param}
+    user_response = @user_request.submit_and_get_response params
+    get :user_response, params, {:user_response => user_response}
+    assert_response :success, 'unsuccessful response'
+    assert_template 'user_response'
+  end
+
+  test 'should go to home when no session' do
+    get :user_response, :id => @user_request.to_param
+    assert_redirected_to :root
+  end
 end

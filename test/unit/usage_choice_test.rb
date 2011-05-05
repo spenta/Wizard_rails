@@ -22,6 +22,7 @@ class UsageChoiceTest < ActiveSupport::TestCase
   test "should have a valid weight_for_user" do
     @usage_choice.weight_for_user=101
     assert @usage_choice.invalid?
+    assert !@usage_choice.save
     @usage_choice.weight_for_user=39
     assert @usage_choice.valid?
   end
