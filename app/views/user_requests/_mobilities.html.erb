@@ -4,11 +4,10 @@
     var $j = jQuery.noConflict();
     $j(document).ready(function()
       {
-          // convert all <select> with the class 'slider' into a slider
           $j('select.slider').selectSlider(); 
       });
   </script>
-<% end -%> 
+<% end -%>
 <% @user_request.mobility_choices.each do |mc| -%>
   <% mc_id = mc.id -%>
   <% m_id = mc.usage_id -%>
@@ -16,18 +15,17 @@
   <span class="qicon"></span> 
     <div class="qbody">
       <div class="qname">
-          <h2 class="usageTitle"><%= t "mobility_title#{m_id}".to_sym %></h2>
-          <p class="weightExplain"><%= t("mobilities_step_question_mobility#{m_id}".to_sym).html_safe %></p>
+          <h2 class="usageTitle"><%= t_safe "mobility_title#{m_id}" %></h2>
+          <p class="weightExplain"><%= t_safe "mobilities_step_question_mobility#{m_id}" %></p>
       </div>
       <div class="answer">
-        <select name=<%= "mobility_weight_#{mc_id}" %> class="slider nosnap">
-            <option value="0"><%= t :weights_step_not_important %></option>
-            <option value=""></option>
-            <option value="<%= mc.weight_for_user.to_s %>" selected="selected"></option>
-            <option value=""></option>
-            <option value="100"><%= t :weights_step_very_important %></option>
-        </select>
-       </div>
+        <%= content_tag :select,{:class => "slider nosnap", :name => "mobility_weight_#{mc_id}"} do %>
+          <option value="0"><%= t :weights_step_not_important %></option> <option value=""></option>
+          <option value="<%= mc.weight_for_user.to_s %>" selected="selected"></option>
+          <option value=""></option>
+          <option value="100"><%= t :weights_step_very_important %></option>
+        <% end -%>
+      </div>
     </div>
   </div>
 <% end -%>
