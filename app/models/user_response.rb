@@ -356,7 +356,7 @@ class ProductForDisplay
 end
 #similar to ProductForDisplay, but with attributes from related product with were to big to be serialized
 class ProductToDisplay < ProductForDisplay
-attr_accessor :small_img_url, :big_img_url, :brand_name, :name
+attr_accessor :small_img_url, :big_img_url, :brand_name, :name, :product_id, :price, :spenta_score, :is_good_deal, :is_star, :specification_values
   def initialize product_for_display
     @product_id = product_for_display.product_id
     @price = product_for_display.price
@@ -368,18 +368,20 @@ attr_accessor :small_img_url, :big_img_url, :brand_name, :name
     @big_img_url = product.big_img_url
     @brand_name = Brand.find(product.brand_id).name
     @name = product.name
-    @specification_values = specification_values
+    @specification_values = build_specification_values
   end
 
   # returns a hash representing the product's specs value
   # ex: specification_values = p1.specification_values
   # specification_values #=> {1 => {:name => Core i7, :scorer => 8.3}}
-  def specification_values
+  def build_specification_values
     specs_values = {}
+    product_specification_values = ProductsSpecsValue.where(:product_id => @product_id).where("specification_value_id > 0")
+    product_specification_values_hash = {}
+    product_specification_values.each {|psv| product_specification_values_hash[psv.specification_id] = SpecificationValue.find(psv.specification_value_id)}
     Specification.where(:specification_type => ["continuous", "discrete"]).each do |spec|
       spec_id = spec.id
-      product_specification_value = ProductsSpecsValue.where(:product_id => @product_id, :specification_id => spec_id).where("specification_value_id > 0").first
-      specification_value = SpecificationValue.find(product_specification_value.specification_value_id)
+      specification_value = product_specification_values_hash[spec_id]
       spec_value_name_and_score={}
       spec_value_name_and_score[:name] = specification_value.name
       spec_value_name_and_score[:score] = specification_value.score

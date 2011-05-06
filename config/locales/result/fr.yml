@@ -14,11 +14,15 @@ fr:
 
   # In the <h2> tag, before the number of products in the database
   result_page_subtitle1: |
-    parmi les <strong>
+    parmi les
 
   #In the <h2> tag, after the number of products in the database
-  result_page_subtitle2: |
-    modèles</strong> disponibles chez nos partenaires
+  result_page_subtitle2 : |
+    modèles
+
+  #In the <h2> tag, after the link
+  result_page_subtitle3: |
+    disponibles chez nos partenaires
 
   #---------------------------------------------------------------------------
   # Nav button labels (Top left)

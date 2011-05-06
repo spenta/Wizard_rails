@@ -1,12 +1,12 @@
-<% star_products = @user_response.get_star_products_to_display -%>
-<% good_deal_products = @user_response.get_good_deal_products_to_display -%>
+<% star_products = @user_response.get_star_products_to_display.sort! {|p1, p2| p1.spenta_score <=> p2.spenta_score} -%>
+<% good_deal_products = @user_response.get_good_deal_products_to_display.sort! {|p1, p2| p1.spenta_score <=> p2.spenta_score} -%>
 <% important_specs_id = get_important_specs_id_from @user_response.gammas -%>
 <% content_for :head do -%> 
   <title><%= t :result_page_title %></title>
   <%= stylesheet_link_tag  "reset"%>
   <%= stylesheet_link_tag  "result"%>
 
-  <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"%>
+  <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"%>
   <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.js"%>
   <%= javascript_include_tag "/javascripts/jquery.tablesorter.min.js"%>
   <%= javascript_include_tag "/javascripts/result"%>
@@ -16,7 +16,7 @@
 <% end -%>  
 <div id="resultpage">
   <%# Section du haut : produits recommandés  %>
-  <%= render :partial => 'star_products_group', :locals => {:star_products => star_products, :important_specs_id =>  important_specs_id} %>
+  <%= render 'star_products_group', :star_products => star_products, :important_specs_id =>  important_specs_id %>
   <%# Section du bas : autres produits adaptés %>            
-  <%= render :partial => 'good_deal_products_group', :locals => {:good_deal_products => good_deal_products, :important_specs_id =>  important_specs_id} %>
+  <%= render 'good_deal_products_group', :good_deal_products => good_deal_products, :important_specs_id =>  important_specs_id %>
 </div>

@@ -1,7 +1,7 @@
-<%= render :partial => 'vspacer', :locals => {:is_first_column => is_first_column} %>
+<%= render 'vspacer', :is_first_column => is_first_column %>
 <td class="bestpickcolumn" colspan="2">
   <%= link_to product_path(p.product_id) do %>
-    <h1><strong><%= p.brand_name %></strong><br/> <%= p.name %></h1>
+    <h1><strong><%= p.brand_name %></strong><br/> <%= truncate p.name, :length => 25 %></h1>
   <% end -%>
 <div class="bestpickcategory">
   <% category_of_p = category_of p -%>

@@ -13,8 +13,8 @@
     <p class="fulllist"><%= t :extras_full %> <%= link_to t(:extras_full_link), products_path, :taget => "_blank" %></a></p>
     <table id="extratable" class="tablesorter">
       <%# En-têtes du tableau %>
-      <%= render :partial => 'good_deal_products_table_head', :locals => {:important_specs_id =>  important_specs_id} %>
-      <%= render :partial => 'good_deal_products_table_body', :locals => {:good_deal_products => good_deal_products, :important_specs_id =>  important_specs_id} %>
+      <%= render 'good_deal_products_table_head', :important_specs_id =>  important_specs_id %>
+      <%= render 'good_deal_products_table_body', :good_deal_products => good_deal_products, :important_specs_id =>  important_specs_id %>
     </table>
   </div>
 </div>    

@@ -1,8 +1,6 @@
 <% is_first_column = true -%>
 <% star_products.each do |p| -%>
-  <% unless is_first_column == true%>
-    <td class="bestpickvspacer" />
-  <% end -%>
+  <%= render 'vspacer', :is_first_column => is_first_column  %> 
   <td class="bestpickcolumn" colspan="2">
   <% is_first_column = false -%>
   <%= link_to product_path(p.product_id), :target => "_blank" do%>

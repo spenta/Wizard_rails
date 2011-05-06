@@ -76,7 +76,7 @@ Vert foncé = #057619
 	color:white;
 }
 
-#toptitle strong {
+#toptitle a {
 	font-size:1.2em;
 	font-weight:500;
 	color:white;
@@ -424,6 +424,7 @@ p.specstooltip {
 	text-align:center;
 	border:1px #56DC70 solid;
 	border-bottom-color:#057619;
+        font-weight:400;
 }
 
 .toggle:hover {
@@ -513,7 +514,10 @@ p.specstooltip {
 }
 
 /* --- Formatage des cellules de la table --- */
-
+#extratable {
+  width:956px;
+  margin:0px auto;
+}
 #extras td, #extras th {
 	border-width:2px 1px;
 	border-style:solid;

@@ -9,8 +9,8 @@
     </td>
     <td class="infos">
       <%= link_to product_path(p.product_id), :target => "_blank", :class => "nounderline" do%>
-        <span class="brand"><%= p.brand_name %></span>
-        <span class="name"><%= p.name %></span>
+        <div class="brand"><%= p.brand_name %></div>
+        <div class="name"><%= truncate p.name, :length => 20 %></div>
       <% end -%>
     </td>
     <td class="price">

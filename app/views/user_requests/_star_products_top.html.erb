@@ -3,7 +3,7 @@
   <tr>
     <% is_first_column = true -%>
     <% star_products.each do |p| -%>
-    <%= render :partial => 'vspacer', :locals => {:is_first_column => is_first_column} %>
+    <%= render 'vspacer', :is_first_column => is_first_column %>
     <td class="bestpickcolumntop" colspan="2" />
     <% is_first_column = false -%>
     <% end -%>
@@ -12,7 +12,7 @@
   <tr>
     <% is_first_column = true -%>
     <% star_products.each do |p| -%>
-      <%= render :partial => 'star_product_header', :locals => {:p => p, :is_first_column => is_first_column}%>
+      <%= render 'star_product_header', :p => p, :is_first_column => is_first_column%>
       <% is_first_column = false -%>
     <% end -%>
   </tr>
@@ -20,7 +20,7 @@
   <tr>
     <% is_first_column = true -%>
     <% star_products.each do |p| -%>
-      <%= render :partial => 'star_product_image', :locals => {:p => p, :is_first_column => is_first_column}%>
+      <%= render 'star_product_image', :p => p, :is_first_column => is_first_column%>
       <% is_first_column = false -%>
     <% end -%>
   </tr>
@@ -28,7 +28,7 @@
   <tr>
     <% is_first_column = true -%>
     <% star_products.each do |p| -%>
-      <%= render :partial => 'star_product_price_and_score', :locals => {:p => p, :is_first_column => is_first_column}%>
+      <%= render 'star_product_price_and_score', :p => p, :is_first_column => is_first_column%>
       <% is_first_column = false -%>
     <% end -%>
   </tr>

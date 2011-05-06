@@ -14,18 +14,19 @@
   <%= javascript_include_tag "/javascripts/usages.answerMultichoice.js"%>
   <%= javascript_include_tag "/javascripts/usages.labelCheckbox.js"%>
   <%= javascript_include_tag "/javascripts/usages.selectSlider.js"%>
-  
 <% end -%>
+
 <% if flash[:error] -%>
   <h1><%= flash[:error] %></h1>
 <% end -%>
+
 <div id="main" class="usages">
   <%= render :partial => 'form_header_and_info', :locals => {:current_step => @user_request.current_step} %>
   <%= form_for(@user_request, :html => {:class => "tabbed"}) do |f| %>
     <%= render :partial => @user_request.current_step %>
     <div style="clear:both;"></div>
     <div class="actions">
-      <% unless @user_request.current_step == "selection"%>
+    <% unless @user_request.current_step == "selection"%>
         <%= link_to  "Back", edit_user_request_path(:back => "true"), :class => "prev-button"%>
       <% end -%>
       <%= f.submit "Next", :class => "next-button"%>
