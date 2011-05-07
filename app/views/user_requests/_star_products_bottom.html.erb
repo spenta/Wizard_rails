@@ -13,7 +13,7 @@
   <% is_first_column = true -%>
   <tr>
     <% star_products.each do |p| -%>
-      <%= render 'vspacer', :is_first_column => true %>
+      <%= render 'vspacer', :is_first_column => is_first_column %>
       <% is_first_column = false -%>
         <td class="bestpickcolumn" colspan="2">
           <div class="specsleft">
