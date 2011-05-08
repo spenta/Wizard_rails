@@ -58,7 +58,7 @@ class UserRequestsController < ApplicationController
       end
     rescue => error
         #redirect_to edit_user_request_path, :flash => {:error => error.message}
-        redirect_to edit_user_request_path, :flash => {:error => error.backtrace}
+        redirect_to edit_user_request_path, :flash => {:error => "#{error.message}\n#{error.backtrace}"}
     end
   end
 
