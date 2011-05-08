@@ -25,7 +25,8 @@ class UserResponseDirector
     #TEMP 
     t3 = Time.new()
     @timer += "time to process_gammas! : #{t3-t2}\n"
-    @builder.process_pi_and_delta!
+    #TEMP
+    @builder.process_pi_and_delta! {|t_hash, t_calc| @timer += "time to create hash#{t_hash}\n time to calc score#{t_calc}\n"}
     #TEMP 
     t4 = Time.new()
     @timer += "time to process_pi_and_delta! : #{t4-t3}\n"
@@ -171,11 +172,23 @@ class UserResponseBuilder
   end
 
   def process_pi_and_delta!
+    #TEMP 
+    time_to_create_hash = 0
+    #TEMP 
+    time_to_calculate_score = 0
     @products_scored.each do |ps|
+      #TEMP 
+      t_start_hash = Time.new()
       product_id = ps.product.id
       specification_scores = ProductSpecScore.where(:product_id => product_id)
       specification_scores_hash = {}
       specification_scores.each {|ss| specification_scores_hash[ss.specification_id] = ss.score}
+      #TEMP
+      t_end_hash = Time.new()
+      #TEMP
+      time_to_create_hash += t_end_hash - t_start_hash
+      #TEMP
+      time_start_calculation = Time.new()
       Specification.all.each do |spec|
         #null scores replaced with 0
         score = specification_scores_hash[spec.id]
@@ -185,7 +198,12 @@ class UserResponseBuilder
         #pi
         ps.pi +=gamma*((tau-sigma)<=>0)*Math.log(1+LAMBDA*(tau-sigma).abs)/LAMBDA
       end
+      #TEMP
+      time_end_calculation = Time.new()
+      #TEMP
+      time_to_calculate_score += time_end_calculation - time_start_calculation
     end
+    yield time_to_create_hash, time_to_calculate_score 
   end
 
   def process_scores!
