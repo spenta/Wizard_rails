@@ -138,14 +138,19 @@ class UserResponseBuilder
   end
 
   def process_pi_and_delta!
+    # hash product_id => {:specification_id => spec_id, :score => score}
+    # I did not use Active record quesries for perf reasons
+    product_specification_scores_hash = {}
+    product_specification_scores = ProductSpecScore.order('product_id')
+    product_specification_scores.each do |pss|
+      product_specification_scores_hash[pss.product_id] ||= {}
+      product_specification_scores_hash[pss.product_id][pss.specification_id] = pss.score
+    end
     @products_scored.each do |ps|
       product_id = ps.product.id
-      specification_scores = ProductSpecScore.where(:product_id => product_id)
-      specification_scores_hash = {}
-      specification_scores.each {|ss| specification_scores_hash[ss.specification_id] = ss.score}
       Specification.all.each do |spec|
         #null scores replaced with 0
-        score = specification_scores_hash[spec.id]
+        score = product_specification_scores_hash[product_id][spec.id]
         sigma, gamma, tau = sigmas[spec.id], gammas[spec.id], score ? score : 0
         #delta
         ps.delta += gamma*([GAP_MAX, ZETA*(([0,(sigma-tau)/ZETA].max)**NU)]).min
