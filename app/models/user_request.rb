@@ -90,6 +90,12 @@ class UserRequest < ActiveRecord::Base
     director.process_response
     user_response = director.get_response
     director.clear!
+    #TEMP 
+    puts "--------------------------------"
+    #TEMP 
+    puts director.timer
+    #TEMP 
+    puts "--------------------------------"
     user_response
   end
 end

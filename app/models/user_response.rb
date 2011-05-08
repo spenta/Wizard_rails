@@ -1,19 +1,45 @@
 #We use a builder pattern to create a user_response. see the algo doc for the notations.
 class UserResponseDirector
-  attr_accessor :builder
+  attr_accessor :builder, :timer
   def init_builder user_request
     @builder = UserResponseBuilder.new if @builder.nil?
     @builder.user_request = user_request
   end
 
   def process_response
+    #TEMP
+    t0 = Time.new()
+    #TEMP 
+    @timer = "response processing started\n"
     @builder.process_specification_needs!
+    #TEMP 
+    t1 = Time.new()
+    @timer += "time after process_specification_needs! : #{t1-t0}\n"
     @builder.process_sigmas!
+    #TEMP 
+    t2 = Time.new()
+    @timer += "time after process_sigmas! : #{t2-t0}\n"
     @builder.process_gammas!
+    #TEMP 
+    t3 = Time.new()
+    @timer += "time after process_gammas! : #{t3-t0}\n"
     @builder.process_pi_and_delta!
+    #TEMP 
+    t4 = Time.new()
+    @timer += "time after process_pi_and_delta! : #{t4-t0}\n"
     @builder.process_scores!
+    #TEMP 
+    t5 = Time.new()
+    @timer += "time after process_scores! : #{t5-t0}\n"
     @builder.process_good_deals!
+    #TEMP 
+    t6 = Time.new()
+    @timer += "time after process_good_deals! : #{t6-t0}\n"
     @builder.process_stars!
+    #TEMP 
+    t7 = Time.new()
+    @timer += "time after process_stars! : #{t7-t0}"
+    #TEMP 
   end
 
   def get_response
