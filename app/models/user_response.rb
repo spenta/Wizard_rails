@@ -26,7 +26,7 @@ class UserResponseDirector
     t3 = Time.new()
     @timer += "time to process_gammas! : #{t3-t2}\n"
     #TEMP
-    @builder.process_pi_and_delta! {|t_hash, t_calc| @timer += "time to create hash#{t_hash}\n time to calc score#{t_calc}\n"}
+    @builder.process_pi_and_delta! {|t_hash, t_calc| @timer += "time to create hash : #{t_hash}\ntime to calc score : #{t_calc}\n"}
     #TEMP 
     t4 = Time.new()
     @timer += "time to process_pi_and_delta! : #{t4-t3}\n"
@@ -41,7 +41,9 @@ class UserResponseDirector
     @builder.process_stars!
     #TEMP 
     t7 = Time.new()
-    @timer += "time to process_stars! : #{t7-t6}"
+    @timer += "time to process_stars! : #{t7-t6}\n"
+    #TEMP
+    @timer += "total time to process response : #{t7-t0}\n"
 
   end
 
