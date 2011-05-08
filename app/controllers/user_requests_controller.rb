@@ -50,14 +50,15 @@ class UserRequestsController < ApplicationController
         redirect_to edit_user_request_path
       when "mobilities"
         session[:user_response] = @user_request.submit_and_get_response params
-        session[:sort_order] = :spenta_score
+        #session[:sort_order] = :spenta_score
         @user_request.update_attributes(:is_complete => true)
         redirect_to user_response_user_request_path
         else
           raise "unknown form state : #{session[:user_request_step]}"
       end
     rescue => error
-        redirect_to edit_user_request_path, :flash => {:error => error.message}
+        #redirect_to edit_user_request_path, :flash => {:error => error.message}
+        redirect_to edit_user_request_path, :flash => {:error => error.backtrace}
     end
   end
 

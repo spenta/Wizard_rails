@@ -1,6 +1,8 @@
 #We use a builder pattern to create a user_response. see the algo doc for the notations.
 class UserResponseDirector
-  attr_accessor :builder, :timer
+  attr_accessor :builder
+  #TEMP
+  attr_accessor :timer
   def init_builder user_request
     @builder = UserResponseBuilder.new if @builder.nil?
     @builder.user_request = user_request
@@ -14,32 +16,37 @@ class UserResponseDirector
     @builder.process_specification_needs!
     #TEMP 
     t1 = Time.new()
-    @timer += "time after process_specification_needs! : #{t1-t0}\n"
+    @timer += "time to process_specification_needs! : #{t1-t0}\n"
     @builder.process_sigmas!
     #TEMP 
     t2 = Time.new()
-    @timer += "time after process_sigmas! : #{t2-t0}\n"
+    @timer += "time to process_sigmas! : #{t2-t1}\n"
     @builder.process_gammas!
     #TEMP 
     t3 = Time.new()
-    @timer += "time after process_gammas! : #{t3-t0}\n"
+    @timer += "time to process_gammas! : #{t3-t2}\n"
     @builder.process_pi_and_delta!
     #TEMP 
     t4 = Time.new()
-    @timer += "time after process_pi_and_delta! : #{t4-t0}\n"
+    @timer += "time to process_pi_and_delta! : #{t4-t3}\n"
     @builder.process_scores!
     #TEMP 
     t5 = Time.new()
-    @timer += "time after process_scores! : #{t5-t0}\n"
+    @timer += "time to process_scores! : #{t5-t4}\n"
     @builder.process_good_deals!
     #TEMP 
     t6 = Time.new()
-    @timer += "time after process_good_deals! : #{t6-t0}\n"
+    @timer += "time to process_good_deals! : #{t6-t5}\n"
     @builder.process_stars!
     #TEMP 
     t7 = Time.new()
-    @timer += "time after process_stars! : #{t7-t0}"
-    #TEMP 
+    @timer += "time to process_stars! : #{t7-t6}"
+
+  end
+
+  ##TEMP
+  def set_timer user_response
+    user_response.timer = @timer
   end
 
   def get_response
@@ -335,10 +342,13 @@ class UserResponseBuilder
     @products_scored.each { |p| products_for_display << ProductForDisplay.new(p) }
     @user_response = UserResponse.new(gammas, sigmas, products_for_display)
   end
+
 end
 
 class UserResponse
   attr_accessor  :gammas, :sigmas, :products_for_display
+  #TEMP
+  attr_accessor :timer
   def initialize gammas, sigmas, products_for_display
     @gammas = gammas
     @sigmas = sigmas
