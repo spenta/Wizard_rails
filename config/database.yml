@@ -3,7 +3,7 @@
 development:
   adapter: mysql2
   encoding: utf8
-  database: wizard_rails_development
+  database: wizard_spenta_dev_common_server_rails
   pool: 5
   username: root
   password:
@@ -21,7 +21,7 @@ test:
 production:
   adapter: mysql2
   encoding: utf8
-  database: wizard_rails_development
+  database: wizard_spenta_prod_server_rails
   pool: 5
   username: root
   password:
