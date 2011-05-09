@@ -49,4 +49,13 @@ class UserRequestsHelperTest < ActionView::TestCase
     assert_equal 8, get_color_number(1.8)
     assert_equal 9, get_color_number(3)
   end
+
+  test 'should get percentage' do
+    assert_equal 1, get_percentage_from(1.0, 100.0)
+    assert_equal 10, get_percentage_from(10.0, 100.0) 
+    assert_equal 100, get_percentage_from(100.0, 100.0)
+    assert_equal 6, get_percentage_from(5.5, 100.0)
+    assert_equal 56, get_percentage_from(55.5, 100.0) 
+    assert_equal 556, get_percentage_from(555.5, 100.0) 
+  end
 end
