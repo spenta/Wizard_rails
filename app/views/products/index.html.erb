@@ -1,5 +1,5 @@
 <%= link_to "Accueil", :root%>
-<p><%= Nombre de produits :  #{Product.all.size}%></p>
+<p><%= "Nombre de produits :  #{Product.all.size}"%></p>
 <table>
   <% Product.all.each do |p| -%>
   <tr>
