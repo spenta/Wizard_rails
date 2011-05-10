@@ -52,7 +52,7 @@ Vert foncé = #057619
 
 * {
 	font-family:"Arial", Arial, sans-serif;
-	font-size:10px; 	    
+	font-size:10px;
 }
 
 /* ---------------- Titre & sous-titres de la page ---------------- */
@@ -114,7 +114,7 @@ Vert foncé = #057619
 .buttonlabel {
 	font-size:1.8em;
 	color:white;
-	padding:5px 0 0 40px; 
+	padding:5px 0 0 40px;
 }
 
 #navbuttons a { text-decoration:none; }
@@ -134,7 +134,7 @@ Vert foncé = #057619
 
 .bestpickcolumn strong {
 	font-size:1em;
-	font-weight:bold;	
+	font-weight:bold;
 }
 
 /* Paragraphes d'explication sur les 3 PC retenus & lien "+ d'informations" */
@@ -271,20 +271,20 @@ a.scoretooltip {
 
 a.scoretooltip:hover {
 	background: none;
-	z-index: 1;  
+	z-index: 1;
 }
-   
-a.scoretooltip span { 
+
+a.scoretooltip span {
 	display: none;
 	position:relative;
 }
 
-/* Style du popup lorsqu'il s'affiche */   
+/* Style du popup lorsqu'il s'affiche */
 a.scoretooltip:hover span {
-	display: block; 
+	display: block;
 	position: absolute;
 	width:300px;
-	top:-20px; 
+	top:-20px;
 	left:10px;
 	background:#D4FCD9;
 	padding: 8px;
@@ -324,7 +324,7 @@ a.scoretooltip:hover span {
 	text-shadow:1px 1px 0 #666666;
 	color:white;
 	position:absolute;
-	margin:9px 0px 0px 15px; 
+	margin:9px 0px 0px 15px;
 }
 
 .productbutton:hover {
@@ -335,13 +335,13 @@ a.scoretooltip:hover span {
 /* Positionnement des elements image, carac et score soient sur la même ligne */
 .specsrankimage {
 	float:left;
-	padding:15px 10px 15px 10px;
+	padding:15px 10px;
 }
 
 .specsleft {
 	width:210px;
 	float:left;
-	padding:10px 0;
+	padding:3px 0;
 }
 
 .specsright {
@@ -386,20 +386,20 @@ a.specstooltip {
 
 a.specstooltip:hover {
 	background: none;
-	z-index: 1;  
+	z-index: 1;
 }
-   
-a.specstooltip span { 
+
+a.specstooltip span {
 	display: none;
 	position:relative;
 }
 
-/* Style du popup lorsqu'il s'affiche */   
+/* Style du popup lorsqu'il s'affiche */
 a.specstooltip:hover span {
-	display: block; 
+	display: block;
 	position: absolute;
 	width:180px;
-	top:-10px; 
+	top:-10px;
 	left:-20px;
 	background:#D4FCD9;
 	padding: 8px;
@@ -499,7 +499,7 @@ p.specstooltip {
 	text-align:justify;
 }
 
-.fulllist { 
+.fulllist {
 	margin:10px 30px 20px 30px;
 	color:#666666;
 	font-size:1.3em;
@@ -534,14 +534,14 @@ p.specstooltip {
 
 /* Pas de bordures sur les infos produit et les en-têtes associés */
 #extras td.thumb { border-right-width:0px; }
-#extras td.infos { 
+#extras td.infos {
 	border-right-width:0px;
-	border-left-width:0px; 
+	border-left-width:0px;
 	text-align:left;
 }
 #extras td.price { border-left-width:0px; }
 
-#extras .empty { 
+#extras .empty {
 	border-right-width:0px;
 	border-left-width:0px;
 }
@@ -579,11 +579,15 @@ tr.headers {
 
 /* --- Rangées --- */
 
-#extras td { 
-	height:61px; 
+#extras td {
+	height:61px;
 	text-align:center;
 	font-size:3em;
 	font-weight:bold;
+}
+
+#extras var {
+    font-size:1em;
 }
 
 #extras .thumb {
@@ -616,6 +620,7 @@ a.nounderline {
 .more {
 	color:#036CAA;
 	font-size:1.1em;
+	margin-right:5px
 	text-align:right;
 	text-decoration:underline;
 }
@@ -644,3 +649,4 @@ a.nounderline {
 #extras tr.product:hover td.colorid7 { background-color:#08b1b3; color:white; text-shadow:1px 1px 0 #666666 }
 #extras tr.product:hover td.colorid8 { background-color:#039ae6; color:white; text-shadow:1px 1px 0 #666666 }
 #extras tr.product:hover td.colorid9 { background-color:#385feb; color:white; text-shadow:1px 1px 0 #666666 }
+

@@ -7,6 +7,7 @@ javascripts:
     - public/javascripts/rails/control.js
     - public/javascripts/rails/dragdrop.js
     - public/javascripts/rails/rails.js
+    - public/javascripts/rails/waitpopup.js
   
   wizard:
     - public/javascripts/*.js

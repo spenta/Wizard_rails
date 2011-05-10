@@ -1,23 +1,32 @@
-<%# Multi-step form done in the same way as in this Railscast :http://media.railscasts.com/videos/217_multistep_forms.mov%> 
+<%# Multi-step form done in the same way as in this Railscast :http://media.railscasts.com/videos/217_multistep_forms.mov%>
 
 <% content_for :head do -%>
   <%= include_stylesheets :form%>
 <% end -%>
 
-<% if flash[:error] -%>
-  <h1><%= flash[:error] %></h1>
-<% end -%>
-
 <div id="main" class="usages">
-  <%= render :partial => 'form_header_and_info', :locals => {:current_step => @user_request.current_step} %>
+  <%= render 'form_header_and_info', :current_step => @user_request.current_step %>
   <%= form_for(@user_request, :html => {:class => "tabbed"}) do |f| %>
     <%= render :partial => @user_request.current_step %>
     <div style="clear:both;"></div>
+
     <div class="actions">
     <% unless @user_request.current_step == "selection"%>
-        <%= link_to  "Back", edit_user_request_path(:back => "true"), :class => "prev-button"%>
-      <% end -%>
-      <%= f.submit "Next", :class => "next-button"%>
-    </div>
+      <%= link_to  t(:nav_button_prev), edit_user_request_path(:back => "true"), :class => "prev-button"%>
+    <% end -%>
+
+    <%= f.submit t(:nav_button_next), :class => "next-button" %>
+
+  </div>
+
+  <% end %>
+
+  <% if flash[:error] -%>
+    <p class="warning"><%= flash[:error] %></p>
+  <% end -%>
+
+  <% if @user_request.current_step == "mobilities"%>
+    <%= render :partial => 'form_popup' %>
   <% end %>
 </div>
+

@@ -7,9 +7,9 @@
 /*Couleur = intitulés des checkboxes dans le questionnaire*/
 
 * {
-	font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family:"Arial", Arial, sans-serif;
 	font-size:13px;
-	color:#4B4B4B;
+	color:#33332F;
 }
 
 small {
@@ -27,14 +27,14 @@ var {
 	color:inherit;
 	}
 
-a { color:#638EBC; /* Couleur des liens*/
+a { color:#50A5D7; /* Couleur des liens*/
 	text-decoration:underline; }
-	a:hover { color:#73A5DB; }
+	a:hover { color:#036CAA; }
 
 p {
 	margin:10px 0;
 	text-align:justify;
-	color: #4B4B4B;    /*Couleur par défaut du texte*/
+	color: #33332F;    /*Couleur par défaut du texte*/
 }
 
 ul {
@@ -61,15 +61,15 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {    /* Les questions en haut de la page. */
 	letter-spacing: -1px;
-	color: #D88900;
 	font-weight: bold;
+	color:#036CAA;
 	font-size:2.4em;
-	text-shadow: 0px 1px 1px rgba(255,255,255,1);
+	text-shadow: 0px 1px 1px #DFDFDF;
 }
 
 h2 {   /*Les noms des usages - Parent de usageTitle > Voir pour r�soudre les conflits d'h�ritage. Nouveau style pour h2 : qname.h2 ? */
 	font-size:1.5em;
-	color: #4B4B4B;
+	color: #50A5D7;
 	margin:0 0 5px 0;
 	text-shadow: 0px 1px 1px white;
 }
@@ -100,14 +100,13 @@ p.explain {
 ------------------------------------------------------------------*/
 
 body, html {
-	background-color:#EFEFEC; /*Fond de la page - inutile si l'iframe est ajusté*/
+	background-color:#F5F5F5; /*Fond de la page*/
 }
 
 #main {
 	width:910px;
 	padding:15px;
 	margin:0 auto; /*Centre le container sur la verticale de la page*/
-	background-color:#EFEFEC; /*Fond de le zone de contenus principale*/
 }
 
 .error {

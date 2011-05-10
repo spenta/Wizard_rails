@@ -15,22 +15,23 @@
     </td>
     <td class="price">
       <%= link_to product_path(p.product_id), :target => "_blank", :class => "nounderline" do%>
-        <div class="price"><%= p.price.floor %><small>€<%= get_cents_from p.price %></small></div>                            
+        <div class="price"><%= p.price.floor %><small>€<%= get_cents_from p.price %></small></div>
         <div class="more"><%= t :extras_more -%></div>
       <% end -%>
     </td>
     <%# Spenta score %>
     <%= content_tag :td, :class => "score textshadingdark bckgcolorid#{get_color_number(p.spenta_score/100)}" do %>
-      <%= p.spenta_score.round %><small>%</small>
+      <var><%= p.spenta_score.round %></var><small>%</small>
     <% end -%>
     <%# Specs %>
     <% important_specs_id.each do |spec_id| -%>
       <%spec_score_percent = get_percentage_from(p.specification_values[spec_id][:score], @user_response.sigmas[spec_id]) %>
       <%= content_tag :td, :class => "textshading colorid#{get_color_number(spec_score_percent.to_f/100)}" do%>
-        <%= spec_score_percent%><small>%</small>
+        <var><%= spec_score_percent%><var><small>%</small>
         <p class="specvalue"><%= spec_value_with_unit p, spec_id%></p>
       <% end -%>
     <% end -%>
   </tr>
   <% end -%>
 </tbody>
+

@@ -7,13 +7,13 @@
 	.QUESTION.BUTTON
 ------------------------------------------------------------------*/
 
-form.tabbed .question.button 
+form.tabbed .question.button
 {
 	cursor:pointer;
 }
 
 .question.button:hover {
-	background-color:silver;
+	background-image:url('../images/question_bckg_hover.png');
 }
 
 form.tabbed .question.button .qinfo,
@@ -37,14 +37,15 @@ form.tabbed .question.button.selected .qbody
 
 /* Fond des boites d'usage au survol */
 .question.button.selected:hover {
-	background-color:#638EBC;
+	background-color:#036CAA;
+	background-image:url('../images/question_selected_hover.png');
 }
 
 /* Modifie la taille du titre des usages lorsqu'ils sont sélectionnés. Désactivé.
 
-form.tabbed .question.button.selected .qname 
+form.tabbed .question.button.selected .qname
 {
-	font-size:1.0em;    
+	font-size:1.0em;
 }
 */
 
@@ -53,14 +54,14 @@ form.tabbed .question.button.selected .qname
 	QUESTION.OPENED
 ----------------------------------*/
 
-form.tabbed .question.opened .qbody 
+form.tabbed .question.opened .qbody
 {
 	margin-left:60px;
 	padding-left:20px;
-	
+
 	position:absolute;
 	top:0; left:0; right:0;
-	
+
 	background-color:#4d4d4d;
 	-webkit-border-radius:4px;
 	-khtml-border-radius:4px;
@@ -73,11 +74,11 @@ form.tabbed .question.opened .qbody
 	QUESTION.TABBED
 ----------------------------------*/
 
-form.tabbed .question.tabbed 
+form.tabbed .question.tabbed
 {
 	width:50px;
 	overflow:hidden;
-	
+
 	cursor:pointer;
 	-webkit-border-bottom-right-radius:0px 0px;
 	-khtml-border-bottom-right-radius:0px 0px;
@@ -95,3 +96,4 @@ form.tabbed .question.tabbed .qbody
 {
 	display:none;
 }
+
