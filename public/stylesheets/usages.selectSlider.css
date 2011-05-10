@@ -7,11 +7,11 @@
 {
 	height:6px;
 	display:block;
-	
+
 	margin:18px 30px 0px 30px;
 	padding:15px 0 15px 0;
 	position:relative;
-	
+
 	background:none;
 	background-image:url(/images/slider-track.png);
 	background-repeat:repeat-x;
@@ -21,17 +21,17 @@
 .ui-slider .ui-slider-handle
 {
 	z-index:2;
-	
+
 	width:27px;
 	height:27px;
 	display:block;
-	
+
 	margin-left:-13.5px;
 	position:absolute;
 	top:0px; left:0%;
-	
+
 	outline:none;
-	
+
 	background-image:url(/images/slider-thumb.png);
 	background-repeat:no-repeat;
 	background-position:0px 0px;
@@ -40,22 +40,24 @@
 .ui-slider span
 {
 	z-index:1;
-	
-	width:80px;
+
+	width:86px;
 	display:block;
-	
+
 	padding-top:20px;
-	margin-left:-40px;
+	margin-left:-43px;
 	position:absolute;
 	top:8px; left:0px;
-	
-	font-size:0.8em;
+
+	font-size:0.9em;
 	font-weight:bold;
 	text-align:center;
-	
+	color:white;
+
 	cursor:pointer;
-	
+
 	background-image:url(/images/slider-step.png);
 	background-repeat:no-repeat;
 	background-position:top center;
 }
+

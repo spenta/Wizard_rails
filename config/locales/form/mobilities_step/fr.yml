@@ -1,16 +1,27 @@
 fr:
-  mobilities_step_title: Étape 3/3 - Êtes-vous mobile ? 
+  mobilities_step_title: Étape 3/3 - Êtes-vous mobile ?
 
   mobilities_step_subtitle: Allez-vous souvent déplacer votre ordinateur ? L'utilisez-vous ailleurs que chez vous ? Faites glisser les curseurs pour nous l'expliquer.
 
   mobilities_step_sideinfo: |
-    <h5>Trouver le meilleur ordinateur </h5>
-    <p>Le bon ordinateur, c&#39;est celui qui fait bien <strong>tout ce que vous voulez</strong>, au bon prix. Ce n&#39;est pas le m&ecirc;me pour tout le monde !</p>
-    <p>Le conseiller virtuel analyse vos besoins pour vous donner un conseil <strong>personnalis&eacute;</strong> et <strong>objectif</strong>.</p>
-    <h5>Dites-nous toutes vos envies</h5>
-    <p>Choisissez tout ce que vous allez faire avec votre ordinateur, m&ecirc;me si &ccedil;a ve vous para&icirc;t pas tr&egrave;s important. Vous pourrez faire le tri de ce qui compte vraiment &agrave; l&#39;&eacute;tape suivante.</p>
+    <h5>Hors de chez vous</h5>
+    <p>Il est préférable que votre ordinateur soit <strong>peu encombrant</strong>. Il doit s'adapter à une tablette de train, à un coin de bureau...</p>
+    <h5>À la maison</h5>
+    <p>Si votre PC vous suit dans toutes les pièces, il doit être <strong>maniable</strong>. S'il reste sur une table, ce n'est pas un problème.</p>
+    <h5>Dans les transports en commun</h5>
+    <p>Si vous portez beaucoup votre ordinateur, il doit être <strong>léger et compact</strong>. Bien entendu, si vous le transportez en voiture, c'est beaucoup moins important !</p>
 
   mobilities_step_hint: Cochez ce qui vous intéresse puis validez.
   mobilities_step_wrong_choices: Une erreur est survenue dans l'enregistrement de vos choix. Veuillez nous en excuser
-  mobilities_step_not_important: Peu important
-  mobilities_step_very_important: Très important
+  mobilities_step_not_important: Jamais
+  mobilities_step_very_important: Tout le temps
+
+  # -----------------
+  # Searching...
+  # -----------------
+
+  searching_title: Nous recherchons les meilleurs PC
+  searching_subtitle: Cela ne prendra que quelques secondes !
+  searching_1: Analyse de vos besoins...
+  searching_2: Évaluation des performances...
+  searching_3: Sélection des meilleures offres...

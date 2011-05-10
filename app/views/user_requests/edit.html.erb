@@ -1,4 +1,4 @@
-<%# Multi-step form done in the same way as in this Railscast :http://media.railscasts.com/videos/217_multistep_forms.mov%> 
+<%# Multi-step form done in the same way as in this Railscast :http://media.railscasts.com/videos/217_multistep_forms.mov%>
 
 
 <% content_for :head do -%>
@@ -14,10 +14,7 @@
   <%= javascript_include_tag "/javascripts/usages.answerMultichoice.js"%>
   <%= javascript_include_tag "/javascripts/usages.labelCheckbox.js"%>
   <%= javascript_include_tag "/javascripts/usages.selectSlider.js"%>
-<% end -%>
-
-<% if flash[:error] -%>
-  <h1><%= flash[:error] %></h1>
+  <%= javascript_include_tag "/javascripts/waitpopup.js"%>
 <% end -%>
 
 <div id="main" class="usages">
@@ -25,11 +22,24 @@
   <%= form_for(@user_request, :html => {:class => "tabbed"}) do |f| %>
     <%= render :partial => @user_request.current_step %>
     <div style="clear:both;"></div>
+
     <div class="actions">
     <% unless @user_request.current_step == "selection"%>
-        <%= link_to  "Back", edit_user_request_path(:back => "true"), :class => "prev-button"%>
-      <% end -%>
-      <%= f.submit "Next", :class => "next-button"%>
+      <%= link_to  t(:nav_button_prev), edit_user_request_path(:back => "true"), :class => "prev-button"%>
+    <% end -%>
+
+    <%= f.submit t(:nav_button_next), :class => "next-button" %>
+
     </div>
+
   <% end %>
+
+    <% if flash[:error] -%>
+      <p class="warning"><%= flash[:error] %></p>
+    <% end -%>
+
+    <% if @user_request.current_step == "mobilities"%>
+      <%= render :partial => 'form_popup' %>
+    <% end %>
 </div>
+

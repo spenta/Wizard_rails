@@ -5,9 +5,9 @@ fr:
   result_page_html_title: Choisir Facile - Nos suggestions
 
   #---------------------------------------------------------------------------
-  # Page title > Displayed before the 3 best picks 
+  # Page title > Displayed before the 3 best picks
   #---------------------------------------------------------------------------
-  
+
   # In the #toptitle <h1> tag
   result_page_title: |
     Nos recommandations : les 3 meilleurs PC
@@ -17,9 +17,7 @@ fr:
     parmi les
 
   #In the <h2> tag, after the number of products in the database
-  result_page_subtitle2 : |
-    modèles
-
+  result_page_subtitle2: modèles
   #In the <h2> tag, after the link
   result_page_subtitle3: |
     disponibles chez nos partenaires
@@ -32,7 +30,7 @@ fr:
   result_nav_restart: Recommencer
 
   #---------------------------------------------------------------------------
-  # Bestpickcolumn > info about the 3 best picks 
+  # Bestpickcolumn > info about the 3 best picks
   #---------------------------------------------------------------------------
 
 
@@ -48,7 +46,7 @@ fr:
   bestpick_medal_M: Très bon compromis pour vos besoins.
   bestpick_medal_H: Des performances supérieures à vos besoins.
 
-  # Type of the best picks in the <h2> tag. 
+  # Type of the best picks in the <h2> tag.
   bestpick_header_L: PC économique
   bestpick_header_M: PC équilibré
   bestpick_header_H: PC performance
@@ -73,7 +71,7 @@ fr:
   # Tooltip icon alternate text
   bestpick_score_tooltip_icon: Aide
 
-  # Tooltip for the % score. 
+  # Tooltip for the % score.
   bestpick_spenta_score_tooltip: |
     <strong>Le % de vos besoins vous dit immédiatement si le PC est bien adapté à vos attentes.</strong>
     <ul>
@@ -145,7 +143,7 @@ fr:
   # ID=5 > Screen size
   spec_name_5: Taille d'écran
   spec_metrics_5: pouces
-  spec_tooltip_5: Un grand écran vous apportera un réel confort pour regarder des films, faire du graphisme et pour jouer. C'est aussi un plus appréciable lorsque l'on rédige des documents ! 
+  spec_tooltip_5: Un grand écran vous apportera un réel confort pour regarder des films, faire du graphisme et pour jouer. C'est aussi un plus appréciable lorsque l'on rédige des documents !
 
   # ID=12 > Webcam
   spec_name_12: Webcam
@@ -175,10 +173,10 @@ fr:
   extras_title: D'autres modèles intéressants
 
   # Short paragraph to introduce the complete list. In the <p class="extrasexplain"> tags.
-  extras_explain: Nous avons sélectionné dix ordinateurs bien adaptés à pour vos besoins grâce à vos réponses. Tous ces modèles ont de très bons rapports performance-prix, pour tous les budgets. Nous avons affiché les points les plus importants pour vous. Comparez-les facilement en triant les colonnes !
-  
+  extras_explain: Nous avons sélectionné d'autres ordinateurs bien adaptés à pour vos besoins que vous nous avez indiqué. Ils ont tous de très bons rapports performance-prix, dans une large gamme de budget. Nous avons affiché les points les plus importants pour vous. Comparez-les facilement en triant les colonnes !
+
   # Link to the full list. The second part goes between the <a> tags.
-  extras_full: Vous pouvez également consulter 
+  extras_full: Vous pouvez également consulter
   extras_full_link: la liste complète des ordinateurs
 
   # Extras table : the other PCs
