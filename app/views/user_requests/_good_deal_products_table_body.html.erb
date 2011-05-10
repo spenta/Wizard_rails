@@ -4,7 +4,7 @@
   <tr class="product">
     <td class="thumb">
       <%= link_to product_path(p.product_id), :target => "_blank" do%>
-        <%= image_tag p.small_img_url, :alt => p.brand_name+' '+p.name, :class => "thumb" %>
+        <%= image_tag p.small_img_url, :alt => p.brand_name+' '+p.name, :class => "thumbnail" %>
       <% end -%>
     </td>
     <td class="infos">
