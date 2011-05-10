@@ -4,11 +4,11 @@ javascripts:
   rails:
     - public/javascripts/rails/prototype.js
     - public/javascripts/rails/effects.js
-    - public/javascripts/rails/control.js
+    - public/javascripts/rails/controls.js
     - public/javascripts/rails/dragdrop.js
     - public/javascripts/rails/rails.js
-    - public/javascripts/rails/waitpopup.js
-  
+    - public/javascripts/waitpopup.js
+
   wizard:
     - public/javascripts/*.js
 
