@@ -7,7 +7,6 @@ javascripts:
     - public/javascripts/rails/controls.js
     - public/javascripts/rails/dragdrop.js
     - public/javascripts/rails/rails.js
-    - public/javascripts/waitpopup.js
 
   wizard:
     - public/javascripts/*.js
@@ -21,5 +20,6 @@ stylesheets:
     - public/stylesheets/usages.selectSlider.css
     - public/stylesheets/usages.labelCheckbox.css
     - public/stylesheets/usages.tabbedForm.css
+    - public/javascripts/waitpopup.js
   result:
     - public/stylesheets/result.css
