@@ -7,6 +7,8 @@ gem 'rails', '3.0.6'
 
 gem 'sqlite3'
 gem 'mysql2'
+
+gem 'jammit'
 # Use unicorn as the web server
 # gem 'unicorn'
 

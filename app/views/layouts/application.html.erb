@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <%= javascript_include_tag "/javascripts/prototype"%>
-  <%= javascript_include_tag "/javascripts/effects"%>
-  <%= javascript_include_tag "/javascripts/controls"%>
-  <%= javascript_include_tag "/javascripts/rails"%>
-  <%= javascript_include_tag "/javascripts/application"%>
-  <%= javascript_include_tag "/javascripts/dragdrop"%>
-  <%= yield(:head) %>
-  <%= csrf_meta_tag %>
-</head>
-<body>
+  <head>
+    <%= include_stylesheets :wizard%>
+    <%= include_javascripts :rails %>
+    <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"%>
+    <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.js"%>
+    <script type="text/javascript">
+      $j = jQuery.noConflict();
+    </script>
+    <%= include_javascripts :wizard%>
+    <%= yield(:head) %>
+    <%= csrf_meta_tag %>
+  </head>
 
-<%= yield %>
-
-</body>
+  <body>
+    <%= yield %>
+  </body>
 </html>
