@@ -30,12 +30,22 @@ end
 
 When /^I select usage (\d+)$/ do |number|
   usage_choice = @user_request.usage_choices.select{|uc| uc.usage_id == number.to_i}.first
-  span_to_click = find(:xpath, "//input[@id=\'usage_choice_selected_#{usage_choice.id}\']/parent::*/span[@class='name']")
+  span_to_click = find(:xpath, %{//input[@id=\'usage_choice_selected_#{usage_choice.id}\']/parent::*/span[@class='name']})
   span_to_click.click
 end
 
 When /^I press validate$/ do
-  find(:xpath, "//div[@class=\'question opened selected\']/div/div/span").click
+  find(:xpath, %{//div[@class='question opened selected' or @class='question opened']/div/div/span}).click
+end
+
+When /^I press not interested$/ do
+  find(:xpath, %{//div[@class='question opened selected' or @class='question selected opened']/div/div/label[@class='checkbox none']/span[@class='name']}).click
+end
+
+Then /^no super usages should be selected$/ do
+  SuperUsage.all.collect{|su| su.id}.each do |su_id|
+    raise "no usages should be selected" if page.has_xpath?(%{//div[@id="super-usage#{su_id}" and @class="question selected button"]})
+  end
 end
 
 Then /^only super usages (.*) should be validated$/ do |super_usages_str|
@@ -53,5 +63,4 @@ Then /^only super usages (.*) should be validated$/ do |super_usages_str|
     should_super_usage_be_selected = false unless super_usages.include?(selected_super_usage_id) 
   end
   raise unless (are_super_usages_selected and should_super_usage_be_selected)
-  #raise "selected_super_usages : #{selected_super_usages.inspect}"
 end
