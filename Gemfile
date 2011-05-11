@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.6'
+gem 'rails', '3.0.7'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -30,6 +30,7 @@ gem 'jammit'
 # and rake tasks are available in development mode:
 group :test do
   gem 'cucumber-rails'
+  gem 'capybara'
   # database_cleaner is not required, but highly recommended
   gem 'database_cleaner'
 end

@@ -32,7 +32,20 @@ ActionController::Base.allow_rescue = false
 # Remove/comment out the lines below if your app doesn't have a database.
 # For some databases (like MongoDB and CouchDB) you may need to use :truncation instead.
 begin
-  DatabaseCleaner.strategy = :transaction
+  DatabaseCleaner.strategy = :truncation
+
+  Before do
+    DatabaseCleaner.start
+    Fixtures.reset_cache
+    fixtures_folder = File.join(Rails.root.to_s, 'test', 'fixtures')
+    fixtures = Dir[File.join(fixtures_folder, '*.yml')].map {|f| File.basename(f, '.yml') }
+    fixtures += Dir[File.join(fixtures_folder, '*.csv')].map {|f| File.basename(f, '.csv') }
+    Fixtures.create_fixtures(fixtures_folder, fixtures)
+  end
+
+  After do
+    DatabaseCleaner.clean
+  end
 rescue NameError
   raise "You need to add database_cleaner to your Gemfile (in the :test group) if you wish to use it."
 end

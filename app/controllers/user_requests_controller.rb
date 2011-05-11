@@ -4,23 +4,8 @@ class UserRequestsController < ApplicationController
   def create
     #session[:user_response] = nil
     reset_session
-    @user_request = UserRequest.new(:is_complete => false)
-    respond_to do |format|
-      if @user_request.save
-        SuperUsage.all.each do |su|
-          if su.name == "Mobilite"
-            create_usage_choices_for su 
-          else
-            create_usage_choices_for su, :with_initial_weight => 50
-          end
-        end
-        format.html { redirect_to edit_user_request_path(@user_request), :notice => 'User request was successfully created.' }
-        format.xml  { render :xml => @user_request, :status => :created, :location => @user_request }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @user_request.errors, :status => :unprocessable_entity }
-      end
-    end
+    @user_request = create_new_user_request
+    redirect_to edit_user_request_path(@user_request)
   end
 
   # GET /user_requests/1/edit
@@ -109,13 +94,27 @@ class UserRequestsController < ApplicationController
     #result = {:start_index => start_index, :num_result => num_result}
   #end
 
-  def create_usage_choices_for super_usage, options = {:with_initial_weight => 0}
+  def create_usage_choices_for super_usage, user_request, options = {:with_initial_weight => 0}
     super_usage.usages.each do |u|
       usage_choice = UsageChoice.new(:weight_for_user => options[:with_initial_weight],
                                      :usage_id => u.id,
-                                     :user_request_id => @user_request.id,
+                                     :user_request_id => user_request.id,
                                      :is_selected => false)
       usage_choice.save
     end
   end
+
+  def create_new_user_request
+    new_user_request = UserRequest.new(:is_complete => false)
+    new_user_request.save
+    SuperUsage.all.each do |su|
+      if su.name == "Mobilite"
+        create_usage_choices_for su, new_user_request 
+      else
+        create_usage_choices_for su, new_user_request, :with_initial_weight => 50
+      end
+    end
+    new_user_request
+  end
+
 end
