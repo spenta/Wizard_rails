@@ -1,6 +1,5 @@
 class UserRequestsController < ApplicationController
   # POST /user_requests
-  # POST /user_requests.xml
   def create
     #session[:user_response] = nil
     reset_session
@@ -19,7 +18,6 @@ class UserRequestsController < ApplicationController
   end
 
   # PUT /user_requests/1
-  # PUT /user_requests/1.xml
   def update
     @user_request = UserRequest.find(params[:id])
     @user_request.current_step = session[:user_request_step]
