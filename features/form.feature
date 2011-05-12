@@ -69,7 +69,7 @@ Feature: Form
     Then I should be on the mobilities step
 
   @javascript
-  Scenario: Select usages weights and go to next step
+  Scenario: Fisnish the form and go to the results page
     Given a set of products
     When I select super usage 1
     And I select usage 1
@@ -88,7 +88,6 @@ Feature: Form
     And I click on back
     Then I should be on the selection step
 
-  @current
   @javascript
   Scenario: Select usages mobilities then go back 
     When I select super usage 1

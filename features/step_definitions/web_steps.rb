@@ -52,7 +52,11 @@ When /^I click on next$/ do
 end
 
 When /^I click on back/ do
-  find(:xpath, "//*[@class=\'prev-button\']").click
+  find(:xpath, "//*[@class=\'prev-button\' or @class=\'backbutton\']").click
+end
+
+When /^I click on restart/ do
+  find(:xpath, "//*[@class=\'restartbutton\']").click
 end
 
 Then /^no super usages should be selected$/ do
