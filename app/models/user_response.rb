@@ -141,7 +141,7 @@ class UserResponseBuilder
     # hash product_id => {:specification_id => spec_id, :score => score}
     # I did not use Active record quesries for perf reasons
     product_specification_scores_hash = {}
-    product_specification_scores = ProductsSpecsScore.order('product_id')
+    product_specification_scores = Rails.cache.fetch('product_specification_scores'){ProductsSpecsScore.order('product_id')}
     product_specification_scores.each do |pss|
       product_specification_scores_hash[pss.product_id] ||= {}
       product_specification_scores_hash[pss.product_id][pss.specification_id] = pss.score

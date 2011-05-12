@@ -24,6 +24,8 @@ module NavigationHelpers
           "Now, go and add a mapping in #{__FILE__}"
       end
     end
+
+
   end
 end
 
