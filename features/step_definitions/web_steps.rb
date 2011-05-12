@@ -15,6 +15,11 @@ Given /^a set of usages and super usages$/ do
     Fixtures.create_fixtures(fixtures_folder, %w{usages super_usages user_requests usage_choices})
 end
 
+Given /^a set of products$/ do
+    fixtures_folder = File.join(Rails.root.to_s, 'test', 'fixtures')
+    Fixtures.create_fixtures(fixtures_folder, %w{offers products products_specs_scores products_specs_values requirements specifications specification_values brands})
+end
+
 When /^(?:|I )am on (.*)$/ do |page|
   visit path_to(page)
 end
@@ -46,10 +51,20 @@ When /^I click on next$/ do
   click_button 'user_request_submit' 
 end
 
+When /^I click on back/ do
+  find(:xpath, "//*[@class=\'prev-button\']").click
+end
+
 Then /^no super usages should be selected$/ do
   SuperUsage.all.collect{|su| su.id}.each do |su_id|
     raise "no usages should be selected" if page.has_xpath?(%{//div[@id="super-usage#{su_id}" and @class="question selected button"]})
   end
+end
+
+When /^I select (\d+) as the weight for super usage (\d+)$/ do |weight, su_id|
+  slider_handle = find(:xpath, "//*[@id=\'super-usage1\']/div/div[2]/span/a")
+  icon = find(:xpath, "//*[@id=\'super-usage#{su_id}\']/span")
+  slider_handle.drag_to(icon) 
 end
 
 Then /^only super usages (.*) should be selected/ do |super_usages_str|
@@ -102,8 +117,15 @@ Then /^weight for super usage (\d+) should be (\d+)$/ do |su_id, weight|
   raise "wrong weight, expected #{weight} but was #{actual_weight}" unless actual_weight == weight
 end
 
-Then /^(?:|I )should see (?:the|a|an) "([^"]*)" error$/ do |error_str|
+Then /^(?:|I )should (?:see|get) (?:the|a|an) "([^"]*)" error$/ do |error_str|
   error_sym = error_str.gsub(" ","_").to_sym
   error_message = I18n.t(error_sym)
   raise "there should be a #{error_message} message" unless page.has_content?(error_message)
 end
+
+Then /^(?:|I )should be on the results page$/ do
+  expected_path = "/user_requests/#{@user_request.id}/user_response"
+  raise "not on the right page\nexpected #{expected_path}, but the current path is #{current_path}" unless current_path ==  expected_path
+end
+
+

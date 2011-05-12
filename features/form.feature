@@ -8,7 +8,6 @@ Feature: Form
     And I am on the home page
     And I follow "link_to_form"
 
-  @current
   @javascript
   Scenario: Select no usage
     When I click on next
@@ -49,3 +48,53 @@ Feature: Form
     And I can change weight only for super usages 1, 2
     And weight for super usage 1 should be 50
     And weight for super usage 2 should be 50
+
+  @javascript
+  Scenario: Select no usages weights
+    When I select super usage 1
+    And I select usage 1
+    And I press validate
+    And I click on next
+    And I select 0 as the weight for super usage 1
+    And I click on next
+    Then I should get the "weights step no choices" error 
+
+  @javascript
+  Scenario: Select usages weights and go to next step
+    When I select super usage 1
+    And I select usage 1
+    And I press validate
+    And I click on next
+    And I click on next
+    Then I should be on the mobilities step
+
+  @javascript
+  Scenario: Select usages weights and go to next step
+    Given a set of products
+    When I select super usage 1
+    And I select usage 1
+    And I press validate
+    And I click on next
+    And I click on next
+    And I click on next
+    Then I should be on the results page
+
+  @javascript
+  Scenario: Select usages weights then go back 
+    When I select super usage 1
+    And I select usage 1
+    And I press validate
+    And I click on next
+    And I click on back
+    Then I should be on the selection step
+
+  @current
+  @javascript
+  Scenario: Select usages mobilities then go back 
+    When I select super usage 1
+    And I select usage 1
+    And I press validate
+    And I click on next
+    And I click on next
+    And I click on back
+    Then I should be on the weights step
