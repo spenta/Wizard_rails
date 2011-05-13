@@ -30,7 +30,7 @@ class UserResponseBuilder
   include WizardParameters
   include WizardUtilities
 
-  attr_accessor :specification_needs_for_mobilities, :specification_needs_for_usages, :gammas, :sigmas, :user_response, :products_scored, :user_request, :good_deals
+  attr_accessor :specification_needs_for_mobilities, :specification_needs_for_usages, :gammas, :sigmas, :user_response, :products_for_calculations, :user_request, :good_deals
 
 
   def initialize
@@ -51,9 +51,9 @@ class UserResponseBuilder
     #array [[specification_id,gamma]]
     @gammas= {}
 
-    #array of products_scored
-    @products_scored=[]
-    Product.all.each { |p| @products_scored << ProductScored.new(p)}
+    #array of products_for_calculations
+    @products_for_calculations=[]
+    Product.all.each { |p| @products_for_calculations << ProductForCalculations.new(p)}
 
     @good_deals = []
   end
@@ -138,20 +138,17 @@ class UserResponseBuilder
   end
 
   def process_pi_and_delta!
-    # hash product_id => {:specification_id => spec_id, :score => score}
-    # I did not use Active record quesries for perf reasons
-    product_specification_scores_hash = {}
-    product_specification_scores = Rails.cache.fetch('product_specification_scores'){ProductsSpecsScore.order('product_id')}
-    product_specification_scores.each do |pss|
-      product_specification_scores_hash[pss.product_id] ||= {}
-      product_specification_scores_hash[pss.product_id][pss.specification_id] = pss.score
-    end
-    @products_scored.each do |ps|
-      product_id = ps.product.id
-      Specification.all.each do |spec|
+    @products_for_calculations.each do |ps|
+      product = ps.product
+      product_id = product.id
+      Specification.all.collect{|spec| spec.id}.each do |spec_id|
         #null scores replaced with 0
-        score = product_specification_scores_hash[product_id][spec.id]
-        sigma, gamma, tau = sigmas[spec.id], gammas[spec.id], score ? score : 0
+        begin
+          score = product.infos[:specification_values][spec_id][:sv_score]
+        rescue
+          score = 0
+        end
+        sigma, gamma, tau = sigmas[spec_id], gammas[spec_id], score ? score : 0
         #delta
         ps.delta += gamma*([GAP_MAX, ZETA*(([0,(sigma-tau)/ZETA].max)**NU)]).min
         #pi
@@ -165,10 +162,10 @@ class UserResponseBuilder
     sum_gamma = 0
     @gammas.each_value { |gamma| sum_gamma+=gamma }
     delta_ok = sum_gamma * GAP_TOL
-    #products_scored is separated in two subgroups : recommended products and not recommended  products
+    #products_for_calculations is separated in two subgroups : recommended products and not recommended  products
     recommended_products = []
     not_recommended_products = []
-    @products_scored.each {|ps| ps.delta <= delta_ok ? recommended_products << ps : not_recommended_products << ps}
+    @products_for_calculations.each {|ps| ps.delta <= delta_ok ? recommended_products << ps : not_recommended_products << ps}
     #scores for recommended_products
     unless recommended_products.empty?
       #recommended_products is sorted by increasing pi
@@ -186,13 +183,13 @@ class UserResponseBuilder
   def process_good_deals!
     #good score means >= S_MIN
     products_with_good_scores = []
-    @products_scored.each { |p| products_with_good_scores << p }
+    @products_for_calculations.each { |p| products_with_good_scores << p }
     remaining_products = remove_low_scores_from products_with_good_scores
     #add the first products to good_deals and move the rest to remaining_products
     remaining_products = remaining_products | add_to_good_deals_from(products_with_good_scores)
     complete_good_deals_from remaining_products if @good_deals.size < N_BA
     restrict_good_deals if @good_deals.size > N_BA
-    @products_scored.each {|p| p.is_good_deal = true if @good_deals.include? p}
+    @products_for_calculations.each {|p| p.is_good_deal = true if @good_deals.include? p}
   end
 
   def process_stars!
@@ -310,34 +307,30 @@ class UserResponseBuilder
   end
 
   def build_user_response
-    products_for_display = []
-    @products_scored.each { |p| products_for_display << ProductForDisplay.new(p) }
-    @user_response = UserResponse.new(gammas, sigmas, products_for_display)
+    products_scored = products_for_calculations.collect{|p| ProductScored.new(p.product.id, p.spenta_score, p.is_good_deal, p.is_star, p.price)}
+    @user_response = UserResponse.new(gammas, sigmas, products_scored)
   end
 end
 
 class UserResponse
-  attr_accessor  :gammas, :sigmas, :products_for_display
-  def initialize gammas, sigmas, products_for_display
+  include WizardUtilities
+  attr_accessor  :gammas, :sigmas, :products_scored
+  def initialize gammas, sigmas, products_scored
     @gammas = gammas
     @sigmas = sigmas
-    @products_for_display = products_for_display
+    @products_scored = products_scored
   end
 
-  #star_products plus some additionnal properties from related products in the database.
-  def get_star_products_to_display
-    star_products = products_for_display.select{|ps| ps.is_star}
-    star_products_to_display = star_products.collect {|p| ProductToDisplay.new p}
+  def get_star_products
+    sort_by_spenta_score(@products_scored.select{|p| p.is_star})
   end
 
-  #good_deal_products plus some additionnal properties from related products in the database.
-  def get_good_deal_products_to_display
-    good_deal_products = products_for_display.select{|ps| ps.is_good_deal and !ps.is_star}
-    good_deal_products_to_display = good_deal_products.collect {|p| ProductToDisplay.new p}
+  def get_good_deal_products
+    sort_by_spenta_score(@products_scored.select{|p| p.is_good_deal and !p.is_star})
   end
 end
 
-class ProductScored
+class ProductForCalculations
   attr_accessor :delta, :pi, :spenta_score, :product, :is_good_deal, :is_star, :price
   def initialize product
     @product = product
@@ -346,51 +339,13 @@ class ProductScored
   end
 end
 
-#similar to ProductScored, only with a @product_id attribute instead of a
-#@product attribute to facilitate serialization, and no delta and pi
-class ProductForDisplay
-  attr_accessor :spenta_score, :product_id, :is_good_deal, :is_star, :price
-  def initialize product_scored
-    @product_id = product_scored.product.id
-    @price = product_scored.price
-    @spenta_score = product_scored.spenta_score
-    @is_good_deal = product_scored.is_good_deal
-    @is_star = product_scored.is_star
-  end
-end
-#similar to ProductForDisplay, but with attributes from related product with were to big to be serialized
-class ProductToDisplay < ProductForDisplay
-attr_accessor :small_img_url, :big_img_url, :brand_name, :name, :product_id, :price, :spenta_score, :is_good_deal, :is_star, :specification_values
-  def initialize product_for_display
-    @product_id = product_for_display.product_id
-    @price = product_for_display.price
-    @spenta_score = product_for_display.spenta_score
-    @is_good_deal = product_for_display.is_good_deal
-    @is_star = product_for_display.is_star
-    product = Product.find(@product_id)
-    @small_img_url = product.small_img_url
-    @big_img_url = product.big_img_url
-    @brand_name = Brand.find(product.brand_id).name
-    @name = product.name
-    @specification_values = build_specification_values
-  end
-
-  # returns a hash representing the product's specs value
-  # ex: specification_values = p1.specification_values
-  # specification_values #=> {1 => {:name => Core i7, :scorer => 8.3}}
-  def build_specification_values
-    specs_values = {}
-    product_specification_values = ProductsSpecsValue.where(:product_id => @product_id).where("specification_value_id > 0")
-    product_specification_values_hash = {}
-    product_specification_values.each {|psv| product_specification_values_hash[psv.specification_id] = SpecificationValue.find(psv.specification_value_id)}
-    Specification.where(:specification_type => ["continuous", "discrete"]).each do |spec|
-      spec_id = spec.id
-      specification_value = product_specification_values_hash[spec_id]
-      spec_value_name_and_score={}
-      spec_value_name_and_score[:name] = specification_value.name
-      spec_value_name_and_score[:score] = specification_value.score
-      specs_values[spec_id] = spec_value_name_and_score 
-    end
-    specs_values
+class ProductScored
+  attr_accessor :product_id, :spenta_score, :is_good_deal, :is_star, :price
+  def initialize product_id, spenta_score, is_good_deal, is_star, price
+    @product_id = product_id
+    @spenta_score = spenta_score
+    @is_good_deal = is_good_deal
+    @is_star = is_star
+    @price = price
   end
 end

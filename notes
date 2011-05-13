@@ -1,0 +1,17 @@
+Dans user response,
+  -gammas et sigmas
+  -la liste des produits avec
+    -product_id
+    -spenta_score
+    -medailles
+
+Dans product, faire une fonction infos qui utilise memcache pour y mettre un hash contenant
+  -un hash "specification_values" {:specification_id => {:sv_id => 1, :sv_name => CPU, :sv_score => 4.4}}
+  -un integer "brand_id"
+  -une string "brand_name"
+  -une string "product_name"
+  -un float "price"
+  -une string "small_img_url"
+  -une string "big_img_url"
+
+remplacer les appels à ProductToDisplay par les appels à product.product_info

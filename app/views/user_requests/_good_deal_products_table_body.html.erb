@@ -1,20 +1,21 @@
 <tbody>
   <% good_deal_products.each do |p| -%>
+  <% product = Product.find(p.product_id)-%>
   <%# Produit %>
   <tr class="product">
     <td class="thumb">
-      <%= link_to product_path(p.product_id), :target => "_blank" do%>
-        <%= image_tag p.small_img_url, :alt => p.brand_name+' '+p.name, :class => "thumbnail" %>
+      <%= link_to product_path(product), :target => "_blank" do%>
+        <%= image_tag product.small_img_url, :alt => product.infos[:brand_name]+' '+product.name, :class => "thumbnail" %>
       <% end -%>
     </td>
     <td class="infos">
-      <%= link_to product_path(p.product_id), :target => "_blank", :class => "nounderline" do%>
-        <div class="brand"><%= p.brand_name %></div>
-        <div class="name"><%= truncate p.name, :length => 20 %></div>
+      <%= link_to product_path(product), :target => "_blank", :class => "nounderline" do%>
+        <div class="brand"><%= product.infos[:brand_name] %></div>
+        <div class="name"><%= truncate product.name, :length => 20 %></div>
       <% end -%>
     </td>
     <td class="price">
-      <%= link_to product_path(p.product_id), :target => "_blank", :class => "nounderline" do%>
+      <%= link_to product_path(product), :target => "_blank", :class => "nounderline" do%>
         <div class="price"><%= p.price.floor %><small>€<%= get_cents_from p.price %></small></div>
         <div class="more"><%= t :extras_more -%></div>
       <% end -%>
@@ -25,10 +26,10 @@
     <% end -%>
     <%# Specs %>
     <% important_specs_id.each do |spec_id| -%>
-      <%spec_score_percent = get_percentage_from(p.specification_values[spec_id][:score], @user_response.sigmas[spec_id]) %>
+      <%spec_score_percent = get_percentage_from(product.infos[:specification_values][spec_id][:sv_score], @user_response.sigmas[spec_id]) %>
       <%= content_tag :td, :class => "textshading colorid#{get_color_number(spec_score_percent.to_f/100)}" do%>
         <var><%= spec_score_percent%><var><small>%</small>
-        <p class="specvalue"><%= spec_value_with_unit p, spec_id%></p>
+        <p class="specvalue"><%= spec_value_with_unit product, spec_id%></p>
       <% end -%>
     <% end -%>
   </tr>

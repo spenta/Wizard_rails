@@ -28,8 +28,13 @@ module WizardUtilities
     score_spread = (p1.spenta_score - p2.spenta_score)/C_S
     d = Math.sqrt(price_spread**2+score_spread**2)
   end
+
   def sort_by_price ary
     ary.sort! {|p1, p2| p1.price <=> p2.price}
+  end
+
+  def sort_by_spenta_score ary
+    ary.sort! {|p1, p2| p1.spenta_score <=> p2.spenta_score}
   end
 
   def sort_by_score_over_price ary

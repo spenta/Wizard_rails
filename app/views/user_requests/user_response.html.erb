@@ -1,5 +1,5 @@
-<% star_products = @user_response.get_star_products_to_display.sort! {|p1, p2| p1.spenta_score <=> p2.spenta_score} -%>
-<% good_deal_products = @user_response.get_good_deal_products_to_display.sort! {|p1, p2| p1.spenta_score <=> p2.spenta_score} -%>
+<% star_products = @user_response.get_star_products%>
+<% good_deal_products = @user_response.get_good_deal_products-%>
 <% important_specs_id = get_important_specs_id_from @user_response.gammas -%>
 
 <% content_for :head do -%> 
