@@ -6,7 +6,7 @@ class Product < ActiveRecord::Base
   validates :name, :small_img_url, :big_img_url, :brand, :presence => true
   
   def price
-    @price ||= Rails.cache.read("product_infos_#{id}")[:price]
+    infos[:price]
   end
 
   def infos
