@@ -70,9 +70,11 @@ class UserResponseBuilder
         su.usages.each do |m|
           mobility_choice = @user_request.usage_choices.where(:usage_id => m.id).first
           unless mobility_choice.nil?
-            m.requirements.each do |req|
-              #needs should be the same as requirements.
-              @specification_needs_for_mobilities[req.specification_id][m.id] = [req.target_score, req.weight, mobility_choice.weight_for_user]
+            Requirement.mobilities_requirements.each do |mobility_id, req_for_specs|
+              req_for_specs.each do |spec_id, req_hash|
+                #needs should be the same as requirements.
+                @specification_needs_for_mobilities[spec_id][mobility_id] = [req_hash[:target_score], req_hash[:weight], mobility_choice.weight_for_user]
+              end
             end
           end
         end
@@ -91,11 +93,12 @@ class UserResponseBuilder
             target_score = 0
             weight = 0
             @selected_usage_choices_for_super_usage.each do |uc|
-              req = uc.usage.requirements.where(:specification_id => spec.id).first
+              usage_id = uc.usage_id
+              req_hash = Requirement.usages_requirements[usage_id][spec.id]
               #target_score need is the maximal value among target_score for each requirement
-              target_score = req.target_score if req.target_score > target_score
+              target_score = req_hash[:target_score] if req_hash[:target_score] > target_score
               #weight need is the average among weights for each requirement
-              weight += req.weight/num_selections
+              weight += req_hash[:weight]/num_selections
               @specification_needs_for_usages[spec.id][su.id] = [target_score, weight, uc.weight_for_user]
             end
           end
