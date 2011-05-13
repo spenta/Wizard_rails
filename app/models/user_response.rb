@@ -41,7 +41,7 @@ class UserResponseBuilder
     @specification_needs_for_usages = {}
 
     #empty hash for each spec
-    Specification.all.each do |spec|
+    Specification.all_cached.each do |spec|
       @specification_needs_for_mobilities[spec.id]={}
       @specification_needs_for_usages[spec.id]={}
     end
@@ -84,7 +84,7 @@ class UserResponseBuilder
         end
         num_selections = @selected_usage_choices_for_super_usage.size
 
-        Specification.all.each do |spec|
+        Specification.all_cached.each do |spec|
           if num_selections == 0
             @specification_needs_for_usages[spec.id][su.id] = [0, 0, 0]
           else
@@ -105,7 +105,7 @@ class UserResponseBuilder
   end
 
   def process_sigmas!
-    Specification.all.each do |spec|
+    Specification.all_cached.each do |spec|
       #modified target scores for spec. for usages
       u_star_for_spec = specification_needs_to_u_star @specification_needs_for_usages, spec, 'usages'
 
@@ -122,7 +122,7 @@ class UserResponseBuilder
     sum_beta_usages, sum_beta_mobilities = 0,0
     @specification_needs_for_usages[Specification.first.id].each_value {|needs| sum_beta_usages += needs[2]}
     @specification_needs_for_mobilities[Specification.first.id].each_value {|needs| sum_beta_mobilities += needs[2]}
-    Specification.all.each do |spec|
+    Specification.all_cached.each do |spec|
       #gammas for usages
       theta, theta_prime = 0,0
       #calculate theta
@@ -141,7 +141,7 @@ class UserResponseBuilder
     @products_for_calculations.each do |ps|
       product = ps.product
       product_id = product.id
-      Specification.all.collect{|spec| spec.id}.each do |spec_id|
+      Specification.all_cached.collect{|spec| spec.id}.each do |spec_id|
         #null scores replaced with 0
         begin
           score = product.infos[:specification_values][spec_id][:sv_score]

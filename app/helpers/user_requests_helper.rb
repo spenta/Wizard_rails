@@ -58,8 +58,8 @@ module UserRequestsHelper
     end
   end
 
-  def spec_value_with_unit product, spec_id
-    product.infos[:specification_values][spec_id][:sv_name]+" "+ t_safe("spec_metrics_#{spec_id}")
+  def spec_value_with_unit p_infos, spec_id
+    p_infos[:specification_values][spec_id][:sv_name]+" "+ t_safe("spec_metrics_#{spec_id}")
   end
 
   def get_color_number value

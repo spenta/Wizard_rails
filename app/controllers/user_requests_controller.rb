@@ -47,6 +47,7 @@ class UserRequestsController < ApplicationController
 
   def user_response
     if session[:user_response]
+      session[:start_timer] = Time.new
       @user_response = session[:user_response]
       #used for pagination
       #sort_response! @user_response.products_for_display, :by => params[:sort], :order => params[:direction]

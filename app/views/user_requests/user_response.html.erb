@@ -13,3 +13,4 @@
   <%# Section du bas : autres produits adaptés %>            
   <%= render 'good_deal_products_group', :good_deal_products => good_deal_products, :important_specs_id =>  important_specs_id %>
 </div>
+<p><%= "Request completed in #{Time.new - session[:start_timer]}"  -%></p>

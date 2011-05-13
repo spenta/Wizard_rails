@@ -4,8 +4,11 @@ class Product < ActiveRecord::Base
   has_many :products_specs_values
   has_many :offers
   validates :name, :small_img_url, :big_img_url, :brand, :presence => true
-  attr_reader :price
   
+  def price
+    @price ||= Rails.cache.read("product_infos_#{id}")[:price]
+  end
+
   def infos
     Rails.cache.fetch("product_infos_#{id}") {build_infos}
   end
@@ -17,10 +20,15 @@ class Product < ActiveRecord::Base
     Specification.all.collect{|spec| spec.id}.each do |spec_id|
       infos[:specification_values][spec_id] = build_specification_values_hash spec_id 
     end
+    # Name
+    infos[:name] = name
     # Brand 
     infos[:brand_name] = brand.name
     # Price
-    infos[:price] = price
+    infos[:price] = build_price
+    # Images
+    infos[:small_img_url] = small_img_url
+    infos[:big_img_url] = big_img_url
     infos
   end
 
@@ -37,9 +45,8 @@ class Product < ActiveRecord::Base
   end
 
   #gets the minimal price among all offers
-  after_initialize :process_price!
-  def process_price!
-    @price = self.offers.sort{|o1, o2| o1.price <=> o2.price}.first.price
+  def build_price
+    price = self.offers.sort{|o1, o2| o1.price <=> o2.price}.first.price
   end
 
 end
