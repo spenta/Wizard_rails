@@ -1,0 +1,1417 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+  <title>Choisir Facile - Tous les ordinateurs PC portables</title>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+  <meta name="language" content="fr" />
+  <meta name="description" content="La liste complète des ordinateurs disponibles sur les sites marchands partenaires." />
+  <meta name="keywords" content="PC portable" />
+
+  <link href="css/reset.css" type="text/css" rel="stylesheet" media="all" />
+  <link href="css/catalogue.css" type="text/css" rel="stylesheet" media="all" />
+
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <script type="text/javascript" src="javascripts/rangeslider.min.js"></script>
+	<script type="text/javascript" src="javascripts/jquery.dataTables.min.js"></script><!-- Librairie à loader imperativement AVANT le catalogue.js -->
+  <script type="text/javascript" src="javascripts/catalogue.js"></script>
+  <script type="text/javascript">
+		// Price filter initialisation
+		$(function() {
+			$( "#price_slider" ).slider({
+				range: true,
+				min: 100,
+				max: 3000,
+				values: [ 100, 3000 ],
+				slide: function( event, ui ) {
+					$( "#price_display" ).val(ui.values[ 0 ] + "€ et " + ui.values[ 1 ] + "€");
+				}
+			});
+			$( "#price_display" ).val($( "#price_slider" ).slider( "values", 0 ) + "€ et " + $( "#price_slider" ).slider( "values", 1 ) + "€");
+		});
+	
+		//Specs filter initialisation
+		$(function() {
+			for (i=1;i<=6;i=i+1) {
+				$( "#slider_" + i ).slider({
+				range: true,
+				min: 1,
+				max: 10,
+				values: [ 1, 10 ],			
+			});
+			$( "#display_" + i ).val("de " + $( "#slider_" + i ).slider( "values", 0 ) + " à " + $( "#slider_" + i ).slider( "values", 1 ));
+		}
+		});
+	</script>	
+	<script type="text/javascript">
+  	// --- Initialisation du tableau
+		$(document).ready(function() {
+    	var oTable = $('#list').dataTable( {
+      	"aoColumns": [
+        	{ "bSortable": false },
+          { "sType": "title-numeric" },
+          { "sType": "title-numeric" },
+          { "sType": "title-numeric" },
+          { "sType": "title-numeric" },
+          { "sType": "title-numeric" },
+          { "sType": "title-numeric" },
+          { "sType": "title-numeric" }
+        ],
+				// Localisation
+				"oLanguage": 
+				{
+					"sProcessing":   "Traitement en cours...",
+					"sLengthMenu":   "Afficher _MENU_ ordinateurs",
+					"sZeroRecords":  "Aucun ordinateur ne correspond à ces critères",
+					"sInfo":         "Ordinateurs _START_ à _END_ sur _TOTAL_",
+					"sInfoEmpty":    "",
+					"sInfoFiltered": "(parmi les _MAX_ modèles au catalogue)",
+					"sInfoPostFix":  "",
+					"sSearch":       "Rechercher (marque, modèle...) : ",
+					"sUrl":          "",
+					"oPaginate": {
+						"sFirst":    "<< Début",
+						"sPrevious": "< Précédent",
+						"sNext":     "Suivant >",
+						"sLast":     "Fin >>"
+					}
+				},
+				"sPaginationType": "full_numbers"
+			}
+		);
+
+    	// Event listeners
+    	$('#price_slider').slider( { stop: function() { oTable.fnDraw(); } } );
+			$("#slider_1").slider( { 
+				stop: function() { oTable.fnDraw(); },
+				slide: function( event, ui ) { $( "#display_1" ).val("de " + ui.values[ 0 ] + " à " + ui.values[ 1 ]); }
+			} );
+			$("#slider_2").slider( { 
+				stop: function() { oTable.fnDraw(); }, 
+				slide: function( event, ui ) { $( "#display_2" ).val("de " + ui.values[ 0 ] + " à " + ui.values[ 1 ]); }
+			} );
+			$("#slider_3").slider( { 
+				stop: function() { oTable.fnDraw(); }, 
+				slide: function( event, ui ) { $( "#display_3" ).val("de " + ui.values[ 0 ] + " à " + ui.values[ 1 ]); }
+			} );
+			$("#slider_4").slider( { 
+				stop: function() { oTable.fnDraw(); }, 
+				slide: function( event, ui ) { $( "#display_4" ).val("de " + ui.values[ 0 ] + " à " + ui.values[ 1 ]); }
+			} );
+			$("#slider_5").slider( { 
+				stop: function() { oTable.fnDraw(); }, 
+				slide: function( event, ui ) { $( "#display_5" ).val("de " + ui.values[ 0 ] + " à " + ui.values[ 1 ]); }
+			} );
+			$("#slider_6").slider( { 
+				stop: function() { oTable.fnDraw(); }, 
+				slide: function( event, ui ) { $( "#display_6" ).val("de " + ui.values[ 0 ] + " à " + ui.values[ 1 ]); }
+			} );
+		} );
+	</script>
+
+</head>
+
+<body>
+
+<!-- Wrapper (centrage et arrière-plan) -->
+<div id="catalogue">
+
+  <!-- Section supérieure : titre -->
+  <div id="top">
+		
+    <h1>Tous les ordinateurs portables</h1>
+		<p class="subtitle">Découvrez <strong>559 modèles</strong> de PC sur <strong>7 sites marchands</strong> partenaires.</p>
+
+	</div><!-- Close #top -->
+      
+  <!-- Filtres & lien vers le Wizard -->    
+  <div id="middle">    
+    <!-- Outils de filtrage -->
+		<div id="filters">     
+			<!-- En haut : filtrage du prix & infos -->
+			<div id="top_filters">        
+				<div id="infos">
+					<h2>Affinez votre recherche</h2>
+					<p class="explain">Faites glisser les curseurs pour filtrer la liste des PC portables. Les caractéristiques notées 10/10 sont ce qu'il y a de mieux sur le marché !</p>
+				</div><!-- Close #infos -->
+         
+				<div id="price_filter">  
+					<h3>Votre budget</h3>        
+					<div class="price_slider">
+						<p>
+							<label for="price_display">Prix entre</label>
+							<input type="text" id="price_display" />
+						</p>  
+						<div id="price_slider"></div>
+					</div><!-- Close .price_slider -->
+				</div><!-- Close #price_filter -->
+        
+				<div class="clearfix"></div>
+        
+			</div><!-- Close top_filters -->
+        
+      <!-- Filtrage des specs : 3 colonnes -->
+			<div id="specs_filters">
+					<div class="sliderStyle">
+						<p>
+        	  	<label for="display_1">Processeur </label><!-- ne pas oublier l'espace ! -->
+          		<input type="text" id="display_1" />
+         		</p>  
+          	<div id="slider_1"></div>
+    	    </div>                              
+        	<div class="sliderStyle">
+						<p>
+							<label for="display_2">Taille de l'écran </label>
+							<input type="text" id="display_2" />
+						</p>  
+						<div id="slider_2"></div>
+					</div>                              
+					<div class="sliderStyle">
+       			<p>
+         			<label for="display_3">Carte graphique </label>
+        	 		<input type="text" id="display_3" />
+     	  		</p>  
+     	  	 <div id="slider_3"></div>
+      	 </div>
+          
+					<div class="clearfix"></div>
+          
+					<div class="sliderStyle">
+						<p>
+							<label for="display_4">Mémoire vive </label>
+							<input type="text" id="display_4" />
+						</p>  
+						<div id="slider_4"></div>
+					</div>           
+					<div class="sliderStyle">
+						<p>
+							<label for="display_5">Disque Dur </label>
+							<input type="text" id="display_5" />
+						</p>  
+						<div id="slider_5"></div>
+					</div>                            
+					<div class="sliderStyle">
+						<p>
+							<label for="display_6">Poids </label>
+							<input type="text" id="display_6" />
+						</p>  
+						<div id="slider_6"></div>
+					</div>        
+      	  <div class="clearfix"></div>       
+				
+			</div><!-- Close specs_filters -->
+		</div><!-- Close filters -->
+
+		<!-- Droite : lien vers le wizard -->
+		<div id="wizard_box">
+			<h2>Vous ne savez pas<br/>quel ordinateur choisir ?</h2>
+			<p class="wizard_text">Répondez à quelques questions rapides et nous vous conseillerons les meilleurs PC <strong>pour vos besoins</strong>. Suivez l'expert !</p>
+			<a href="wizard.html" class="no_underline">
+			<div class="wizard_button"><p class="label">Trouvez votre PC</p></div>
+			</a>
+      <p class="wizard_emphasis">C'est simple, rapide et objectif !</p>
+		</div><!-- Close wizard_box -->
+  
+  <div class="clearfix"></div>
+    
+	</div><!-- Close #middle --> 
+
+	
+
+	<!-- Tableau des produits -->
+	<div id="full_list">
+		<table id="list">
+      <thead>
+         <tr>
+          <th class="product_info"></th>
+          <th>À partir de</th>
+          <th>Processeur</th>
+          <th>Taille de l'écran</th>
+          <th>Carte Graphique</th>
+          <th>Mémoire Vive</th>
+          <th>Disque Dur</th>
+          <th>Poids</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <!-- PRODUIT -->
+          <tr>
+            <!-- Thumbnail, marque, modèle, lien -->
+            <td>
+              <a href="fiche" class="no_underline">
+                <img src="images/PC_placeholder.jpg" alt="PC marque modele" class="thumbnail" />
+                <div class="product_name">
+                	<h4>Hewlett-Packard</h4>
+                	<p class="model">Pavilion DV8-1220EF</p>
+                  <p class="more">+ d'infos</p>
+                </div>
+              </a>
+            </td>
+            <!-- Prix & fiche -->
+            <td>
+              <a href="fiche" class="no_underline">
+                <span title="988.55"></span> <!-- Pour le tri : écrire le float du prix dans l'attribut title -->
+                <p  class="from">988<small> €55</small></p>
+                
+              </a>
+            </td>
+            <!-- Caractéristiques -->
+            <td>
+              <span title='1'></span><!-- Pour le tri : écrire la note dans l'attribut title du span -->
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+          </tr>
+
+          <!-- PRODUIT -->
+          <tr>
+            <!-- Thumbnail, marque, modèle, lien -->
+            <td>
+              <a href="fiche" class="no_underline">
+                <img src="images/PC_placeholder.jpg" alt="PC marque modele" class="thumbnail" />
+                <div class="product_name">
+                	<h4>Acer</h4>
+                	<p class="model">Pavilion DV8-1220EF</p>
+                  <p class="more">+ d'infos</p>
+                </div>
+              </a>
+            </td>
+            <!-- Prix & fiche -->
+            <td>
+              <a href="fiche" class="no_underline">
+                <span title="100.55"></span> <!-- Pour le tri : écrire le float du prix dans l'attribut title -->
+                <p  class="from">100<small> €55</small></p>
+                
+              </a>
+            </td>
+            <!-- Caractéristiques -->
+            <td>
+              <span title='1'></span><!-- Pour le tri : écrire la note dans l'attribut title du span -->
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+          </tr>
+          <!-- PRODUIT -->
+          <tr>
+            <!-- Thumbnail, marque, modèle, lien -->
+            <td>
+              <a href="fiche" class="no_underline">
+                <img src="images/PC_placeholder.jpg" alt="PC marque modele" class="thumbnail" />
+                <div class="product_name">
+                	<h4>Hewlett-Packard</h4>
+                	<p class="model">Pavilion DV8-1220EF</p>
+                  <p class="more">+ d'infos</p>
+                </div>
+              </a>
+            </td>
+            <!-- Prix & fiche -->
+            <td>
+              <a href="fiche" class="no_underline">
+                <span title="100.55"></span> <!-- Pour le tri : écrire le float du prix dans l'attribut title -->
+                <p  class="from">100<small> €55</small></p>
+                
+              </a>
+            </td>
+            <!-- Caractéristiques -->
+            <td>
+              <span title='1'></span><!-- Pour le tri : écrire la note dans l'attribut title du span -->
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+          </tr>
+          <!-- PRODUIT -->
+          <tr>
+            <!-- Thumbnail, marque, modèle, lien -->
+            <td>
+              <a href="fiche" class="no_underline">
+                <img src="images/PC_placeholder.jpg" alt="PC marque modele" class="thumbnail" />
+                <div class="product_name">
+                	<h4>Hewlett-Packard</h4>
+                	<p class="model">Pavilion DV8-1220EF</p>
+                  <p class="more">+ d'infos</p>
+                </div>
+              </a>
+            </td>
+            <!-- Prix & fiche -->
+            <td>
+              <a href="fiche" class="no_underline">
+                <span title="100.55"></span> <!-- Pour le tri : écrire le float du prix dans l'attribut title -->
+                <p  class="from">100<small> €55</small></p>
+                
+              </a>
+            </td>
+            <!-- Caractéristiques -->
+            <td>
+              <span title='1'></span><!-- Pour le tri : écrire la note dans l'attribut title du span -->
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+          </tr>
+          <!-- PRODUIT -->
+          <tr>
+            <!-- Thumbnail, marque, modèle, lien -->
+            <td>
+              <a href="fiche" class="no_underline">
+                <img src="images/PC_placeholder.jpg" alt="PC marque modele" class="thumbnail" />
+                <div class="product_name">
+                	<h4>Hewlett-Packard</h4>
+                	<p class="model">Pavilion DV8-1220EF</p>
+                  <p class="more">+ d'infos</p>
+                </div>
+              </a>
+            </td>
+            <!-- Prix & fiche -->
+            <td>
+              <a href="fiche" class="no_underline">
+                <span title="100.55"></span> <!-- Pour le tri : écrire le float du prix dans l'attribut title -->
+                <p  class="from">100<small> €55</small></p>
+                
+              </a>
+            </td>
+            <!-- Caractéristiques -->
+            <td>
+              <span title='1'></span><!-- Pour le tri : écrire la note dans l'attribut title du span -->
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+          </tr>
+          <!-- PRODUIT -->
+          <tr>
+            <!-- Thumbnail, marque, modèle, lien -->
+            <td>
+              <a href="fiche" class="no_underline">
+                <img src="images/PC_placeholder.jpg" alt="PC marque modele" class="thumbnail" />
+                <div class="product_name">
+                	<h4>Hewlett-Packard</h4>
+                	<p class="model">Pavilion DV8-1220EF</p>
+                  <p class="more">+ d'infos</p>
+                </div>
+              </a>
+            </td>
+            <!-- Prix & fiche -->
+            <td>
+              <a href="fiche" class="no_underline">
+                <span title="100.55"></span> <!-- Pour le tri : écrire le float du prix dans l'attribut title -->
+                <p  class="from">100<small> €55</small></p>
+                
+              </a>
+            </td>
+            <!-- Caractéristiques -->
+            <td>
+              <span title='1'></span><!-- Pour le tri : écrire la note dans l'attribut title du span -->
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+          </tr>
+          <!-- PRODUIT -->
+          <tr>
+            <!-- Thumbnail, marque, modèle, lien -->
+            <td>
+              <a href="fiche" class="no_underline">
+                <img src="images/PC_placeholder.jpg" alt="PC marque modele" class="thumbnail" />
+                <div class="product_name">
+                	<h4>Hewlett-Packard</h4>
+                	<p class="model">Pavilion DV8-1220EF</p>
+                  <p class="more">+ d'infos</p>
+                </div>
+              </a>
+            </td>
+            <!-- Prix & fiche -->
+            <td>
+              <a href="fiche" class="no_underline">
+                <span title="100.55"></span> <!-- Pour le tri : écrire le float du prix dans l'attribut title -->
+                <p  class="from">100<small> €55</small></p>
+                
+              </a>
+            </td>
+            <!-- Caractéristiques -->
+            <td>
+              <span title='1'></span><!-- Pour le tri : écrire la note dans l'attribut title du span -->
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+          </tr>
+          <!-- PRODUIT -->
+          <tr>
+            <!-- Thumbnail, marque, modèle, lien -->
+            <td>
+              <a href="fiche" class="no_underline">
+                <img src="images/PC_placeholder.jpg" alt="PC marque modele" class="thumbnail" />
+                <div class="product_name">
+                	<h4>Hewlett-Packard</h4>
+                	<p class="model">Pavilion DV8-1220EF</p>
+                  <p class="more">+ d'infos</p>
+                </div>
+              </a>
+            </td>
+            <!-- Prix & fiche -->
+            <td>
+              <a href="fiche" class="no_underline">
+                <span title="100.55"></span> <!-- Pour le tri : écrire le float du prix dans l'attribut title -->
+                <p  class="from">100<small> €55</small></p>
+                
+              </a>
+            </td>
+            <!-- Caractéristiques -->
+            <td>
+              <span title='1'></span><!-- Pour le tri : écrire la note dans l'attribut title du span -->
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+          </tr>
+          <!-- PRODUIT -->
+          <tr>
+            <!-- Thumbnail, marque, modèle, lien -->
+            <td>
+              <a href="fiche" class="no_underline">
+                <img src="images/PC_placeholder.jpg" alt="PC marque modele" class="thumbnail" />
+                <div class="product_name">
+                	<h4>Hewlett-Packard</h4>
+                	<p class="model">Pavilion DV8-1220EF</p>
+                  <p class="more">+ d'infos</p>
+                </div>
+              </a>
+            </td>
+            <!-- Prix & fiche -->
+            <td>
+              <a href="fiche" class="no_underline">
+                <span title="100.55"></span> <!-- Pour le tri : écrire le float du prix dans l'attribut title -->
+                <p  class="from">100<small> €55</small></p>
+                
+              </a>
+            </td>
+            <!-- Caractéristiques -->
+            <td>
+              <span title='1'></span><!-- Pour le tri : écrire la note dans l'attribut title du span -->
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+          </tr>
+          <!-- PRODUIT -->
+          <tr>
+            <!-- Thumbnail, marque, modèle, lien -->
+            <td>
+              <a href="fiche" class="no_underline">
+                <img src="images/PC_placeholder.jpg" alt="PC marque modele" class="thumbnail" />
+                <div class="product_name">
+                	<h4>Hewlett-Packard</h4>
+                	<p class="model">Pavilion DV8-1220EF</p>
+                  <p class="more">+ d'infos</p>
+                </div>
+              </a>
+            </td>
+            <!-- Prix & fiche -->
+            <td>
+              <a href="fiche" class="no_underline">
+                <span title="100.55"></span> <!-- Pour le tri : écrire le float du prix dans l'attribut title -->
+                <p  class="from">100<small> €55</small></p>
+                
+              </a>
+            </td>
+            <!-- Caractéristiques -->
+            <td>
+              <span title='1'></span><!-- Pour le tri : écrire la note dans l'attribut title du span -->
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+          </tr>
+          <!-- PRODUIT -->
+          <tr>
+            <!-- Thumbnail, marque, modèle, lien -->
+            <td>
+              <a href="fiche" class="no_underline">
+                <img src="images/PC_placeholder.jpg" alt="PC marque modele" class="thumbnail" />
+                <div class="product_name">
+                	<h4>Hewlett-Packard</h4>
+                	<p class="model">Pavilion DV8-1220EF</p>
+                  <p class="more">+ d'infos</p>
+                </div>
+              </a>
+            </td>
+            <!-- Prix & fiche -->
+            <td>
+              <a href="fiche" class="no_underline">
+                <span title="100.55"></span> <!-- Pour le tri : écrire le float du prix dans l'attribut title -->
+                <p  class="from">100<small> €55</small></p>
+                
+              </a>
+            </td>
+            <!-- Caractéristiques -->
+            <td>
+              <span title='1'></span><!-- Pour le tri : écrire la note dans l'attribut title du span -->
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+          </tr>
+          <!-- PRODUIT -->
+          <tr>
+            <!-- Thumbnail, marque, modèle, lien -->
+            <td>
+              <a href="fiche" class="no_underline">
+                <img src="images/PC_placeholder.jpg" alt="PC marque modele" class="thumbnail" />
+                <div class="product_name">
+                	<h4>Hewlett-Packard</h4>
+                	<p class="model">Pavilion DV8-1220EF</p>
+                  <p class="more">+ d'infos</p>
+                </div>
+              </a>
+            </td>
+            <!-- Prix & fiche -->
+            <td>
+              <a href="fiche" class="no_underline">
+                <span title="100.55"></span> <!-- Pour le tri : écrire le float du prix dans l'attribut title -->
+                <p  class="from">988<small> €55</small></p>
+                
+              </a>
+            </td>
+            <!-- Caractéristiques -->
+            <td>
+              <span title='1'></span><!-- Pour le tri : écrire la note dans l'attribut title du span -->
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+          </tr>
+
+          <!-- PRODUIT -->
+          <tr>
+            <!-- Thumbnail, marque, modèle, lien -->
+            <td>
+              <a href="fiche" class="no_underline">
+                <img src="images/PC_placeholder.jpg" alt="PC marque modele" class="thumbnail" />
+                <div class="product_name">
+                	<h4>Acer</h4>
+                	<p class="model">Pavilion DV8-1220EF</p>
+                  <p class="more">+ d'infos</p>
+                </div>
+              </a>
+            </td>
+            <!-- Prix & fiche -->
+            <td>
+              <a href="fiche" class="no_underline">
+                <span title="100.55"></span> <!-- Pour le tri : écrire le float du prix dans l'attribut title -->
+                <p  class="from">100<small> €55</small></p>
+                
+              </a>
+            </td>
+            <!-- Caractéristiques -->
+            <td>
+              <span title='1'></span><!-- Pour le tri : écrire la note dans l'attribut title du span -->
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+          </tr>
+          <!-- PRODUIT -->
+          <tr>
+            <!-- Thumbnail, marque, modèle, lien -->
+            <td>
+              <a href="fiche" class="no_underline">
+                <img src="images/PC_placeholder.jpg" alt="PC marque modele" class="thumbnail" />
+                <div class="product_name">
+                	<h4>Hewlett-Packard</h4>
+                	<p class="model">Pavilion DV8-1220EF</p>
+                  <p class="more">+ d'infos</p>
+                </div>
+              </a>
+            </td>
+            <!-- Prix & fiche -->
+            <td>
+              <a href="fiche" class="no_underline">
+                <span title="100.55"></span> <!-- Pour le tri : écrire le float du prix dans l'attribut title -->
+                <p  class="from">100<small> €55</small></p>
+                
+              </a>
+            </td>
+            <!-- Caractéristiques -->
+            <td>
+              <span title='1'></span><!-- Pour le tri : écrire la note dans l'attribut title du span -->
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+          </tr>
+          <!-- PRODUIT -->
+          <tr>
+            <!-- Thumbnail, marque, modèle, lien -->
+            <td>
+              <a href="fiche" class="no_underline">
+                <img src="images/PC_placeholder.jpg" alt="PC marque modele" class="thumbnail" />
+                <div class="product_name">
+                	<h4>Hewlett-Packard</h4>
+                	<p class="model">Pavilion DV8-1220EF</p>
+                  <p class="more">+ d'infos</p>
+                </div>
+              </a>
+            </td>
+            <!-- Prix & fiche -->
+            <td>
+              <a href="fiche" class="no_underline">
+                <span title="100.55"></span> <!-- Pour le tri : écrire le float du prix dans l'attribut title -->
+                <p  class="from">100<small> €55</small></p>
+                
+              </a>
+            </td>
+            <!-- Caractéristiques -->
+            <td>
+              <span title='1'></span><!-- Pour le tri : écrire la note dans l'attribut title du span -->
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+          </tr>
+          <!-- PRODUIT -->
+          <tr>
+            <!-- Thumbnail, marque, modèle, lien -->
+            <td>
+              <a href="fiche" class="no_underline">
+                <img src="images/PC_placeholder.jpg" alt="PC marque modele" class="thumbnail" />
+                <div class="product_name">
+                	<h4>Hewlett-Packard</h4>
+                	<p class="model">Pavilion DV8-1220EF</p>
+                  <p class="more">+ d'infos</p>
+                </div>
+              </a>
+            </td>
+            <!-- Prix & fiche -->
+            <td>
+              <a href="fiche" class="no_underline">
+                <span title="100.55"></span> <!-- Pour le tri : écrire le float du prix dans l'attribut title -->
+                <p  class="from">100<small> €55</small></p>
+                
+              </a>
+            </td>
+            <!-- Caractéristiques -->
+            <td>
+              <span title='1'></span><!-- Pour le tri : écrire la note dans l'attribut title du span -->
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+          </tr>
+          <!-- PRODUIT -->
+          <tr>
+            <!-- Thumbnail, marque, modèle, lien -->
+            <td>
+              <a href="fiche" class="no_underline">
+                <img src="images/PC_placeholder.jpg" alt="PC marque modele" class="thumbnail" />
+                <div class="product_name">
+                	<h4>Hewlett-Packard</h4>
+                	<p class="model">Pavilion DV8-1220EF</p>
+                  <p class="more">+ d'infos</p>
+                </div>
+              </a>
+            </td>
+            <!-- Prix & fiche -->
+            <td>
+              <a href="fiche" class="no_underline">
+                <span title="100.55"></span> <!-- Pour le tri : écrire le float du prix dans l'attribut title -->
+                <p  class="from">100<small> €55</small></p>
+                
+              </a>
+            </td>
+            <!-- Caractéristiques -->
+            <td>
+              <span title='1'></span><!-- Pour le tri : écrire la note dans l'attribut title du span -->
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+          </tr>
+          <!-- PRODUIT -->
+          <tr>
+            <!-- Thumbnail, marque, modèle, lien -->
+            <td>
+              <a href="fiche" class="no_underline">
+                <img src="images/PC_placeholder.jpg" alt="PC marque modele" class="thumbnail" />
+                <div class="product_name">
+                	<h4>Hewlett-Packard</h4>
+                	<p class="model">Pavilion DV8-1220EF</p>
+                  <p class="more">+ d'infos</p>
+                </div>
+              </a>
+            </td>
+            <!-- Prix & fiche -->
+            <td>
+              <a href="fiche" class="no_underline">
+                <span title="100.55"></span> <!-- Pour le tri : écrire le float du prix dans l'attribut title -->
+                <p  class="from">100<small> €55</small></p>
+                
+              </a>
+            </td>
+            <!-- Caractéristiques -->
+            <td>
+              <span title='1'></span><!-- Pour le tri : écrire la note dans l'attribut title du span -->
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+          </tr>
+          <!-- PRODUIT -->
+          <tr>
+            <!-- Thumbnail, marque, modèle, lien -->
+            <td>
+              <a href="fiche" class="no_underline">
+                <img src="images/PC_placeholder.jpg" alt="PC marque modele" class="thumbnail" />
+                <div class="product_name">
+                	<h4>Hewlett-Packard</h4>
+                	<p class="model">Pavilion DV8-1220EF</p>
+                  <p class="more">+ d'infos</p>
+                </div>
+              </a>
+            </td>
+            <!-- Prix & fiche -->
+            <td>
+              <a href="fiche" class="no_underline">
+                <span title="100.55"></span> <!-- Pour le tri : écrire le float du prix dans l'attribut title -->
+                <p  class="from">100<small> €55</small></p>
+                
+              </a>
+            </td>
+            <!-- Caractéristiques -->
+            <td>
+              <span title='1'></span><!-- Pour le tri : écrire la note dans l'attribut title du span -->
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+          </tr>
+          <!-- PRODUIT -->
+          <tr>
+            <!-- Thumbnail, marque, modèle, lien -->
+            <td>
+              <a href="fiche" class="no_underline">
+                <img src="images/PC_placeholder.jpg" alt="PC marque modele" class="thumbnail" />
+                <div class="product_name">
+                	<h4>Hewlett-Packard</h4>
+                	<p class="model">Pavilion DV8-1220EF</p>
+                  <p class="more">+ d'infos</p>
+                </div>
+              </a>
+            </td>
+            <!-- Prix & fiche -->
+            <td>
+              <a href="fiche" class="no_underline">
+                <span title="100.55"></span> <!-- Pour le tri : écrire le float du prix dans l'attribut title -->
+                <p  class="from">100<small> €55</small></p>
+                
+              </a>
+            </td>
+            <!-- Caractéristiques -->
+            <td>
+              <span title='1'></span><!-- Pour le tri : écrire la note dans l'attribut title du span -->
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+          </tr>
+          <!-- PRODUIT -->
+          <tr>
+            <!-- Thumbnail, marque, modèle, lien -->
+            <td>
+              <a href="fiche" class="no_underline">
+                <img src="images/PC_placeholder.jpg" alt="PC marque modele" class="thumbnail" />
+                <div class="product_name">
+                	<h4>Hewlett-Packard</h4>
+                	<p class="model">Pavilion DV8-1220EF</p>
+                  <p class="more">+ d'infos</p>
+                </div>
+              </a>
+            </td>
+            <!-- Prix & fiche -->
+            <td>
+              <a href="fiche" class="no_underline">
+                <span title="100.55"></span> <!-- Pour le tri : écrire le float du prix dans l'attribut title -->
+                <p  class="from">100<small> €55</small></p>
+                
+              </a>
+            </td>
+            <!-- Caractéristiques -->
+            <td>
+              <span title='1'></span><!-- Pour le tri : écrire la note dans l'attribut title du span -->
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+          </tr>
+          <!-- PRODUIT -->
+          <tr>
+            <!-- Thumbnail, marque, modèle, lien -->
+            <td>
+              <a href="fiche" class="no_underline">
+                <img src="images/PC_placeholder.jpg" alt="PC marque modele" class="thumbnail" />
+                <div class="product_name">
+                	<h4>Hewlett-Packard</h4>
+                	<p class="model">Pavilion DV8-1220EF</p>
+                  <p class="more">+ d'infos</p>
+                </div>
+              </a>
+            </td>
+            <!-- Prix & fiche -->
+            <td>
+              <a href="fiche" class="no_underline">
+                <span title="100.55"></span> <!-- Pour le tri : écrire le float du prix dans l'attribut title -->
+                <p  class="from">100<small> €55</small></p>
+                
+              </a>
+            </td>
+            <!-- Caractéristiques -->
+            <td>
+              <span title='1'></span><!-- Pour le tri : écrire la note dans l'attribut title du span -->
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+            <td>
+              <span title='1'></span>
+              <p class="spec_rating">1<small>/10</small></p>
+              <p class="specs_value">Composant xx</p>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+  </div><!-- Close #full_list -->
+
+</div><!-- Close #catalogue -->
+
+</body>
+

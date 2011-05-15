@@ -11,6 +11,11 @@ javascripts:
   wizard:
     - public/javascripts/*.js
 
+  catalogue:
+    - public/javascripts/rangeslider.min.js
+    - public/javascripts/jquery.dataTables.min.js
+    - public/javascripts/catalogue.js
+
 stylesheets:
   wizard:
     - public/stylesheets/reset.css
@@ -23,3 +28,7 @@ stylesheets:
     - public/javascripts/waitpopup.js
   result:
     - public/stylesheets/result.css
+
+  catalogue:
+    - public/stylesheets/reset.css
+    - public/stylesheets/catalogue.css

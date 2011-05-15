@@ -237,6 +237,7 @@ td.bestpickvspacer {
 .featuredimg {
 	width:260px;
 	margin:10px auto;
+	display:block;
 }
 
 
