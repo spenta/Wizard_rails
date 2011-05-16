@@ -1,14 +1,228 @@
-<%= link_to "Accueil", :root%>
-<p><%= "Nombre de produits :  #{Product.all.size}"%></p>
-<table>
-  <% Product.all.each do |p| -%>
-  <tr>
-    <td><%= link_to p do%>
-    <%= image_tag p.small_img_url,{:height => 60} %>
-  <% end %></td>
-    <td><%=  p.brand.name%> </td>
-    <td><%=  p.name%></td>
-    </td>
-  </tr>
-  <% end -%>
-</table>
+<% content_for :head do -%>
+  <title>Choisir Facile - Tous les ordinateurs PC portables</title>
+  <meta name="description" content="La liste complète des ordinateurs disponibles sur les sites marchands partenaires." />
+  <%= include_stylesheets :catalogue%>
+  <%= include_javascripts :catalogue%>
+  <script type="text/javascript">
+    // Price filter initialisation
+    $j(function() {
+      $j( "#price_slider" ).slider({
+      range: true,
+      min: 100,
+      max: 3000,
+      values: [ 100, 3000 ],
+      slide: function( event, ui ) {
+      $j( "#price_display" ).val(ui.values[ 0 ] + "€ et " + ui.values[ 1 ] + "€"); }
+      });
+      $j( "#price_display" ).val($j( "#price_slider" ).slider( "values", 0 ) + <%= "\"#{t :cat_currency} #{t :cat_price_filter_and} \"".html_safe%> + $j( "#price_slider" ).slider( "values", 1 ) + <%="\" #{t(:cat_currency)}\"".html_safe%>);
+    });
+
+    //Specs filter initialisation
+    $j(function() {
+      for (i=1;i<=6;i=i+1) {
+      $j( "#slider_" + i ).slider({
+        range: true,
+        min: 1,
+        max: 10,
+        values: [ 1, 10 ],                      
+        });
+      $j( "#display_" + i ).val(<%= "\"#{t(:cat_spec_filter_from)}\"".html_safe %> + $j( "#slider_" + i ).slider( "values", 0 ) + <%= "\"#{t(:cat_spec_filter_to).html_safe}\"".html_safe %> + $j( "#slider_" + i ).slider( "values", 1 ));
+        }
+      });
+  </script>
+  <script type="text/javascript">
+    // --- Initialisation du tableau
+    $j(document).ready(function() {
+      var oTable = $j('#list').dataTable( {
+        "aoColumns": [
+        { "bSortable": false },
+        { "sType": "title-numeric" },
+        { "sType": "title-numeric" },
+        { "sType": "title-numeric" },
+        { "sType": "title-numeric" },
+        { "sType": "title-numeric" },
+        { "sType": "title-numeric" },
+        { "sType": "title-numeric" }
+        ],
+        // Localisation
+        "oLanguage": 
+        {
+        "sProcessing":   <%= "\"#{t(:cat_table_processing)}\"".html_safe %>,
+        "sLengthMenu":   <%= "\"#{t(:cat_table_display)}\"".html_safe %>,
+        "sZeroRecords":  <%= "\"#{t(:cat_table_no_records)}\"".html_safe %>,
+        "sInfo":         <%= "\"#{t(:cat_table_info)}\"".html_safe %>,
+        "sInfoEmpty":    "",
+        "sInfoFiltered": <%= "\"#{t(:cat_table_filtered)}\"".html_safe %>,
+        "sInfoPostFix":  "",
+        "sSearch":       <%= "\"#{t(:cat_table_search)}\"".html_safe %>,
+        "sUrl":          "",
+        "oPaginate": {
+          "sFirst":    <%= "\"#{t(:cat_table_first)}\"".html_safe %>,
+          "sPrevious": <%= "\"#{t(:cat_table_previous)}\"".html_safe %>,
+          "sNext":     <%= "\"#{t(:cat_table_next)}\"".html_safe %>,
+          "sLast":     <%= "\"#{t(:cat_table_last)}\"".html_safe %>
+        }
+        },
+        "sPaginationType": "full_numbers"
+      }
+      );
+
+      // Event listeners
+      $j('#price_slider').slider( { stop: function() { oTable.fnDraw(); } } );
+      $j("#slider_1").slider( { 
+      stop: function() { oTable.fnDraw(); },
+      slide: function( event, ui ) { $j( "#display_1" ).val("de " + ui.values[ 0 ] + " à " + ui.values[ 1 ]); }
+      } );
+      $j("#slider_2").slider( { 
+      stop: function() { oTable.fnDraw(); }, 
+      slide: function( event, ui ) { $j( "#display_2" ).val("de " + ui.values[ 0 ] + " à " + ui.values[ 1 ]); }
+      } );
+      $j("#slider_3").slider( { 
+      stop: function() { oTable.fnDraw(); }, 
+      slide: function( event, ui ) { $j( "#display_3" ).val("de " + ui.values[ 0 ] + " à " + ui.values[ 1 ]); }
+      } );
+      $j("#slider_4").slider( { 
+      stop: function() { oTable.fnDraw(); }, 
+      slide: function( event, ui ) { $j( "#display_4" ).val("de " + ui.values[ 0 ] + " à " + ui.values[ 1 ]); }
+      } );
+      $j("#slider_5").slider( { 
+      stop: function() { oTable.fnDraw(); }, 
+      slide: function( event, ui ) { $j( "#display_5" ).val("de " + ui.values[ 0 ] + " à " + ui.values[ 1 ]); }
+      } );
+      $j("#slider_6").slider( { 
+      stop: function() { oTable.fnDraw(); }, 
+      slide: function( event, ui ) { $j( "#display_6" ).val("de " + ui.values[ 0 ] + " à " + ui.values[ 1 ]); }
+      } );
+    } );
+  </script>
+<% end -%>
+
+<body>
+
+  <%# Wrapper (centrage et arrière-plan) %>
+  <div id="catalogue">
+
+    <%# Section supérieure : titre %>
+    <div id="top">
+      <%= content_tag :h1, t(:cat_title) %>
+      <%= content_tag :p, cat_subtitle, :class => "subtitle" %>
+    </div>
+
+    <%# Filtres & lien vers le Wizard %>    
+    <div id="middle">    
+      <%# Outils de filtrage %>
+      <div id="filters">     
+        <%# En haut : filtrage du prix & infos %>
+        <div id="top_filters">        
+          <div id="infos">
+            <%= content_tag :h2, t(:cat_refine_title) %>
+            <%= content_tag :p, t(:cat_refine_explanation), :class => "explain" %>
+          </div>
+
+          <div id="price_filter">  
+            <%= content_tag :h3, t(:cat_filters_price_title) %>
+            <div class="price_slider">
+              <p>
+                <label for="price_display"><%= t :cat_filters_price_label %></label>
+                <input type="text" id="price_display" />
+              </p>  
+              <div id="price_slider"></div>
+            </div>
+          </div>
+
+          <div class="clearfix"></div>
+
+        </div>
+
+        <%# Filtrage des specs : 3 colonnes %>
+        <div id="specs_filters">
+          <div class="sliderStyle">
+            <p>
+              <label for="display_1"><%=t :cat_filters_label_1 %></label>
+              <input type="text" id="display_1" />
+            </p>  
+            <div id="slider_1"></div>
+          </div>                              
+          <div class="sliderStyle">
+            <p>
+              <label for="display_2"><%= t :cat_filters_label_2 %></label>
+              <input type="text" id="display_2" />
+            </p>  
+            <div id="slider_2"></div>
+          </div>                              
+          <div class="sliderStyle">
+            <p>
+              <label for="display_3"><%= t :cat_filters_label_3 %></label>
+              <input type="text" id="display_3" />
+            </p>  
+            <div id="slider_3"></div>
+          </div>
+
+          <div class="clearfix"></div>
+
+          <div class="sliderStyle">
+            <p>
+              <label for="display_4"><%= t :cat_filters_label_4 %></label>
+              <input type="text" id="display_4" />
+            </p>  
+            <div id="slider_4"></div>
+          </div>           
+          <div class="sliderStyle">
+            <p>
+              <label for="display_5"><%= t :cat_filters_label_5 %></label>
+              <input type="text" id="display_5" />
+            </p>  
+            <div id="slider_5"></div>
+          </div>                            
+          <div class="sliderStyle">
+            <p>
+              <label for="display_6"><%= t :cat_filters_label_6 %></label>
+              <input type="text" id="display_6" />
+            </p>  
+            <div id="slider_6"></div>
+          </div>        
+          <div class="clearfix"></div>       
+
+        </div>
+      </div>
+
+      <%# Droite : lien vers le wizard %>
+      <div id="wizard_box">
+        <%= content_tag :h2, t_safe(:cat_wizard_text)%>
+        <a href="wizard.html" class="no_underline">
+          <div class="wizard_button"><p class="label"><%= t :cat_wizard_label %></p></div>
+        </a>
+        <p class="wizard_emphasis"><%= t :cat_wizard_emphasis %></p>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+
+
+
+    <%# Tableau des produits %>
+    <div id="full_list">
+      <table id="list">
+        <thead>
+          <tr>
+            <th class="product_info"></th>
+            <%= content_tag :th, t(:cat_table_header_price) %>
+            <%= content_tag :th, t(:cat_filters_label_1) %>
+            <%= content_tag :th, t(:cat_filters_label_2) %>
+            <%= content_tag :th, t(:cat_filters_label_3) %>
+            <%= content_tag :th, t(:cat_filters_label_4) %>
+            <%= content_tag :th, t(:cat_filters_label_5) %>
+            <%= content_tag :th, t(:cat_filters_label_6) %>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% Product.all_cached.each do |product| -%>
+            <%= render 'product', :product => product %>
+          <% end -%>
+        </tbody>
+      </table>
+    </div><%# Close #full_list %>
+
+  </div><%# Close #catalogue %>
+
+</body>

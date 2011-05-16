@@ -5,6 +5,10 @@ class Product < ActiveRecord::Base
   has_many :offers
   validates :name, :small_img_url, :big_img_url, :brand, :presence => true
   
+  def self.all_cached
+    Rails.cache.fetch("all_products") {Product.all}
+  end
+
   def price
     infos[:price]
   end

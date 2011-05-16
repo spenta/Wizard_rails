@@ -1,49 +1,51 @@
 fr:
-	# Filter script locales
-	cat_currency: €
-	cat_price_filter_and: et
-	cat_spec_filter_from: de
-	cat_spec_filter_to : à
-	
-	# Table script locales
-	cat_table_processing: Traitement en cours...
-	cat_table_display: Afficher _MENU_ ordinateurs
-	cat_table_no_records: Aucun ordinateur ne correspond à ces critères.
-	cat_table_info: Ordinateurs _START_ à _END_ sur _TOTAL_
-	cat_table_filtered: (parmi les _MAX_ modèles au catalogue)
-	cat_table_search: Rechercher (marque, modèle...) : 
-	cat_table_first: << Début
-	cat_table_previous: < Précédent
-	cat_table_next: Suivant >
-	cat_table_last: Fin >>
-	
-	# Title
-	cat_title: Tous les ordinateurs portables
-	cat_subtitle_1: Découvrez
-	cat_subtitle_2: modèles
-	cat_subtitle_3: de PC sur
-	cat_subtitle_4: sites marchands
-	cat_subtitle_4: partenaires
-	
-	# Filters
-	cat_refine_title: Affinez votre recherche
-	cat_refine_explanation: Faites glisser les curseurs pour filtrer la liste des PC portables. Les caractéristiques notées 10/10 sont ce qu'il y a de mieux sur le marché !
-	
-	cat_filters_price_title: Votre Budget
-	cat_filters_price_label: Prix entre
-	
-	cat_filters_label_1: Processeur
-	cat_filters_label_2: Taille de l'écran
-	cat_filters_label_3: Carte graphique
-	cat_filters_label_4: Mémoire vive
-	cat_filters_label_5: Disque dur
-	cat_filters_label_6: Poids
-	
-	cat_table_header_price: À partir de
-	
-	# Link to wizard
-	cat_wizard_text: |
-		<h2>Vous ne savez pas<br/>quel ordinateur choisir ?</h2>
-		<p class="wizard_text">Répondez à quelques questions rapides et nous vous conseillerons les meilleurs PC <strong>pour vos besoins</strong>. Suivez l'expert !</p>
-	cat_wizard_label: Trouvez votre PC
-	cat_wizard_emphasis: C'est simple, rapide et objectif !
+  # Filter script locales
+  cat_currency: "€"
+  cat_price_filter_and: "et"
+  cat_spec_filter_from: "de "
+  cat_spec_filter_to : "à "
+  
+  # Table script locales
+  cat_table_processing: Traitement en cours...
+  cat_table_display: Afficher _MENU_ ordinateurs
+  cat_table_no_records: Aucun ordinateur ne correspond à ces critères.
+  cat_table_info: Ordinateurs _START_ à _END_ sur _TOTAL_
+  cat_table_filtered: (parmi les _MAX_ modèles au catalogue)
+  cat_table_search: Rechercher (marque, modèle...) 
+  cat_table_first: << Début
+  cat_table_previous: < Précédent
+  cat_table_next: Suivant >
+  cat_table_last: Fin >>
+  
+  # Title
+  cat_title: Tous les ordinateurs portables
+  cat_subtitle_1: Découvrez
+  cat_subtitle_2: modèles
+  cat_subtitle_3: de PC sur
+  cat_subtitle_4: sites marchands
+  cat_subtitle_5: partenaires.
+  
+  # Filters
+  cat_refine_title: Affinez votre recherche
+  cat_refine_explanation: Faites glisser les curseurs pour filtrer la liste des PC portables. Les caractéristiques notées 10/10 sont ce qu'il y a de mieux sur le marché !
+  
+  cat_filters_price_title: Votre Budget
+  cat_filters_price_label: Prix entre
+  
+  cat_filters_label_1: Processeur 
+  cat_filters_label_2: Taille de l'écran 
+  cat_filters_label_3: Carte graphique 
+  cat_filters_label_4: Mémoire vive 
+  cat_filters_label_5: Disque dur 
+  cat_filters_label_6: Poids 
+  
+  cat_table_header_price: À partir de
+  
+  # Link to wizard
+  cat_wizard_text: |
+    <h2>Vous ne savez pas<br/>quel ordinateur choisir ?</h2>
+    <p class="wizard_text">Répondez à quelques questions rapides et nous vous conseillerons les meilleurs PC <strong>pour vos besoins</strong>. Suivez l'expert !</p>
+  cat_wizard_label: Trouvez votre PC
+  cat_wizard_emphasis: C'est simple, rapide et objectif !
+
+  cat_more_infos: + d'infos

@@ -1,0 +1,55 @@
+<% p_infos = product.infos -%>
+<tr>
+  <%# Thumbnail, marque, modèle, lien %>
+  <td>
+    <%= link_to product, :class => "no_underline" do %>
+      <%= image_tag p_infos[:small_img_url], :alt => "PC #{p_infos[:brand_name]} #{p_infos[:name]}", :class => "thumbnail" %>
+      <div class="product_name">
+        <%= content_tag :h4, p_infos[:brand_name] %>
+        <%= content_tag :p, p_infos[:name], :class => "model" %>
+        <%= content_tag :p, t(:cat_more_infos), :class => "more" %>
+      </div>
+    <% end -%>
+  </td>
+  <%# Prix & fiche %>
+  <td>
+    <%= link_to product, :class => "no_underline" do %>
+      <span title="<%= p_infos[:price] %>"></span.>
+      <p  class="from">
+        <%= p_infos[:price].floor %><small> <%= t :cat_currency %><%= get_cents_from p_infos[:price] %></small>
+      </p>
+
+    <% end -%>
+  </td>
+  <%# Caractéristiques %>
+  <td>
+    <span title='1'></span><%# Pour le tri : écrire la note dans l'attribut title du span %>
+    <p class="spec_rating">1<small>/10</small></p>
+    <p class="specs_value">Composant xx</p>
+  </td>
+  <td>
+    <span title='1'></span>
+    <p class="spec_rating">1<small>/10</small></p>
+    <p class="specs_value">Composant xx</p>
+  </td>
+  <td>
+    <span title='1'></span>
+    <p class="spec_rating">1<small>/10</small></p>
+    <p class="specs_value">Composant xx</p>
+  </td>
+  <td>
+    <span title='1'></span>
+    <p class="spec_rating">1<small>/10</small></p>
+    <p class="specs_value">Composant xx</p>
+  </td>
+  <td>
+    <span title='1'></span>
+    <p class="spec_rating">1<small>/10</small></p>
+    <p class="specs_value">Composant xx</p>
+  </td>
+  <td>
+    <span title='1'></span>
+    <p class="spec_rating">1<small>/10</small></p>
+    <p class="specs_value">Composant xx</p>
+  </td>
+</tr>
