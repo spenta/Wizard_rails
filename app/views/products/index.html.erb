@@ -24,7 +24,7 @@
         range: true,
         min: 1,
         max: 10,
-        values: [ 1, 10 ],                      
+        values: [ 1, 10 ],
         });
       $j( "#display_" + i ).val(<%= "\"#{t(:cat_spec_filter_from)}\"".html_safe %> + $j( "#slider_" + i ).slider( "values", 0 ) + <%= "\"#{t(:cat_spec_filter_to).html_safe}\"".html_safe %> + $j( "#slider_" + i ).slider( "values", 1 ));
         }
@@ -35,17 +35,17 @@
     $j(document).ready(function() {
       var oTable = $j('#list').dataTable( {
         "aoColumns": [
-        { "bSortable": false },
-        { "sType": "title-numeric" },
-        { "sType": "title-numeric" },
-        { "sType": "title-numeric" },
-        { "sType": "title-numeric" },
-        { "sType": "title-numeric" },
-        { "sType": "title-numeric" },
-        { "sType": "title-numeric" }
+        { "bSortable": false, " },
+        { "sType": "title-numeric", "asSorting": ["asc", "desc"] },
+        { "sType": "title-numeric", "asSorting": ["desc", "asc"] },
+        { "sType": "title-numeric", "asSorting": ["desc", "asc"] },
+        { "sType": "title-numeric", "asSorting": ["desc", "asc"] },
+        { "sType": "title-numeric", "asSorting": ["desc", "asc"] },
+        { "sType": "title-numeric", "asSorting": ["desc", "asc"] },
+        { "sType": "title-numeric", "asSorting": ["desc", "asc"] }
         ],
         // Localisation
-        "oLanguage": 
+        "oLanguage":
         {
         "sProcessing":   <%= "\"#{t(:cat_table_processing)}\"".html_safe %>,
         "sLengthMenu":   <%= "\"#{t(:cat_table_display)}\"".html_safe %>,
@@ -69,28 +69,28 @@
 
       // Event listeners
       $j('#price_slider').slider( { stop: function() { oTable.fnDraw(); } } );
-      $j("#slider_1").slider( { 
+      $j("#slider_1").slider( {
       stop: function() { oTable.fnDraw(); },
       slide: function( event, ui ) { $j( "#display_1" ).val("de " + ui.values[ 0 ] + " à " + ui.values[ 1 ]); }
       } );
-      $j("#slider_2").slider( { 
-      stop: function() { oTable.fnDraw(); }, 
+      $j("#slider_2").slider( {
+      stop: function() { oTable.fnDraw(); },
       slide: function( event, ui ) { $j( "#display_2" ).val("de " + ui.values[ 0 ] + " à " + ui.values[ 1 ]); }
       } );
-      $j("#slider_3").slider( { 
-      stop: function() { oTable.fnDraw(); }, 
+      $j("#slider_3").slider( {
+      stop: function() { oTable.fnDraw(); },
       slide: function( event, ui ) { $j( "#display_3" ).val("de " + ui.values[ 0 ] + " à " + ui.values[ 1 ]); }
       } );
-      $j("#slider_4").slider( { 
-      stop: function() { oTable.fnDraw(); }, 
+      $j("#slider_4").slider( {
+      stop: function() { oTable.fnDraw(); },
       slide: function( event, ui ) { $j( "#display_4" ).val("de " + ui.values[ 0 ] + " à " + ui.values[ 1 ]); }
       } );
-      $j("#slider_5").slider( { 
-      stop: function() { oTable.fnDraw(); }, 
+      $j("#slider_5").slider( {
+      stop: function() { oTable.fnDraw(); },
       slide: function( event, ui ) { $j( "#display_5" ).val("de " + ui.values[ 0 ] + " à " + ui.values[ 1 ]); }
       } );
-      $j("#slider_6").slider( { 
-      stop: function() { oTable.fnDraw(); }, 
+      $j("#slider_6").slider( {
+      stop: function() { oTable.fnDraw(); },
       slide: function( event, ui ) { $j( "#display_6" ).val("de " + ui.values[ 0 ] + " à " + ui.values[ 1 ]); }
       } );
     } );
@@ -108,24 +108,24 @@
       <%= content_tag :p, cat_subtitle, :class => "subtitle" %>
     </div>
 
-    <%# Filtres & lien vers le Wizard %>    
-    <div id="middle">    
+    <%# Filtres & lien vers le Wizard %>
+    <div id="middle">
       <%# Outils de filtrage %>
-      <div id="filters">     
+      <div id="filters">
         <%# En haut : filtrage du prix & infos %>
-        <div id="top_filters">        
+        <div id="top_filters">
           <div id="infos">
             <%= content_tag :h2, t(:cat_refine_title) %>
             <%= content_tag :p, t(:cat_refine_explanation), :class => "explain" %>
           </div>
 
-          <div id="price_filter">  
+          <div id="price_filter">
             <%= content_tag :h3, t(:cat_filters_price_title) %>
             <div class="price_slider">
               <p>
                 <label for="price_display"><%= t :cat_filters_price_label %></label>
                 <input type="text" id="price_display" />
-              </p>  
+              </p>
               <div id="price_slider"></div>
             </div>
           </div>
@@ -140,21 +140,21 @@
             <p>
               <label for="display_1"><%=t :cat_filters_label_1 %></label>
               <input type="text" id="display_1" />
-            </p>  
+            </p>
             <div id="slider_1"></div>
-          </div>                              
+          </div>
           <div class="sliderStyle">
             <p>
               <label for="display_2"><%= t :cat_filters_label_2 %></label>
               <input type="text" id="display_2" />
-            </p>  
+            </p>
             <div id="slider_2"></div>
-          </div>                              
+          </div>
           <div class="sliderStyle">
             <p>
               <label for="display_3"><%= t :cat_filters_label_3 %></label>
               <input type="text" id="display_3" />
-            </p>  
+            </p>
             <div id="slider_3"></div>
           </div>
 
@@ -164,24 +164,24 @@
             <p>
               <label for="display_4"><%= t :cat_filters_label_4 %></label>
               <input type="text" id="display_4" />
-            </p>  
+            </p>
             <div id="slider_4"></div>
-          </div>           
+          </div>
           <div class="sliderStyle">
             <p>
               <label for="display_5"><%= t :cat_filters_label_5 %></label>
               <input type="text" id="display_5" />
-            </p>  
+            </p>
             <div id="slider_5"></div>
-          </div>                            
+          </div>
           <div class="sliderStyle">
             <p>
               <label for="display_6"><%= t :cat_filters_label_6 %></label>
               <input type="text" id="display_6" />
-            </p>  
+            </p>
             <div id="slider_6"></div>
-          </div>        
-          <div class="clearfix"></div>       
+          </div>
+          <div class="clearfix"></div>
 
         </div>
       </div>
@@ -226,3 +226,4 @@
   </div><%# Close #catalogue %>
 
 </body>
+
