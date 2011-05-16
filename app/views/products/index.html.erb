@@ -8,9 +8,9 @@
     $j(function() {
       $j( "#price_slider" ).slider({
       range: true,
-      min: 100,
-      max: 3000,
-      values: [ 100, 3000 ],
+      min: <%= get_min_price %>,
+      max: <%= get_max_price %>,
+      values: [ <%= get_min_price %>, <%= get_max_price %>],
       slide: function( event, ui ) {
       $j( "#price_display" ).val(ui.values[ 0 ] + "€ et " + ui.values[ 1 ] + "€"); }
       });
@@ -189,9 +189,9 @@
       <%# Droite : lien vers le wizard %>
       <div id="wizard_box">
         <%= content_tag :h2, t_safe(:cat_wizard_text)%>
-        <a href="wizard.html" class="no_underline">
+        <%= link_to user_requests_path, :method => :post, :class => "no_underline" do%>
           <div class="wizard_button"><p class="label"><%= t :cat_wizard_label %></p></div>
-        </a>
+        <% end %>
         <p class="wizard_emphasis"><%= t :cat_wizard_emphasis %></p>
       </div>
       <div class="clearfix"></div>
@@ -221,9 +221,9 @@
           <% end -%>
         </tbody>
       </table>
-    </div><%# Close #full_list %>
+    </div>
 
-  </div><%# Close #catalogue %>
+  </div>
 
 </body>
 

@@ -97,6 +97,7 @@ strong {
 /*Mise en page sur 2 colonnes */
 #filters {
 	width:617px;
+        height:177px;
 	float:left;
 	padding:12px;
 	background-color:white;
@@ -110,8 +111,8 @@ strong {
 	
 #wizard_box {
   float:left;
-	
 	width:266px;
+        height:177px;
 	padding:12px 12px 13px 12px;
 	margin:auto 0px auto 25px;
 		

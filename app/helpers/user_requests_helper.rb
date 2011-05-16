@@ -59,7 +59,11 @@ module UserRequestsHelper
   end
 
   def spec_value_with_unit p_infos, spec_id
-    p_infos[:specification_values][spec_id][:sv_name]+" "+ t_safe("spec_metrics_#{spec_id}")
+    begin
+      p_infos[:specification_values][spec_id][:sv_name]+" "+ t_safe("spec_metrics_#{spec_id}")
+    rescue
+      t :not_communicated
+    end
   end
 
   def get_color_number value
@@ -71,5 +75,32 @@ module UserRequestsHelper
   def cat_subtitle
     str = "#{t :cat_subtitle_1 } <strong>#{Product.all_cached.size} #{t :cat_subtitle_2 }</strong>#{t :cat_subtitle_3} <strong>#{Retailer.count} #{t :cat_subtitle_4}</strong> #{t :cat_subtitle_5}"
     str.html_safe
+  end
+
+  def get_score_or_zero p_infos, spec_id
+    begin
+      score = p_infos[:specification_values][spec_id][:sv_score].round 
+    rescue
+      score = 0
+    end
+    score
+  end
+
+  def get_max_price
+    begin
+      max_offer = Offer.order("price").last
+      max_offer.price.ceil
+    rescue
+      raise max_offer.inspect
+    end
+  end
+
+  def get_min_price
+    begin
+      min_offer = Offer.order("price").first
+      min_offer.price.ceil
+    rescue
+      raise min_offer.inspect
+    end
   end
 end
