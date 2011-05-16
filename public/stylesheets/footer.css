@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+/* ---------------------------
+Footer
+--------------------------- */
+
+#footer p, #footer a {
+	color:#666;
+	margin-top:10px;
+	text-decoration:none;
+}
+
+#footer {
+	width:960px;
+	margin:0px auto;
+        clear:both;
+}
+
+.footer_left { float:left; }
+
+.footer_right { float:right; }

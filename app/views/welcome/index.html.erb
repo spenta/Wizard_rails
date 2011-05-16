@@ -1,7 +1,81 @@
-<h1>Spenta Wizard</h1>
-<p>
-  <%= link_to 'Commencer le questionnaire', user_requests_path, :method => :post, :id => "link_to_form" %>
-</p>
-<p>
-  <%= link_to 'Voir le catalogue', products_path %>
-</p>
+<%= content_for :head do %>
+  <title>Choisir Facile - Touver le meilleur ordinateur portable</title>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  
+  <meta name="language" content="fr" />
+  <meta name="description" content="Choisir Facile vous conseille le PC le plus adapté à vos besoins." />
+  <meta name="keywords" content="PC portable" />
+  
+  <%= include_javascripts :home%>
+  <%= include_stylesheets :home%>
+	
+<% end -%>
+<body>
+  <div id="home">
+    <p class="explain">
+      Choisir Facile vous aide à trouver facilement le PC qu'il vous faut. C'est <strong>GRATUIT</strong>, <strong>OBJECTIF</strong> et <strong>RAPIDE</strong> !
+    </p>
+
+    <div class="wrapper">
+      <div id="steps_grid">
+
+        <div class="step">
+          <div class="left">
+            <div class="top"></div>
+            <img class="bottom" src="/images/home/number_1.png" />
+          </div>
+          <div class="right">
+            <img class="top" src="/images/home/step_1.png" />
+            <div class="bottom">
+              <h1>Répondez aux questions</h1>
+              <p class="subtitle">Ça ne prend que deux minutes</p>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+
+        <div class="vspacer"></div>
+
+        <div class="step">
+          <div class="left">
+            <div class="top"></div>
+            <img class="bottom" src="/images/home/number_2.png" />
+          </div>
+          <div class="right">
+            <img class="top" src="/images/home/step_2.png" />
+            <div class="bottom">
+              <h1>Profitez de nos conseils</h1>
+              <p class="subtitle">Ils sont taillés pour <strong>vos</strong> besoins</p>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+
+        <div class="vspacer"></div>
+
+        <div class="step">
+          <div class="left">
+            <div class="top"></div>
+            <img class="bottom" src="/images/home/number_3.png" />
+          </div>
+          <div class="right">
+            <img class="top" src="/images/home/step_3.png" />
+            <div class="bottom">
+              <h1>Achetez au meilleur prix</h1>
+              <p class="subtitle">Nous sommes 100% indépendants</p>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="clearfix"><img class="hspacer" src="/images/home/hspacer.png" /></div>
+
+      <%= link_to user_requests_path, :method => :post, :id => "link_to_form", :class => "no_underline" do%>
+        <div class="button">Trouvez votre PC</div>
+      <% end -%>
+    </div>
+  </div>
+</body>

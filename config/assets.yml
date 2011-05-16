@@ -8,6 +8,9 @@ javascripts:
     - public/javascripts/rails/dragdrop.js
     - public/javascripts/rails/rails.js
 
+  home:
+    - public/javascripts/home.js
+
   form:
     - public/javascripts/usages.answerMultichoice.js
     - public/javascripts/usages.labelCheckbox.js
@@ -28,13 +31,18 @@ javascripts:
 stylesheets:
   wizard:
     - public/stylesheets/reset.css
+    - public/stylesheets/header.css
+    - public/stylesheets/footer.css
+
+  home:
+    - public/stylesheets/home.css
+
   form:
     - public/stylesheets/main.css
     - public/stylesheets/usages.css
     - public/stylesheets/usages.selectSlider.css
     - public/stylesheets/usages.labelCheckbox.css
     - public/stylesheets/usages.tabbedForm.css
-    - public/javascripts/waitpopup.js
   result:
     - public/stylesheets/result.css
 

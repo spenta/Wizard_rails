@@ -40,8 +40,7 @@ class UserRequestsController < ApplicationController
           raise "unknown form state : #{session[:user_request_step]}"
       end
     rescue => error
-      raise error
-       # redirect_to edit_user_request_path, :flash => {:error => error.message}
+      redirect_to edit_user_request_path, :flash => {:error => error.message}
     end
   end
 

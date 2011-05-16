@@ -13,51 +13,6 @@ Styles par défaut
 body, html { background-color:white; }
 
 /* ---------------------------
-Header
---------------------------- */
-
-#header {
-	background-image:url('../images/header_bckg.png');
-	margin:0px auto;
-}
-
-.clearfix { clear:none; }
-
-
-/* Header */
-.wrapper {
-	width:960px;
-	padding:10px 0;
-	margin:0 auto;
-}
-
-#menu {
-	float:right;
-	margin-top:17px;
-}
-
-#menu ul {
-	list-style-type:none;
-	display:block;
-}
-
-#menu li {
-	display:inline;
-	float:left;
-	margin:0 10px;
-}
-
-#menu a {
-	color:white;
-	font-size:1.6em;
-	text-decoration:none;
-}
-
-#menu a:hover {
-	color:#94eba5;
-}
-
-/* ---------------------------
 Home
 --------------------------- */
 
@@ -139,33 +94,14 @@ h1 {
 	margin:15px auto;
 	height:30px;
 	width:235px;
-	background-image:url('../images/home_button.png');
+	background-image:url('/images/home/home_button.png');
 	font-size:2.1em;
 	text-shadow:1px 1px #666;
 	padding:18px 25px;
 }
 
 .button:hover {
-	background-image:url('../images/home_button_hover.png');
+	background-image:url('/images/home/home_button_hover.png');
 }
 
 .no_underline { text-decoration:none; }
-
-/* ---------------------------
-Footer
---------------------------- */
-
-#footer p, #footer a {
-	color:#666;
-	margin-top:10px;
-	text-decoration:none;
-}
-
-#footer {
-	width:960px;
-	margin:0px auto;
-}
-
-.footer_left { float:left; }
-
-.footer_right { float:right; }

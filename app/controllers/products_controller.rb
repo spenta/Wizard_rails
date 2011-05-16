@@ -1,14 +1,12 @@
 class ProductsController < ApplicationController
-  caches_page :index
+  caches_page :index, :show
 
   # GET /products
-  # GET /products.xml
   def index
-    @products = Product.all
+    @products = Product.all_cached
   end
 
   # GET /products/1
-  # GET /products/1.xml
   def show
     @product = Product.find(params[:id])
   end
