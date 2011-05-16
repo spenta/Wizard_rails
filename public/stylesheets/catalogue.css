@@ -37,8 +37,8 @@ p {
   text-align:justify;
 }
 
-strong { 
-	font-weight:bold; 
+strong {
+	font-weight:bold;
 	color:inherit;
 	font-size:inherit;
 }
@@ -54,7 +54,7 @@ strong {
 
 .clearfix { clear:both; }
 
-#top { 
+#top {
 	margin:0px auto 15px auto;
 	padding:15px 0;
 	background-color:#50A5D7;
@@ -69,9 +69,9 @@ strong {
 	width:960px;
 	margin:20px auto 10px auto;
 	padding:12px 0 35px 0;
-	
+
 	background-color:white;
-	
+
 	-webkit-border-radius:12px;
   -khtml-border-radius:12px;
   -moz-border-radius:12px;
@@ -108,14 +108,14 @@ strong {
 	-o-border-radius:12px;
 	border-radius:12px;
 }
-	
+
 #wizard_box {
   float:left;
 	width:266px;
         height:177px;
 	padding:12px 12px 13px 12px;
 	margin:auto 0px auto 25px;
-		
+
   background-color:white;
   border:1px solid #E5E5E5;
   -webkit-border-radius:12px;
@@ -178,8 +178,8 @@ strong {
 }
 
 #price_display {
-	border:none; 
-	color:#50A5D7; 
+	border:none;
+	color:#50A5D7;
 	width:100px;
 	font-weight:bold;
 	background-color:transparent;
@@ -203,8 +203,8 @@ strong {
 
 .sliderStyle input {
 	width:62px;
-	border:none; 
-	color:#50A5D7; 
+	border:none;
+	color:#50A5D7;
 	font-weight:bold;
 	background-color:transparent;
 }
@@ -212,7 +212,7 @@ strong {
 
 
 #display_1, #display_2, #display_3, #display_4, #display_5, #display_6 {
-	
+
 }
 
 /* --- CTA vers le wizard --- */
@@ -241,11 +241,11 @@ strong {
 }
 
 /* --- Classes jQuery UI utilisées --- */
-.ui-widget-header { 
-	border: 1px solid #aaaaaa; 
+.ui-widget-header {
+	border: 1px solid #aaaaaa;
 	background: #56DC70 url('/images/catalogue/slider_bckg.png');
 }
-	
+
 .ui-corner-all {
 	-moz-border-radius: 4px;
 	-webkit-border-radius: 4px;
@@ -255,24 +255,24 @@ strong {
 }
 
 .ui-slider-handle {
-	background: url('/images/catalogue/slider_handle.png'); 
+	background: url('/images/catalogue/slider_handle.png');
 }
 
 .ui-slider-handle:focus {
-	outline:none; 
+	outline:none;
 }
 
-.ui-widget-content { 
-	border: 1px solid #aaaaaa; 
-	background: #ffffff; 
+.ui-widget-content {
+	border: 1px solid #aaaaaa;
+	background: #ffffff;
 }
 
-.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus { 
-	background: url('/images/catalogue/slider_handle_hover.png'); 
+.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus {
+	background: url('/images/catalogue/slider_handle_hover.png');
 }
 
-.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active { 
-	background: url('/images/catalogue/slider_handle_hover.png');  
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
+	background: url('/images/catalogue/slider_handle_hover.png');
 }
 
 /* Dimensions des sliders */
@@ -287,11 +287,11 @@ strong {
 .ui-slider-horizontal .ui-slider-range-max { right: 0; }
 
 /* ---------------------------------------
-Tableau des PC 
+Tableau des PC
 --------------------------------------- */
 
 #list {
-	width:960px;
+	width:960px !important;
 }
 
 /* Bordures */
@@ -354,7 +354,7 @@ Tableau des PC
 	color:#50A5D7;
 	padding:2px;
 	margin:5px 2px 5px 2px;
-	
+
 	-webkit-border-radius:4px;
   -khtml-border-radius:4px;
   -moz-border-radius:4px;
@@ -398,7 +398,7 @@ th {
 	height:30px;
 	padding:2px 15px 2px 6px;
 	text-align:center;
-	
+
 	font-size:1em;
 	font-weight:bold;
 	text-shadow:1px 1px 0 #E5E5E5;
@@ -455,7 +455,7 @@ h4 {
 
 .model {
 	color:#666666;
-	font-size:1em;
+	font-size:0.9em;
 	margin-top:3px;
 	text-align:left;
 }
@@ -521,3 +521,4 @@ h4 {
 #list tr.even:hover .sorting_1 {
 	background-color:white;
 }
+
