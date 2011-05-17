@@ -8,7 +8,18 @@ class Requirement < ActiveRecord::Base
 
   #builds a hash {mobility_id => {spec_id => {:target_score => 5, :weight => 10}}}
   def self.mobilities_requirements
-    Rails.cache.fetch('mobility_requirements'){self.build_requirements_hash_for "mobilities"}
+    Rails.cache.fetch('mobilities_requirements') do
+      result = {}
+      SuperUsage.all.each do |su|
+        #handling of usages
+        if su.name == 'Mobilite'
+          su.usages.each do |u|
+            result[u.id] = self.build_usage_hash u
+          end
+        end
+      end
+      result
+    end
   end
 
   #builds a hash {:usage_id => {spec_id => {:target_score => 5, :weight => 10}}}
@@ -27,25 +38,7 @@ class Requirement < ActiveRecord::Base
     end
   end
 
-  def self.build_requirements_hash_for type
-    result = {}
-    SuperUsage.all.each do |su|
-      #handling of mobilities
-      if su.name == 'Mobilite' and type == "mobilities"
-        su.usages.each do |m|
-          result[m.id] = self.build_usage_hash m
-        end
-      #handling of usages
-      elsif su.name != 'Mobilite' and type == "usages"
-        su.usages.each do |u|
-          result[u.id] = self.build_usage_hash u
-        end
-      end
-    end
-    result
-  end
-
-  def self.build_usage_hash usage
+    def self.build_usage_hash usage
     result = {}
     usage.requirements.each do |r|
       req_hash = {}

@@ -2,7 +2,7 @@
   <% good_deal_products.each do |p| -%>
   <%# Produit %>
   <% p_id = p.product_id -%>
-  <% p_infos = Rails.cache.read("product_infos_#{p_id}") %>
+  <% p_infos = Product.find(p_id).infos%>
   <tr class="product">
     <td class="thumb">
       <%= link_to product_path(p_id), :target => "_blank" do%>

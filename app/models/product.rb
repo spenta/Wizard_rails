@@ -21,7 +21,7 @@ class Product < ActiveRecord::Base
     infos = {}
     # Specification values
     infos[:specification_values] = {}
-    Specification.all.collect{|spec| spec.id}.each do |spec_id|
+    Specification.all_cached.collect{|spec| spec.id}.each do |spec_id|
       infos[:specification_values][spec_id] = build_specification_values_hash spec_id 
     end
     # Name
@@ -39,11 +39,17 @@ class Product < ActiveRecord::Base
   def build_specification_values_hash specification_id
     specification_values_hash = {}
     psv = ProductsSpecsValue.where(:product_id => id, :specification_id => specification_id).first
-    if psv.specification_value_id > 0
-      sv = SpecificationValue.find(psv.specification_value_id)
-      specification_values_hash[:sv_id] = sv.id
-      specification_values_hash[:sv_name] = sv.name
-      specification_values_hash[:sv_score] = sv.score
+    if psv.specification_value_id
+      if psv.specification_value_id == 0
+        specification_values_hash[:sv_id] = 0 
+        specification_values_hash[:sv_name] = I18n.t :not_communicated 
+        specification_values_hash[:sv_score] = 0
+      else
+        sv = SpecificationValue.find(psv.specification_value_id)
+        specification_values_hash[:sv_id] = sv.id
+        specification_values_hash[:sv_name] = sv.name
+        specification_values_hash[:sv_score] = sv.score
+      end
       specification_values_hash
     end
   end

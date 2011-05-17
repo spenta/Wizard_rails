@@ -68,13 +68,12 @@ class UserResponseBuilder
       #handling of mobilities
       if su.name == 'Mobilite'
         su.usages.each do |m|
-          mobility_choice = @user_request.usage_choices.where(:usage_id => m.id).first
+          mobility_id = m.id
+          mobility_choice = @user_request.usage_choices.where(:usage_id => mobility_id).first
           unless mobility_choice.nil?
-            Requirement.mobilities_requirements.each do |mobility_id, req_for_specs|
-              req_for_specs.each do |spec_id, req_hash|
-                #needs should be the same as requirements.
-                @specification_needs_for_mobilities[spec_id][mobility_id] = [req_hash[:target_score], req_hash[:weight], mobility_choice.weight_for_user]
-              end
+            Requirement.mobilities_requirements[mobility_id].each do |spec_id, req_hash|
+              #needs should be the same as requirements.
+              @specification_needs_for_mobilities[spec_id][mobility_id] = [req_hash[:target_score], req_hash[:weight], mobility_choice.weight_for_user]
             end
           end
         end
