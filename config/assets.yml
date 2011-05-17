@@ -29,8 +29,10 @@ javascripts:
     - public/javascripts/catalogue.js
 
 stylesheets:
-  wizard:
+  reset:
     - public/stylesheets/reset.css
+
+  header_and_footer:
     - public/stylesheets/header.css
     - public/stylesheets/footer.css
 
@@ -47,5 +49,4 @@ stylesheets:
     - public/stylesheets/result.css
 
   catalogue:
-    - public/stylesheets/reset.css
     - public/stylesheets/catalogue.css
