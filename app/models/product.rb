@@ -39,7 +39,7 @@ class Product < ActiveRecord::Base
   def build_specification_values_hash specification_id
     specification_values_hash = {}
     psv = ProductsSpecsValue.where(:product_id => id, :specification_id => specification_id).first
-    if psv.specification_value_id
+    if psv.specification_value_id > 0
       sv = SpecificationValue.find(psv.specification_value_id)
       specification_values_hash[:sv_id] = sv.id
       specification_values_hash[:sv_name] = sv.name
