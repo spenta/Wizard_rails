@@ -220,5 +220,111 @@ fr:
   mobilities_step_question_mobility20: |
     <strong>Portez-vous</strong> beaucoup votre ordinateur, en marchant ou dans le bus ?
 
+  #-------------------
+  # Specifications
+  #-------------------
+  spec_name_1: Modèle de processeur
+
+  spec_name_2: Mémoire vive
+  spec_metrics_2: Mo
+
+  spec_name_3: Carte graphique
+
+  spec_name_4: Disque dur
+  spec_metrics_4: Go
+
+  spec_name_5: Taille d'écran
+  spec_metrics_5: "\""
+
+  spec_name_6: Résolution
+
+  spec_name_7: Rétro-Eclairage LED
+
+  spec_name_9: Poids
+  spec_metrics_9: kg
+
+  spec_name_10: Autonomie
+  spec_metrics_10: h
+
+  spec_name_11: Processeur
+
+  spec_name_12: Webcam
+
+  spec_name_13: Lecteur optique
+
+  spec_name_14: Lecteur de cartes mémoire
+
+  spec_name_15: Bluetooth
+
+  spec_name_16: Firewire
+
+  spec_name_17: Carte d'acquisition vidéo
+
+  spec_name_18: Carte tuner TV
+
+  spec_name_19: Sortie TV
+
+  spec_name_20: Système d'exploitation
+
+  spec_name_23: Wifi
+
+  spec_name_30: Type de PC
+
+  spec_name_31: Format d'écran
+
+  spec_name_32: Lecteur d'empreintes digitales
+
+  spec_name_33: Mémoire vidéo
+  spec_metrics_33: Mo
+
+  spec_name_34: Marque de la puce graphique
+
+  spec_name_35: Marque du chipset
+
+  spec_name_36: Marque du processeur
+
+  spec_name_37: Modèle de processeur
+
+  spec_name_38: Nombre de coeur(s)
+
+  spec_name_39: Nombre de ports USB
+
+  spec_name_40: Télécommande
+
+  spec_name_41: Technologie Intel Centrino
+
+  spec_name_42: Type
+
+  spec_name_43: Type de chipset
+
+  spec_name_44: Type de mémoire
+
+  spec_name_45: Type de stockage
+
+  spec_name_46: UMTS
+
+  spec_name_47: Vitesse de l'horloge
+  spec_metrics_47: Mhz
+
+  spec_name_48: Windows Media Center Edition
+
+  spec_name_49: Netbook
+
+  spec_name_81: Hauteur
+  spec_metrics_81: cm 
+
+  spec_name_82: Largeur
+  spec_metrics_82: cm 
+
+  spec_name_83: Profondeur
+  spec_metrics_83: cm
+
+  spec_name_84: Dimensions
+  spec_metrics_84: cm
+
+  #-------------------
+  # Misc
+  #-------------------
   not_communicated: non communiqué
+  currency: €
 

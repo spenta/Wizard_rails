@@ -1,0 +1,17 @@
+<table class="specs_table">
+  <thead>
+    <tr>
+      <td colspan="2">
+        <%= title %>
+      </td>
+    </tr>
+  </thead>
+  <tbody>
+    <% specs.each do |spec_id| -%>
+      <tr>
+        <td class="table_spec_name"><%= t_safe "spec_name_#{spec_id}"%></td>
+        <td class="table_spec_value"><%= spec_value_with_unit infos, spec_id%></td>
+      </tr>
+    <% end -%>
+  </tbody>
+</table>

@@ -105,29 +105,21 @@ fr:
   #---------------------------------------------------------------------------
 
   # ID=4 > HDD
-  spec_name_4: Disque dur
-  spec_metrics_4: Go
   spec_tooltip_4: Pour stocker tous vos fichiers et installer des applications. Les jeux et le montage de films consomment beaucoup d'espace sur le disque dur.
 
   # ID=31 > Screen ratio
-  spec_name_31: Format d'écran
   spec_tooltip_31: Vous profiterez mieux de vos films si votre écran est dans un format adapté !
 
   # ID=13 > CD_DVD
-  spec_name_13: Lecteur optique
   spec_tooltip_13: Pour lire les CD, DVD et Blu-Ray.
 
   # ID=14 > Memcard reader
-  spec_name_14: Lecteur de cartes mémoires
   spec_tooltip_14: Il permet de récupérer vos photos très facilement, sans brancher votre appareil avec un câble USB.
 
   # ID=3 > GPU
-  spec_name_3: Carte graphique
   spec_tooltip_3: La carte graphique fabrique les images qui s'affichent sur votre écran. Elle est surtout utilisée pour les jeux vidéo en 3D et un peu pour la lecture de films en HD.
 
   # ID=9 > Weight
-  spec_name_9: Poids
-  spec_metrics_9: kg
   spec_tooltip_9: Lorsque vous transporterez votre ordinateur, vous apprécierez qu'il soit assez léger !
 
   # ID=6 > Display resolution
@@ -136,26 +128,18 @@ fr:
     Plus la résolution est élevée, plus votre écran affiche de détails : les films et les jeux sont plus beaux et travailler devient plus confortable.
 
   # ID=2 > RAM
-  spec_name_2: Mémoire vive
-  spec_metrics_2: Go
   spec_tooltip_2: Pour que vos logiciels puissent tourner de manière fluide, votre ordinateur stocke des données dans la mémoire vive. Il en faut beaucoup pour le graphisme, les jeux et la création de documents avancés.
 
   # ID=5 > Screen size
-  spec_name_5: Taille d'écran
-  spec_metrics_5: pouces
   spec_tooltip_5: Un grand écran vous apportera un réel confort pour regarder des films, faire du graphisme et pour jouer. C'est aussi un plus appréciable lorsque l'on rédige des documents !
 
   # ID=12 > Webcam
-  spec_name_12: Webcam
   spec_tooltip_12: Certains ordinateurs portables n'ont pas de Webcam. Si vous souhaitez faire de la visioconférence, il vaut mieux choisir un PC avec Webcam intégrée.
 
   # ID=11 > CPU
-  spec_name_11: Processeur
   spec_tooltip_11: Le processeur fait tourner tous les logiciels. Il est particulièrement sollicité pour faire du montage de vidéos, de la retouche photo, des documents avancés et des jeux vidéos.
 
   # ID=84 > Size
-  spec_name_84: Dimensions
-  spec_metrics_84: cm
   spec_tooltip_84: Un PC de petite taille est un atout lorsque l'on se déplace beaucoup.
 
   #---------------------------------------------------------------------------

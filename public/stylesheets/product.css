@@ -200,12 +200,12 @@ a.tooltip:hover span {
 .bar_background {
 	width:133px;
 	height:17px;
-	background-image:url('../images/rating_bar_bckg.jpg');
+	background-image:url('/images/product/rating_bar_bckg.jpg');
 }
 
 .bar { 
 	height:17px;
-	background-image:url('../images/rating_bar.jpg');
+	background-image:url('/images/product/rating_bar.jpg');
 }
 
 /* --- Social Sharing --- */
@@ -256,7 +256,7 @@ a.tooltip:hover span {
 	width:190px;
 	margin:0 15px 0 15px;
 	padding: 10px;
-	background-image:url('../images/offer_bckg.png'); 
+	background-image:url('/images/product/offer_bckg.png'); 
 	border:1px solid #E5E5E5;
 	float:left;
 }
@@ -286,14 +286,14 @@ a.tooltip:hover span {
 }
 
 .offer_button {
-	background-image:url('../images/buy.png');
+	background-image:url('/images/product/buy.png');
 	width:130px;
 	height:30px;
 	margin:5px auto 0 auto;
 }
 
 .offer_button:hover {
-	background-image:url('../images/buy_hover.png');
+	background-image:url('/images/product/buy_hover.png');
 }
 
 .buy {
@@ -312,7 +312,7 @@ a.tooltip:hover span {
 }
 
 #tables_header {
-	background-image:url('../images/tables_header_bckg.png');
+	background-image:url('/images/product/tables_header_bckg.png');
 	padding:9px 0 6px 0;
 }
 

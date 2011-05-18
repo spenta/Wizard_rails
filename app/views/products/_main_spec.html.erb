@@ -1,0 +1,22 @@
+<% if is_first -%>
+  <tr class="first">
+<% else -%>
+  <tr >
+<% end -%>
+  <td class="spec_name">             	
+    <a href="#" class="tooltip">
+      <%= image_tag "/images/product/product_tooltip.png", :alt => t(:product_help), :class => "tooltip" %>
+      <span><%= t_safe "product_#{spec_id}_tooltip" %></span>
+    </a>
+    <strong><%= t_safe "spec_name_#{spec_id}" %></strong>
+  </td>
+  <td class="spec_value"><%= spec_value_with_unit infos, spec_id %></td>
+  <td class="spec_bar">
+    <div class="bar_background">
+      <div class="bar" id="bar_1"></div>
+    </div>
+  </td>
+  <td  class="spec_rating">
+    <strong><%= (infos[:specification_values][spec_id][:sv_score] || 0).round%></strong><small>/10</small>
+  </td>
+</tr>

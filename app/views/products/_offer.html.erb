@@ -1,0 +1,18 @@
+<% retailer = Retailer.find(offer.retailer_id) %>
+<div class="offer">
+  <div class="offer_images">
+    <%= image_tag((offer.retailer_small_img_url ||infos[:small_img_url]), {:alt => product_sold_by(infos, retailer.name), :class => "thumbnail"}) %>
+    <%= image_tag retailer.logo_url, :class => "retailer_logo" %>
+  </div>
+  <div class="offer_name">
+    <p><%= offer.retailer_product_name || "#{infos[:brand_name]} #{infos[:name]}" %></p>
+  </div>
+  <div class="offer_price">
+    <p><%= infos[:price].round %><small>,<%= get_cents_from infos[:price] %></small> <%= t :currency %></p>
+  </div>
+  <%= link_to offer.link, :target => "_blank" do %>
+    <div class="offer_button">
+      <p class="buy"><%= t :product_buy %></p>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,38 @@
+fr:
+  product_page_title: Fiche technique de l'ordinateur
+  product_meta_description: Choisir Facile vous conseille le PC le plus adapté à vos besoins.
+  product_laptop: PC portable
+  product_meta_fb_message: J'ai trouvé cet ordinateur grâce à Choisir Facile !
+  
+  product_title: Ordinateur portable
+  product_main_specs: Les principales caractéristiques techniques
+  product_help: Aide
+
+  product_11_tooltip: Le processeur fait tourner tous les logiciels. Il est particulièrement sollicité pour faire du montage de vidéos, de la retouche photo, des documents avancés et des jeux vidéos.
+  product_5_tooltip: Un grand écran vous apportera un réel confort pour regarder des films, faire du graphisme et pour jouer. C'est aussi un plus appréciable lorsque l'on rédige des documents !
+  product_3_tooltip: La carte graphique fabrique les images qui s'affichent sur votre écran. Elle est surtout utilisée pour les jeux vidéo en 3D et un peu pour la lecture de films en HD.
+  product_2_tooltip: Pour que vos logiciels puissent tourner de manière fluide, votre ordinateur stocke des données dans la mémoire vive. Il en faut beaucoup pour le graphisme, les jeux et la création de documents avancés.
+  product_4_tooltip: Pour stocker tous vos fichiers et installer des applications. Les jeux et le montage de films consomment beaucoup d'espace sur le disque dur.
+  product_9_tooltip: Lorsque vous transporterez votre ordinateur, vous apprécierez qu'il soit assez léger !
+
+  product_share_message: J'ai trouvé cet ordinateur grâce à Choisir Facile ! 
+
+
+  product_share: Partagez cette fiche produit
+  product_offers_number_1: Nous avons trouvé
+  product_offers_number_2: offre(s) sur les
+  product_offers_number_3: sites marchands consultés.
+
+  product_sold_by: vendu par
+  product_buy: Acheter
+
+  product_detailed_specs: Caractéristiques techniques détaillées
+
+  product_table_cpu_ram_hdd: Processeur, mémoire, stockage
+  product_table_mobility: Mobilité
+  product_table_network: Réseau
+  product_table_tv: TV - Vidéo
+
+  product_table_display: Affichage
+  product_table_wires: Connectique
+  product_table_extras: Extras

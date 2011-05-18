@@ -1,24 +1,104 @@
-<p id="notice"><%= notice %></p>
-<%= link_to "Accueil", :root %>
-<p>
-  <b>name:</b>
-  <%= @product.name %>
-</p>
+<% infos = @product.infos -%>
+<%= content_for :head do %>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-<p>
-  <b>small_img_url:</b>
-  <%= @product.small_img_url %>
-</p>
+  <title><%= "#{t :product_page_title} #{infos[:brand_name]} #{infos[:name]}" %></title>
 
-<p>
-  <b>big_img_url:</b>
-  <%= @product.big_img_url %>
-</p>
+  <meta name="description" content="<%= t :product_meta_description %>" />
+  <meta name="keywords" content="<%= t :product_laptop %>" />
+  <meta name="FB_MESSAGE" content="<%= t :product_meta_fb_message %>" />
 
-<p><%= image_tag @product.big_img_url%></p>
+  <%= include_stylesheets :product %>
+  <script type="text/javascript">
+    // Load values for the specs ratings in the bar display
+    var bar_length_1 = <%= infos[:specification_values][11][:sv_score] %>
+    var bar_length_2 = <%= infos[:specification_values][5][:sv_score] %>
+    var bar_length_3 = <%= infos[:specification_values][3][:sv_score] %>
+    var bar_length_4 = <%= infos[:specification_values][2][:sv_score] %>
+    var bar_length_5 = <%= infos[:specification_values][4][:sv_score] %>
+    var bar_length_6 = <%= infos[:specification_values][9][:sv_score] %>
+  </script>
+  <%= include_javascripts :product %>
+<% end %>
+<div id="top_wrapper">
+  <div id="top">
+    <%= content_tag :h1, "#{t(:product_title)} <strong>#{infos[:brand_name]} #{infos[:name]} </strong>".html_safe, :class => "title" %>
+    <div id="top_left">
+      <div class="picture_box">
+        <%= image_tag infos[:small_img_url], :alt => "#{t :product_laptop} #{infos[:brand_name]} #{infos[:name]}", :id => "picture" %>
+      </div>
+    </div>
 
-<p>
-  <%@product.specification_values.each do |sv|%>
-    <p><b><%= sv.specification.name %> : </b><%= sv.name %></p>
-  <% end %>
-</p>
+    <div id="top_right">  
+      <div id="main_specs">
+        <h2><%= t :product_main_specs %></h2>
+        <table id="main_specs_table">
+          <tbody>
+            <% [11, 5, 3, 2, 4, 9].each do |spec_id|%>
+              <% is_first = true -%>
+              <%= render 'main_spec', :spec_id => spec_id, :infos => infos, :is_first => is_first %>
+              <% is_first = false -%>
+            <% end -%>
+          </tbody>        
+        </table>
+      </div>
+
+      <div class="social_sharing">
+        <ul>
+          <li class="share_text"><%= t :product_share %></li>
+          <!-- Passer dans les locales le texte (encodé en URL) Remplacer http://www.test.com par l'URL de la page actuelle -->
+          <li>
+            <%= link_to "http://twitter.com/share?text=#{(t(:product_share_message))}+#{product_url @product}", :target => "_blank", :rel => "nofollow" do %>
+              <img src="/images/product/twitter_icon.png" />
+            <% end -%>
+          </li>         
+          <li>
+            <%= link_to "http://www.facebook.com/share.php?u=#{product_url @product}&title=#{t :product_share_message}", :target => "_blank", :rel => "nofollow" do %>
+              <img src="/images/product/facebook_icon.png" />
+            <% end -%>
+          </li>
+        </ul>        
+      </div>
+
+    </div>
+
+  </div>
+  <div class="clearfix"></div> 
+</div>
+
+<div id="bottom_wrapper">
+  <div id="bottom">
+
+    <div id="offers">
+
+      <h2><%= offers_number_text %></h2> 
+
+      <div class="offers_wrapper">
+        <% @product.offers.all.each do |o| -%>
+          <%= render 'offer', :infos => infos, :offer => o %>
+        <% end -%>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+
+    <div id="specs_sheet">
+
+      <div id="tables_header"> 
+        <h2><%= t :product_detailed_specs %></h2>
+      </div>
+
+      <div id="tables">
+        <div id="tables_left">
+          <% parameters_for_left_table.each do |title, specs| -%>
+            <%= render 'specs_table', :title => title, :specs => specs, :infos => infos %>
+          <% end %>
+        </div>
+        <div id="tables_right">
+          <% parameters_for_right_table.each do |title, specs| -%>
+            <%= render 'specs_table', :title => title, :specs => specs, :infos => infos %>
+          <% end %>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  </div>
+</div>

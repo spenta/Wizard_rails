@@ -28,6 +28,11 @@ javascripts:
     - public/javascripts/jquery.dataTables.min.js
     - public/javascripts/catalogue.js
 
+  product:
+    - public/javascripts/jquery.ae.image.resize.min.js
+    - public/javascripts/product.js
+
+
 stylesheets:
   reset:
     - public/stylesheets/reset.css
@@ -50,3 +55,6 @@ stylesheets:
 
   catalogue:
     - public/stylesheets/catalogue.css
+
+  product:
+    - public/stylesheets/product.css

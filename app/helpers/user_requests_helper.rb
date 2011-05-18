@@ -30,18 +30,18 @@ module UserRequestsHelper
     result
   end
 
-  def get_cents_from price
-    result = Integer(price.modulo(1).round(2)*100.floor).to_s
-    result += "0"
-    result[0,2]
-  end
-
   def get_percentage_from score, score_recommended
     if score_recommended == 0
       result = 100
     else
       ratio = score/score_recommended
       result = (ratio*100).round
+  def get_cents_from price
+    result = Integer(price.modulo(1).round(2)*100.floor).to_s
+    result += "0"
+    result[0,2]
+  end
+
     end
   end
 
