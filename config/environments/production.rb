@@ -29,6 +29,9 @@ WizardRails::Application.configure do
   config.cache_store = :dalli_store
   config.after_initialize do
     Rails.cache.clear
+    Product.all_cached.each do |p|
+      p.infos
+    end
   end
 
   # Disable Rails's static asset server
