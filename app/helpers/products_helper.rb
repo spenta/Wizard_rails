@@ -32,7 +32,7 @@ module ProductsHelper
 
 
   def parameters_for_right_table
-    {t(:product_table_display) => [4, 31, 6, 3, 33, 7],
+    {t(:product_table_display) => [5, 31, 6, 3, 33, 7],
      t(:product_table_wires) => [39, 16, 14],
      t(:product_table_extras) => [20, 12, 40, 32]}
   end

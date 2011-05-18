@@ -36,12 +36,6 @@ module UserRequestsHelper
     else
       ratio = score/score_recommended
       result = (ratio*100).round
-  def get_cents_from price
-    result = Integer(price.modulo(1).round(2)*100.floor).to_s
-    result += "0"
-    result[0,2]
-  end
-
     end
   end
 
@@ -55,14 +49,6 @@ module UserRequestsHelper
       "H"
     else
       "M"
-    end
-  end
-
-  def spec_value_with_unit p_infos, spec_id
-    begin
-      p_infos[:specification_values][spec_id][:sv_name]+" "+ t_safe("spec_metrics_#{spec_id}")
-    rescue
-      t :not_communicated
     end
   end
 
