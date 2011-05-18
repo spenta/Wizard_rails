@@ -138,7 +138,7 @@ fr:
   # ID=2 > RAM
   spec_name_2: Mémoire vive
   spec_metrics_2: Go
-  spec_tooltip_2: Pour que vos logiciels puissent tourner de manière fluide, votre ordinateur y stocke des données. Il en faut beaucoup pour le graphisme, les jeux et la création de documents avancés.
+  spec_tooltip_2: Pour que vos logiciels puissent tourner de manière fluide, votre ordinateur stocke des données dans la mémoire vive. Il en faut beaucoup pour le graphisme, les jeux et la création de documents avancés.
 
   # ID=5 > Screen size
   spec_name_5: Taille d'écran

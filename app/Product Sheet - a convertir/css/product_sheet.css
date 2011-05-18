@@ -1,0 +1,377 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* ---------------------------
+Styles par défaut
+--------------------------- */
+
+* {
+	font-family:"Arial", Arial, sans-serif;
+	font-size:12px;
+	color:black;
+}
+
+h2 {
+	text-align:center;
+	text-shadow:none;
+	color:#33332F;
+	font-size:1.5em;
+	font-weight:bold;
+	text-shadow:1px 1px #E5E5E5;
+	margin:0 0 10px 0;
+}
+
+strong { 
+	font-weight:bold; 
+	color:inherit;
+	font-size:inherit;
+}
+
+small {
+	color:inherit;
+	font-size:0.6em;
+}
+
+.no_underline { text-decoration:none; }
+
+.clearfix { clear:both; }
+
+body, html { background-color:white; }
+
+/* --- Mise en page générale --- */
+
+#top_wrapper {
+	background-color:#50A5D7;
+	padding:15px 0;
+}
+
+#bottom_wrapper {
+	background-color:white;
+	padding:15px 0;
+}
+
+/* Product name */
+
+.title {
+	text-align:center;
+	font-size:2.3em;
+	
+	font-weight:bold;
+	color:#33332F;
+	margin-bottom:15px;
+}
+
+.title strong {
+	text-align:center;
+	font-size:inherit;
+	font-weight:bold;
+	color:white;
+	text-shadow:1px 1px #666;
+}
+
+/* ---------------------------
+#top = Main specs & wizard CTA
+--------------------------- */
+
+/* --- Mise en page --- */
+
+#top { 
+	width:960px;
+	margin:0 auto;
+}
+
+#top_left {
+	float:left;
+	width:350px;
+}
+
+#top_right { 
+	float:right; 
+	margin-left:20px;
+}
+
+/* --- #top_left : photo --- */
+
+.picture_box {
+	background-color:white;
+	display:table-cell;
+	vertical-align:middle;
+	
+	width:350px;
+	height:240px;
+	
+	-webkit-border-radius:12px;
+  -khtml-border-radius:12px;
+  -moz-border-radius:12px;
+  -o-border-radius:12px;
+	border-radius:12px;
+}
+
+#picture {
+	margin:auto;
+	display:block;
+	
+}
+
+/* --- Top right : specs --- */
+
+#main_specs {
+
+	padding:15px 5px;
+	background-color:white;
+	height:170px;
+	
+	-webkit-border-radius:12px;
+  -khtml-border-radius:12px;
+  -moz-border-radius:12px;
+  -o-border-radius:12px;
+	border-radius:12px;
+}
+
+.spec_rating, .spec_value { text-align:center; }
+
+/* Table formatting */
+
+#main_specs_table {
+	background-color:white;
+	width:560px;
+	float:right;
+}
+
+#main_specs_table td {
+	padding:4px 5px 3px 5px;
+	font-size:1.3em;
+}
+
+.spec_value {
+	color:#666666;
+}
+
+#main_specs_table tr {
+	border-bottom:1px solid #E5E5E5;
+	border-top:1px solid #E5E5E5;
+}
+
+#main_specs_table .first {
+	border-top:none;
+}
+
+#main_specs_table .last {
+	border-bottom:none;
+}
+
+/* Tooltips */
+.tooltipicon {
+	margin-right:8px;
+	vertical-align:top;
+}
+
+a.tooltip {
+	position:relative;
+	text-decoration:none;
+}
+
+a.tooltip:hover {
+	background: none;
+	z-index: 1;  
+}
+   
+a.tooltip span { 
+	display: none;
+	position:relative;
+}
+
+a.tooltip:hover span {
+	display: block; 
+	position: absolute;
+	width:250px;
+	top:-30px; 
+	left:-265px;
+	background:#D4FCD9;
+	padding: 8px;
+	border: 1px solid #057619;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	text-align:justify;
+	font-size:1.1em;
+}
+
+/* Spec rating bars */
+.bar_background {
+	width:133px;
+	height:17px;
+	background-image:url('../images/rating_bar_bckg.jpg');
+}
+
+.bar { 
+	height:17px;
+	background-image:url('../images/rating_bar.jpg');
+}
+
+/* --- Social Sharing --- */
+
+.social_sharing ul {
+	list-style-type:none;
+	float:right;
+	margin-right:10px
+}
+
+.social_sharing li {
+	float:left;
+	margin:8px 6px;
+}
+
+.share_text {
+	color:white;
+	font-size:1.3em;
+	text-align:right;
+	padding-top:8px;
+	font-style:italic;
+}
+
+/* ---------------------------
+#Bottom = Offers & full specs
+--------------------------- */
+
+/* --- Mise en page --- */
+
+#bottom { 
+	width:960px;
+	margin:0 auto;
+}
+
+/* --- Offers --- */
+
+/* Mise en page */
+#offers {
+	margin:0 auto;
+	text-align:center;
+}
+
+.offers_wrapper {
+	display:inline-block;
+}
+
+.offer {
+	width:190px;
+	margin:0 15px 0 15px;
+	padding: 10px;
+	background-image:url('../images/offer_bckg.png'); 
+	border:1px solid #E5E5E5;
+	float:left;
+}
+
+/* Contents of the offer boxes */
+
+.thumbnail {
+	margin-right:10px;
+}
+
+.offer_price p {
+	color:#33332F;
+	font-weight:bold;
+	font-size:2.3em;
+	text-align:center;
+}
+
+.offer_name p {
+	text-align:justify;
+	color:#666;
+	font-weight:1.1px;
+	margin:5px 0;
+}
+
+.offer a {
+	text-decoration:none;
+}
+
+.offer_button {
+	background-image:url('../images/buy.png');
+	width:130px;
+	height:30px;
+	margin:5px auto 0 auto;
+}
+
+.offer_button:hover {
+	background-image:url('../images/buy_hover.png');
+}
+
+.buy {
+	color:white;
+	font-size:1.9em;
+	text-align:center;
+	padding-top:3px;
+}
+
+/* --- Specs sheet --- */
+
+/* Mise en page */
+
+#specs_sheet {
+	margin:30px 0;
+}
+
+#tables_header {
+	background-image:url('../images/tables_header_bckg.png');
+	padding:9px 0 6px 0;
+}
+
+#tables_header h2 {
+	color:white;
+	text-shadow:1px 1px #666;
+	font-weight:normal;
+	margin:0px;
+	font-size:1.8em;
+}
+
+#tables {
+	border:1px solid #50A5D7;
+}
+
+#tables_left {
+	float:left;
+	width:460px;
+	text-align:center;
+	margin-left:10px;
+}
+
+#tables_right {
+	float:right;
+	width:460px;
+	text-align:center;
+	margin-right:10px;
+}
+
+.specs_table {
+	margin:0 auto 20px auto;
+	width:400px;
+	border-collapse:separate;
+}
+
+.specs_table tbody td {
+	color:#33332F;
+	font-size:1.2em;
+	padding:3px 6px;
+	border-bottom:1px solid #E5E5E5;
+}
+
+.table_spec_name {
+	font-weight:bold;
+	text-align:left;
+	width:190px;
+}
+
+.specs_table tbody td.table_spec_value {
+	color:#666666;
+}
+
+.specs_table thead td {
+	color:#33332F;
+	border-bottom-style:dotted;
+	border-bottom-width:1px;
+	border-bottom-color:#666;
+	padding:8px 8px 5px 8px;
+	font-weight:bold;
+	font-size:1.4em;
+}
+
