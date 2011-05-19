@@ -27,15 +27,6 @@ WizardRails::Application.configure do
   # Use a different cache store in production
   # config.cache_store = :mem_cache_store
   config.cache_store = :dalli_store
-  config.after_initialize do
-    Rails.cache.clear
-    Product.all_cached.each do |p|
-      p.infos
-    end
-    Requirement.usages_requirements
-    Requirement.mobilities_requirements
-    Specification.all_cached
-  end
 
   # Disable Rails's static asset server
   # In production, Apache or nginx will already do this

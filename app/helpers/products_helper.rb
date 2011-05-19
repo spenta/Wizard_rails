@@ -1,4 +1,17 @@
 module ProductsHelper
+
+  def build_cache
+    if !Rails.cache.read('all_products')
+      Rails.cache.clear
+      Product.all_cached.each do |p|
+        p.infos
+      end
+      Requirement.usages_requirements
+      Requirement.mobilities_requirements
+      Specification.all_cached
+    end
+  end
+
   def offers_number_text
     text = t :product_offers_number_1
     text += " "
