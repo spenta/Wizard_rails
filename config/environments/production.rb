@@ -32,6 +32,9 @@ WizardRails::Application.configure do
     Product.all_cached.each do |p|
       p.infos
     end
+    Requirement.usages_requirements
+    Requirement.mobilities_requirements
+    Specification.all_cached
   end
 
   # Disable Rails's static asset server

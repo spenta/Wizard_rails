@@ -13,7 +13,7 @@
   <td class="spec_value"><%= spec_value_with_unit infos, spec_id %></td>
   <td class="spec_bar">
     <div class="bar_background">
-      <div class="bar" id="bar_1"></div>
+      <%= content_tag :div, :id => "bar_#{bar_id}", :class => "bar" %>
     </div>
   </td>
   <td  class="spec_rating">
