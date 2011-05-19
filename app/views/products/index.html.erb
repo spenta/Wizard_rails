@@ -3,6 +3,7 @@
   <meta name="description" content="La liste complète des ordinateurs disponibles sur les sites marchands partenaires." />
   <%= include_stylesheets :catalogue%>
   <%= include_javascripts :catalogue%>
+
   <script type="text/javascript">
     // Price filter initialisation
     $j(function() {
@@ -70,28 +71,28 @@
       // Event listeners
       $j('#price_slider').slider( { stop: function() { oTable.fnDraw(); } } );
       $j("#slider_1").slider( {
-      stop: function() { oTable.fnDraw(); },
-      slide: function( event, ui ) { $j( "#display_1" ).val("de " + ui.values[ 0 ] + " à " + ui.values[ 1 ]); }
+        stop: function() { oTable.fnDraw(); },
+        slide: function( event, ui ) { $j( "#display_1" ).val("de " + ui.values[ 0 ] + " à " + ui.values[ 1 ]); }
       } );
       $j("#slider_2").slider( {
-      stop: function() { oTable.fnDraw(); },
-      slide: function( event, ui ) { $j( "#display_2" ).val("de " + ui.values[ 0 ] + " à " + ui.values[ 1 ]); }
+        stop: function() { oTable.fnDraw(); },
+        slide: function( event, ui ) { $j( "#display_2" ).val("de " + ui.values[ 0 ] + " à " + ui.values[ 1 ]); }
       } );
       $j("#slider_3").slider( {
-      stop: function() { oTable.fnDraw(); },
-      slide: function( event, ui ) { $j( "#display_3" ).val("de " + ui.values[ 0 ] + " à " + ui.values[ 1 ]); }
+        stop: function() { oTable.fnDraw(); },
+        slide: function( event, ui ) { $j( "#display_3" ).val("de " + ui.values[ 0 ] + " à " + ui.values[ 1 ]); }
       } );
       $j("#slider_4").slider( {
-      stop: function() { oTable.fnDraw(); },
-      slide: function( event, ui ) { $j( "#display_4" ).val("de " + ui.values[ 0 ] + " à " + ui.values[ 1 ]); }
+        stop: function() { oTable.fnDraw(); },
+        slide: function( event, ui ) { $j( "#display_4" ).val("de " + ui.values[ 0 ] + " à " + ui.values[ 1 ]); }
       } );
       $j("#slider_5").slider( {
-      stop: function() { oTable.fnDraw(); },
-      slide: function( event, ui ) { $j( "#display_5" ).val("de " + ui.values[ 0 ] + " à " + ui.values[ 1 ]); }
+        stop: function() { oTable.fnDraw(); },
+        slide: function( event, ui ) { $j( "#display_5" ).val("de " + ui.values[ 0 ] + " à " + ui.values[ 1 ]); }
       } );
       $j("#slider_6").slider( {
-      stop: function() { oTable.fnDraw(); },
-      slide: function( event, ui ) { $j( "#display_6" ).val("de " + ui.values[ 0 ] + " à " + ui.values[ 1 ]); }
+        stop: function() { oTable.fnDraw(); },
+        slide: function( event, ui ) { $j( "#display_6" ).val("de " + ui.values[ 0 ] + " à " + ui.values[ 1 ]); }
       } );
     } );
   </script>
