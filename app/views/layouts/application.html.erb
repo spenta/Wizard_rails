@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<% check_cache_state %>
 <html>
   <head>
     <%= include_stylesheets :reset %>
@@ -12,7 +13,6 @@
     <%= yield(:head) %>
     <%= csrf_meta_tag %>
   </head>
-
   <body>
     <div id="header">
       <div class="wrapper">
