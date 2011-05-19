@@ -34,10 +34,12 @@
         <h2><%= t :product_main_specs %></h2>
         <table id="main_specs_table">
           <tbody>
+            <% bar_id = 1 -%>
             <% [11, 5, 3, 2, 4, 9].each do |spec_id|%>
               <% is_first = true -%>
               <%= render 'main_spec', :spec_id => spec_id, :infos => infos, :is_first => is_first, :bar_id => bar_id %>
               <% is_first = false -%>
+              <% bar_id += 1 %>
             <% end -%>
           </tbody>        
         </table>
