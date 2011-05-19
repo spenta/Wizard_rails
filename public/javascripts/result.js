@@ -5,10 +5,10 @@ $j(document).ready(
       $j("#Collapsable").hide();
       $j("#HideButton").hide();
 
-      $j('#ExpandButton,#HideButton').click( 
-        function() 
+      $j('#ExpandButton,#HideButton').click(
+        function()
         {
-          $j('#Collapsable').toggle();  
+          $j('#Collapsable').toggle();
           $j('#ExpandButton').toggle();
           $j('#HideButton').toggle();
         }
@@ -18,23 +18,23 @@ $j(document).ready(
 
 // ----- Tri de la table -----
   $j(document).ready(
-      function() 
-      { 
+      function()
+      {
         $j("#extratable").tablesorter(
           {
-            headers: 
+            headers:
             {
               0: { sorter:false },
               1: { sorter:false }
             },
             textExtraction:
-            function(node) { 
-              var htmlContent = node.innerHTML.split('<small>')[0];
-              var numberArray = htmlContent.split(' ');
-              var num = numberArray[numberArray.length-1];
-              return num.length.toString()+num; 
-            } 
+            function(node) {
+              var htmlContent = node.innerHTML.split("<")[1];
+              var number = htmlContent.split(">")[1];
+              return number.length.toString()+number;
+            }
           }
-          ); 
-      } 
-      ); 
+          );
+      }
+      );
+
