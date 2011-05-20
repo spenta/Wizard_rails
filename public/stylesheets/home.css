@@ -64,7 +64,7 @@ strong {
 	height:62px;
 }
 
-.vspacer { 
+.vspacer {
 	width:30px;
 	height:278px;
 	float:left;
@@ -103,3 +103,4 @@ h1 {
 }
 
 .no_underline { text-decoration:none; }
+

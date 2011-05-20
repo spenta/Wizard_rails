@@ -292,6 +292,7 @@ Tableau des PC
 
 #list {
 	width:960px !important;
+	clear:both;
 }
 
 /* Bordures */
