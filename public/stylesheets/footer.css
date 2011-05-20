@@ -4,7 +4,7 @@ Footer
 
 #footer p, #footer a {
 	color:#666;
-	margin-top:10px;
+	margin:5px auto 15px auto;
 	text-decoration:none;
 }
 
@@ -17,3 +17,4 @@ Footer
 .footer_left { float:left; }
 
 .footer_right { float:right; }
+

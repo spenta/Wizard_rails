@@ -6,7 +6,6 @@
 
   <meta name="description" content="<%= t :product_meta_description %>" />
   <meta name="keywords" content="<%= t :product_laptop %>" />
-  <meta name="FB_MESSAGE" content="<%= t :product_meta_fb_message %>" />
 
   <%= include_stylesheets :product %>
   <script type="text/javascript">
@@ -29,7 +28,7 @@
       </div>
     </div>
 
-    <div id="top_right">  
+    <div id="top_right">
       <div id="main_specs">
         <h2><%= t :product_main_specs %></h2>
         <table id="main_specs_table">
@@ -41,7 +40,7 @@
               <% is_first = false -%>
               <% bar_id += 1 %>
             <% end -%>
-          </tbody>        
+          </tbody>
         </table>
       </div>
 
@@ -53,19 +52,19 @@
             <%= link_to "http://twitter.com/share?text=#{(t(:product_share_message))}+#{product_url @product}", :target => "_blank", :rel => "nofollow" do %>
               <img src="/images/product/twitter_icon.png" />
             <% end -%>
-          </li>         
+          </li>
           <li>
             <%= link_to "http://www.facebook.com/share.php?u=#{product_url @product}&title=#{t :product_share_message}", :target => "_blank", :rel => "nofollow" do %>
               <img src="/images/product/facebook_icon.png" />
             <% end -%>
           </li>
-        </ul>        
+        </ul>
       </div>
 
     </div>
 
   </div>
-  <div class="clearfix"></div> 
+  <div class="clearfix"></div>
 </div>
 
 <div id="bottom_wrapper">
@@ -73,7 +72,7 @@
 
     <div id="offers">
 
-      <h2><%= offers_number_text %></h2> 
+      <h2><%= offers_number_text %></h2>
 
       <div class="offers_wrapper">
         <% @product.offers.all.each do |o| -%>
@@ -85,7 +84,7 @@
 
     <div id="specs_sheet">
 
-      <div id="tables_header"> 
+      <div id="tables_header">
         <h2><%= t :product_detailed_specs %></h2>
       </div>
 
@@ -104,3 +103,4 @@
     </div>
   </div>
 </div>
+

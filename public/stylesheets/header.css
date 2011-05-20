@@ -55,24 +55,26 @@ Header
 }
 
 #header_menu .wizard_incentive_text  {
-  width:130px;
+  width:135px;
   height:28px;
-  color:#56DC70;
   text-align:center;
   margin-right:15px;
+  margin-top:-3px;
 }
 
 #header_menu .wizard_incentive_text p  {
-  color:inherit;
+  color:#56DC70;
   font-size:12px;
   font-style:inherit;
+  text-align:center;
 }
 
 #header_menu .wizard_incentive_text strong {
   font-weight:bold;
-  color:inherit;
+  color:#56DC70;
   font-size:12px;
   font-style:inherit;
+  text-align:center;
 }
 
 #header_menu .wizard_header_button {
@@ -90,7 +92,7 @@ Header
 #header_menu .arrow {
   position:relative;
   z-index:1;
-  top:-55px;
-  left:40px;
+  top:-52px;
+  left:43px;
 }
 

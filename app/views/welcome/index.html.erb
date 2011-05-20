@@ -2,22 +2,22 @@
   <title>Choisir Facile - Touver le meilleur ordinateur portable</title>
 
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  
+
   <meta name="language" content="fr" />
   <meta name="description" content="Choisir Facile vous conseille le PC le plus adapté à vos besoins." />
   <meta name="keywords" content="PC portable" />
-  
+
   <%= include_javascripts :home%>
   <%= include_stylesheets :home%>
 	<!--[if IE]>
       	<link rel="stylesheet" type="text/css" href="../stylesheets/home_ie7.css" />
       	<![endif]-->
-	
+
 <% end -%>
 <body>
   <div id="home">
     <p class="explain">
-      Choisir Facile vous aide à trouver facilement le PC qu'il vous faut. C'est <strong>GRATUIT</strong>, <strong>OBJECTIF</strong> et <strong>RAPIDE</strong> !
+      <%= t_safe :home_explain %>
     </p>
 
     <div class="wrapper">
@@ -82,3 +82,4 @@
     </div>
   </div>
 </body>
+

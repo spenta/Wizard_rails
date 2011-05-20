@@ -8,7 +8,7 @@
 	color:#33332F;
 }
 
-body, html { background-color:#50A5D7; }
+body, html { background-color:#E5E5E5; }
 
 h1 {
     font-size:3em;
@@ -49,7 +49,8 @@ strong {
 
 #catalogue {
   background-color:#50A5D7;
-	margin:0px auto;
+	margin:0px auto 10px auto;
+	padding-bottom:20px;
 }
 
 .clearfix { clear:both; }
@@ -511,15 +512,15 @@ h4 {
 	background-color:#E5E5E5;
 }
 
-#list tbody tr.even:hover .sorting_1, #list tbody tr.even td.highlighted {
+#list tbody tr.even:hover .first_column, #list tbody tr.even td.highlighted {
 	background-color:white;
 }
 
-#list tbody tr.odd:hover .sorting_1, #list tbody tr.odd td.highlighted {
+#list tbody tr.odd:hover .first_column, #list tbody tr.odd td.highlighted {
 	background-color:white;
 }
 
-#list tr.even:hover .sorting_1 {
+#list tr.even:hover .first_column {
 	background-color:white;
 }
 
