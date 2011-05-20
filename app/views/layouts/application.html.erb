@@ -21,7 +21,11 @@
         <% end %>
         <div id="menu">
           <ul>
-            <li>
+            <li class="wizard_incentive_text">
+              <%= t_safe :wizard_incentive %>
+              <img class="arrow" src="/images/arrow.png" />
+            </li>
+            <li class="wizard_header_button">
               <%= link_to 'Conseiller interactif', user_requests_path, :method => :post, :id => "link_to_form" %>
             </li>
             <li><img src="/images/home/menu_vspacer.png" /></li>

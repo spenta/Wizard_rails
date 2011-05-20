@@ -30,15 +30,51 @@ Header
 #menu li {
 	display:inline;
 	float:left;
-	margin:0 10px;
+
+	padding:5px 0px 6px 16px;
 }
 
 #menu a {
 	color:white;
-	font-size:1.6em;
+	font-size:1.4em;
 	text-decoration:none;
 }
 
 #menu a:hover {
 	color:#94eba5;
 }
+
+.wizard_incentive_text  {
+  width:130px;
+  color:#56DC70;
+  text-align:center;
+  margin-right:15px;
+}
+
+.wizard_incentive_text p  {
+  color:inherit;
+}
+
+.wizard_incentive_text strong {
+  font-weight:bold;
+  color:inherit;
+}
+
+.wizard_header_button {
+  background-image:url('../images/wizard_header_button.png');
+  width:160px;
+  height:20px;
+}
+
+.wizard_header_button:hover {
+  background-image:url('../images/wizard_header_button_hover.png');
+}
+
+#menu .wizard_header_button a:hover { color:white; }
+
+.arrow {
+  position:absolute;
+  z-index:1;
+  margin:-55px 0 0 20px;
+}
+

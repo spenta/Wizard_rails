@@ -1,4 +1,13 @@
 fr:
+
+  #--------------------
+  # Home page
+  #--------------------
+
+  wizard_incentive: |
+    <strong>Quel PC choisir ?</strong>
+    <p>L'expert vous conseille !</p>
+
   #--------------------
   # Super Usage 1
   #--------------------
@@ -11,8 +20,8 @@ fr:
     <p>Vous rédigez principalement de courts textes ou des feuilles de calcul simples ? Il n'y a pas besoin de beaucoup de puissance, mais un écran correct est bien plus confortable.</p>
     <h5>Les documents avancés</h5>
     <p>Choisissez cette option si vous faites de longs rapports illustrés, des présentations animées ou manipulez régulièrement des feuilles de calcul complexes. Un processeur puissant et de la mémoire vive sont importants pour travailler avec fluidité.</p>
-  
-  weight_step_question_superusage1: Écrivez-vous beaucoup ? Réalisez-vous beaucoup de présentations ? 
+
+  weight_step_question_superusage1: Écrivez-vous beaucoup ? Réalisez-vous beaucoup de présentations ?
   #--------------------
   # Usage 1
   #--------------------
@@ -40,7 +49,7 @@ fr:
     <h5>Regarder et écouter</h5>
     <p>Vous utilisez Internet pour découvrir de nouveaux artistes ? Voir des vidéos ? On écartera les processeurs très peu performants.</p>
   weight_step_question_superusage2: Utilisez-vous Internet intensivement ?
- 
+
   #--------------------
   # Usage 3
   #--------------------
@@ -204,15 +213,15 @@ fr:
   #--------------------
   mobility_title18: Hors de chez vous
   mobilities_step_question_mobility18: |
-    Utilisez-vous votre PC en <strong>rendez-vous</strong>, <strong>dans le train</strong>, en <strong>vacances</strong> ? 
- 
+    Utilisez-vous votre PC en <strong>rendez-vous</strong>, <strong>dans le train</strong>, en <strong>vacances</strong> ?
+
   #--------------------
   # Mobility 19
   #--------------------
-  mobility_title19: À la maison 
+  mobility_title19: À la maison
   mobilities_step_question_mobility19: |
-    D&eacute;placez-vous beaucoup votre ordinateur <strong>d'une pi&egrave;ce &agrave; l'autre</strong> ? 
-  
+    D&eacute;placez-vous beaucoup votre ordinateur <strong>d'une pi&egrave;ce &agrave; l'autre</strong> ?
+
   #--------------------
   # Mobility 20
   #--------------------
@@ -311,10 +320,10 @@ fr:
   spec_name_49: Netbook
 
   spec_name_81: Hauteur
-  spec_metrics_81: cm 
+  spec_metrics_81: cm
 
   spec_name_82: Largeur
-  spec_metrics_82: cm 
+  spec_metrics_82: cm
 
   spec_name_83: Profondeur
   spec_metrics_83: cm
@@ -327,4 +336,3 @@ fr:
   #-------------------
   not_communicated: non communiqué
   currency: €
-

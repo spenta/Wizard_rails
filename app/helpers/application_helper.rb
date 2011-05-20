@@ -1,12 +1,12 @@
 module ApplicationHelper
 
   def check_cache_state
-      build_cache unless Rails.cache.read('cache_state') == 'complete'
+    build_cache unless Rails.cache.read('cache_state') == 'complete'
   end
 
   # translate to HTML safe
   def t_safe str
-    t((str.to_s.to_sym), :default => "").html_safe 
+    t((str.to_s.to_sym), :default => "").html_safe
   end
 
   def build_cache
@@ -37,3 +37,4 @@ module ApplicationHelper
   end
 
 end
+
