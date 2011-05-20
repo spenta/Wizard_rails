@@ -1,11 +1,7 @@
 module ApplicationHelper
 
   def check_cache_state
-    if !Rails.cache.read('cache_state')
-      build_cache
-    elsif Rails.cache.read('cache_state') == 'busy'
-      redirect_to "/maintenance.html"
-    end
+      build_cache unless Rails.cache.read('cache_state') == 'complete'
   end
 
   # translate to HTML safe
