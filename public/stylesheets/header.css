@@ -7,19 +7,24 @@ Header
 	margin:0px auto;
 }
 
-.clearfix { clear:none; }
+.clearfix { clear:both; }
 
+#logo {
+  float:left;
+  display:block;
+}
 
 /* Header */
 .wrapper {
 	width:960px;
-	padding:10px 0;
+	padding:10px 0 0 0;
 	margin:0 auto;
 }
 
 #header_menu {
 	float:right;
 	margin-top:17px;
+	margin-bottom:10px;
 }
 
 #header_menu ul {
@@ -51,6 +56,7 @@ Header
 
 #header_menu .wizard_incentive_text  {
   width:130px;
+  height:28px;
   color:#56DC70;
   text-align:center;
   margin-right:15px;
@@ -82,8 +88,9 @@ Header
 #header_menu .wizard_header_button a:hover { color:white; }
 
 #header_menu .arrow {
-  position:absolute;
+  position:relative;
   z-index:1;
-  margin:-55px 0 0 5px;
+  top:-55px;
+  left:40px;
 }
 
