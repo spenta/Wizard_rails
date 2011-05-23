@@ -15,18 +15,19 @@
         <p class="fulllist"><%= t :extras_full %> <%= link_to t(:extras_full_link), products_path, :target => "_blank" %></p>
       </div>
       <div class="paragraph_right">
-        <h3 class="top_explain colorid5"><%= t :extras_legend_ok %></h3> 
-        <img class="explain_img" src="images/gradient_legend.png" alt="<%= t :extras_legend_img %>" />
+        <h3 class="top_explain colorid5"><%= t :extras_legend_ok %></h3>
+        <img class="explain_img" src="/images/results/gradient_legend.png" alt="<%= t :extras_legend_img %>" />
         <h3 class="left_explain colorid1"><%= t :extras_legend_bad %></h3>
         <h3 class="right_explain colorid9"><%= t :extras_legend_overkill %></h3>
       </div>
       <div class="clearfix"></div>
     </div>
-	
+
     <table id="extratable" class="tablesorter">
       <%# En-têtes du tableau %>
       <%= render 'good_deal_products_table_head', :important_specs_id =>  important_specs_id %>
       <%= render 'good_deal_products_table_body', :good_deal_products => good_deal_products, :important_specs_id =>  important_specs_id %>
     </table>
   </div>
-</div>    
+</div>
+

@@ -120,7 +120,7 @@ fr:
   spec_tooltip_3: La carte graphique fabrique les images qui s'affichent sur votre écran. Elle est surtout utilisée pour les jeux vidéo en 3D et un peu pour la lecture de films en HD.
 
   # ID=9 > Weight
-  spec_tooltip_9: Lorsque vous transporterez votre ordinateur, vous apprécierez qu'il soit assez léger ! (* Le poids de certains modèles peut être une approximation) 
+  spec_tooltip_9: Lorsque vous transporterez votre ordinateur, vous apprécierez qu'il soit assez léger ! (* Le poids de certains modèles peut être une approximation)
 
   # ID=6 > Display resolution
   spec_name_6: Résolution d'écran
@@ -140,7 +140,7 @@ fr:
   spec_tooltip_11: Le processeur fait tourner tous les logiciels. Il est particulièrement sollicité pour faire du montage de vidéos, de la retouche photo, des documents avancés et des jeux vidéos.
 
   # ID=84 > Size
-  spec_tooltip_84: Un PC de petite taille est un atout lorsque l'on se déplace beaucoup. (* Les dimensions de certains modèles peuvent être des approximations) 
+  spec_tooltip_84: Un PC de petite taille est un atout lorsque l'on se déplace beaucoup. (* Les dimensions de certains modèles peuvent être des approximations)
 
   #---------------------------------------------------------------------------
   # Toggle button to expand/collapse the specs of the featured PCs
@@ -157,17 +157,17 @@ fr:
   extras_title: D'autres modèles intéressants
 
   # Short paragraph to introduce the complete list. In the <p class="extrasexplain"> tags.
-  extras_explain: Aucun des trois PC du dessus ne vous plaît ? Nous avons sélectionn&eacute; d'autres modèles pertinents pour vos besoins. Tous ces modèles ont de tr&egrave;s bons rapports performance-prix et sortent clairement du lot !
+  extras_explain: Aucun des trois PC du dessus ne vous plaît ? Nous avons sélectionné d'autres modèles pertinents pour vos besoins. Tous ces modèles ont de très bons rapports performance-prix et sortent clairement du lot !
 
   # Link to the full list. The second part goes between the <a> tags.
   extras_full: Vous pouvez aussi consulter
   extras_full_link: la liste complète des ordinateurs
-	
-	# Legend for the colors
-	extras_legend_ok: Adapté à vos besoins
-	extras_legend_bad: Pas assez puissant
-	extras_legend_overkill: Très performant
-	extras_legend_img: Choisir Facile vous conseille sur le choix de votre PC avec un code couleur
+
+  # Legend for the colors
+  extras_legend_ok: Adapté à vos besoins
+  extras_legend_bad: Pas assez puissant
+  extras_legend_overkill: Très performant
+  extras_legend_img: Choisir Facile vous conseille sur le choix de votre PC avec un code couleur
 
   # Extras table : the other PCs
   #---------------------------------------------------------------------------
