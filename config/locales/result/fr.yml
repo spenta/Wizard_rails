@@ -120,7 +120,7 @@ fr:
   spec_tooltip_3: La carte graphique fabrique les images qui s'affichent sur votre écran. Elle est surtout utilisée pour les jeux vidéo en 3D et un peu pour la lecture de films en HD.
 
   # ID=9 > Weight
-  spec_tooltip_9: Lorsque vous transporterez votre ordinateur, vous apprécierez qu'il soit assez léger !
+  spec_tooltip_9: Lorsque vous transporterez votre ordinateur, vous apprécierez qu'il soit assez léger ! (* Le poids de certains modèles peut être une approximation) 
 
   # ID=6 > Display resolution
   spec_name_6: Résolution d'écran
@@ -140,7 +140,7 @@ fr:
   spec_tooltip_11: Le processeur fait tourner tous les logiciels. Il est particulièrement sollicité pour faire du montage de vidéos, de la retouche photo, des documents avancés et des jeux vidéos.
 
   # ID=84 > Size
-  spec_tooltip_84: Un PC de petite taille est un atout lorsque l'on se déplace beaucoup.
+  spec_tooltip_84: Un PC de petite taille est un atout lorsque l'on se déplace beaucoup. (* Les dimensions de certains modèles peuvent être des approximations) 
 
   #---------------------------------------------------------------------------
   # Toggle button to expand/collapse the specs of the featured PCs
