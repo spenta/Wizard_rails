@@ -38,6 +38,10 @@ Vert foncé = #057619
 
 /* ---------------- Conteneurs pour la mise en page des sections du haut ---------------- */
 
+#resultpage {
+  margin:0px auto;
+}
+
 #topwrapper {
 	background-color:#50A5D7;
 	margin:0 auto;
@@ -47,6 +51,8 @@ Vert foncé = #057619
 	width:960px;
 	margin:0 auto;
 }
+
+.clearfix { clear:both; }
 
 /* ---------------- FORMATAGE DES TEXTES PAR DEFAUT ---------------- */
 
@@ -61,7 +67,7 @@ Vert foncé = #057619
 	display:block;
 	text-align:center;
 	padding:15px 50px 15px 0;
-	margin-bottom:15px;
+	margin-bottom:10px;
 }
 
 #toptitle h1 {
@@ -120,6 +126,11 @@ Vert foncé = #057619
 #navbuttons a { text-decoration:none; }
 
 /* ---------------- Tableau des 3 PC mis en avant ---------------- */
+
+#bestpicktablewrapper {
+  margin:0px auto;
+}
+
 /* Nom des modèles (ce sont aussi des liens vers la fiche technique) */
 .bestpickcolumn h1 {
 	font-size:2.0em;
@@ -157,7 +168,7 @@ Vert foncé = #057619
 }
 
 p.bestpickcolumn {
-	margin:8px 15px;
+	margin:5px 15px;
 	font-size:1.3em;
 	color:#666666;
 	font-style:italic;
@@ -236,7 +247,7 @@ td.bestpickvspacer {
 
 .featuredimg {
 	width:260px;
-	margin:10px auto;
+	margin:5px auto;
 	display:block;
 }
 
@@ -316,7 +327,7 @@ a.scoretooltip:hover span {
 .productbutton {
 	width:188px;
 	height:41px;
-	margin:20px auto;
+	margin:12px auto;
 	background-image:url('/images/results/productbutton.png');
 }
 
@@ -443,7 +454,7 @@ p.specstooltip {
 #bottomwrapper {
 	background-color:white;
 	margin:0 auto;
-	padding:25px 0 25px 0;
+	padding:15px 0 25px 0;
 }
 
 #extras {

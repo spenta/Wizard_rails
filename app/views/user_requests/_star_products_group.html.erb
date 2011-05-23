@@ -19,6 +19,7 @@
       <h2><%= t_safe :result_page_subtitle1 %><%= link_to "#{Product.count} #{t_safe(:result_page_subtitle2)}".html_safe, products_path %> <%= t_safe :result_page_subtitle3  %></h2>
     </div>
     <%# Table pour afficher les 3 PC recommandes %>
+    <div class="clearfix"></div>
     <div id="bestpicktablewrapper">
       <table id="bestpicktable">
         <%= render 'star_products_top', :star_products => star_products %>
