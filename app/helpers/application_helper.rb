@@ -11,7 +11,6 @@ module ApplicationHelper
 
   def build_cache
     Rails.cache.write('cache_state', 'busy')
-    Rails.cache.clear
     Product.all_cached.each do |p|
       p.infos
     end

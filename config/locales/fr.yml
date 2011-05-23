@@ -5,8 +5,11 @@ fr:
   #--------------------
 
   wizard_incentive: |
-    <strong>Quel PC choisir ?</strong>
+    <p><strong>Quel PC choisir ?</strong></p>
     <p>L'expert vous conseille !</p>
+
+  home_explain: |
+    Choisir Facile vous aide à trouver facilement le PC qu'il vous faut. C'est <strong>GRATUIT</strong>, <strong>OBJECTIF</strong> et <strong>RAPIDE</strong> !
 
   #--------------------
   # Super Usage 1
