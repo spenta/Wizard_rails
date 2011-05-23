@@ -1,8 +1,13 @@
 <% content_for :head do -%>
   <title>Choisir Facile - Tous les ordinateurs PC portables</title>
   <meta name="description" content="La liste complète des ordinateurs disponibles sur les sites marchands partenaires." />
+
   <%= include_stylesheets :catalogue%>
   <%= include_javascripts :catalogue%>
+  <!--[if lte IE 8]>
+  <link type="text/css" rel="stylesheet" href="/stylesheets/catalogue_lteie8.css">
+  <![endif]-->
+
 
   <script type="text/javascript">
     // Price filter initialisation
@@ -188,7 +193,7 @@
 
       <%# Droite : lien vers le wizard %>
       <div id="wizard_box">
-        <%= content_tag :h2, t_safe(:cat_wizard_text)%>
+        <%= t_safe :cat_wizard_text %>
         <%= link_to user_requests_path, :method => :post, :class => "no_underline" do%>
           <div class="wizard_button"><p class="label"><%= t :cat_wizard_label %></p></div>
         <% end %>

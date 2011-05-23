@@ -64,11 +64,10 @@ p.usageSubtitle {
     padding:5px;
     border:1px FireBrick dotted;
     -webkit-border-radius:4px;
-	-khtml-border-radius:4px;
-	-moz-border-radius:4px;
-	-o-border-radius:4px;
-	border-radius:4px;
-
+	  -khtml-border-radius:4px;
+	  -moz-border-radius:4px;
+	  -o-border-radius:4px;
+	  border-radius:4px;
 }
 
 .warning {
@@ -100,6 +99,7 @@ p.usageSubtitle {
 	margin-top:0px;
 	font-size:1.3em;
 	font-weight:bold;
+	color:#50A5D7;
 }
 
 /*----------------------------------------------------------------
@@ -132,7 +132,6 @@ form {
 	-moz-border-radius:4px;
 	-o-border-radius:4px;
 	border-radius:4px;
-
 }
 
 .question hr
@@ -379,9 +378,14 @@ form {
 	-khtml-border-radius:4px;
 	-moz-border-radius:4px;
 	-o-border-radius:4px;
-	border-radius:4px; }
-	.answer .close:hover {
-		background:#8e8e8e; }
+	border-radius:4px;
+	behavior: url(/stylesheets/PIE.htc);
+	position: relative;
+}
+
+.answer .close:hover {
+		background:#8e8e8e;
+}
 
 
 .answer .close .label {
@@ -463,10 +467,11 @@ form {
 
     border:1px solid #E5E5E5;
     -webkit-border-radius:8px;
-	-khtml-border-radius:8px;
-	-moz-border-radius:8px;
-	-o-border-radius:8px;
-	border-radius:8px;
+	  -khtml-border-radius:8px;
+	  -moz-border-radius:8px;
+	  -o-border-radius:8px;
+	  border-radius:8px;
+	  behavior: url(/stylesheets/PIE.htc);
 }
 
 #popup h2 {

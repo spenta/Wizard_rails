@@ -78,6 +78,8 @@ strong {
   -moz-border-radius:12px;
   -o-border-radius:12px;
 	border-radius:12px;
+	behavior: url(/stylesheets/PIE.htc);
+	position: relative;
 }
 
 /* --------------------------------
@@ -92,13 +94,15 @@ strong {
     margin-top:5px;
 }
 
+
+
 /* --------------------------------
 #middle = Filtres
 -------------------------------- */
 /*Mise en page sur 2 colonnes */
 #filters {
 	width:617px;
-        height:177px;
+  height:177px;
 	float:left;
 	padding:12px;
 	background-color:white;
@@ -108,12 +112,14 @@ strong {
 	-moz-border-radius:12px;
 	-o-border-radius:12px;
 	border-radius:12px;
+	behavior: url(/stylesheets/PIE.htc);
+	position: relative;
 }
 
 #wizard_box {
   float:left;
 	width:266px;
-        height:177px;
+  height:177px;
 	padding:12px 12px 13px 12px;
 	margin:auto 0px auto 25px;
 
@@ -124,6 +130,8 @@ strong {
 	-moz-border-radius:12px;
 	-o-border-radius:12px;
 	border-radius:12px;
+	behavior: url(/stylesheets/PIE.htc);
+	position: relative;
 }
 
 /* --- Filtres --- */
