@@ -511,13 +511,63 @@ p.specstooltip {
 	text-align:justify;
 }
 
-.fulllist {
-	margin:10px 30px 20px 30px;
+#rating_explain {
+	color:#33332F;
+	padding:10px 20px 10px 20px;
+}
+
+#rating_explain p {
+	font-size:1.4em;
+	text-align:justify;
+}
+
+.paragraph_left {
+	width:480px;
+	float:left;
+	margin-left:0px;
+}
+
+.paragraph_right {
+	width:370px;
+	float:right;
+	margin-right:0px;
+}
+
+#rating_explain h3 {
+	font-size:1.6em;
+	text-align:center;
+	font-weight:bold;
+}
+
+.top_explain {
+	clear:both;
+	margin-top:5px;
+}
+
+.explain_img {
+	display:block;
+	margin:0px auto;
+}
+
+.left_explain {
+	float:left;
+	margin-left:10px;
+}
+
+.right_explain {
+	float:right;
+	margin-right:10px;
+}
+
+#rating_explain .fulllist { 
+	margin-top:10px;
 	color:#666666;
-	font-size:1.3em;
-	text-align:right;
+	font-size:1.4em;
+	text-align:left;
 	font-style:italic;
 }
+
+.clearfix { clear:both; }
 
 .fulllist a {
 	color:#036CAA;

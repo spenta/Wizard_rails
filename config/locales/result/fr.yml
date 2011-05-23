@@ -157,11 +157,17 @@ fr:
   extras_title: D'autres modèles intéressants
 
   # Short paragraph to introduce the complete list. In the <p class="extrasexplain"> tags.
-  extras_explain: Nous avons sélectionné d'autres ordinateurs bien adaptés à pour vos besoins que vous nous avez indiqué. Ils ont tous de très bons rapports performance-prix, dans une large gamme de budget. Nous avons affiché les points les plus importants pour vous. Comparez-les facilement en triant les colonnes !
+  extras_explain: Aucun des trois PC du dessus ne vous plaît ? Nous avons sélectionn&eacute; d'autres modèles pertinents pour vos besoins. Tous ces modèles ont de tr&egrave;s bons rapports performance-prix et sortent clairement du lot !
 
   # Link to the full list. The second part goes between the <a> tags.
-  extras_full: Vous pouvez également consulter
+  extras_full: Vous pouvez aussi consulter
   extras_full_link: la liste complète des ordinateurs
+	
+	# Legend for the colors
+	extras_legend_ok: Adapté à vos besoins
+	extras_legend_bad: Pas assez puissant
+	extras_legend_overkill: Très performant
+	extras_legend_img: Choisir Facile vous conseille sur le choix de votre PC avec un code couleur
 
   # Extras table : the other PCs
   #---------------------------------------------------------------------------
