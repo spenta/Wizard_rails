@@ -12,6 +12,8 @@
 	color:#33332F;
 }
 
+.clearfix { clear:both; }
+
 small {
 	font-size:0.8em;
 	color:inherit;

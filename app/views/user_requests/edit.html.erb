@@ -5,6 +5,8 @@
   <%= include_stylesheets :form%>
 <% end -%>
 
+<div class = "clearfix"> </div>
+
 <div id="main" class="usages">
   <%= render 'form_header_and_info', :current_step => @user_request.current_step %>
   <%= form_for(@user_request, :html => {:class => "tabbed"}) do |f| %>

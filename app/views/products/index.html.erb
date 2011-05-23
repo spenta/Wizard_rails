@@ -15,8 +15,7 @@
       slide: function( event, ui ) {
       $j( "#price_display" ).val(ui.values[ 0 ] + "€ et " + ui.values[ 1 ] + "€"); }
       });
-      $j( "#price_display" ).val($j( "#price_slider" ).slider( "values", 0 ) + <%= "\"#{t :cat_currency} #{t :cat_price_filter_and} \"".html_safe%> + $j( "#price_slider" ).slider( "values", 1 ) + <%="\" #{t(:cat_currency)}\"".html_safe%>);
-    });
+      $j( "#price_display" ).val($j( "#price_slider" ).slider( "values", 0 ) + <%= "\"#{t :cat_currency} #{t :cat_price_filter_and} \"".html_safe%> + $j( "#price_slider" ).slider( "values", 1 ) + <%="\" #{t(:cat_currency)}\"".html_safe%>);});
 
     //Specs filter initialisation
     $j(function() {
@@ -25,7 +24,7 @@
         range: true,
         min: 1,
         max: 10,
-        values: [ 1, 10 ],
+        values: [1,10]
         });
       $j( "#display_" + i ).val(<%= "\"#{t(:cat_spec_filter_from)}\"".html_safe %> + $j( "#slider_" + i ).slider( "values", 0 ) + <%= "\"#{t(:cat_spec_filter_to).html_safe}\"".html_safe %> + $j( "#slider_" + i ).slider( "values", 1 ));
         }
