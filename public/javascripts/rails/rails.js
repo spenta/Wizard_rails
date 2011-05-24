@@ -107,7 +107,8 @@
         csrf_token = $$('meta[name=csrf-token]')[0];
 
     var form = new Element('form', { method: "POST", action: url, style: "display: none;" });
-    element.parentNode.insert(form);
+    // TWEAK POUR QUE LE LIEN DE LA HOME MARCHE SOUS IE7
+    $(element.parentNode).insert(form);
 
     if (method !== 'post') {
       var field = new Element('input', { type: 'hidden', name: '_method', value: method });
@@ -189,3 +190,4 @@
     }
   });
 })();
+
