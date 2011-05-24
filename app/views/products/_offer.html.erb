@@ -10,7 +10,7 @@
     <%= image_tag retailer.logo_url, :class => "retailer_logo" %>
   </td>
   <td class="offer_price">
-    <%= infos[:price].round %><small>,<%= get_cents_from infos[:price] %></small> <%= t :currency %>
+    <%= offer.price.round %><small>,<%= get_cents_from offer.price%></small> <%= t :currency %>
   </td>
   <td class="offer_link">
     <%= link_to offer.link, :target => "_blank" do %>

@@ -1,10 +1,18 @@
 class UserRequestsController < ApplicationController
   # POST /user_requests
   def create
-    #session[:user_response] = nil
-    reset_session
-    @user_request = create_new_user_request
-    redirect_to edit_user_request_path(@user_request)
+    if !request.post? 
+      redirect_to :root
+    else
+      #session[:user_response] = nil
+      reset_session
+      @user_request = create_new_user_request
+      redirect_to edit_user_request_path(@user_request)
+    end
+  end
+
+  def index
+    redirect_to :root
   end
 
   # GET /user_requests/1/edit
