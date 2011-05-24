@@ -18,7 +18,7 @@ h2 {
 	font-size:1.5em;
 	font-weight:bold;
 	text-shadow:1px 1px #E5E5E5;
-	margin:0 0 10px 0;
+	margin:0 0 7px 0;
 }
 
 strong {
@@ -120,7 +120,7 @@ body, html { background-color:#E5E5E5; }
 
 #main_specs {
 
-	padding:10px 5px;
+	padding:5px 5px;
 	background-color:white;
 	height:170px;
 
@@ -144,8 +144,8 @@ body, html { background-color:#E5E5E5; }
 }
 
 #main_specs_table td {
-	padding:2px 5px 2px 5px;
-	font-size:1.3em;
+	padding:2px 5px 1px 5px;
+	font-size:1.2em;
 }
 
 .spec_value {
@@ -153,7 +153,6 @@ body, html { background-color:#E5E5E5; }
 }
 
 #main_specs_table tr {
-	border-bottom:1px solid #E5E5E5;
 	border-top:1px solid #E5E5E5;
 }
 
