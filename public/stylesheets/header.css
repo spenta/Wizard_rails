@@ -78,13 +78,13 @@ Header
 }
 
 #header_menu .wizard_header_button {
-  background-image:url('../images/wizard_header_button.png');
+  background-image:url('/images/wizard_header_button.png');
   width:160px;
   height:20px;
 }
 
 #header_menu .wizard_header_button:hover {
-  background-image:url('../images/wizard_header_button_hover.png');
+  background-image:url('/images/wizard_header_button_hover.png');
 }
 
 #header_menu .wizard_header_button a:hover { color:white; }

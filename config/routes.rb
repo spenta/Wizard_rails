@@ -1,10 +1,10 @@
 WizardRails::Application.routes.draw do
 
- resources :user_requests, :only => [:create, :update, :edit] do
+ resources :user_requests, :path => "conseiller-virtuel", :only => [:create, :update, :edit], :path_names =>  {:edit => "questionnaire", :user_response => "resultats"} do
     get 'user_response', :on => :member
   end
 
-  resources :products, :only => [:index, :show]
+  resources :products, :path => "produits", :only => [:index, :show]
 
   resources :usage_choices
 
