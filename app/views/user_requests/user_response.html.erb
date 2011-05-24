@@ -2,16 +2,20 @@
 <% good_deal_products = @user_response.get_good_deal_products-%>
 <% important_specs_id = get_important_specs_id_from @user_response.gammas -%>
 
-<% content_for :head do -%> 
+<% content_for :head do -%>
   <title><%= t :result_page_title %></title>
   <%= include_stylesheets :result%>
+  <!--[if lte IE 8]>
+  <link type="text/css" rel="stylesheet" href="/stylesheets/result_lteie8.css">
+  <![endif]-->
   <%= include_javascripts :result%>
-<% end -%> 
+<% end -%>
 
 <div id="resultpage">
   <%# Section du haut : produits recommandés  %>
   <%= render 'star_products_group', :star_products => star_products, :important_specs_id =>  important_specs_id %>
-  <%# Section du bas : autres produits adaptés %>            
+  <%# Section du bas : autres produits adaptés %>
   <%= render 'good_deal_products_group', :good_deal_products => good_deal_products, :important_specs_id =>  important_specs_id %>
 </div>
 <p style=display:none;><%= "Request completed in #{Time.new - session[:start_timer]}"  -%></p>
+

@@ -1,0 +1,16 @@
+#extras var {
+    font-size:1em;
+    font-style:normal;
+}
+
+#extras {
+  margin-top:0px;
+}
+
+#extratable .headers { height: 30px; }
+
+#extras .header {
+	background-image:url('/images/results/result-small-ie.jpg');
+	background-position:left center;
+}
+
