@@ -18,6 +18,9 @@
     var bar_length_6 = <%= infos[:specification_values][9][:sv_score] %>
   </script>
   <%= include_javascripts :product %>
+  <!--[if lte IE 8]>
+  <link type="text/css" rel="stylesheet" href="/stylesheets/product_lteie8.css">
+  <![endif]-->
 <% end %>
 <div id="top_wrapper">
   <div id="top">
@@ -100,8 +103,9 @@
             <%= render 'specs_table', :title => title, :specs => specs, :infos => infos %>
           <% end %>
         </div>
+        <div class="clearfix"></div>
       </div>
-      <div class="clearfix"></div>
+
     </div>
   </div>
 </div>
