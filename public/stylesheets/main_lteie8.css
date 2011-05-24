@@ -1,0 +1,40 @@
+.answer .close {
+  width:95px;
+  padding:8px 6px 6px 8px;
+}
+
+.answer .close .icon {
+	float:none;
+  vertical-align:middle;
+  margin-left:10px;
+}
+
+.answer .close .label {
+  font-size:1.2em;
+}
+
+.question label .name {
+  color:white;
+  }
+.question label {
+  margin:10px 0;
+}
+.question.opened hr, .question.opened.selected hr {
+  color: #666666;
+  margin:0 0 0 0;
+}
+
+.sideinfo h5 { color:#33332F; }
+
+.question .qbody .qdesc,
+.question .qbody .qabst
+{
+	margin:0 0 0 0;
+	padding:8px 0 0 0;
+	color:#white;
+}
+
+.question {
+  padding:6px 5px;
+}
+
