@@ -41,14 +41,19 @@
 
     <%= yield %>
 
+    <div class="clearfix"></div>
+
     <div id="footer">
-      <div class="footer_left">
-        <p>© 2011 | Spenta SAS | <%= t_safe :rights_reserved %></p>
-      </div>
-      <div class="footer_right">
-        <p>
-          <%= link_to t_safe(:legal_info), "/legal" %> | <%= link_to t_safe(:eula), "/terms" %>
-        </p>
+      <div class="footer_wrapper">
+        <div class="footer_left">
+          <p>© 2011 | Spenta SAS | <%= t_safe :rights_reserved %></p>
+        </div>
+        <div class="footer_right">
+          <p>
+            <%= link_to t_safe(:legal_info), "/legal" %> | <%= link_to t_safe(:eula), "/terms" %>
+          </p>
+        </div>
+        <div class="clearfix"></div>
       </div>
     </div>
   </body>

@@ -62,7 +62,7 @@ form.tabbed .question.opened .qbody
 	position:absolute;
 	top:0; left:0; right:0;
 
-	background-color:#4d4d4d;
+	background-color:#555555;
 	-webkit-border-radius:4px;
 	-khtml-border-radius:4px;
 	-moz-border-radius:4px;

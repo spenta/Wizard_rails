@@ -9,12 +9,19 @@ Footer
 }
 
 #footer {
-	width:960px;
-	margin:0px auto;
-        clear:both;
+  clear:both;
+  background-color:#E5E5E5;
+  padding:10px 0;
+}
+
+.footer_wrapper {
+  width:960px;
+  margin:0px auto;
 }
 
 .footer_left { float:left; }
 
 .footer_right { float:right; }
+
+.clearfix { clear:both; }
 

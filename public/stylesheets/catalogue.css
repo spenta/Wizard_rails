@@ -102,7 +102,7 @@ strong {
 /*Mise en page sur 2 colonnes */
 #filters {
 	width:617px;
-  height:177px;
+  height:160px;
 	float:left;
 	padding:12px;
 	background-color:white;
@@ -119,7 +119,7 @@ strong {
 #wizard_box {
   float:left;
 	width:266px;
-  height:177px;
+  height:160px;
 	padding:12px 12px 13px 12px;
 	margin:auto 0px auto 25px;
 
@@ -216,12 +216,6 @@ strong {
 	color:#50A5D7;
 	font-weight:bold;
 	background-color:transparent;
-}
-
-
-
-#display_1, #display_2, #display_3, #display_4, #display_5, #display_6 {
-
 }
 
 /* --- CTA vers le wizard --- */
