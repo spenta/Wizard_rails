@@ -55,11 +55,13 @@ class Product < ActiveRecord::Base
         specification_values_hash[:sv_id] = 0 
         specification_values_hash[:sv_name] = I18n.t :not_communicated 
         specification_values_hash[:sv_score] = 0
+        specification_values_hash[:sv_is_exact] = false
       else
         sv = SpecificationValue.find(psv.specification_value_id)
         specification_values_hash[:sv_id] = sv.id
         specification_values_hash[:sv_name] = sv.name
         specification_values_hash[:sv_score] = sv.score
+        specification_values_hash[:sv_is_exact] = (psv.source_id != 2)
       end
       specification_values_hash
     end

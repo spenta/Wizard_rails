@@ -19,7 +19,7 @@ $j(document).ready(function() {
 });
 
 $j(document).ready(function() {
-	$j( ".retailer_logo" ).aeImageResize({ height: 80, width: 112 });
+	$j( ".retailer_logo" ).aeImageResize({ height: 60, width: 112 });
 });
 
 $j(document).ready(function() {
