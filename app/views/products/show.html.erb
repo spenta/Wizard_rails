@@ -27,7 +27,7 @@
     <%= content_tag :h1, "#{t(:product_title)} <strong>#{infos[:brand_name]} #{infos[:name]} </strong>".html_safe, :class => "title" %>
     <div id="top_left">
       <div class="picture_box">
-        <%= image_tag infos[:small_img_url], :alt => "#{t :product_laptop} #{infos[:brand_name]} #{infos[:name]}", :id => "picture" %>
+        <%= image_tag infos[:big_img_url], :alt => "#{t :product_laptop} #{infos[:brand_name]} #{infos[:name]}", :id => "picture" %>
       </div>
     </div>
 
