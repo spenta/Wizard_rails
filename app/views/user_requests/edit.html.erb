@@ -9,31 +9,34 @@
 
 <% end -%>
 
-<div class = "clearfix"> </div>
+<div id="form_wrapper">
+  <div id="main" class="usages">
+    <%= render 'form_header_and_info', :current_step => @user_request.current_step %>
+    <%= form_for(@user_request, :html => {:class => "tabbed"}) do |f| %>
+      <%= render :partial => @user_request.current_step %>
+      <div style="clear:both;"></div>
 
-<div id="main" class="usages">
-  <%= render 'form_header_and_info', :current_step => @user_request.current_step %>
-  <%= form_for(@user_request, :html => {:class => "tabbed"}) do |f| %>
-    <%= render :partial => @user_request.current_step %>
-    <div style="clear:both;"></div>
+      <div class="actions">
+      <% unless @user_request.current_step == "selection"%>
+        <%= link_to  t(:nav_button_prev), edit_user_request_path(:back => "true"), :class => "prev-button"%>
+      <% end -%>
 
-    <div class="actions">
-    <% unless @user_request.current_step == "selection"%>
-      <%= link_to  t(:nav_button_prev), edit_user_request_path(:back => "true"), :class => "prev-button"%>
+      <%= f.submit t(:nav_button_next), :class => "next-button" %>
+
+    </div>
+
+    <% end %>
+
+    <% if flash[:error] -%>
+      <p class="warning"><%= flash[:error] %></p>
     <% end -%>
 
-    <%= f.submit t(:nav_button_next), :class => "next-button" %>
+    <% if @user_request.current_step == "mobilities"%>
+      <%= render :partial => 'form_popup' %>
+    <% end %>
 
+    <div class="clearfix"></div>
   </div>
 
-  <% end %>
-
-  <% if flash[:error] -%>
-    <p class="warning"><%= flash[:error] %></p>
-  <% end -%>
-
-  <% if @user_request.current_step == "mobilities"%>
-    <%= render :partial => 'form_popup' %>
-  <% end %>
 </div>
 

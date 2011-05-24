@@ -1,6 +1,11 @@
 
 /*Améliorer : les sliders et les QCM partagent certaines métriques : dissocier cela quand on remettra au propre*/
 
+#form_wrapper {
+  background-color:#50A5D7;
+  padding:50px 0px;
+}
+
 
 /*----------------------------------------------------------------
 	USAGES
@@ -82,16 +87,10 @@ p.usageSubtitle {
 
 .sideinfo
 {
-	width:360px;
+	width:370px;
 	margin:10px 0 0 0;
 	float:right;
-	background-color:#F9F9F9;
-	padding:15px;
-	-webkit-border-radius:4px;
-	-khtml-border-radius:4px;
-	-moz-border-radius:4px;
-	-o-border-radius:4px;
-	border-radius:4px;
+	padding:0px;
 }
 
 .sideinfo h5
@@ -109,7 +108,6 @@ p.usageSubtitle {
 form {
 	width:500px;
 	padding:5px 0;
-	margin-bottom:20px;
 	position:relative;
 	float:left;
 }
@@ -127,11 +125,11 @@ form {
 	background-color:#036CAA;     /*Couleur du fond des boites d'usage non sélectionnés*/
 	background-image:url('../images/question_bckg.png');
 	background-repeat:repeat-x;
-	-webkit-border-radius:4px;
-	-khtml-border-radius:4px;
-	-moz-border-radius:4px;
-	-o-border-radius:4px;
-	border-radius:4px;
+	-webkit-border-radius:8px;
+	-khtml-border-radius:8px;
+	-moz-border-radius:8px;
+	-o-border-radius:8px;
+	border-radius:8px;
 }
 
 .question hr
@@ -263,7 +261,7 @@ form {
 .question.opened.selected
 {
 	color:#ffffff;
-	background-color:#4d4d4d;
+	background-color:#555555;
 	background-image:none;
 }
 

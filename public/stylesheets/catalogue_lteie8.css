@@ -10,3 +10,21 @@ h1 {
   FILTER: Shadow(Color=#666666, Direction=135, Strength=1)
 }
 
+.sliderStyle {
+  margin:0 0 0 0;
+}
+
+#full_list {
+  padding-bottom:0px;
+}
+
+th {
+  background-image:url(/images/catalogue/table-header-bckg.gif);
+}
+
+.sorting {
+	background-image:url(/images/catalogue/small-ie.jpg);
+	background-position:right center;
+	background-repeat:no-repeat;
+}
+

@@ -120,7 +120,7 @@ fr:
   spec_tooltip_3: La carte graphique fabrique les images qui s'affichent sur votre écran. Elle est surtout utilisée pour les jeux vidéo en 3D et un peu pour la lecture de films en HD.
 
   # ID=9 > Weight
-  spec_tooltip_9: Lorsque vous transporterez votre ordinateur, vous apprécierez qu'il soit assez léger ! (* Le poids de certains modèles peut être une approximation)
+  spec_tooltip_9: Lorsque vous transporterez votre ordinateur, vous apprécierez qu'il soit assez léger! (* Le poids de certains modèles est estimé)
 
   # ID=6 > Display resolution
   spec_name_6: Résolution d'écran

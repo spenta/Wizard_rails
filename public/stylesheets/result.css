@@ -296,8 +296,8 @@ a.scoretooltip:hover span {
 	display: block;
 	position: absolute;
 	width:300px;
-	top:-20px;
-	left:10px;
+	top:15px;
+	left:-150px;
 	background:#D4FCD9;
 	padding: 8px;
 	border: 1px solid #057619;
@@ -411,8 +411,8 @@ a.specstooltip:hover span {
 	display: block;
 	position: absolute;
 	width:180px;
-	top:-10px;
-	left:-20px;
+	top:-55px;
+	left:-200px;
 	background:#D4FCD9;
 	padding: 8px;
 	border: 1px solid #057619;
@@ -559,7 +559,7 @@ p.specstooltip {
 	margin-right:10px;
 }
 
-#rating_explain .fulllist { 
+#rating_explain .fulllist {
 	margin-top:10px;
 	color:#666666;
 	font-size:1.4em;

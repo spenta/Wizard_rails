@@ -102,13 +102,19 @@ p.explain {
 ------------------------------------------------------------------*/
 
 body, html {
-	background-color:#F5F5F5; /*Fond de la page*/
+	background-color:#E5E5E5; /*Fond de la page*/
 }
 
 #main {
 	width:910px;
-	padding:15px;
-	margin:0 auto; /*Centre le container sur la verticale de la page*/
+	padding:25px 25px 20px 25px;
+	margin:0px auto; /*Centre le container sur la verticale de la page*/
+  background-color:white;
+  -webkit-border-radius:12px;
+	-khtml-border-radius:12px;
+	-moz-border-radius:12px;
+	-o-border-radius:12px;
+  border-radius:12px;
 }
 
 .error {
