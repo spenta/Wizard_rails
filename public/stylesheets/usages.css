@@ -360,7 +360,7 @@ form {
 .answer .close {
 	z-index:2;
 	min-height:20px;
-	/*margin-bottom:10px;*/
+
 	margin-top:-40px;
 	padding:5px 5px 5px 8px;
 	position:relative;
@@ -377,8 +377,6 @@ form {
 	-moz-border-radius:4px;
 	-o-border-radius:4px;
 	border-radius:4px;
-	behavior: url(/stylesheets/PIE.htc);
-	position: relative;
 }
 
 .answer .close:hover {
