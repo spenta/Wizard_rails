@@ -4,7 +4,7 @@ WizardRails::Application.routes.draw do
     get 'user_response', :on => :member
   end
 
-  resources :products, :path => "produits", :only => [:index, :show]
+  resources :products, :path => "ordinateurs", :only => [:index, :show]
 
   resources :usage_choices
 
