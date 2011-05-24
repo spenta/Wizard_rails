@@ -1,9 +1,9 @@
 <% if bar_id == 1-%>
   <tr class="first">
 <% else -%>
-  <tr >
+  <tr>
 <% end -%>
-  <td class="spec_name">             	
+  <td class="spec_name">
     <a href="#" class="tooltip">
       <%= image_tag "/images/product/product_tooltip.png", :alt => t(:product_help), :class => "tooltip" %>
       <span><%= t_safe "product_#{spec_id}_tooltip" %></span>
@@ -20,3 +20,4 @@
     <strong><%= (infos[:specification_values][spec_id][:sv_score] || 0).round%></strong><small>/10</small>
   </td>
 </tr>
+
