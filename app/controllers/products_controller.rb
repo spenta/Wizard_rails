@@ -6,8 +6,8 @@ class ProductsController < ApplicationController
     @products = Product.all_cached
   end
 
-  # GET /products/1
+  # GET /products/pc-portable-acer-truc-1
   def show
-    @product = Product.find(params[:id])
+    @product = Product.find(params[:id].split('-').last)
   end
 end

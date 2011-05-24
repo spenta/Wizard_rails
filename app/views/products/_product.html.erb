@@ -2,7 +2,7 @@
 <tr>
   <%# Thumbnail, marque, modèle, lien %>
   <td class="first_column">
-    <%= link_to product, :class => "no_underline" do %>
+    <%= link_to product_path(product.to_param), :class => "no_underline" do %>
       <%= image_tag p_infos[:small_img_url], :alt => "PC #{p_infos[:brand_name]} #{p_infos[:name]}", :class => "thumbnail" %>
       <div class="product_name">
         <%= content_tag :h4, p_infos[:brand_name] %>
@@ -13,7 +13,7 @@
   </td>
   <%# Prix & fiche %>
   <td>
-    <%= link_to product, :class => "no_underline" do %>
+    <%= link_to product_path(product.to_param), :class => "no_underline" do %>
       <span title="<%= p_infos[:price] %>"></span>
       <p  class="from">
         <%= p_infos[:price].floor %><small> <%= t :cat_currency %><%= get_cents_from p_infos[:price] %></small>

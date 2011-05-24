@@ -5,6 +5,17 @@ class Product < ActiveRecord::Base
   has_many :offers
   validates :name, :small_img_url, :big_img_url, :brand, :presence => true
   
+  #to_param method is overriden in order to have custom url names
+  def to_param
+    str = "pc-portable-"
+    str += infos[:brand_name]
+    str += "-"
+    str += infos[:name]
+    str += "-"
+    str += id.to_s
+    str.gsub(/[\/\ \.]/,'-')
+  end
+
   def self.all_cached
     Rails.cache.fetch("all_products") {Product.all}
   end

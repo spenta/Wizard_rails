@@ -221,7 +221,7 @@
         </thead>
 
         <tbody>
-          <% Product.all_cached.each do |product| -%>
+          <% Product.all.each do |product| -%>
             <%= render 'product', :product => product %>
           <% end -%>
         </tbody>

@@ -2,21 +2,22 @@
   <% good_deal_products.each do |p| -%>
   <%# Produit %>
   <% p_id = p.product_id -%>
-  <% p_infos = Product.find(p_id).infos%>
+  <% product = Product.find(p_id)%>
+  <% p_infos = product.infos%>
   <tr class="product">
     <td class="thumb">
-      <%= link_to product_path(p_id), :target => "_blank" do%>
+      <%= link_to product_path(product.to_param), :target => "_blank" do%>
         <%= image_tag p_infos[:small_img_url], :alt => p_infos[:brand_name]+' '+p_infos[:name], :class => "thumbnail" %>
       <% end -%>
     </td>
     <td class="infos">
-      <%= link_to product_path(p_id), :target => "_blank", :class => "nounderline" do%>
+      <%= link_to product_path(product.to_param), :target => "_blank", :class => "nounderline" do%>
         <div class="brand"><%= p_infos[:brand_name] %></div>
         <div class="name"><%= truncate p_infos[:name], :length => 20 %></div>
       <% end -%>
     </td>
     <td class="price">
-      <%= link_to product_path(p_id), :target => "_blank", :class => "nounderline" do%>
+      <%= link_to product_path(product.to_param), :target => "_blank", :class => "nounderline" do%>
         <div class="price"><%= p.price.floor %><small>€<%= get_cents_from p.price %></small></div>
         <div class="more"><%= t :extras_more -%></div>
       <% end -%>
