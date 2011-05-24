@@ -58,3 +58,6 @@ stylesheets:
 
   product:
     - public/stylesheets/product.css
+
+  basic:
+    - public/stylesheets/basic_page.css

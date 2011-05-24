@@ -10,6 +10,9 @@ WizardRails::Application.routes.draw do
 
   resources :super_usages
 
+  match 'legal' => 'misc#legal'
+  match 'terms' => 'misc#terms'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
