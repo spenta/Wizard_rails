@@ -115,6 +115,8 @@ body, html {
 	-moz-border-radius:12px;
 	-o-border-radius:12px;
   border-radius:12px;
+  behavior: url(/stylesheets/PIE.htc);
+	position: relative;
 }
 
 .error {
