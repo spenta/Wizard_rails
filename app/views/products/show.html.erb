@@ -78,7 +78,7 @@
       <div class="offers_wrapper">
        <table id="offers_table">
           <tbody>
-            <% @product.offers.all.each do |o| -%>
+            <% @product.offers.order("price asc").each do |o| -%>
               <%= render 'offer', :infos => infos, :offer => o %>
             <% end -%>
           </tbody>
