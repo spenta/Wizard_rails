@@ -75,10 +75,13 @@
       <h2><%= offers_number_text %></h2>
 
       <div class="offers_wrapper">
-        <% @product.offers.all.each do |o| -%>
-          <%= render 'offer', :infos => infos, :offer => o %>
-        <% end -%>
-        <div class="clearfix"></div>
+       <table id="offers_table">
+          <tbody>
+            <% @product.offers.all.each do |o| -%>
+              <%= render 'offer', :infos => infos, :offer => o %>
+            <% end -%>
+          </tbody>
+        </table>
       </div>
     </div>
 

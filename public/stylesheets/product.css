@@ -21,8 +21,8 @@ h2 {
 	margin:0 0 10px 0;
 }
 
-strong { 
-	font-weight:bold; 
+strong {
+	font-weight:bold;
 	color:inherit;
 	font-size:inherit;
 }
@@ -55,7 +55,7 @@ body, html { background-color:white; }
 .title {
 	text-align:center;
 	font-size:2.3em;
-	
+
 	font-weight:bold;
 	color:#33332F;
 	margin-bottom:15px;
@@ -75,7 +75,7 @@ body, html { background-color:white; }
 
 /* --- Mise en page --- */
 
-#top { 
+#top {
 	width:960px;
 	margin:0 auto;
 }
@@ -85,8 +85,8 @@ body, html { background-color:white; }
 	width:350px;
 }
 
-#top_right { 
-	float:right; 
+#top_right {
+	float:right;
 	margin-left:20px;
 }
 
@@ -96,10 +96,10 @@ body, html { background-color:white; }
 	background-color:white;
 	display:table-cell;
 	vertical-align:middle;
-	
+
 	width:350px;
 	height:240px;
-	
+
 	-webkit-border-radius:12px;
   -khtml-border-radius:12px;
   -moz-border-radius:12px;
@@ -111,17 +111,17 @@ body, html { background-color:white; }
 	margin:auto;
 	display:block;
 	height:216px;
-	
+
 }
 
 /* --- Top right : specs --- */
 
 #main_specs {
 
-	padding:15px 5px;
+	padding:10px 5px;
 	background-color:white;
 	height:170px;
-	
+
 	-webkit-border-radius:12px;
   -khtml-border-radius:12px;
   -moz-border-radius:12px;
@@ -140,7 +140,7 @@ body, html { background-color:white; }
 }
 
 #main_specs_table td {
-	padding:4px 5px 3px 5px;
+	padding:2px 5px 2px 5px;
 	font-size:1.3em;
 }
 
@@ -174,19 +174,19 @@ a.tooltip {
 
 a.tooltip:hover {
 	background: none;
-	z-index: 1;  
+	z-index: 1;
 }
-   
-a.tooltip span { 
+
+a.tooltip span {
 	display: none;
 	position:relative;
 }
 
 a.tooltip:hover span {
-	display: block; 
+	display: block;
 	position: absolute;
 	width:250px;
-	top:-30px; 
+	top:-30px;
 	left:-265px;
 	background:#D4FCD9;
 	padding: 8px;
@@ -204,7 +204,7 @@ a.tooltip:hover span {
 	background-image:url('/images/product/rating_bar_bckg.jpg');
 }
 
-.bar { 
+.bar {
 	height:17px;
 	background-image:url('/images/product/rating_bar.jpg');
 }
@@ -236,10 +236,11 @@ a.tooltip:hover span {
 
 /* --- Mise en page --- */
 
-#bottom { 
+#bottom {
 	width:960px;
 	margin:0 auto;
 }
+
 
 /* --- Offers --- */
 
@@ -253,33 +254,61 @@ a.tooltip:hover span {
 	display:inline-block;
 }
 
-.offer {
-	width:190px;
-	margin:0 15px 0 15px;
-	padding: 10px;
-	background-image:url('/images/product/offer_bckg.png'); 
-	border:1px solid #E5E5E5;
-	float:left;
+#offers_table {
+	width:900px;
 }
 
 /* Contents of the offer boxes */
 
-.thumbnail {
-	margin-right:10px;
+.offer {
+  height:78px;
 }
 
-.offer_price p {
-	color:#33332F;
+.offer_thumbnail {
+  border:1px solid #E5E5E5;
+  background-image:none;
+  width:120px;
+}
+
+.thumbnail { height: 80px; }
+
+.offer_name {
+  background-image:url('/images/product/offer_bckg.png');
+  border-top:1px solid #E5E5E5;
+  border-bottom:1px solid #E5E5E5;
+  text-align:justify;
+	color:#666;
+	font-size:1.3em;
+	margin:5px 0;
+	padding:5px 8px 5px 16px;
+	overflow:hidden;
+}
+
+.offer_price {
+  background-image:url('/images/product/offer_bckg.png');
+  border-top:1px solid #E5E5E5;
+  border-bottom:1px solid #E5E5E5;
+  width:100px;
+  color:#33332F;
 	font-weight:bold;
 	font-size:2.3em;
-	text-align:center;
 }
 
-.offer_name p {
-	text-align:justify;
-	color:#666;
-	font-weight:1.1px;
-	margin:5px 0;
+.offer_logo {
+  background-image:url('/images/product/offer_bckg.png');
+  border-top:1px solid #E5E5E5;
+  border-bottom:1px solid #E5E5E5;
+  width:120px;
+  padding-left:8px;
+}
+
+.offer_link {
+  background-image:url('/images/product/offer_bckg.png');
+  border-top:1px solid #E5E5E5;
+  border-bottom:1px solid #E5E5E5;
+  border-right:1px solid #E5E5E5;
+  width:120px;
+  padding:0px 8px;
 }
 
 .offer a {
@@ -290,7 +319,7 @@ a.tooltip:hover span {
 	background-image:url('/images/product/buy.png');
 	width:130px;
 	height:30px;
-	margin:5px auto 0 auto;
+	margin:0 auto 0 auto;
 }
 
 .offer_button:hover {
