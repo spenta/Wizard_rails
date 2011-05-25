@@ -9,7 +9,7 @@
     <%= offer.retailer_product_name || "#{infos[:brand_name]} #{infos[:name]}" %>
   </td>
   <td class="offer_logo">
-    <%= link_to offer.link do %>
+    <%= link_to offer.link, :target => "_blank" do %>
       <%= image_tag retailer.logo_url, :class => "retailer_logo" %>
     <% end -%>
   </td>
