@@ -1,4 +1,4 @@
-package_assets: on
+package_assets: always
 
 javascripts:
   rails:
