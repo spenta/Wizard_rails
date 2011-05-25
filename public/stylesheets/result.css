@@ -252,6 +252,7 @@ td.bestpickvspacer {
 
 
 /* Cases avec dégradé pour le score et le prix */
+
 td.scorebox {
 	background-image:url('/images/results/scorebox.png');
 	height:80px;
@@ -603,6 +604,7 @@ p.specstooltip {
 	text-align:left;
 }
 #extras td.price { border-left-width:0px; }
+#extras td.values { width:90px; }
 
 #extras .empty {
 	border-right-width:0px;

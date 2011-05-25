@@ -29,7 +29,7 @@
     <%# Specs %>
     <% important_specs_id.each do |spec_id| -%>
       <%spec_score = p_infos[:specification_values][spec_id][:sv_score] %>
-      <%= content_tag :td, :class => "textshading colorid#{get_color_number(spec_score/(@user_response.sigmas[spec_id]))}" do%>
+      <%= content_tag :td, :class => "values textshading colorid#{get_color_number(spec_score/(@user_response.sigmas[spec_id]))}" do%>
         <var><%=spec_score.round%><var><small>/10</small>
         <p class="specvalue"><%= spec_value_with_unit p_infos, spec_id%></p>
       <% end -%>
