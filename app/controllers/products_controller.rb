@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  caches_page :index, :show
+  caches_page :index
 
   # GET /products
   def index
@@ -19,7 +19,6 @@ class ProductsController < ApplicationController
 
   def clear_products_cache
     expire_page :action => :index
-    expire_page :action => :show
   end
 
   def build_cache
