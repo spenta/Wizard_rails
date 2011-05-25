@@ -1,8 +1,8 @@
 module ApplicationHelper
 
-  def check_cache_state
-    build_cache unless Rails.cache.read('cache_state') == 'complete'
-  end
+  #def check_cache_state
+    #build_cache unless Rails.cache.read('cache_state') == 'complete'
+  #end
 
   # translate to HTML safe
   def t_safe str
@@ -10,8 +10,6 @@ module ApplicationHelper
   end
 
   def build_cache
-    ActionController::Base.expire_page ({:controller => :products, :action => :index})
-    ActionController::Base.expire_page ({:controller => :products, :action => :show})
     Rails.cache.write('cache_state', 'busy')
     Product.all_cached.each do |p|
       p.infos
