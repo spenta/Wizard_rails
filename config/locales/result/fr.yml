@@ -99,7 +99,7 @@ fr:
   bestpick_rank_tooltip: Les caractéristiques techniques qui comptent le plus pour vous, dans l'ordre d'importance.
 
   # Tooltip for the specs score. Inside the last <p class="specstooltip"> of each featured PC.
-  bestpick_score_tooltip: Ce score vous dit si cette caractéristique est suffisante pour vous. À 100%, vous avez la configuration recommandée !
+  bestpick_score_tooltip: La couleur de la note vous dit si la caractéristique de ce PC convient à votre besoin. Quand elle est verte ou bleue, tout va bien !
 
   # Name, description and unit (to be displayed after the spec value) of the important specs. Uses the IDs of the wizard.
   #---------------------------------------------------------------------------
