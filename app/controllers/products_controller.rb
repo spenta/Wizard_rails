@@ -1,10 +1,10 @@
 class ProductsController < ApplicationController
-  caches_page :index
+  #caches_page :index
 
   # GET /products
   def index
     unless Rails.cache.read('cache_state') == 'complete'
-      clear_products_cache
+      #clear_products_cache
       build_cache
     end
     @products = Product.all_cached
@@ -17,9 +17,9 @@ class ProductsController < ApplicationController
 
   private
 
-  def clear_products_cache
-    expire_page :action => :index
-  end
+  #def clear_products_cache
+    #expire_page :action => :index
+  #end
 
   def build_cache
     Rails.cache.write('cache_state', 'busy')
