@@ -10,8 +10,8 @@ module ApplicationHelper
   end
 
   def build_cache
-    ActionController::Base.expire_page {:controller => :products, :action => :index}
-    ActionController::Base.expire_page {:controller => :products, :action => :show}
+    ActionController::Base.expire_page ({:controller => :products, :action => :index})
+    ActionController::Base.expire_page ({:controller => :products, :action => :show})
     Rails.cache.write('cache_state', 'busy')
     Product.all_cached.each do |p|
       p.infos
