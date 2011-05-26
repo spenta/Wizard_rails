@@ -12,6 +12,9 @@
     </script>
     <%= yield(:head) %>
     <%= csrf_meta_tag %>
+    <!--[if lt IE6]>
+      <link rel="stylesheet" type="text/css" href="/stylesheets/ie6_disclaimer.css" />
+    <![endif]-->
   </head>
   <body>
     <div id="header">
@@ -36,6 +39,9 @@
         </div>
       </div>
       <div class="clearfix"></div>
+    </div>
+    <div id="ie6_wrapper">
+      <div id="ie6_disclaimer"><%= t_safe :ie6_disclaimer %></div>
     </div>
 
     <%= yield %>

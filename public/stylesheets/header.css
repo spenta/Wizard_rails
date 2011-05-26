@@ -96,3 +96,13 @@ Header
   left:43px;
 }
 
+/* Disclaimer for IE6 */
+
+#ie6_disclaimer {
+  display:none;
+}
+
+#ie6_wrapper {
+  display:none;
+}
+

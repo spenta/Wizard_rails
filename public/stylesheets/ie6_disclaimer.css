@@ -1,0 +1,25 @@
+#ie6_wrapper {
+  display:block;
+  background-color:#f5880c;
+  margin:0px auto;
+}
+
+#ie6_disclaimer {
+  width:960px;
+  display:block;
+  text-align:center;
+  padding:20px 0;
+  margin:0px auto;
+}
+
+.disclaimer {
+  font-size:1.5em;
+  color:#33332F;
+  font-weight:bold;
+}
+
+.disclaimer a {
+  color: black;
+  font-size:1em;
+}
+
