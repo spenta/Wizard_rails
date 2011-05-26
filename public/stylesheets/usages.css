@@ -265,7 +265,7 @@ form {
 {
 	color:#ffffff;
 	background-color:#555555;
-	background-image:none;
+		background-image:url('../images/home/header_bckg.png');
 }
 
 /*Intitul� des usages lorsque c'est ouvert*/

@@ -61,7 +61,7 @@ form.tabbed .question.opened .qbody
 
 	position:absolute;
 	top:0; left:0; right:0;
-
+  background-image:url('../images/home/header_bckg.png');
 	background-color:#555555;
 	-webkit-border-radius:4px;
 	-khtml-border-radius:4px;
