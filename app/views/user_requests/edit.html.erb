@@ -31,12 +31,12 @@
       <p class="warning"><%= flash[:error] %></p>
     <% end -%>
 
-    <% if @user_request.current_step == "mobilities"%>
-      <%= render :partial => 'form_popup' %>
-    <% end %>
-
     <div class="clearfix"></div>
   </div>
+
+  <% if @user_request.current_step == "mobilities"%>
+    <%= render :partial => 'form_popup' %>
+  <% end %>
 
 </div>
 
