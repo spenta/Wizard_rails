@@ -341,7 +341,7 @@ a.tooltip:hover span {
 /* Mise en page */
 
 #specs_sheet {
-	margin:30px 0;
+	margin:30px 0 8px 0;
 }
 
 #tables_header {
@@ -408,5 +408,14 @@ a.tooltip:hover span {
 	font-size:1.4em;
 }
 
-/*Disclaimer*/
-p#disclaimer{ text-align:center;}
+/*Disclaimer for specs values*/
+#spec_disclaimer {
+  clear:both;
+  text-align:right;
+  margin-right:12px;
+  padding-bottom:20px;
+  color:#666666;
+  font-size:1.1em;
+  font-style:italic;
+}
+

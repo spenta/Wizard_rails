@@ -459,7 +459,7 @@ p.specstooltip {
 #extras {
 	width:958px;
 	position:relative;
-	margin:0px auto 30px auto;
+	margin:0px auto 0px auto;
 	border:1px #50A5D7 solid;
 }
 
@@ -693,6 +693,7 @@ a.nounderline {
 .specvalue {
 	font-weight:normal;
 	text-shadow:none;
+	font-size:11px;
 }
 
 .textshading {
@@ -715,5 +716,14 @@ a.nounderline {
 #extras tr.product:hover td.colorid8 { background-color:#039ae6; color:white; text-shadow:1px 1px 0 #666666 }
 #extras tr.product:hover td.colorid9 { background-color:#385feb; color:white; text-shadow:1px 1px 0 #666666 }
 
-/*Disclaimer*/
-p#disclaimer{ text-align:center;}
+/*Disclaimer for specs values*/
+#specs_disclaimer {
+  width:960px;
+  margin:8px auto;
+  text-align:right;
+  padding-right:12px;
+  color:#666666;
+  font-size:1.1em;
+  font-style:italic;
+}
+
