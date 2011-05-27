@@ -13,9 +13,9 @@ $j(document).ready(
             {
                 $j('#popup').toggle();
                 $j('#overlay').toggle();
-                $j('#wait_1').delay(600).fadeIn('slow');
-                $j('#wait_2').delay(1800).fadeIn('slow');
-                $j('#wait_3').delay(2400).fadeIn('slow');
+                $j('#wait_1').delay(50).fadeIn('slow');
+                $j('#wait_2').delay(150).fadeIn('slow');
+                $j('#wait_3').delay(250).fadeIn('slow');
             }
             );
     }
