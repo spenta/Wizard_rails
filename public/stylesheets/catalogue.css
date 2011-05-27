@@ -69,7 +69,7 @@ strong {
 #full_list {
 	width:960px;
 	margin:20px auto 10px auto;
-	padding:12px 0 35px 0;
+	padding:12px 0 12px 0;
 
 	background-color:white;
 
@@ -526,5 +526,14 @@ h4 {
 	background-color:white;
 }
 
-/*Disclaimer*/
-p#disclaimer{ text-align:center;}
+/*Disclaimer for specs values*/
+#spec_disclaimer {
+  clear:both;
+  text-align:left;
+  margin-top:30px;
+  margin-left:8px;
+  color:#666666;
+  font-size:1.1em;
+  font-style:italic;
+}
+

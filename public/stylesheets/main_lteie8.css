@@ -21,7 +21,7 @@
 }
 .question.opened hr, .question.opened.selected hr {
   color: #666666;
-  margin:0 0 0 0;
+  margin:0 0 8px 0;
 }
 
 .sideinfo h5 { color:#33332F; }
