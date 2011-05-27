@@ -6,6 +6,12 @@
   <% p_infos = product.infos%>
   <tr class="product">
     <td class="thumb">
+      <span></span>
+      <% if p.is_star -%>
+        <%= image_tag "/images/results/gold.png" %>
+      <% end -%>
+    </td>
+    <td class="thumb">
       <%= link_to product_path(product.to_param), :target => "_blank" do%>
         <%= image_tag p_infos[:small_img_url], :alt => p_infos[:brand_name]+' '+p_infos[:name], :class => "thumbnail" %>
       <% end -%>

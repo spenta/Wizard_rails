@@ -2,7 +2,7 @@
 <tr class="offer">
   <td class="offer_thumbnail">
     <%= link_to offer.link do %>
-      <%= image_tag((offer.retailer_small_img_url ||infos[:small_img_url]), {:alt => product_sold_by(infos, retailer.name), :class => "thumbnail"}) %>
+      <%= image_tag((offer.retailer_small_img_url || "/images/product/not_available.png"), {:alt => product_sold_by(infos, retailer.name), :class => "thumbnail"}) %>
     <% end -%>
   </td>
   <td class="offer_name">
