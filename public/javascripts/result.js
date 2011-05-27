@@ -25,9 +25,10 @@ $j(document).ready(
             headers:
             {
               0: { sorter:false },
-              1: { sorter:false }
+              1: { sorter:false },
+              2: { sorter:false }
             },
-            sortList: [[3,1]],
+            sortList: [[4,1]],
             textExtraction:
             function(node) {
               var htmlContent = node.innerHTML.split("<")[1];

@@ -40,19 +40,6 @@ module UserRequestsHelper
     end
   end
 
-  # A product is said to have a low performance (L) if score < 90
-  # A product is said to have a medium performance (M) if 90 <= score < 110
-  # A product is said to have a high performance (H) if 110 < score
-  def category_of product
-    if product.spenta_score < 90
-      "L"
-    elsif product.spenta_score > 110
-      "H"
-    else
-      "M"
-    end
-  end
-
   # returns the color code corresponding to the ratio between actual value and target value
   def get_color_number_relative value
     color_number = 0

@@ -594,7 +594,10 @@ p.specstooltip {
 }
 
 /* Pas de bordures sur les infos produit et les en-têtes associés */
-#extras td.thumb { border-right-width:0px; }
+#extras td.thumb { 
+  border-right-width:0px;
+  border-left-width:0px;
+ }
 
 .thumbnail { border-style: none; }
 
