@@ -195,24 +195,7 @@ class UserResponseBuilder
   end
 
   def process_stars!
-    products_with_perfect_score = []
-    other_good_deals = []
-    stars = []
-    @good_deals.each { |p| p.spenta_score == S_R ? products_with_perfect_score << p : other_good_deals << p  }
-    #put the product with score S_R with the best s/p in stars if any, otherwise the product with the highest Q
-    sort_by_score_over_price products_with_perfect_score
-    if products_with_perfect_score.empty?
-      sort_by_Q other_good_deals
-      stars << other_good_deals.last
-    else
-      stars << products_with_perfect_score.last
-    end
-    #then put the best performing product
-    @good_deals.sort! {|p1,p2| p1.spenta_score <=> p2.spenta_score}
-    complete stars, :with => @good_deals, :until_size_is => 2, :allowing_duplicate => false
-    #then complete with good_deals with best s/p
-    sort_by_score_over_price @good_deals
-    complete stars, :with => @good_deals, :until_size_is => N_S, :allowing_duplicate => false
+    stars = (sort_by_Q(@good_deals)).last(3)
     #finally tag star products
     stars.each { |p| p.is_star = true }
   end
@@ -328,7 +311,8 @@ class UserResponse
   end
 
   def get_good_deal_products
-    sort_by_spenta_score(@products_scored.select{|p| p.is_good_deal and !p.is_star})
+    #sort_by_spenta_score(@products_scored.select{|p| p.is_good_deal and !p.is_star})
+    sort_by_spenta_score(@products_scored.select{|p| p.is_good_deal})
   end
 end
 

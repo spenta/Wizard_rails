@@ -16,4 +16,6 @@ module WizardParameters
   S_MIN = 70
   N_BA = 10
   N_S = 3
+  EXP_FACTOR_SUP = 2
+  EXP_FACTOR_INF = 0.05
 end

@@ -41,9 +41,15 @@ module WizardUtilities
     ary.sort! {|p1, p2| p1.spenta_score/p1.price <=> p2.spenta_score/p2.price}
   end
 
-  #careful not to sort an array with products with score S_R !
   def sort_by_Q ary
-    ary.sort! {|p1, p2| p1.spenta_score/(p1.price*(p1.spenta_score-S_R).abs) <=>  p2.spenta_score/(p2.price*(p2.spenta_score-S_R).abs)}
+    ary.sort! {|p1, p2| quality_score(p1) <=> quality_score(p2)}
+  end
+
+  def quality_score product
+    product.spenta_score >= S_R ? exp_factor = EXP_FACTOR_SUP : exp_factor = EXP_FACTOR_INF
+    spread_factor = Math.exp(-((product.spenta_score-S_R)**2/(exp_factor*S_R**2)))
+    score_price_ratio_factor = product.spenta_score/product.price
+    score = spread_factor * score_price_ratio_factor
   end
 
   #completes an array with another by beginning from last position
