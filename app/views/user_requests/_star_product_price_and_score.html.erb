@@ -1,6 +1,6 @@
 <%= render 'vspacer', :is_first_column => is_first_column %>
 <td class="scorebox">
-  <%= content_tag :h3, :class => "colorid#{get_color_number(p.spenta_score/100)}" do %>
+  <%= content_tag :h3, :class => "colorid#{get_color_number_relative(p.spenta_score/100)}" do %>
     <%= p.spenta_score.round%><small>%</small>
   <%end%>
   <p><%= t :bestpick_metric %></p>

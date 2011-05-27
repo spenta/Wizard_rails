@@ -32,7 +32,7 @@
           <div class="specsright">
             <a href="#" class="specstooltip">
               <%spec_score = p_infos[:specification_values][spec_id][:sv_score] %>
-              <%= content_tag :p, :class => "specscore colorid#{get_color_number(spec_score/(@user_response.sigmas[spec_id]))}" do%>
+              <%= content_tag :p, :class => "specscore colorid#{get_color_number_absolute(spec_score.round-(@user_response.sigmas[spec_id]))}" do%>
                 <%= spec_score.round %><small>/10</small>
               <% end %> 
               <span><p class="specstooltip"><%= t :bestpick_score_tooltip %></p></span>

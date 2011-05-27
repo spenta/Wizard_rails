@@ -36,18 +36,46 @@ class UserRequestsHelperTest < ActionView::TestCase
     assert  result == [9, 11, 8, 5, 2], "result for gammas_2: #{result}"
   end
 
-  test 'should give right color numbers' do
-    assert_equal 0, get_color_number(0)
-    assert_equal 1, get_color_number(0.3)
-    assert_equal 1, get_color_number(0.5)
-    assert_equal 2, get_color_number(0.6)
-    assert_equal 3, get_color_number(0.75)
-    assert_equal 4, get_color_number(0.83)
-    assert_equal 5, get_color_number(1)
-    assert_equal 6, get_color_number(1.2)
-    assert_equal 7, get_color_number(1.5)
-    assert_equal 8, get_color_number(1.8)
-    assert_equal 9, get_color_number(3)
+  test 'should give right color numbers with relative score' do
+    assert_equal 0, get_color_number_relative(0)
+    assert_equal 1, get_color_number_relative(0.3)
+    assert_equal 1, get_color_number_relative(0.5)
+    assert_equal 2, get_color_number_relative(0.6)
+    assert_equal 3, get_color_number_relative(0.75)
+    assert_equal 4, get_color_number_relative(0.83)
+    assert_equal 5, get_color_number_relative(1)
+    assert_equal 6, get_color_number_relative(1.2)
+    assert_equal 7, get_color_number_relative(1.5)
+    assert_equal 8, get_color_number_relative(1.8)
+    assert_equal 9, get_color_number_relative(3)
+  end
+
+  test 'should give right color numbers with absolute score' do
+    assert_equal 0, get_color_number_absolute(-10)
+    assert_equal 0, get_color_number_absolute(-9)
+    assert_equal 0, get_color_number_absolute(-8)
+    assert_equal 0, get_color_number_absolute(-7)
+    assert_equal 0, get_color_number_absolute(-6.46)
+    assert_equal 1, get_color_number_absolute(-6)
+    assert_equal 1, get_color_number_absolute(-5)
+    assert_equal 2, get_color_number_absolute(-4)
+    assert_equal 2, get_color_number_absolute(-3)
+    assert_equal 3, get_color_number_absolute(-2)
+    assert_equal 4, get_color_number_absolute(-1)
+    assert_equal 4, get_color_number_absolute(-0.54)
+    assert_equal 5, get_color_number_absolute(0)
+    assert_equal 6, get_color_number_absolute(1)
+    assert_equal 7, get_color_number_absolute(2)
+    assert_equal 7, get_color_number_absolute(3)
+    assert_equal 8, get_color_number_absolute(4)
+    assert_equal 8, get_color_number_absolute(5)
+    assert_equal 8, get_color_number_absolute(5.4)
+    assert_equal 8, get_color_number_absolute(6)
+    assert_equal 8, get_color_number_absolute(6.9)
+    assert_equal 9, get_color_number_absolute(7)
+    assert_equal 9, get_color_number_absolute(8)
+    assert_equal 9, get_color_number_absolute(9)
+    assert_equal 9, get_color_number_absolute(10)
   end
 
 end
