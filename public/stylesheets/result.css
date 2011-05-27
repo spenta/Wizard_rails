@@ -715,3 +715,5 @@ a.nounderline {
 #extras tr.product:hover td.colorid8 { background-color:#039ae6; color:white; text-shadow:1px 1px 0 #666666 }
 #extras tr.product:hover td.colorid9 { background-color:#385feb; color:white; text-shadow:1px 1px 0 #666666 }
 
+/*Disclaimer*/
+p#disclaimer{ text-align:center;}

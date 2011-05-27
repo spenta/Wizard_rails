@@ -1,5 +1,5 @@
 h1 {
 	display: block;
 	width: 216px;	
-	filter: Shadow(color='#33332F', Direction=135, Strength=1);
+	/*filter: Shadow(color='#33332F', Direction=135, Strength=1);*/
 }

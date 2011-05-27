@@ -29,7 +29,9 @@ module ApplicationHelper
 
   def spec_value_with_unit p_infos, spec_id
     begin
-      p_infos[:specification_values][spec_id][:sv_name]+" "+ t_safe("spec_metrics_#{spec_id}")
+      result = p_infos[:specification_values][spec_id][:sv_name]+" "+ t_safe("spec_metrics_#{spec_id}")
+      result += " *" unless p_infos[:specification_values][spec_id][:sv_is_exact]
+      result
     rescue
       t :not_communicated
     end
