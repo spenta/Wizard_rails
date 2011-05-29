@@ -4,8 +4,11 @@ fr:
   # ------------
   nav_button_next: Suivant
   nav_button_prev: Précédent
-	
+  
   # Titles for the step pages
-  usage_main_title: Choisir Facile - Comment utiliserez-vous votre ordinateur ?
-	weight_main_title: Choisir Facile - Quelle importance accordez-vous à ces usages ?
-  mobility_main_title: Choisir Facile - Quelle est votre mobilité ?
+  usage_main_title: |
+    Choisir Facile - Comment utiliserez-vous votre ordinateur ?
+  weight_main_title: |
+    Choisir Facile - Quelle importance accordez-vous à ces usages ?
+  mobility_main_title: |
+    Choisir Facile - Quelle est votre mobilité ?

@@ -2,7 +2,8 @@ fr:
   #---------------------------------------------------------------------------
   # HTML Page title
   #---------------------------------------------------------------------------
-  result_page_html_title: Choisir Facile - Nos suggestions
+  result_page_html_title: |
+    Choisir Facile - Nos suggestions
 
   #---------------------------------------------------------------------------
   # Page title > Displayed before the 3 best picks
