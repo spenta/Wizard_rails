@@ -1,10 +1,8 @@
 <%= render 'vspacer', :is_first_column => is_first_column %>
 <td class="bestpickcolumn" colspan="2">
   <% product = Product.find(p.product_id) -%>
-  <%= link_to product_path(product.to_param) do %>
+  <%= link_to product_path(product.to_param),:target => "_blank" do %>
     <h1><strong><%= product.infos[:brand_name] %></strong><br/> <%= truncate product.name, :length => 25 %></h1>
   <% end -%>
-<%= link_to t(:bestpick_more), product_path(product.to_param), :class => "more" %>
-<%= link_to  product_path(product.to_param) do%>
-<% end -%>
+<%= link_to t(:bestpick_more), product_path(product.to_param), :class => "more" ,:target => "_blank"%>
 </td>
