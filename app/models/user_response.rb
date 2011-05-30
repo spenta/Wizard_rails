@@ -195,7 +195,7 @@ class UserResponseBuilder
   end
 
   def process_stars!
-    stars = (sort_by_Q(@good_deals)).last(3)
+    stars = (sort_by_Q(@good_deals)).last(N_S)
     #finally tag star products
     stars.each { |p| p.is_star = true }
   end

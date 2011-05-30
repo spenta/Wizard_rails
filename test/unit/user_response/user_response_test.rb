@@ -111,7 +111,7 @@ class UserResponseTest < ActiveSupport::TestCase
     @director.builder.process_stars!
     actual_stars = []
     @director.builder.products_for_calculations.each { |p| actual_stars << p if p.is_star }
-    expected_stars = [166,201,218]
+    expected_stars = [178,174,83]
     assert actual_stars.size == 3, "size of stars : #{actual_stars.size}"
     actual_stars.each { |p| assert expected_stars.include?(p.product.id) , "product #{p.product.id} not in expected stars"}
     assert actual_stars = actual_stars.uniq, "duplicate products in stars"
