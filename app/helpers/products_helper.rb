@@ -38,4 +38,15 @@ module ProductsHelper
      t(:product_table_extras) => [20, 12, 40, 32]}
   end
 
+  def retailer_product_name offer
+    offer.retailer_product_name || "#{infos[:brand_name]} #{infos[:name]}"
+  end
+
+  def link_to_offer offer, product
+    link_to offer.link, :target => "_blank", :onClick => "_gaq.push(['_trackEvent', 'retailer_clicks', 'buy', \'#{product.to_param}\']);" do
+      yield
+    end
+  end
+
 end
+
