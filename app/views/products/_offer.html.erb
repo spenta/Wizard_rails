@@ -1,7 +1,7 @@
 <% retailer = Retailer.find(offer.retailer_id) %>
 <tr class="offer">
   <td class="offer_thumbnail">
-    <%= link_to offer.link do %>
+    <%= link_to_offer offer, @product do %>
       <%= image_tag((offer.retailer_small_img_url || "/images/product/not_available.png"), {:alt => product_sold_by(infos, retailer.name), :class => "thumbnail"}) %>
     <% end -%>
   </td>
@@ -9,7 +9,7 @@
     <%= retailer_product_name offer%>
   </td>
   <td class="offer_logo">
-    <%= link_to offer.link, :target => "_blank" do %>
+    <%= link_to_offer offer, @product do %>
       <%= image_tag retailer.logo_url, :class => "retailer_logo" %>
     <% end -%>
   </td>
@@ -17,7 +17,7 @@
     <%= offer.price.round %><small>,<%= get_cents_from offer.price%></small> <%= t :currency %>
   </td>
   <td class="offer_link">
-    <%= link_to offer.link, :target => "_blank", :onClick => "_gaq.push(['_trackEvent', 'retailer_clicks', 'buy', \'#{retailer_product_name offer}\']);" do %>
+    <%= link_to_offer offer, @product do %>
       <div class="offer_button">
         <p class="buy"><%= t :product_buy %></p>
       </div>
