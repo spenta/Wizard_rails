@@ -38,4 +38,9 @@ module ProductsHelper
      t(:product_table_extras) => [20, 12, 40, 32]}
   end
 
+  def retailer_product_name offer
+    offer.retailer_product_name || "#{infos[:brand_name]} #{infos[:name]}"
+  end
+
 end
+

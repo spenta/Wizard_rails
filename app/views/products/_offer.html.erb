@@ -6,7 +6,7 @@
     <% end -%>
   </td>
   <td class="offer_name">
-    <%= offer.retailer_product_name || "#{infos[:brand_name]} #{infos[:name]}" %>
+    <%= retailer_product_name offer%>
   </td>
   <td class="offer_logo">
     <%= link_to offer.link, :target => "_blank" do %>
@@ -17,7 +17,7 @@
     <%= offer.price.round %><small>,<%= get_cents_from offer.price%></small> <%= t :currency %>
   </td>
   <td class="offer_link">
-    <%= link_to offer.link, :target => "_blank" do %>
+    <%= link_to offer.link, :target => "_blank", :onClick => "_gaq.push(['_trackEvent', 'retailer_clicks', 'buy', \'#{retailer_product_name offer}\']);" do %>
       <div class="offer_button">
         <p class="buy"><%= t :product_buy %></p>
       </div>
