@@ -4,7 +4,7 @@ xml.user_requests do
       xml.is_complete(ur.is_complete)
       xml.request_creation_date(ur.created_at)
       xml.request_update_date(ur.updated_at)
-      ur.usage_choices.where(:is_selected => true).each do |uc|
+      ur.usage_choices.where("is_selected = ? or usage_id > ?", true, 17).each do |uc|
         xml.usage_choice(:id => uc.id) do 
           xml.usage_id(uc.usage_id)
           xml.weight_for_user(uc.weight_for_user)
