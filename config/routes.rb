@@ -1,6 +1,7 @@
 WizardRails::Application.routes.draw do
 
  
+  get 'sitemap', :to => 'sitemap#show.xml'
 
   resources :user_requests, :path => "conseiller-virtuel", :only => [:create, :update, :edit, :index], :path_names =>  {:edit => "questionnaire", :user_response => "resultats"} do
     get 'user_response', :on => :member
@@ -8,12 +9,8 @@ WizardRails::Application.routes.draw do
 
   resources :products, :path => "ordinateurs", :only => [:index, :show]
 
-  resources :usage_choices
-
-  resources :super_usages
-
-  match 'legal' => 'misc#legal'
-  match 'terms' => 'misc#terms'
+  get 'legal' => 'misc#legal'
+  get 'terms' => 'misc#terms'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
