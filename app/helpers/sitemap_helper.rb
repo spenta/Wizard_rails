@@ -1,5 +1,5 @@
 module SitemapHelper
-  def sitemap_tag xml, path, options={:freq => 'daily', :prio=> 0.5}
+  def sitemap_tag xml, path, options={:prio=> 0.5}
     xml.url do
       xml.loc(path)
       xml.changefreq(options[:freq])
