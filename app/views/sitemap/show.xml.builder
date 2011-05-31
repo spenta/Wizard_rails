@@ -10,7 +10,7 @@ xml.urlset(:xmlns => "http://www.sitemaps.org/schemas/sitemap/0.9") do
 
   #products
   Product.all.each do |p| 
-    sitemap_tag xml, product_url(p.to_param), :freq => 'daily'
+    sitemap_tag xml, product_url(p.to_param), :freq => 'daily', :prio => 0.5
   end
   
 end
