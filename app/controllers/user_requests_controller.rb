@@ -12,7 +12,10 @@ class UserRequestsController < ApplicationController
   end
 
   def index
-    redirect_to :root
+    respond_to do |format|
+      format.html {redirect_to :root}
+      format.xml 
+    end
   end
 
   # GET /user_requests/1/edit
@@ -123,5 +126,4 @@ class UserRequestsController < ApplicationController
     end
     new_user_request
   end
-
 end
