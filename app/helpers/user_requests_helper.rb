@@ -86,4 +86,24 @@ module UserRequestsHelper
       raise min_offer.inspect
     end
   end
+
+  def link_to_suggestion product
+    if root_url == "http://www.choisirfacile.com/"
+      link_to product_path(product.to_param), :target => "_blank", :onClick => "_gaq.push(['_trackEvent', 'results_clicks', 'suggestion', \'star-#{product.to_param}\']);" do
+        yield
+      end
+    else
+      link_to product_path(product.to_param), :target => "_blank" do
+        yield
+      end
+    end
+  end
+
+  def link_to_toggle_star_details open_or_close, label_on_button
+    if root_url == "http://www.choisirfacile.com/"
+      link_to label_on_button, '#', :onClick => "_gaq.push(['_trackEvent', 'toggle_details_click', 'toggle_details', \'#{open_or_close}-star-details\']);"
+    else
+      link_to label_on_button, '#'
+    end
+  end
 end

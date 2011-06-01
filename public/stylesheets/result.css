@@ -173,8 +173,7 @@ p.bestpickcolumn {
 	text-align:justify;
 }
 
-a.more {
-	display:block;
+p.more {
 	margin-right:20px;
 	font-size:1.3em;
 	color:#036CAA;
