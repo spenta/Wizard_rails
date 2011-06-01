@@ -1,0 +1,135 @@
+#page_content .intro {
+  font-size:1em;
+  color:#33332F;
+  margin:8px 40px 8px 40px;
+}
+
+#page_content .intro_center {
+  text-align:center;
+  font-size:1.1em;
+  font-weight:bold;
+  color:#33332F;
+  margin:8px 40px 40px 40px;
+}
+
+#page_content .intro_center_nomargin {
+  text-align:center;
+  font-size:1.1em;
+  font-weight:bold;
+  color:#33332F;
+  margin:8px 40px 15px 40px;
+}
+
+.clearfix { clear:both; }
+
+#page_content .feature_text {
+  float:left;
+  width:370px;
+  margin:10px 20px;
+}
+
+#page_content .feature_img {
+  float:left;
+  width:450px;
+  margin:10px 20px;
+}
+
+.title_box {
+  background-color:#50A5D7;
+  padding:4px;
+  margin-top:20px;
+  -webkit-border-radius:8px;
+  -khtml-border-radius:8px;
+  -moz-border-radius:8px;
+  -o-border-radius:8px;
+	border-radius:8px;
+	behavior: url(/stylesheets/PIE.htc);
+	position: relative;
+	margin-bottom:10px;
+}
+
+.title_box h2 {
+  color:white;
+  font-size:1.4em;
+  text-align:center;
+  margin:0px;
+}
+
+#page_content .feature_text p {
+  font-size:1em;
+}
+
+.vspacer { padding:15px 0; }
+
+#page_content ul, #page_content li {
+  list-style-type:disc;
+  font-size:1em;
+  margin:3px 5px;
+  padding-left:5px;
+  text-align:justify;
+}
+
+.retailer_box {
+  float:left;
+  margin:10px 10px;
+}
+
+.retailer_box img {
+  height:40px;
+  display:inline-block;
+  margin:0px auto;
+}
+
+#page_content .retailer_box p {
+  text-align:center;
+  font-size:0.8em;
+  color:#666;
+  font-style:italic;
+}
+
+#page_content .retailer_wrapper {
+  margin:0 auto 0 120px;
+  width:750px;
+  text-align:center;
+}
+
+#page_content .partner_img {
+  width:150px;
+  padding:10px;
+  float:left;
+  vertical-align:middle;
+}
+
+#page_content .partner_infos {
+  width:680px;
+  padding:10px;
+  margin-left:10px;
+  float:left;
+  display:inline-block;
+  border-left:1px solid #E5E5E5;
+}
+
+#page_content .partner_name {
+  font-size:1em;
+  color:#33332F;
+  font-weight:bold;
+}
+
+#page_content .partner_name {
+  font-size:1.2em;
+  color:#33332F;
+  font-style:bold;
+  margin:0 0 8px 0;
+}
+
+#page_content .partner_text {
+  font-size:1em;
+  color:#666666;
+  margin:0;
+}
+
+#page_content .partner_link {
+  font-size:1em;
+  color:#50A5D7;
+}
+

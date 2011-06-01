@@ -52,29 +52,32 @@ h2 {
 	font-size:1.2em;
 	color:#33332F;
 	list-style:disc;
-	
+
 	padding-bottom:3px;
 }
-	
+
 
 /* Mise en page globale */
 
-#page_wrapper { 
+#page_wrapper {
 	background-color:#50A5D7;
 	padding:30px 0;
-	min-height:700px;
+	min-height:500px;
 }
 
-#page_content { 
+#page_content {
 	width:900px;
 	margin:20px auto;
 	padding:12px 30px;
-	
+
 	background-color:white;
-	
+
 	-webkit-border-radius:12px;
   -khtml-border-radius:12px;
   -moz-border-radius:12px;
   -o-border-radius:12px;
 	border-radius:12px;
+	behavior: url(/stylesheets/PIE.htc);
+	position: relative;
 }
+

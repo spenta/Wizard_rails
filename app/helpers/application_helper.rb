@@ -20,7 +20,6 @@ module ApplicationHelper
     Rails.cache.write('cache_state', 'complete')
   end
 
-
   def get_cents_from price
     result = Integer(price.modulo(1).round(2)*100.floor).to_s
     result += "0"

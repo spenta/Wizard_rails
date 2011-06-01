@@ -13,7 +13,16 @@ fr:
     <p class="disclaimer">Pour profiter pleinement de nos conseils d'achat pour PC portables, <br/>nous vous suggérons d'installer un navigateur récent, comme<br/><a href="http://www.google.com/chrome/?hl=fr" rel="nofollow" target="_blank">Google Chrome</a>, <a href="http://www.mozilla-europe.org/fr/" rel="nofollow" target="_blank">Firefox 4</a> ou encore <a href="http://windows.microsoft.com/fr-FR/internet-explorer/products/ie/home" rel="nofollow" target="_blank">Internet Explorer 9</a></p>
 
   home_explain: |
-    Choisir Facile vous aide à trouver facilement le PC qu'il vous faut. C'est <strong>GRATUIT</strong>, <strong>OBJECTIF</strong> et <strong>RAPIDE</strong> !
+    Choisir Facile vous aide à trouver le PC portable qu'il vous faut. C'est <strong>GRATUIT</strong>, <strong>OBJECTIF</strong> et <strong>RAPIDE</strong> !
+
+  home_count_1: Pour vous offrir un large choix d'ordinateurs portables, nous référençons
+  home_count_2: marchands. Vous pouvez comparer
+  home_count_3: modèles de PC !
+
+  # Contact tooltip
+  contact_text: Contactez-nous
+  contact_tooltip: |
+    Le guide d'achat interactif Choisir Facile vous est proposé par la société <strong>Spenta</strong>, une petite start-up gérée par trois jeunes passionnés de high-tech : Thomas, Vincent et Youssef.<br />N'hésitez pas à nous faire parvenir vos questions sur <strong>contact@spenta.biz</strong> !
 
   legal_info: Mentions légales
   eula: Conditions d'utilisation
@@ -348,6 +357,6 @@ fr:
   #-------------------
   not_communicated: non communiqué
   currency: €
-  
+
   #Disclaimer
   disclaimer_for_specs_values: * Cette valeur est extrapolée car elle ne nous a pas été communiquée.

@@ -21,7 +21,43 @@ Footer
 
 .footer_left { float:left; }
 
-.footer_right { float:right; }
+.footer_right { float:right; color:#666; }
 
 .clearfix { clear:both; }
+
+a.contact_tooltip {
+	position:relative;
+	text-decoration:none;
+}
+
+a.contact_tooltip:hover {
+	background: none;
+	z-index: 1;
+}
+
+a.contact_tooltip span {
+	display: none;
+	position:relative;
+}
+
+/* Style du popup lorsqu'il s'affiche */
+a.contact_tooltip:hover span {
+	display: block;
+	position: absolute;
+	text-align:justify;
+	width:250px;
+	top:-60px;
+	left:-125px;
+	background:#D4FCD9;
+	color:#33332F;
+	padding: 10px;
+	border: 1px solid #057619;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+}
+
+.contact_tooltip strong {
+  color:#33332F;
+  font-weight:bold;
+}
 
