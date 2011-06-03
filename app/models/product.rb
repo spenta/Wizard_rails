@@ -17,7 +17,8 @@ class Product < ActiveRecord::Base
   end
 
   def self.all_cached
-    Rails.cache.fetch("all_products") {Product.all}
+    products = Product.all.collect{|p| p.price>0}
+    Rails.cache.fetch("all_products") {products}
   end
 
   def price
