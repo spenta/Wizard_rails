@@ -53,7 +53,7 @@ class UserResponseBuilder
 
     #array of products_for_calculations
     @products_for_calculations=[]
-    Product.all.each { |p| @products_for_calculations << ProductForCalculations.new(p)}
+    Product.all_cached.each { |p| @products_for_calculations << ProductForCalculations.new(p)}
 
     @good_deals = []
   end
