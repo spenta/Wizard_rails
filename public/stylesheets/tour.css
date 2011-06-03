@@ -93,6 +93,10 @@
   text-align:center;
 }
 
+#page_content .partner {
+  padding:8px 0;
+}
+
 #page_content .partner_img {
   width:150px;
   padding:10px;
