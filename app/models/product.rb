@@ -69,7 +69,9 @@ class Product < ActiveRecord::Base
 
   #gets the minimal price among all offers
   def build_price
-    price = self.offers.sort{|o1, o2| o1.price <=> o2.price}.first.price
+    if self.offers.count > 0
+      price = self.offers.sort{|o1, o2| o1.price <=> o2.price}.first.price
+    end    
   end
 
 end
