@@ -71,7 +71,9 @@ class Product < ActiveRecord::Base
   def build_price
     if self.offers.count > 0
       price = self.offers.sort{|o1, o2| o1.price <=> o2.price}.first.price
-    end    
+    else
+      0
+    end  
   end
 
 end
