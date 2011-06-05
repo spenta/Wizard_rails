@@ -373,6 +373,11 @@ tr.bestpick_motives {
 	font-size:1.2em;
 	color:#33332F;
 	text-align:justify;
+	margin:3px 25px 0 25px;
+}
+
+.bestpick_motives strong {
+	font-weight:bold;
 }
 
 /* Positionnement des elements image, carac et score soient sur la même ligne */
