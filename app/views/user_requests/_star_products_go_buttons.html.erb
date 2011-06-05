@@ -6,7 +6,7 @@
   <% is_first_column = false -%>
     <p>Accès direct au marchand le moins cher :</p>
     <% @product.offers.order("price asc").first do |o| -%>
-      <%= link_to_offer :offer => o, @product do %>
+      <%= link_to_offer({:offer => o}, @product) do %>
         <%= image_tag retailer.logo_url, :class => "retailer_logo" %>
       <% end -%>
     <% end -%>
