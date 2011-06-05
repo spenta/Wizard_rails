@@ -8,7 +8,7 @@
       <p>
 				<%= t_safe :best_offer_text %>
       	<% best_offer = product.offers.order("price asc").first %>
-      	<%= link_to best_offer[:link], :target => "_blank" do %>
+      	<%= link_to best_offer[:link], :target => "_blank",  :onClick => "_gaq.push(['_trackEvent', 'retailer_clicks', 'buy', \'buy-#{best_offer.retailer.name}-#{best_offer.product[:name]}\']);" do %>
         	<%= image_tag best_offer.retailer.logo_url, :class =>"best_offer_logo" %>
       	<% end -%>
 			</p>
