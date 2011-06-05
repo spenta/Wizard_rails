@@ -373,12 +373,12 @@ tr.bestpick_motives {
 	font-size:1.2em;
 	color:#33332F;
 	text-align:justify;
-	margin:3px 25px 0 25px;
+	margin:3px 20px 0 20px;
 }
 
 .bestpick_motives strong {
 	font-weight:bold;
-	font-size:1.2em;
+	font-size:1.0em;
 	color:#33332F;
 }
 
