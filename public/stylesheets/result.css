@@ -378,6 +378,8 @@ tr.bestpick_motives {
 
 .bestpick_motives strong {
 	font-weight:bold;
+	font-size:1.2em;
+	color:#33332F;
 }
 
 /* Positionnement des elements image, carac et score soient sur la même ligne */
