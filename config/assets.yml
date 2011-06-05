@@ -21,6 +21,7 @@ javascripts:
 
   result:
     - public/javascripts/jquery.tablesorter.min.js
+    - public/javascripts/jquery.ae.image.resize.min.js
     - public/javascripts/result.js
 
   catalogue:

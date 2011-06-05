@@ -87,6 +87,16 @@ fr:
   # Currency. After the <small> tag
   bestpick_currency: €
 
+  #Info on the best offer
+  best_offer_text: |
+    Marchand le moins cher :
+    
+  #Motives for picking those PCs
+  bestpicks_motive_1: |
+    <h3>Pourquoi avons-nous sélectionné ces trois ordinateurs ?</h3>
+    <p>Grâce à vos réponses, nous avons déterminé les caractéristiques du PC idéal pour faire ce que vous voulez. Ces ordinateurs sont les <strong>meilleurs compromis</strong> entre les performances et le prix parmi 
+  bestpicks_motive_2: |
+     modèles ! Voici <strong>les 5 caractéristiques techniques qui comptent</strong> pour vous, par ordre d'importance :</p>
   # Button linking to the product sheet
   #---------------------------------------------------------------------------
 

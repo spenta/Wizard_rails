@@ -217,6 +217,26 @@ small {
 	text-align:center;
 }
 
+/* Meilleure offre */
+
+.best_offer {
+	width:250px;
+	height:40px;
+	padding:5px;
+	text-align:center;
+}
+
+.best_offer p {
+	font-size:1.2em;
+	color:#33332F;
+	margin-top:10px;
+}
+
+.best_offer_logo {
+	vertical-align:middle;
+	margin-left:5px;
+}
+
 /* --- Formatage du tableau --- */
 
 #bestpicktable {
