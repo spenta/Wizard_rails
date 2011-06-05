@@ -222,9 +222,15 @@ small {
 	margin:0 auto;
 }
 
-/* Arrondis en haut du tableau */
+/* Arrondis du tableau */
 td.bestpickcolumntop {
 	background-image:url('/images/results/bestpickbox-top.png');
+	width:280px;
+	height:10px;
+}
+
+td.rounded_bottom {
+	background-image:url('/images/results/bestpickbox-bottom.png');
 	width:280px;
 	height:10px;
 }
