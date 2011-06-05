@@ -64,7 +64,7 @@ Vert foncé = #057619
 #toptitle {
 	display:block;
 	text-align:center;
-	padding:15px 50px 15px 0;
+	padding:15px 50px 8px 0;
 	margin-bottom:10px;
 }
 
@@ -89,7 +89,7 @@ Vert foncé = #057619
 /* ---------------- Boutons de retour au wizard ---------------- */
 
 #navbuttons {
-	padding:15px 0px;
+	padding:15px 0px 8px 0px;
 	margin-left:35px;
 	float:left;
 }
@@ -108,7 +108,7 @@ Vert foncé = #057619
 	background-image:url('/images/results/restartbutton.png');
 	width:200px;
 	height:30px;
-	margin-top:10px;
+	margin-top:8px;
 }
 
 .restartbutton:hover {
@@ -243,8 +243,8 @@ td.bestpickvspacer {
 }
 
 .featuredimg {
-	width:260px;
-	margin:5px auto;
+	width:220px;
+	margin:0px auto;
 	display:block;
 }
 
