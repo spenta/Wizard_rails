@@ -357,6 +357,24 @@ tr.bestpick_motives {
 	width:958px;
 }
 
+.bestpick_motives td {
+	width:900px;
+	padding:4px 10px;
+}
+
+.bestpick_motives h3 {
+	font-size:1.4em;
+	font-weight:bold;
+	color:#33332F;
+	text-align:center;
+}
+
+.bestpick_motives p {
+	font-size:1.2em;
+	color:#33332F;
+	text-align:justify;
+}
+
 /* Positionnement des elements image, carac et score soient sur la même ligne */
 .specsrankimage {
 	float:left;
