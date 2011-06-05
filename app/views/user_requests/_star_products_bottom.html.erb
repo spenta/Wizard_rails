@@ -19,10 +19,10 @@
       <% is_first_column = false -%>
         <td class="bestpickcolumn" colspan="2">
           <div class="specsleft">
-            <a href="#" class="specstooltip">
+            <%# <a href="#" class="specstooltip"> %>
               <%= image_tag "/images/results/rank#{num_line}.png", :class => "specsrankimage" %>
-              <span><p class="specstooltip"><%= t :bestpick_rank_tooltip %></p></span>
-            </a>
+              <%#<span><p class="specstooltip"><%= t :bestpick_rank_tooltip %><%#</p></span>%>
+            <%#</a>%>
             <a href="#" class="specstooltip">
               <h5 class="specsname"><%= t_safe "spec_name_#{spec_id}" %></h5>
               <p class="specsvalue"><%= spec_value_with_unit p_infos, spec_id%></p>
