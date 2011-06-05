@@ -10,11 +10,21 @@
   <![endif]-->
 
   <%= include_javascripts :result%>
+  <script type="text/javascript" src="http://apis.google.com/js/plusone.js"></script>
 <% end -%>
 
 <div id="resultpage">
   <%# Section du haut : produits recommandés  %>
   <%= render 'star_products_group', :star_products => star_products, :important_specs_id =>  important_specs_id %>
+  <%# Google +1 button %>
+  <div class="social_media">
+	  <p><%= t :vote_for_us %> </p>
+	  <div class="plus_one">
+		  <iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.choisirfacile.com&amp;send=false&amp;layout=button_count&amp;width=100&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:21px;" allowTransparency="true"></iframe>
+		  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.choisirfacile.com" data-text="Un conseiller interactif trouver un PC portable :" data-count="horizontal" data-lang="fr">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+		<g:plusone href="http://www.choisirfacile.com" size="medium"></g:plusone>
+		</div>
+	</div>
   <%# Section du bas : autres produits adaptés %>
   <%= render 'good_deal_products_group', :good_deal_products => good_deal_products, :important_specs_id =>  important_specs_id %>
 </div>

@@ -159,6 +159,9 @@ fr:
 
   toggle_expand: &#62; Pourquoi recommandons-nous ces PC ? Cliquez ici &#60;
   toggle_collapse: &#62; Cacher le détail des notes &#60;
+  
+  # Google +! button incentive
+  vote_for_us: Vous avez aimé ces conseils ? Partagez l'adresse du site ! 
 
   #---------------------------------------------------------------------------
   # Bottom wrapper : the extended list

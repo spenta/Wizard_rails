@@ -508,12 +508,35 @@ p.specstooltip {
 	text-decoration:none;
 }
 
+/* Social media */
+
+.social_media {
+	width:960px;
+	margin:10px auto;
+	text-align:right;
+	padding:0 30px;
+}
+
+.social_media p {
+	font-size:1.2em;
+	font-style:italic;
+	color:#666666;
+	display:inline-block;
+	margin-right:15px;
+	position:relative;
+	top:-5px;
+} 
+
+.plus_one {
+	display:inline-block;
+}
+
 /* ---------------- Conteneurs pour la mise en page des sections du bas ---------------- */
 
 #bottomwrapper {
 	background-color:white;
 	margin:0 auto;
-	padding:15px 0 25px 0;
+	padding:0px 0 25px 0;
 }
 
 #extras {
