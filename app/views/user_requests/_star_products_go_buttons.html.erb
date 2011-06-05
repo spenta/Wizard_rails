@@ -5,11 +5,7 @@
   <td class="bestpickcolumn" colspan="2">
   <% is_first_column = false -%>
     <p>Accès direct au marchand le moins cher :</p>
-    <% @product.offers.order("price asc").first do |o| -%>
-      <%= link_to_offer({:offer => o}, @product) do %>
-        <%= image_tag retailer.logo_url, :class => "retailer_logo" %>
-      <% end -%>
-    <% end -%>
+    <%= product.offers.order("price sac").first[:price] %>
   <%= link_to_suggestion product do %>
     <div class="productbutton">
       <h4><%= t :bestpick_button %></h4>
