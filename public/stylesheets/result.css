@@ -349,6 +349,14 @@ a.scoretooltip:hover span {
 }
 
 /* ---------------- Caractéristiques des 3 PC mis en avant ---------------- */
+/* Rang d'explications */
+tr.bestpick_motives {
+	background-color:white;
+	background-image:url(../images/results/scorebox.png);
+	border: 1px solid #E5E5E5;	
+	width:958px;
+}
+
 /* Positionnement des elements image, carac et score soient sur la même ligne */
 .specsrankimage {
 	float:left;
