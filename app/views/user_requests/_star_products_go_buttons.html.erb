@@ -4,9 +4,11 @@
   <%= render 'vspacer', :is_first_column => is_first_column  %>
   <td class="bestpickcolumn" colspan="2">
   <% is_first_column = false -%>
-	  <p>Le site marchand le moins cher pour ce PC :</p>
-		<%= link_to_offer offer, @product do %>
-		  <%= image_tag retailer.logo_url, :class => "retailer_logo" %>
+	  <p>Accès direct au marchand le moins cher :</p>
+		<% @product.offers.order("price asc").first do |o| -%>
+      <%= link_to_offer :offer => o, @product do %>
+        <%= image_tag retailer.logo_url, :class => "retailer_logo" %>
+      <% end -%>
 	  <% end -%>
   <%= link_to_suggestion product do %>
     <div class="productbutton">
