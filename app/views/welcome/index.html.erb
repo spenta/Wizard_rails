@@ -100,7 +100,7 @@
         <a class="no_underline" href="/sites_marchands.html">
           <h2>Les sites marchands</h2>
         </a>
-        <p><%= t :home_count_1 %> 8 <%= t :home_count_2 %> plus de 600 <%= t :home_count_3 %></p>
+        <p><%= t :home_count_1 %> 8 <%= t :home_count_2 %><% @product.offers.count.to_s %><%= t :home_count_3 %></p>
         <p class="page_link">> <a href="/sites_marchands.html">Liste des marchands</a></p>
       </div>
       <div class="clearfix"></div>
