@@ -58,7 +58,7 @@ fr:
   bestpick_column_H: Si vos besoins augmentent à l'avenir, ce modèle a de la puissance de réserve et ne vous laissera pas tomber.
 
   # Link to the product sheet
-  bestpick_more: + d'informations
+  bestpick_more: Fiche technique et offres
 
   # Sets the alternate text for the deals. The brand and model are to be appended to this.
   bestpick_img: Ordinateur PC portable
@@ -82,7 +82,7 @@ fr:
                 </ul>
 
   # Price : in the <p> tag of the "pricebox" <td>
-  bestpick_price: à partir de
+  bestpick_price: À partir de
 
   # Currency. After the <small> tag
   bestpick_currency: €
@@ -90,7 +90,7 @@ fr:
   # Button linking to the product sheet
   #---------------------------------------------------------------------------
 
-  bestpick_button: J'en profite !
+  bestpick_button: Voir les offres
 
   #---------------------------------------------------------------------------
   # Detailed specs of the 3 featured PCs
