@@ -23,18 +23,21 @@
     <div id="bestpicktablewrapper">
       <table id="bestpicktable">
         <%= render 'star_products_top', :star_products => star_products %>
-        <%# Caracteristiques detaillé des produits (le toggle est declare en dessous) %>
-        <tbody id="Collapsable">
-          <%= render 'star_products_bottom', :star_products => star_products, :important_specs_id => important_specs_id %>
-        </tbody>
-        <tbody>
+        
+				<tbody>
           <%# Boutons pour aller sur la fiche produit %>
           <tr>
             <%= render 'star_products_go_buttons', :star_products => star_products%>
           </tr>
         </tbody>
+				
+				<%# Caracteristiques detaillé des produits (le toggle est declare en dessous) %>
+        <tbody id="Collapsable">
+          <%= render 'star_products_bottom', :star_products => star_products, :important_specs_id => important_specs_id %>
+        </tbody>
+        
         <%# Bouton pour afficher ou masquer les caracteristiques completes %>
-        <%#<%= render :partial => 'star_products_expand_buttons' %>%>
+        <%#<%= render :partial => 'star_products_expand_buttons' %>
       </table>
     </div>
   </div>
