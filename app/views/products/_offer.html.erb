@@ -14,7 +14,7 @@
     <% end -%>
   </td>
   <td class="offer_price">
-    <%= offer.price.round %><small>,<%= get_cents_from offer.price%></small> <%= t :currency %>
+    <%= offer.price.floor %><small>,<%= get_cents_from offer.price%></small> <%= t :currency %>
   </td>
   <td class="offer_link">
     <%= link_to_offer offer, @product do %>
