@@ -224,7 +224,7 @@ small {
 .best_offer_count {
 	font-size:1.2em;
 	color:#33332F;
-	margin-bottom:3px;
+	margin:5px 0 3px 0;
 	text-align:center;
 }
 
@@ -246,6 +246,8 @@ small {
   font-size:1.2em;
   color:#036CAA;
   display:inline;
+  margin-top:auto;
+  margin-bottom
 }
 
 
