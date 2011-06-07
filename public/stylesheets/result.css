@@ -226,16 +226,23 @@ small {
 	text-align:center;
 }
 
-.best_offer p {
+.best_offer_count {
 	font-size:1.2em;
 	color:#33332F;
-	margin-top:0px;
-	vertical-align:middle;
+	margin-bottom:4px;
 }
 
 .best_offer_logo {
 	vertical-align:middle;
 	margin-left:5px;
+	display:inline;
+}
+
+.best_offer_text_link {
+  text-decoration:underline;
+  font-size:1.2em;
+  color:#036CAA;
+  display:inline;
 }
 
 /* --- Formatage du tableau --- */
@@ -374,7 +381,7 @@ a.scoretooltip:hover span {
 tr.bestpick_motives {
 	background-color:white;
 	background-image:url(../images/results/scorebox.png);
-	border: 1px solid #E5E5E5;	
+	border: 1px solid #E5E5E5;
 	width:958px;
 }
 
@@ -525,7 +532,7 @@ p.specstooltip {
 	margin-right:15px;
 	position:relative;
 	top:-5px;
-} 
+}
 
 .plus_one {
 	display:inline-block;
@@ -677,7 +684,7 @@ p.specstooltip {
 }
 
 /* Pas de bordures sur les infos produit et les en-têtes associés */
-#extras td.thumb { 
+#extras td.thumb {
   border-right-width:0px;
   border-left-width:0px;
  }

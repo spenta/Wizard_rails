@@ -88,13 +88,14 @@ fr:
   bestpick_currency: €
 
   #Info on the best offer
-  best_offer_text: |
-    Marchand le moins cher :
-    
+  best_offer_text_1: Disponible chez
+  best_offer_text_2: marchand(s).
+  best_offer_text_3: Le moins cher
+
   #Motives for picking those PCs
   bestpicks_motive_1: |
     <h3>Pourquoi avons-nous sélectionné ces trois ordinateurs ?</h3>
-    <p>Grâce à vos réponses, nous avons déterminé les caractéristiques du PC idéal pour faire ce que vous voulez. Ces ordinateurs sont les <strong>meilleurs compromis</strong> entre les performances et le prix parmi 
+    <p>Grâce à vos réponses, nous avons déterminé les caractéristiques du PC idéal pour faire ce que vous voulez. Ces ordinateurs sont les <strong>meilleurs compromis</strong> entre les performances et le prix parmi
   bestpicks_motive_2: |
      modèles ! Voici <strong>les 5 caractéristiques techniques qui comptent</strong> pour vous, par ordre d'importance :</p>
   # Button linking to the product sheet
@@ -159,9 +160,9 @@ fr:
 
   toggle_expand: &#62; Pourquoi recommandons-nous ces PC ? Cliquez ici &#60;
   toggle_collapse: &#62; Cacher le détail des notes &#60;
-  
+
   # Google +! button incentive
-  vote_for_us: Vous avez aimé ces conseils ? Partagez l'adresse du site ! 
+  vote_for_us: Vous avez aimé ces conseils ? Partagez l'adresse du site !
 
   #---------------------------------------------------------------------------
   # Bottom wrapper : the extended list

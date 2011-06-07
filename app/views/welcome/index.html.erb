@@ -1,11 +1,11 @@
 <%= content_for :head do %>
-  <title>Choisir Facile - Touver le meilleur ordinateur portable</title>
+  <title><%= t_safe :home_html_title %></title>
 
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
 
-  <meta name="language" content="fr" />
-  <meta name="description" content="Choisir Facile vous conseille le PC portable le plus adapté à vos besoins." />
-  <meta name="keywords" content="PC portable" />
+  <meta name="language" content="fr"></meta>
+  <meta name="description" content="<%= t_safe :home_html_description %>"></meta>
+  <meta name="keywords" content="<%= t_safe :meta_keywords %>"></meta>
 
   <%= include_javascripts :home%>
   <%= include_stylesheets :home%>
@@ -16,7 +16,7 @@
 <% end -%>
 <body>
   <div id="home">
-    <p class="explain"><%= t_safe :home_explain %></p>
+    <h1 class="explain"><%= t_safe :home_explain %></h1>
 
     <div class="wrapper">
       <div id="steps_grid">
@@ -29,8 +29,8 @@
           <div class="right">
             <img class="top" src="/images/home/step_1.png" />
             <div class="bottom">
-              <h1>Répondez aux questions</h1>
-              <p class="subtitle">Ça ne prend que deux minutes</p>
+              <h2><%= t_safe :home_step_1_title %></h2>
+              <p class="subtitle"><%= t_safe :home_step_1_subtitle %></p>
             </div>
             <div class="clearfix"></div>
           </div>
@@ -46,8 +46,8 @@
           <div class="right">
             <img class="top" src="/images/home/step_2.png" />
             <div class="bottom">
-              <h1>Profitez de nos conseils</h1>
-              <p class="subtitle">Ils sont taillés pour <strong>vos</strong> besoins</p>
+              <h2><%= t_safe :home_step_2_title %></h2>
+              <p class="subtitle"><%= t_safe :home_step_2_subtitle %></p>
             </div>
             <div class="clearfix"></div>
           </div>
@@ -63,8 +63,8 @@
           <div class="right">
             <img class="top" src="/images/home/step_3.png" />
             <div class="bottom">
-              <h1>Achetez au meilleur prix</h1>
-              <p class="subtitle">Nous sommes 100% indépendants</p>
+              <h2><%= t_safe :home_step_3_title %></h2>
+              <p class="subtitle"><%= t_safe :home_step_3_subtitle %></p>
             </div>
             <div class="clearfix"></div>
           </div>
