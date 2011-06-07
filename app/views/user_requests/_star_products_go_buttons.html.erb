@@ -4,17 +4,15 @@
   <%= render 'vspacer', :is_first_column => is_first_column  %>
   <td class="bestpickcolumn" colspan="2">
   <% is_first_column = false -%>
+    <p class="best_offer_count"><%= t_safe :best_offer_text_1 %> <%= product.offers.count %> <%= t_safe :best_offer_text_2 %></p>
     <div class="best_offer">
-      <p class="best_offer_count""><%= t_safe :best_offer_text_1 %> <%= product.offers.count %> <%= t_safe :best_offer_text_2 %></p>
-
-      	<% best_offer = product.offers.order("price asc").first %>
-      	<%= link_to best_offer[:link], :target => "_blank", :onClick => "_gaq.push(['_trackEvent', 'retailer_clicks', 'buy', \'buy-#{best_offer.retailer.name}-#{best_offer.product[:name]}\']);" do %>
-      	  <p class="best_offer_text_link"><%= t :best_offer_text_3 %></p>
-      	<% end -%>
-      	<%= link_to best_offer[:link], :target => "_blank",  :onClick => "_gaq.push(['_trackEvent', 'retailer_clicks', 'buy', \'buy-#{best_offer.retailer.name}-#{best_offer.product[:name]}\']);" do %>
-      	  <%= image_tag best_offer.retailer.logo_url, :class =>"best_offer_logo" %>
-      	<% end -%>
-
+      <% best_offer = product.offers.order("price asc").first %>
+      <%= link_to best_offer[:link], :target => "_blank", :onClick => "_gaq.push(['_trackEvent', 'retailer_clicks', 'buy', \'buy-#{best_offer.retailer.name}-#{best_offer.product[:name]}\']);" do %>
+      	<p class="best_offer_text_link"><%= t :best_offer_text_3 %></p>
+      <% end -%>
+      <%= link_to best_offer[:link], :target => "_blank",  :onClick => "_gaq.push(['_trackEvent', 'retailer_clicks', 'buy', \'buy-#{best_offer.retailer.name}-#{best_offer.product[:name]}\']);" do %>
+        <%= image_tag best_offer.retailer.logo_url, :class =>"best_offer_logo" %>
+      <% end -%>
     </div>
   <%= link_to_suggestion product do %>
     <div class="productbutton">

@@ -222,7 +222,7 @@ small {
 .best_offer {
 	width:270px;
 	height:20px;
-	padding:5px 5px 15px 5px;
+	padding:5px 5px 10px 5px;
 	text-align:center;
 }
 
@@ -230,6 +230,7 @@ small {
 	font-size:1.2em;
 	color:#33332F;
 	margin-bottom:4px;
+	text-align:center;
 }
 
 .best_offer_logo {
@@ -244,6 +245,7 @@ small {
   color:#036CAA;
   display:inline;
 }
+
 
 /* --- Formatage du tableau --- */
 
