@@ -9,6 +9,7 @@ javascripts:
     - public/javascripts/rails/rails.js
 
   home:
+    - public/javascripts/jquery.ulslide.js
     - public/javascripts/home.js
 
   form:

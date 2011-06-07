@@ -133,11 +133,32 @@ h2 {
 
 .no_underline { text-decoration:none; }
 
-#partners {
+#brands {
   float:left;
   width:268px;
-  height:100px;
-  padding:10px;
+  height:205px;
+  padding:10px 0px;
+  border:1px solid #E5E5E5;
+  background-position:0px 145px;
+  background-repeat:repeat-x;
+  background-image:url('/images/home/box_bckg.png');
+  -webkit-border-radius:8px;
+  -khtml-border-radius:8px;
+  -moz-border-radius:8px;
+  -o-border-radius:8px;
+	border-radius:8px;
+	behavior: url(/stylesheets/PIE.htc);
+	position: relative;
+}
+
+#middle_boxes {
+  float:left;
+  padding:0 45px 0 45px;
+}
+
+#partners {
+  width:268px;
+  padding:0px 10px 5px 10px;
   border:1px solid #E5E5E5;
   background-position:0px 40px;
   background-repeat:repeat-x;
@@ -152,11 +173,9 @@ h2 {
 }
 
 #tour {
-  float:left;
   width:270px;
-  margin:0 45px 0 45px;
-  padding:10px;
-  height:100px;
+  padding:0px 10px;
+  margin-bottom:10px;
 }
 
 .illustration {
@@ -178,11 +197,11 @@ h2 {
 #merchants {
   float:left;
   width:268px;
-  padding:10px;
-  height:100px;
+  padding:10px 0px;
+  height:205px;
   border:1px solid #E5E5E5;
   background-image:url('/images/home/box_bckg.png');
-  background-position:0px 40px;
+  background-position:0px 145px;
   background-repeat:repeat-x;
   -webkit-border-radius:8px;
   -khtml-border-radius:8px;
@@ -191,5 +210,15 @@ h2 {
 	border-radius:8px;
 	behavior: url(/stylesheets/PIE.htc);
 	position: relative;
+}
+
+#merchants p, #brands p {
+  margin:0 10px;
+}
+
+
+#retailer_logos, #brand_logos {
+  text-align:center;
+  margin:15px 0;
 }
 

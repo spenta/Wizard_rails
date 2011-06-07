@@ -75,33 +75,54 @@
       <div class="clearfix"><img class="hspacer" src="/images/home/hspacer.png" /></div>
 
       <%= link_to user_requests_path, :method => :post, :id => "link_to_form", :class => "no_underline" do%>
-        <div class="button">Trouvez votre PC</div>
+        <div class="button"><%= t_safe :home_wizard_button%></div>
       <% end -%>
     </div>
   </div>
   <div id="home_infos_wrapper">
     <div id="home_infos">
-      <div id="partners">
-        <a class="no_underline" href="/presse_partenaires.html">
-          <h2>Choisir Facile sur Internet</h2>
-        </a>
-        <p>Avec ses conseils d'achats interactifs, Choisir Facile est un comparateur innovant. Découvrez nos partenaires !</p>
-        <p class="page_link">> <a href="/presse_partenaires.html">Choisir Facile sur le web</a></p>
+      <div id="brands">
+        <h2><%= t :home_brand_title %></h2>
+        <ul id="brand_logos">
+          <li><img src="/images/home/brands/acer_alienware.png" alt="Choisir un ordinateur Acer ou Alienware" /></li>
+          <li><img src="/images/home/brands/apple_asus.png" alt="Choisir un ordinateur Apple ou Asus" /></li>
+          <li><img src="/images/home/brands/compaq_dell.png" alt="Choisir un ordinateur Compaq ou Dell" /></li>
+          <li><img src="/images/home/brands/emachines_boulanger.png" alt="Choisir un ordinateur eMachines ou Boulanger" /></li>
+          <li><img src="/images/home/brands/fujitsu_hp.png" alt="Choisir un ordinateur Fujitsu ou HP" /></li>
+          <li><img src="/images/home/brands/lenovo_msi.png" alt="Choisir un ordinateur Lenovo ou Msi" /></li>
+          <li><img src="/images/home/brands/packard_samsung.png" alt="Choisir un ordinateur Packard-bell ou Samsung" /></li>
+          <li><img src="/images/home/brands/sony_toshiba.png" alt="Choisir un ordinateur Sony ou Toshiba" /></li>
+        </ul>
+        <p><%= t :home_brand_text %></p>
       </div>
-      <div id="tour">
-        <a class="no_underline" href="/visite_guidee.html">
-          <h2>Comment ça marche ?</h2>
-        </a>
-        <img class="illustration" src="/images/home/usages_pc_portable.png" alt="Un PC pour chaque usage" />
-        <p>Choisir Facile vous aide à trouver le bon ordinateur pour vos besoins, au meilleur prix.</p>
-        <p class="page_link">> <a href="/visite_guidee.html">Visite guidée</a></p>
+      <div id="middle_boxes">
+        <div id="tour">
+          <a class="no_underline" href="/visite_guidee.html">
+            <h2><%= t :home_tour_title %></h2>
+          </a>
+          <img class="illustration" src="/images/home/usages_pc_portable.png" alt="Un PC pour chaque usage" />
+          <p><%= t :home_tour_text %></p>
+          <p class="page_link">> <a href="/visite_guidee.html"><%= t :home_tour_link %></a></p>
+        </div>
+        <div id="partners">
+          <a class="no_underline" href="/presse_partenaires.html">
+            <h2><%= t :home_partner_title %></h2>
+          </a>
+          <p><%= t_safe :home_partner_text %></p>
+          <p class="page_link">> <a href="/presse_partenaires.html"><%= t :home_partner_link %></a></p>
+        </div>
       </div>
       <div id="merchants">
         <a class="no_underline" href="/sites_marchands.html">
-          <h2>Les sites marchands</h2>
+          <h2><%= t :home_retailer_title %></h2>
         </a>
-        <p><%= t :home_count_1 %> 8 <%= t :home_count_2 %> <%= Product.count %> <%= t :home_count_3 %></p>
-        <p class="page_link">> <a href="/sites_marchands.html">Liste des marchands</a></p>
+        <ul id="retailer_logos">
+          <li><img class="retailer_logo" src="/images/home/retailers/fnac_rueducommerce.png" alt="Choisir un pc la FNAC ou Rue du Commerce avec Choisir Facile" /></li>
+          <li><img class="retailer_logo" src="/images/home/retailers/boulanger_pixmania.png" alt="Choisir un pc sur le site Boulanger ou Pixmania avec Choisir Facile" /></li>
+          <li><img class="retailer_logo" src="/images/home/retailers/cdiscount_misco.png" alt="Choisir un pc sur le site CDiscount ou Misco avec Choisir Facile" /></li>
+          <li><img class="retailer_logo" src="/images/home/retailers/hp_mistergooddeal.png" alt="Choisir un pc sur le site HP ou MisterGoodDeal avec Choisir Facile" /></li>
+        </ul>
+        <p><%= t :home_retailer_count_1 %> 8 <%= t :home_retailer_count_2 %> <%= Product.all_cached.count %> <%= t :home_retailer_count_3 %></p>
       </div>
       <div class="clearfix"></div>
     </div>

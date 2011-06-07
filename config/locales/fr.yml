@@ -7,6 +7,16 @@ fr:
   # META Keywords
   meta_keywords: comment choisir un PC portable,meilleur ordinateur portable
 
+  # Header
+  wizard_incentive: |
+    <p><strong>Quel PC choisir ?</strong></p>
+    <p>L'expert vous conseille !</p>
+
+  # Banner to inform about no IE6 compatibility
+  ie6_disclaimer: |
+    <p class="disclaimer">Ce site n'est pas conçu pour Internet Explorer 6.</p>
+    <p class="disclaimer">Pour profiter pleinement de nos conseils d'achat pour PC portables, <br/>nous vous suggérons d'installer un navigateur récent, comme<br/><a href="http://www.google.com/chrome/?hl=fr" rel="nofollow" target="_blank">Google Chrome</a>, <a href="http://www.mozilla-europe.org/fr/" rel="nofollow" target="_blank">Firefox 4</a> ou encore <a href="http://windows.microsoft.com/fr-FR/internet-explorer/products/ie/home" rel="nofollow" target="_blank">Internet Explorer 9</a></p>
+
   #------------------------------------------------------------------------------------------------------------------------
   # HOME PAGE
   #------------------------------------------------------------------------------------------------------------------------
@@ -29,19 +39,31 @@ fr:
   home_step_3_title: Achetez au meilleur prix
   home_step_3_subtitle: Nous sommes 100% indépendants
 
-  wizard_incentive: |
-    <p><strong>Quel PC choisir ?</strong></p>
-    <p>L'expert vous conseille !</p>
+  # Button to wizard
+  home_wizard_button: Choisir votre PC
 
-  ie6_disclaimer: |
-    <p class="disclaimer">Ce site n'est pas conçu pour Internet Explorer 6.</p>
-    <p class="disclaimer">Pour profiter pleinement de nos conseils d'achat pour PC portables, <br/>nous vous suggérons d'installer un navigateur récent, comme<br/><a href="http://www.google.com/chrome/?hl=fr" rel="nofollow" target="_blank">Google Chrome</a>, <a href="http://www.mozilla-europe.org/fr/" rel="nofollow" target="_blank">Firefox 4</a> ou encore <a href="http://windows.microsoft.com/fr-FR/internet-explorer/products/ie/home" rel="nofollow" target="_blank">Internet Explorer 9</a></p>
+  # ------ Info boxes
+  # Brands
+  home_brand_title: Comparez 16 marques
+  home_brand_text: Chaque fabricant a ses points forts. Avec notre large éventail de marques, vous pourrez toujours choisir un PC adapté.
 
+  # Partners
+  home_partner_title: Choisir Facile sur Internet
+  home_partner_text: |
+    Avec ses conseils d'achats interactifs, Choisir Facile est un comparateur de PC innovant.<br /> Que dit-on de nous ?
+  home_partner_link: Choisir Facile sur le web
 
+  # Product tour
+  home_tour_title: Comment ça marche ?
+  home_tour_text: Choisir Facile vous aide à choisir le bon ordinateur pour vos besoins, au meilleur prix.
+  home_tour_link: Visite guidée
 
-  home_count_1: Pour vous offrir un large choix d'ordinateurs portables, nous référençons
-  home_count_2: marchands. Vous pouvez comparer
-  home_count_3: modèles de PC !
+  # Retailers
+  home_retailer_title: Les sites marchands
+  home_retailer_count_1: Pour bien choisir votre ordinateur, vous avez accès à
+  home_retailer_count_2: marchands sur Choisir Facile. Vous pouvez comparer
+  home_retailer_count_3: modèles de PC !
+  home_retailer_link: Liste des marchands
 
   # Contact tooltip
   contact_text: Contactez-nous
