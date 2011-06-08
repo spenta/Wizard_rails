@@ -239,6 +239,8 @@ small {
 	vertical-align:middle;
 	margin-left:5px;
 	display:inline;
+	height:40px;
+	width:105px;
 }
 
 .best_offer_text_link {
@@ -801,6 +803,11 @@ a.nounderline {
 
 .textshadingdark {
 	text-shadow:1px 1px 0 #666666;
+}
+
+.offer_logo {
+  height:40px;
+  width:105px;
 }
 
 /* Inversion de couleur texte/fond au survol du rang */

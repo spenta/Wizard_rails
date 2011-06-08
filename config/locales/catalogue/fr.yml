@@ -38,7 +38,7 @@ fr:
   cat_filters_label_5: Disque dur
   cat_filters_label_6: Poids
 
-  cat_table_header_price: À partir de
+  cat_table_header_price: Meilleur prix
 
   # Link to wizard
   cat_wizard_text: |
@@ -47,4 +47,6 @@ fr:
   cat_wizard_label: Trouvez votre PC
   cat_wizard_emphasis: C'est simple, rapide et objectif !
 
-  cat_more_infos: + d'infos
+  cat_more_infos_1: Voir la fiche produit
+  cat_more_infos_2: et les
+  cat_more_infos_3: offre(s)

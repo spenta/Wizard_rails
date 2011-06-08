@@ -7,17 +7,17 @@
       <div class="product_name">
         <%= content_tag :h4, p_infos[:brand_name] %>
         <%= content_tag :p, truncate(p_infos[:name], :length=> 20), :class => "model" %>
-        <%= content_tag :p, t(:cat_more_infos), :class => "more" %>
+        <p class="more""><%= t(:cat_more_infos_1) %><br /><%= t(:cat_more_infos_2) %> <%= product.offers.count %> <%= t(:cat_more_infos_3) %>
       </div>
     <% end -%>
   </td>
   <%# Prix & fiche %>
   <td>
-    <%= link_to product_path(product.to_param), :class => "no_underline" do %>
+    <% cheapest_offer = product.offers.order("price asc").first %>
+    <%= link_to cheapest_offer[:link], :onClick => "_gaq.push(['_trackEvent', 'retailer_clicks', 'buy', \'buy-#{cheapest_offer.retailer.name}-#{cheapest_offer.product[:name]}\']);", :class => "no_underline" do %>
       <span title="<%= p_infos[:price] %>"></span>
-      <p  class="from">
-        <%= p_infos[:price].floor %><small> <%= t :cat_currency %><%= get_cents_from p_infos[:price] %></small>
-      </p>
+      <p  class="from"><%= p_infos[:price].floor %><small> <%= t :cat_currency %><%= get_cents_from p_infos[:price] %></small></p>
+      <%= image_tag cheapest_offer.retailer.logo_url, :class =>"offer_logo" %>
     <% end -%>
   </td>
   <%# Caractéristiques %>

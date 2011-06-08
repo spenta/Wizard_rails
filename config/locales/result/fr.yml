@@ -188,10 +188,12 @@ fr:
   #---------------------------------------------------------------------------
 
   # Header of the price (3rd) column
-  extras_price: à partir de
+  extras_price: Meilleur prix
 
   # Header of the score (4th) column
   extras_score: % de vos besoins
 
   # Anchor text for the link to get to the specs sheet
-  extras_more: + d'infos
+  extras_more_1: Voir la fiche produit
+  extras_more_2: et les
+  extras_more_3: offre(s)

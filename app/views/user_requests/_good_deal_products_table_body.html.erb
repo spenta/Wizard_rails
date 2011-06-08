@@ -20,12 +20,17 @@
       <%= link_to product_path(product.to_param), :target => "_blank", :class => "nounderline" do%>
         <div class="brand"><%= p_infos[:brand_name] %></div>
         <div class="name"><%= truncate p_infos[:name], :length => 20 %></div>
+        <div class="more"><%= t :extras_more_1 -%><br /><%= t :extras_more_2 -%> <%= product.offers.count %> <%= t :extras_more_3 -%></div>
       <% end -%>
     </td>
     <td class="price">
-      <%= link_to product_path(product.to_param), :target => "_blank", :class => "nounderline" do%>
-        <div class="price"><%= p.price.floor %><small>€<%= get_cents_from p.price %></small></div>
-        <div class="more"><%= t :extras_more -%></div>
+      <% cheapest_offer = product.offers.order("price asc").first %>
+      <%= link_to cheapest_offer[:link], :target => "_blank", :onClick => "_gaq.push(['_trackEvent', 'retailer_clicks', 'buy', \'buy-#{cheapest_offer.retailer.name}-#{cheapest_offer.product[:name]}\']);", :class => "nounderline" do%>
+        <div class="price">
+          <%= p.price.floor %><small>€<%= get_cents_from p.price %></small><br/>
+          <%= image_tag cheapest_offer.retailer.logo_url, :class =>"offer_logo" %>
+        </div>
+
       <% end -%>
     </td>
     <%# Spenta score %>
@@ -43,3 +48,4 @@
   </tr>
   <% end -%>
 </tbody>
+

@@ -16,12 +16,6 @@ $j = jQuery.noConflict();
 //    }
 //    );
 
-// ----- Redimmensionnement du logo retailer
-
-$j(document).ready(function() {
-	$j( ".best_offer_logo" ).aeImageResize({ height: 40, width: 105 });
-});
-
 // ----- Tri de la table -----
   $j(document).ready(
       function()
