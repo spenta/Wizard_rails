@@ -225,8 +225,8 @@ td.bestpickvspacer {
 
 td.score_price {
   width:280px;
-  border:1px solid #E5E5E5;
-  border-top:none;
+  border-left:1px solid #E5E5E5;
+  border-right:1px solid #E5E5E5;
   background-color:white;
 }
 
@@ -251,6 +251,7 @@ td.score_price {
   background-image:url('/images/results/scorebox.png');
   width:280px;
 	padding:5px 0 0 0;
+	border-bottom:1px solid #E5E5E5;
 }
 
 .price_left {
