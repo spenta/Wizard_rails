@@ -254,6 +254,10 @@ td.score_price {
 	border-bottom:1px solid #E5E5E5;
 }
 
+.price_box a {
+  text-decoration:none;
+}
+
 .price_left {
 	width:110px;
 	float:left;
