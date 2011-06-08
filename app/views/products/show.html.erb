@@ -1,11 +1,11 @@
 <% infos = @product.infos -%>
 <%= content_for :head do %>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
 
   <title><%= "#{t :product_page_title} #{infos[:brand_name]} #{infos[:name]}" %></title>
 
-  <meta name="description" content="<%= t :product_meta_description %>" />
-  <meta name="keywords" content="<%= t :product_laptop %>" />
+  <meta name="description" content="<%= t_safe :product_meta_description %> <%= infos[:brand_name] %> <%= infos[:name] %>"></meta>
+  <meta name="keywords" content="<%= t :meta_keywords %>, <%= t :product_laptop %>"></meta>
 
   <%= include_stylesheets :product %>
   <script type="text/javascript">
