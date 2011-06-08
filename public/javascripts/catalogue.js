@@ -24,7 +24,7 @@ $j.fn.dataTableExt.afnFiltering.push(
 		var priceMin = $j('#price_slider').slider( "values", 0 ) * 1;
 		var priceMax = $j('#price_slider').slider( "values", 1 ) * 1;
 		var priceRaw = aData[1];
-		var priceSplitAfter = priceRaw.split("\=")[3];
+		var priceSplitAfter = priceRaw.split("\=")[1];
 		var priceSplit = priceSplitAfter.split(">")[0];
 		var price = eval(priceSplit);
 		if ( priceMin <= price && price <= priceMax ) { return true; }
