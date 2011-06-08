@@ -36,12 +36,14 @@ fr:
 
   # Bestpick flavor text = displayed near the score box
   product_score_flavor_text_low: |
-    Ce modèle est un peu au-dessous des performances idéales. Par contre, son prix est très attractif.
-  product_score_flavor_text_optimal: |
+    Ce modèle est en-dessous des performances idéales. Par contre, son prix est très attractif.
+  product_score_flavor_text_medium: |
+    Cet ordinateur répondra bien à toutes vos attentes, mais il reste un peu juste en termes de performances.
+  product_score_flavor_text_optimum: |
     Ce PC a une configuration très équilibrée pour vos besoins. Vous ferez sans problème ce que vous souhaitez.
-  product_score_flavor_text_top: |
-    Ce PC est un peu plus puissant que nécessaire.<br />Il ne vous laissera pas tomber si vos besoins augmentent plus tard.
   product_score_flavor_text_high: |
+    Ce PC est un peu plus puissant que nécessaire.<br />Il ne vous laissera pas tomber si vos besoins augmentent plus tard.
+  product_score_flavor_text_performance: |
     Les performances de ce modèle vont nettement au-delà de vos besoins.<br />Si vous voulez vous faire plaisir, n'hésitez pas !
 
   # Link to the product sheet

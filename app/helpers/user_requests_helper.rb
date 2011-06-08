@@ -111,12 +111,14 @@ module UserRequestsHelper
     score_rounded = product.spenta_score.round
     if  score_rounded < 90
       t_safe :product_score_flavor_text_low
-    elsif score_rounded >= 90 and score_rounded <= 100
-      t_safe :product_score_flavor_text_optimal
-    elsif score_rounded > 100 and score_rounded <= 115
-      t_safe :product_score_flavor_text_top
-    else
+    elsif score_rounded >= 90 and score_rounded < 100
+      t_safe :product_score_flavor_text_medium
+    elsif score_rounded >= 100 and score_rounded <= 110
+      t_safe :product_score_flavor_text_optimum
+    elsif score_rounded > 110 and score_rounded <= 125
       t_safe :product_score_flavor_text_high
+    else
+      t_safe :product_score_flavor_text_performance
     end
   end
 
