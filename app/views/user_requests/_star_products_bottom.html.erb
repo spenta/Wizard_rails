@@ -1,13 +1,21 @@
+<tr>
+  <td class="important_specs_title" colspan="2"><p><%= t_safe :important_specs_title %></p></td>
+  <td class="bestpickvspacer"></td>
+  <td class="important_specs_title" colspan="2"><p><%= t_safe :important_specs_title %></p></td>
+  <td class="bestpickvspacer"></td>
+  <td class="important_specs_title" colspan="2"><p><%= t_safe :important_specs_title %></p></td>
+</tr>
+
 <% num_line = 1-%>
 <% important_specs_id.each do |spec_id| -%>
   <% specification = Specification.find(spec_id) -%>
   <% unless num_line == 1%>
     <tr>
-      <td class="bestpickcolumn bestpickhspacer" colspan="2" />
-      <td class="bestpickvspacer" />
-      <td class="bestpickcolumn bestpickhspacer" colspan="2" />
-      <td class="bestpickvspacer" />
-      <td class="bestpickcolumn bestpickhspacer" colspan="2" />
+      <td class="bestpickcolumn bestpickhspacer" colspan="2"></td>
+      <td class="bestpickvspacer"></td>
+      <td class="bestpickcolumn bestpickhspacer" colspan="2"></td>
+      <td class="bestpickvspacer"></td>
+      <td class="bestpickcolumn bestpickhspacer" colspan="2"></td>
     </tr>
   <% end -%>
   <% is_first_column = true -%>
@@ -24,18 +32,19 @@
               <%#<span><p class="specstooltip"><%= t :bestpick_rank_tooltip %><%#</p></span>%>
             <%#</a>%>
             <a href="#" class="specstooltip">
+              <%= image_tag "/images/results/tooltip.png", :class => "tooltip_icon" %>
               <h5 class="specsname"><%= t_safe "spec_name_#{spec_id}" %></h5>
               <p class="specsvalue"><%= spec_value_with_unit p_infos, spec_id%></p>
               <span><p class="specstooltip"><%= t_safe "spec_tooltip_#{spec_id}" %></p></span>
             </a>
           </div>
           <div class="specsright">
-            <a href="#" class="specstooltip">
+            <a href="#" class="specstooltip mark_tooltip">
               <%spec_score = p_infos[:specification_values][spec_id][:sv_score] %>
               <%= content_tag :p, :class => "specscore colorid#{get_color_number_absolute(spec_score.round-(@user_response.sigmas[spec_id]))}" do%>
                 <%= spec_score.round %><small>/10</small>
-              <% end %> 
-              <span><p class="specstooltip"><%= t :bestpick_score_tooltip %></p></span>
+              <% end %>
+              <span><p class="specstooltip"><%= t_safe :bestpick_score_tooltip %></p></span>
             </a>
           </div>
         </td>
@@ -43,3 +52,4 @@
   </tr>
   <% num_line += 1 -%>
 <% end -%>
+

@@ -28,8 +28,9 @@
   <tr>
     <% is_first_column = true -%>
     <% star_products.each do |p| -%>
-      <%= render 'star_product_price_and_score', :p => p, :is_first_column => is_first_column%>
+      <%= render 'star_product_score', :p => p, :is_first_column => is_first_column%>
       <% is_first_column = false -%>
     <% end -%>
   </tr>
 </tbody>
+

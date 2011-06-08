@@ -43,14 +43,14 @@ module UserRequestsHelper
   # returns the color code corresponding to the ratio between actual value and target value
   def get_color_number_relative value
     color_number = 0
-    color_number += 1 while (value > (COLOR_THRESHOLDS_RELATIVE[color_number]||0) and color_number < COLOR_THRESHOLDS_RELATIVE.size)  
+    color_number += 1 while (value > (COLOR_THRESHOLDS_RELATIVE[color_number]||0) and color_number < COLOR_THRESHOLDS_RELATIVE.size)
     color_number
   end
 
   # returns the color code corresponding to the difference between actual value and target value
   def get_color_number_absolute value
     color_number = 0
-    color_number += 1 while (value >= (COLOR_THRESHOLDS_ABSOLUTE[color_number]||0) and color_number < COLOR_THRESHOLDS_ABSOLUTE.size)  
+    color_number += 1 while (value >= (COLOR_THRESHOLDS_ABSOLUTE[color_number]||0) and color_number < COLOR_THRESHOLDS_ABSOLUTE.size)
     color_number
   end
 
@@ -62,7 +62,7 @@ module UserRequestsHelper
 
   def get_score_or_zero p_infos, spec_id
     begin
-      score = p_infos[:specification_values][spec_id][:sv_score].round 
+      score = p_infos[:specification_values][spec_id][:sv_score].round
     rescue
       score = 0
     end
@@ -107,5 +107,27 @@ module UserRequestsHelper
     end
   end
 
+  def product_score_flavor_text product
+    score_rounded = product.spenta_score.round
+    if  score_rounded < 90
+      t_safe :product_score_flavor_text_low
+    elsif score_rounded >= 90 and score_rounded <= 100
+      t_safe :product_score_flavor_text_optimal
+    elsif score_rounded > 100 and score_rounded <= 115
+      t_safe :product_score_flavor_text_top
+    else
+      t_safe :product_score_flavor_text_high
+    end
+  end
+
+  def go_button product
+    offer_count = product.offers.count
+    if offer_count == 1
+      t_safe :one_offer_button
+    else
+      (t_safe :several_offers_button_1) + " " + offer_count.to_s +  " " + (t_safe :several_offers_button_2)
+    end
+  end
 
 end
+

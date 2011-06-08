@@ -11,7 +11,7 @@ fr:
 
   # In the #toptitle <h1> tag
   result_page_title: |
-    Nos recommandations : les 3 meilleures affaires
+    Notre sélection : 3 PC taillés pour vous
 
   # In the <h2> tag, before the number of products in the database
   result_page_subtitle1: |
@@ -34,28 +34,15 @@ fr:
   # Bestpickcolumn > info about the 3 best picks
   #---------------------------------------------------------------------------
 
-
-  # Bestpick information > The 3 featured PCs.
-  # They get content based on their score, using the following suffixes :
-  # L = score<90
-  # M = 90<score<110
-  # H = 110<score
-  #---------------------------------------------------------------------------
-
-  # This is used to set the alternate text of the medal icon.
-  bestpick_medal_L: Un prix modéré.
-  bestpick_medal_M: Très bon compromis pour vos besoins.
-  bestpick_medal_H: Des performances supérieures à vos besoins.
-
-  # Type of the best picks in the <h2> tag.
-  bestpick_header_L: PC économique
-  bestpick_header_M: PC équilibré
-  bestpick_header_H: PC performance
-
-  # Describes the type of the offer. Inside the <p> tag.
-  bestpick_column_L: Vous acceptez de sacrifier un peu de performance ? Cet ordinateur a un bon rapport qualité-prix et un coût raisonnable.
-  bestpick_column_M: Ce modèle est proche du PC idéal pour vos besoins. C'est un très bon compromis entre les performances et le prix !
-  bestpick_column_H: Si vos besoins augmentent à l'avenir, ce modèle a de la puissance de réserve et ne vous laissera pas tomber.
+  # Bestpick flavor text = displayed near the score box
+  product_score_flavor_text_low: |
+    Ce modèle est un peu au-dessous des performances idéales. Par contre, son prix est très attractif.
+  product_score_flavor_text_optimal: |
+    Ce PC a une configuration très équilibrée pour vos besoins. Vous ferez sans problème ce que vous souhaitez.
+  product_score_flavor_text_top: |
+    Ce PC est un peu plus puissant que nécessaire.<br />Il ne vous laissera pas tomber si vos besoins augmentent plus tard.
+  product_score_flavor_text_high: |
+    Les performances de ce modèle vont nettement au-delà de vos besoins.<br />Si vous voulez vous faire plaisir, n'hésitez pas !
 
   # Link to the product sheet
   bestpick_more: Voir la fiche produit
@@ -74,12 +61,12 @@ fr:
 
   # Tooltip for the % score.
   bestpick_spenta_score_tooltip: |
-    <strong>Le % de vos besoins vous dit immédiatement si le PC est bien adapté à vos attentes.</strong>
+    <strong>Ce score indique si le PC répond à vos besoins.</strong>
     <ul>
     <li>Autour de 100%, vous pourrez faire confortablement tout ce que vous avez choisi dans le questionnaire.</li>
     <li>Au-dessus, le PC est plus performant que nécessaire. Cela vous laisse de la marge si vous voulez l'utiliser pour des usages plus exigeants.</li>
-    <li>Plus le score est bas, moins l'utilisation sera agréable. Nous avons éliminé tous les PC à moins de 70% : ils ne sont pas suffisants pour vous !</li>
-                </ul>
+    <li>Plus le score est bas, moins l'utilisation sera agréable. Nous avons éliminé tous les PC à moins de 70% : ils ne sont pas suffisants !</li>
+    </ul>
 
   # Price : in the <p> tag of the "pricebox" <td>
   bestpick_price: À partir de
@@ -90,9 +77,14 @@ fr:
   #Info on the best offer
   best_offer_text_1: Disponible chez
   best_offer_text_2: marchand(s).
-  best_offer_text_3: Le moins cher
+  best_offer_text_3: |
+    Marchand le moins cher
 
-  #Motives for picking those PCs
+  # Title before the important specs list
+  important_specs_title: |
+    Les caractéristiques qui comptent pour vous :
+
+  #Motives for picking those PCs (OLD)
   bestpicks_motive_1: |
     <h3>Pourquoi avons-nous sélectionné ces trois ordinateurs ?</h3>
     <p>Grâce à vos réponses, nous avons déterminé les caractéristiques du PC idéal pour faire ce que vous voulez. Ces ordinateurs sont les <strong>meilleurs compromis</strong> entre les performances et le prix parmi
@@ -101,7 +93,9 @@ fr:
   # Button linking to the product sheet
   #---------------------------------------------------------------------------
 
-  bestpick_button: Voir les offres
+  one_offer_button: Voir l'ordinateur
+  several_offers_button_1: Voir les
+  several_offers_button_2: offres
 
   #---------------------------------------------------------------------------
   # Detailed specs of the 3 featured PCs
@@ -111,7 +105,13 @@ fr:
   bestpick_rank_tooltip: Les caractéristiques techniques qui comptent le plus pour vous, dans l'ordre d'importance.
 
   # Tooltip for the specs score. Inside the last <p class="specstooltip"> of each featured PC.
-  bestpick_score_tooltip: La couleur de la note vous dit si la caractéristique de ce PC convient à votre besoin. Quand elle est verte ou bleue, tout va bien !
+  bestpick_score_tooltip: |
+    <strong>La couleur de la note vous dit si cette caractéristique répond bien à votre besoin.</strong>
+    <ul>
+    <li>En bleu, c'est plus performant que nécessaire. Cela vous laisse de la marge !</li>
+    <li>En vert, elle a la valeur idéale : ni trop, ni trop peu !</li>
+    <li>En orange ou en rouge, vous perdrez en confort d'utilisation. Ce n'est pas forcément grave, le reste peut compenser !</li>
+    </ul>
 
   # Name, description and unit (to be displayed after the spec value) of the important specs. Uses the IDs of the wizard.
   #---------------------------------------------------------------------------

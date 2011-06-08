@@ -82,8 +82,8 @@ Vert foncé = #057619
 }
 
 #toptitle a {
-	font-size:1.2em;
-	font-weight:500;
+	font-size:1.0em;
+	font-weight:bold;
 	color:white;
 }
 
@@ -182,77 +182,6 @@ p.more {
 	text-decoration:underline;
 }
 
-/* Scoresdes PC mis en avant */
-.scorebox h3 {
-	font-size:5.5em;
-	text-shadow:1px 1px 0 #E5E5E5;
-	text-align:center;
-	margin:-5px 10px 0px 10px;
-}
-
-small {
-	font-size:0.5em;
-}
-
-.scorebox p {
-	font-size:1.35em;
-	color:#33332F;
-	text-align:right;
-	margin:0px 8px 5px 10px;
-	float:left;
-}
-
-/* Prix des PC mis en avant */
-.pricebox h3 {
-	font-size:3.8em;
-	text-shadow:1px 1px 0 #E5E5E5;
-	text-align:center;
-	margin:0px 10px;
-}
-
-.pricebox p {
-	font-size:1.35em;
-	color:#33332F;
-	margin:15px 0px 0px 0px;
-	text-align:center;
-}
-
-/* Meilleure offre */
-
-
-
-.best_offer_count {
-	font-size:1.2em;
-	color:#33332F;
-	margin:5px 0 3px 0;
-	text-align:center;
-}
-
-.best_offer {
-	width:270px;
-	padding:0px 5px 0px 5px;
-	height:40px;
-	text-align:center;
-}
-
-.best_offer_logo {
-	vertical-align:middle;
-	margin-left:5px;
-	display:inline;
-	height:35px;
-	width:92px;
-}
-
-.best_offer_text_link {
-  text-decoration:underline;
-  font-size:1.2em;
-  color:#036CAA;
-  display:inline;
-  margin-top:auto;
-  margin-bottom
-}
-
-
 /* --- Formatage du tableau --- */
 
 #bestpicktable {
@@ -275,10 +204,9 @@ td.rounded_bottom {
 /* Cases préseantant les PC : Modèle, Image, etc */
 td.bestpickcolumn {
 	background-color:white;
-	width:280px;
+	width:268px;
 	border-left:1px solid #E5E5E5;
 	border-right:1px solid #E5E5E5;
-	margin:0 10px;
 }
 
 td.bestpickvspacer {
@@ -291,28 +219,127 @@ td.bestpickvspacer {
 	display:block;
 }
 
+/* Cases pour le score et le prix */
 
+/* Scores des PC mis en avant */
 
-/* Cases avec dégradé pour le score et le prix */
-
-td.scorebox {
-	background-image:url('/images/results/scorebox.png');
-	height:80px;
-	width:140px;
-	border:1px solid #E5E5E5;
+td.score_price {
+  width:280px;
+  border:1px solid #E5E5E5;
+  border-top:none;
+  background-color:white;
 }
 
-td.pricebox {
-	background-image:url('/images/results/scorebox.png');
-	height:80px;
-	width:140px;
-	border:1px solid #E5E5E5;
+.score_box {
+	width:280px;
+	border-bottom:1px solid #E5E5E5;
+	padding:5px 0 5px 0;
 }
+
+.score_left {
+	width:110px;
+	float:left;
+}
+
+.score_right {
+  margin-left:8px;
+  width:155px;
+  float:left;
+}
+
+.price_box {
+  background-image:url('/images/results/scorebox.png');
+  width:280px;
+	padding:5px 0 0 0;
+}
+
+.price_left {
+	width:110px;
+	float:left;
+}
+
+.price_right {
+  margin-left:8px;
+  width:155px;
+  float:left;
+}
+
+/* Texte d'accompagnement des scores */
+h3.score_value {
+	font-size:4.8em;
+	text-shadow:1px 1px 0 #E5E5E5;
+	text-align:center;
+}
+
+small {
+	font-size:0.5em;
+}
+
+p.your_needs {
+	font-size:1.2em;
+	color:#33332F;
+	text-align:center;
+}
+
+h3.price {
+	font-size:3.5em;
+	text-shadow:1px 1px 0 white;
+	text-align:center;
+}
+
+p.price {
+	font-size:1.35em;
+	color:#33332F;
+	text-align:center;
+}
+
+p.score_text {
+  font-size:1.2em;
+  color:#33332F;
+  text-align:justify;
+}
+
+p.best_offer_text_link {
+  text-decoration:underline;
+  font-size:1em;
+  color:#036CAA;
+  text-align:center;
+  margin:0 0 3px 0;
+}
+
+.best_offer_logo {
+	height:35px;
+	width:92px;
+	display:block;
+	margin:0 auto;
+}
+
+
+
+/* Meilleure offre */
+
+.best_offer_count {
+	font-size:1.2em;
+	color:#33332F;
+	margin:5px 0 3px 0;
+	text-align:center;
+}
+
+.best_offer {
+	width:270px;
+	padding:0px 5px 0px 5px;
+	height:40px;
+	text-align:center;
+}
+
+
 
 /* Icône du tooltip */
 .scoretooltipicon {
-	float:left;
-	margin:-3px 5px 0 0;
+	vertical-align:text-bottom;
+	height:14px;
+	width:14px;
+	margin-left:5px;
 }
 
 /* --- Tooltip du Spenta Score --- */
@@ -337,8 +364,8 @@ a.scoretooltip:hover span {
 	display: block;
 	position: absolute;
 	width:300px;
-	top:15px;
-	left:-150px;
+	top:0px;
+	left:-20px;
 	background:#D4FCD9;
 	padding: 8px;
 	border: 1px solid #057619;
@@ -373,7 +400,7 @@ a.scoretooltip:hover span {
 }
 
 .productbutton h4 {
-	font-size:2.2em;
+	font-size:1.9em;
 	text-shadow:1px 1px 0 #666666;
 	color:white;
 	position:absolute;
@@ -416,6 +443,21 @@ tr.bestpick_motives {
 	font-weight:bold;
 	font-size:1.0em;
 	color:#33332F;
+}
+
+.important_specs_title {
+  background-color:white;
+  padding:0 5px 5px 5px;
+  border-left: 1px solid #E5E5E5;
+  border-right: 1px solid #E5E5E5;
+  width:268px;
+}
+
+.important_specs_title p {
+  color:#33332F;
+  font-size:1.2em;
+  font-weight:bold;
+  text-align:center;
 }
 
 /* Positionnement des elements image, carac et score soient sur la même ligne */
@@ -480,6 +522,14 @@ a.specstooltip span {
 	position:relative;
 }
 
+.tooltip_icon {
+  float:right;
+  margin-right:4px;
+  height:12px;
+  width:12px;
+  margin-top:12px;
+}
+
 /* Style du popup lorsqu'il s'affiche */
 a.specstooltip:hover span {
 	display: block;
@@ -494,12 +544,32 @@ a.specstooltip:hover span {
 	border-radius: 8px;
 }
 
+a.mark_tooltip:hover span {
+  left:-180px;
+}
+
 /* Formatage du texte du tooltip */
 
 p.specstooltip {
 	font-size:1.2em;
 	color:#33332F;
 	text-align:justify;
+}
+
+.specstooltip strong {
+	font-size:1em;
+	font-weight:bold;
+	color:#33332F;
+	text-align:justify;
+}
+
+.specstooltip li {
+	font-size:1.2em;
+	color:#33332F;
+	margin:1px 5px;
+	text-align:justify;
+	list-style-type:disc;
+	list-style-position:inside;
 }
 
 /* ---------------- Bouton pour dérouler les caractéristiques ---------------- */

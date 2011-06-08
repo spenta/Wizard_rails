@@ -34,10 +34,6 @@
 
 				<%# Caracteristiques detaillées des produits (le toggle est declare en dessous) %>
         <tbody id="Collapsable">
-				  <tr class="bestpick_motives">
-					  <td colspan="8"><%= t_safe :bestpicks_motive_1 %><%= Product.all_cached.count %> <%= t_safe :bestpicks_motive_2 %></td>
-					</tr>
-
           <%= render 'star_products_bottom', :star_products => star_products, :important_specs_id => important_specs_id %>
         </tbody>
 
