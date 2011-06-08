@@ -239,8 +239,8 @@ small {
 	vertical-align:middle;
 	margin-left:5px;
 	display:inline;
-	height:40px;
-	width:105px;
+	height:35px;
+	width:92px;
 }
 
 .best_offer_text_link {
@@ -704,7 +704,7 @@ p.specstooltip {
 	border-left-width:0px;
 	text-align:left;
 }
-#extras td.price { border-left-width:0px; }
+
 #extras td.values { width:90px; }
 
 #extras .empty {
@@ -806,8 +806,8 @@ a.nounderline {
 }
 
 .offer_logo {
-  height:40px;
-  width:105px;
+  height:35px;
+  width:92px;
 }
 
 /* Inversion de couleur texte/fond au survol du rang */
