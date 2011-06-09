@@ -1,6 +1,6 @@
 WizardRails::Application.routes.draw do
 
- 
+
   get 'sitemap', :to => 'sitemap#show.xml'
 
   resources :user_requests, :path => "conseiller-virtuel", :only => [:create, :update, :edit, :index], :path_names =>  {:edit => "questionnaire", :user_response => "resultats"} do
@@ -11,6 +11,8 @@ WizardRails::Application.routes.draw do
 
   get 'legal' => 'misc#legal'
   get 'terms' => 'misc#terms'
+  get 'visite-guidee' => 'misc#tour'
+  get 'presse-partenaires' => 'misc#press'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -69,3 +71,4 @@ WizardRails::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
 end
+

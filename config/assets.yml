@@ -62,3 +62,7 @@ stylesheets:
 
   basic:
     - public/stylesheets/basic_page.css
+
+  tour:
+    - public/stylesheets/basic_page.css
+    - public/stylesheets/tour.css

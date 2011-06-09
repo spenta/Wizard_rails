@@ -75,6 +75,23 @@ fr:
 
   rights_reserved: Tous droits réservés
 
+  #'------------------------------------------------------------------------------------------------------------------------
+  # TOUR and other static pages
+  #------------------------------------------------------------------------------------------------------------------------
+
+  # META tags
+  tour_html_title: Comment choisir un PC portable avec le conseiller interactif ?
+  tour_html_description: Explications sur Choisir Facile, le site qui vous dit comment choisir un PC portable.
+
+  legal_html_title: Mentions légales de Choisir Facile, le site pour choisir un PC portable.
+  legal_html_description: Toutes les informations légales de Choisir Facile.
+
+  terms_html_title: Conditions d'utilisation de Choisir Facile, le site pour choisir un PC portable.
+  terms_html_description: En utilisant le site Choisir Facile, vous vous engagez à respecter certaines conditions.
+
+  press_html_title: Articles sur Choisir Facile, le site qui vous dit comment choisir un PC portable
+  press_html_description: Liste d'articles à propos de Choisir Facile et liens vers nos partenaires.
+
   #------------------------------------------------------------------------------------------------------------------------
   # SUPER USAGES
   #------------------------------------------------------------------------------------------------------------------------

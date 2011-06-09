@@ -419,3 +419,26 @@ a.tooltip:hover span {
   font-style:italic;
 }
 
+/* --------------------------- Social media -------------------------- */
+
+.social_media {
+	width:960px;
+	margin:10px auto;
+	text-align:right;
+	padding:0 30px;
+}
+
+.social_media p {
+	font-size:1.2em;
+	font-style:italic;
+	color:#666666;
+	display:inline-block;
+	margin-right:15px;
+	position:relative;
+	top:-5px;
+}
+
+.plus_one {
+	display:inline-block;
+}
+

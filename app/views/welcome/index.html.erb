@@ -97,19 +97,27 @@
       </div>
       <div id="middle_boxes">
         <div id="tour">
-          <a class="no_underline" href="/visite_guidee.html">
+          <%= link_to "/visite-guidee", :class => "no_underline" do %>
             <h2><%= t :home_tour_title %></h2>
-          </a>
+          <% end -%>
           <img class="illustration" src="/images/home/usages_pc_portable.png" alt="Un PC pour chaque usage" />
           <p><%= t :home_tour_text %></p>
-          <p class="page_link">> <a href="/visite_guidee.html"><%= t :home_tour_link %></a></p>
+          <p class="page_link">>
+            <%= link_to "/visite-guidee" do %>
+              <%= t :home_tour_link %>
+            <% end -%>
+          </p>
         </div>
         <div id="partners">
-          <a class="no_underline" href="/presse_partenaires.html">
+          <%= link_to "/presse-partenaires", :class => "no_underline" do %>
             <h2><%= t :home_partner_title %></h2>
-          </a>
+          <% end -%>
           <p><%= t_safe :home_partner_text %></p>
-          <p class="page_link">> <a href="/presse_partenaires.html"><%= t :home_partner_link %></a></p>
+          <p class="page_link">>
+            <%= link_to "/presse-partenaires" do %>
+              <%= t :home_partner_link %>
+            <% end -%>
+          </p>
         </div>
       </div>
       <div id="merchants">

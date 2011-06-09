@@ -7,6 +7,9 @@ fr:
   product_laptop: PC portable
   product_meta_fb_message: J'ai trouvé cet ordinateur grâce à Choisir Facile !
 
+  # Social media incentive
+  product_vote_for_us: Choisir Facile vous a plu ? Partagez l'adresse du site !
+
   product_title: Ordinateur portable
   product_main_specs: Les principales caractéristiques techniques
   product_help: Aide

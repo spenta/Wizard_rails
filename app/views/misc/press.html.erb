@@ -1,0 +1,39 @@
+<%= content_for :head do %>
+
+  <title><%= t_safe :press_html_title %></title>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+  <meta name="language" content="fr" />
+  <meta name="description" content="<%= t_safe :press_html_description %>" />
+  <meta name="keywords" content="<%= t_safe :meta_keywords %>" />
+
+  <%= include_stylesheets :tour %>
+<% end %>
+
+<div id="page_wrapper">
+  <div id="page_content">
+    <h1>Choisir Facile sur Internet</h1>
+    <p class="intro_center_nomargin">Cette page recense les sites faisant mention de notre comparateur interactif de PC portables.</p>
+
+    <div class="partner">
+      <img class="partner_img" src="/images/logos_partenaires/annuairepro-logo.jpg" alt="Annuaire.Pro référence le comparatif PC portables Choisir Facile"/>
+      <div class="partner_infos">
+        <h2 class="partner_name">Annuaire.pro</h2>
+        <p class="partner_text">Sur cet annuaire, vous retrouverez une sélection des meilleurs sites  du marché français. Retrouvez-nous sur Annuaire.pro dans la catégorie <a class="partner_link" href="http://annuaire.pro/comparateur-de-prix/" target="_blank">comparateurs de prix</a> !</p>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+
+    <div class="partner">
+      <img class="partner_img" src="/images/logos_partenaires/webrankinfo-logo.png" alt="WebRankInfo parle du service d'aide au choix pour les PC portables Choisir Facile"/>
+      <div class="partner_infos">
+        <h2 class="partner_name">WebRankInfo</h2>
+        <p class="partner_text">L'annuaire WebRankInfo recense de nombreux sites intéressants. Ils ont estimé que Choisir Facile méritait d'y figurer dans la catégorie <a class="partner_link" href="http://www.webrankinfo.com/annuaire/cat-1201-ordinateurs-portables.htm" target="_blank">ordinateurs portables</a> !</p>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+
+  </div>
+</div>
+

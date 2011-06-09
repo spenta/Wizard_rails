@@ -1,12 +1,12 @@
 <%= content_for :head do %>
 
-  <title>Mentions légales du site Choisir Facile</title>
+  <title><%= t_safe :legal_html_title %></title>
 
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
 
-  <meta name="language" content="fr" />
-  <meta name="description" content="Choisir Facile vous aide à trouver le PC qui vous convient" />
-  <meta name="keywords" content="PC portable" />
+  <meta name="language" content="fr"></meta>
+  <meta name="description" content="<%= t_safe :legal_html_description %>"></meta>
+  <meta name="keywords" content="<%= t_safe :meta_keywords %>"></meta>
 
   <%= include_stylesheets :basic %>
 <% end %>
@@ -28,3 +28,4 @@
     <p>Le site www.choisirfacile.fr est hébergé par la société Engine Yard : PO Box 77130 San Francisco, CA 94107, USA</p>
   </div>
 </div>
+
