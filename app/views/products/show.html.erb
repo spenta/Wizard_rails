@@ -25,16 +25,24 @@
 <% end %>
 <div id="top_wrapper">
   <div id="top">
-    <%= content_tag :h1, "#{t(:product_title)} <strong>#{infos[:brand_name]} #{infos[:name]} </strong>".html_safe, :class => "title" %>
     <div id="top_left">
-      <div class="picture_box">
-        <%= image_tag infos[:big_img_url], :alt => "#{t :product_laptop} #{infos[:brand_name]} #{infos[:name]}", :id => "picture" %>
-      </div>
-    </div>
 
-    <div id="top_right">
+      <div class="picture_box">
+        <div id="zoom">
+          <p><%= t_safe :zoom_in %></p>
+          <%= image_tag infos[:big_img_url], :alt => "#{t :product_laptop} #{infos[:brand_name]} #{infos[:name]}", :id => "picture" %>
+        </div>
+        <%# Image zoom %>
+        <div id="popup">
+          <p class="unzoom"><%= t_safe :zoom_out %></p>
+          <%= image_tag infos[:big_img_url], :alt => "#{t :product_laptop} #{infos[:brand_name]} #{infos[:name]}", :id => "picture_zoom" %>
+        </div>
+        <div id="overlay"></div>
+      </div>
+
       <div id="main_specs">
-        <h2><%= t :product_main_specs %></h2>
+        <h1 class="title"><%= t :product_title %> <%= infos[:brand_name] %><br /><strong><%= infos[:name] %></strong></h1>
+        <h2 class="faint_title"><%= t :product_main_specs %></h2>
         <table id="main_specs_table">
           <tbody>
             <% bar_id = 1 -%>
@@ -46,31 +54,30 @@
         </table>
       </div>
 
-      <div class="social_sharing">
-        <ul>
-          <li class="share_text"><%= t :product_share %></li>
-          <!-- Passer dans les locales le texte (encodé en URL) Remplacer http://www.test.com par l'URL de la page actuelle -->
-          <li>
-            <%= link_to "http://twitter.com/share?text=#{(t(:product_share_message))}+#{product_url @product}", :target => "_blank", :rel => "nofollow" do %>
-              <img src="/images/product/twitter_icon.png" />
-            <% end -%>
-          </li>
-          <li>
-            <%= link_to "http://www.facebook.com/share.php?u=#{product_url @product}&title=#{t :product_share_message}", :target => "_blank", :rel => "nofollow" do %>
-              <img src="/images/product/facebook_icon.png" />
-            <% end -%>
-          </li>
-        </ul>
+      <div class="clearfix"></div>
+
+      <div id="product_description">
+        <h2 class="faint_title"><%= t_safe :product_description_title %></h2>
+        <p><%= usage_class_generator @product %> <%= storage_class_generator @product %> <%= weight_class_generator @product %></p>
       </div>
 
     </div>
 
-  </div>
-  <div class="clearfix"></div>
-</div>
 
-<div id="bottom_wrapper">
-  <div id="bottom">
+    <div id="top_right">
+      <h1 class="wizard_cta_title"><%= t_safe :wizard_cta_title %></h1>
+      <p class="wizard_incentive"><%= t_safe :wizard_intro_text %></p>
+      <%= link_to user_requests_path, :method => :post, :class => "no_underline" do%>
+          <div class="wizard_button"><p class="label"><%= t :cat_wizard_label %></p></div>
+      <% end %>
+      <p class="wizard_emphasis"><%= t :cat_wizard_emphasis %></p>
+      <p class="wizard_incentive"><%= t_safe :catalogue_text_1 %> <strong><%= Product.all_cached.count %> <%= t_safe :catalogue_text_2 %></strong></p>
+      <%= link_to products_path, :class => "no_underline" do%>
+          <div class="wizard_button"><p class="label"><%= t :prod_catalogue_label %></p></div>
+      <% end %>
+    </div>
+    <div class="clearfix"></div>
+
 
     <div id="offers">
 
@@ -82,10 +89,21 @@
             <% @product.offers.order("price asc").each do |o| -%>
               <%= render 'offer', :infos => infos, :offer => o %>
             <% end -%>
+            <tr class="retailers_checked">
+              <td colspan="5">
+              Affiche les retailers sans offre
+              </td>
+            </tr>
           </tbody>
         </table>
       </div>
     </div>
+
+  </div>
+</div>
+
+<div id="bottom_wrapper">
+  <div id="bottom">
 
     <%# Social media buttons %>
     <div class="social_media">

@@ -6,7 +6,9 @@
     <% end -%>
   </td>
   <td class="offer_name">
-    <%= retailer_product_name offer%>
+    <%= link_to_offer offer, @product do %>
+      <%= retailer_product_name offer%>
+    <% end -%>
   </td>
   <td class="offer_logo">
     <%= link_to_offer offer, @product do %>
@@ -14,14 +16,17 @@
     <% end -%>
   </td>
   <td class="offer_price">
-    <%= offer.price.floor %><small>,<%= get_cents_from offer.price%></small> <%= t :currency %>
+    <%= link_to_offer offer, @product do %>
+     <%= offer.price.floor %><small>,<%= get_cents_from offer.price%></small> <%= t :currency %>
+    <% end -%>
   </td>
   <td class="offer_link">
     <%= link_to_offer offer, @product do %>
+      <p class="retailer_incentive">Plus d'informations sur le site marchand</p>
       <div class="offer_button">
         <p class="buy"><%= t :product_buy %></p>
       </div>
-    <% end %>
+    <% end -%>
   </td>
 </tr>
 

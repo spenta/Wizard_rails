@@ -451,12 +451,12 @@ form {
 	SEARCHING... POPUP
 ------------------------------------------------------------------*/
 #popup {
-	position: absolute;
+	position: fixed;
     left:50%;
     top:25%;
 
     width:450px;
-    margin-left:-300px;
+    margin-left:-237px;
     height:220px;
 
     z-index:2;
@@ -500,7 +500,7 @@ form {
 }
 
 #overlay {
-    position: absolute;
+    position: fixed;
     left:0%;
     top:0%;
     z-index:1;

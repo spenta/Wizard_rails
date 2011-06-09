@@ -237,7 +237,7 @@ strong {
 .wizard_button:hover { background-image:url('/images/catalogue/wizard_button_hover.png'); }
 
 .label {
-    padding:8px 0 0 12px;
+    padding:8px 0 0 20px;
     font-size:1.8em;
     color:white;
     text-shadow:1px 1px #666666;

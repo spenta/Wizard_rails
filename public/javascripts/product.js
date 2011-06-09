@@ -26,3 +26,27 @@ $j(document).ready(function() {
 	$j( ".specs_table tbody tr:odd" ).css( "background-color" , "#EFF7FB" );
 });
 
+// Zoom popup
+$j(document).ready(
+  function() {
+    $j('#popup').hide();
+    $j('#overlay').hide();
+
+    $j('#zoom').click(
+      function()
+      {
+        $j('#popup').toggle();
+        $j('#overlay').toggle();
+      }
+    );
+
+    $j('#popup').click(
+      function()
+      {
+        $j('#popup').toggle();
+        $j('#overlay').toggle();
+      }
+    );
+  }
+);
+

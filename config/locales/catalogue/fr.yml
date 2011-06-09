@@ -42,9 +42,9 @@ fr:
 
   # Link to wizard
   cat_wizard_text: |
-    <h2>Vous ne savez pas<br/>quel ordinateur choisir ?</h2>
+    <h2>Vous ne savez pas comment<br/>choisir un PC portable ?</h2>
     <p class="wizard_text">Répondez à quelques questions rapides et nous vous conseillerons les meilleurs PC <strong>pour vos besoins</strong>. Suivez l'expert !</p>
-  cat_wizard_label: Trouvez votre PC
+  cat_wizard_label: Choisir votre PC
   cat_wizard_emphasis: C'est simple, rapide et objectif !
 
   cat_more_infos_1: Voir la fiche produit
