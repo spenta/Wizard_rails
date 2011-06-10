@@ -43,6 +43,12 @@ Header
 	padding:5px 0px 6px 16px;
 }
 
+#header_menu a li.wizard_header_button {
+  color:white;
+	font-size:17px;
+	padding:5px 0px 6px 16px;
+}
+
 #header_menu a, #header_menu p {
 	color:white;
 	font-size:1.4em;

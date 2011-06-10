@@ -43,9 +43,9 @@
               <%= t_safe :wizard_incentive %>
               <img class="arrow" src="/images/arrow.png" />
             </li>
-            <li class="wizard_header_button">
-              <%= link_to 'Conseiller interactif', user_requests_path, :method => :post, :id => "link_to_form" %>
-            </li>
+            <%= link_to user_requests_path, :method => :post, :id => "link_to_form" do %>
+              <li class="wizard_header_button">Conseiller interactif</li>
+            <% end -%>
             <li><img src="/images/home/menu_vspacer.png" /></li>
             <li>
               <%= link_to "Catalogue", products_path %>

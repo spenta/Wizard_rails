@@ -1,5 +1,10 @@
-h1 {
+h1.explain {
 	display: block;
-	width: 216px;	
 	/*filter: Shadow(color='#33332F', Direction=135, Strength=1);*/
 }
+
+h1.explain strong {
+  font-weight:bold;
+  font-size:1.0em;
+}
+
