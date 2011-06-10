@@ -1,0 +1,10 @@
+a.scoretooltip:hover span {
+	top:25px;
+	left:-20px;
+}
+
+a.specstooltip:hover span {
+  top:-5px;
+	left:-200px;
+}
+
