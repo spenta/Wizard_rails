@@ -1,4 +1,33 @@
-.title strong {
-  font-size:1em;
+h2.faint_title.above_border {
+  margin-bottom: 3px
 }
+
+#product_description {
+  margin-top:-20px;
+}
+
+#top_left {
+  height:315px;
+  margin-bottom:20px;
+}
+
+#nav_box {
+  margin-bottom:23px;
+  padding:8px;
+}
+
+#wizard_box {
+  padding:8px;
+  margin-bottom:20px;
+}
+
+.social_media p {
+  display:inline-block;
+  float:right;
+  margin-top:8px;
+}
+
+.plus_one {
+  display:inline-block;
+  float:right; }
 

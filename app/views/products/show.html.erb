@@ -35,12 +35,7 @@
             <p  class="zoom"><%= t_safe :zoom_in %></p>
           </a>
         </div>
-        <%# Image zoom %>
-        <div id="popup">
-          <p class="unzoom"><%= t_safe :zoom_out %></p>
-          <%= image_tag infos[:big_img_url], :alt => "#{t :product_laptop} #{infos[:brand_name]} #{infos[:name]}", :id => "picture_zoom" %>
-        </div>
-        <div id="overlay"></div>
+
       </div>
 
       <div id="main_specs">
@@ -158,6 +153,13 @@
     </div>
     <p id="spec_disclaimer"><%=  t :disclaimer_for_specs_values%></p>
   </div>
+
+  <%# Image zoom %>
+  <div id="popup">
+    <p class="unzoom"><%= t_safe :zoom_out %></p>
+    <%= image_tag infos[:big_img_url], :alt => "#{t :product_laptop} #{infos[:brand_name]} #{infos[:name]}", :id => "picture_zoom" %>
+  </div>
+  <div id="overlay"></div>
 
 </div>
 

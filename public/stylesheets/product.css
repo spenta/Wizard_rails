@@ -162,7 +162,6 @@ body, html { background-color:#E5E5E5; }
 	  -moz-border-radius:8px;
 	  -o-border-radius:8px;
 	  border-radius:8px;
-	  behavior: url(/stylesheets/PIE.htc);
 }
 
 #overlay {

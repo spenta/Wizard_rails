@@ -14,3 +14,22 @@
 	background-position:left center;
 }
 
+.specsright {
+  float:left;
+  width:50px;
+  display:inline;
+}
+
+a.specstooltip:hover span {
+	display: block;
+	position: absolute;
+	width:180px;
+	top:-40px;
+	left:-200px;
+	background:#D4FCD9;
+	padding: 8px;
+	border: 1px solid #057619;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+}
+
