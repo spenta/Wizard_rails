@@ -3,6 +3,7 @@
 <% important_specs_id = get_important_specs_id_from @user_response.gammas -%>
 
 <% content_for :head do -%>
+  <link rel="icon" type="image/png" href="/favicon.ico" />
   <title><%= t :result_page_html_title %></title>
   <%= include_stylesheets :result%>
   <!--[if lte IE 8]>
