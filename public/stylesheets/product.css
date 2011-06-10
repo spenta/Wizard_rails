@@ -244,8 +244,8 @@ a.tooltip:hover span {
 	display: block;
 	position: absolute;
 	width:250px;
-	top:-30px;
-	left:-265px;
+	top:15px;
+	left:-20px;
 	background:#D4FCD9;
 	padding: 8px;
 	border: 1px solid #057619;

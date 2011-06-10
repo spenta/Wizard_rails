@@ -102,12 +102,12 @@ fr:
 
   # Tooltip
   product_help: Aide
-  product_11_tooltip: Le processeur fait tourner tous les logiciels. Il est particulièrement sollicité pour faire du montage de vidéos, de la retouche photo, des documents avancés et des jeux vidéos.
+  product_11_tooltip: Le processeur fait tourner tous les logiciels. Il est particulièrement sollicité pour faire du montage de films, de la retouche photo, des documents avancés et des jeux vidéos.
   product_5_tooltip: Un grand écran vous apportera un réel confort pour regarder des films, faire du graphisme et pour jouer. C'est aussi un plus appréciable lorsque l'on rédige des documents !
   product_3_tooltip: La carte graphique fabrique les images qui s'affichent sur votre écran. Elle est surtout utilisée pour les jeux vidéo en 3D et un peu pour la lecture de films en HD.
-  product_2_tooltip: Pour que vos logiciels puissent tourner de manière fluide, votre ordinateur stocke des données dans la mémoire vive. Il en faut beaucoup pour le graphisme, les jeux et la création de documents avancés.
+  product_2_tooltip: Pour que vos logiciels puissent tourner de manière fluide, votre ordinateur stocke des données dans la mémoire vive. Il en faut beaucoup si vous utilisez plusieurs programmes en même temps. Le graphisme et la création de gros documents sont assez gourmands en mémoire.
   product_4_tooltip: Pour stocker tous vos fichiers et installer des applications. Les jeux et le montage de films consomment beaucoup d'espace sur le disque dur.
-  product_9_tooltip: Lorsque vous transporterez votre ordinateur, vous apprécierez qu'il soit assez léger !
+  product_9_tooltip: Le poids de l'ordinateur n'est important que si vous comptez souvent le déplacer. Le poids moyen des PC est autour de 2,2 kg.
 
   # Zoom
   zoom_in: Cliquez l'image pour zoomer
