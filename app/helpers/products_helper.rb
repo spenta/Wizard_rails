@@ -2,7 +2,7 @@ module ProductsHelper
 
   def offers_number_text
     count = @product.offers.count
-    text = t :product_offers_number_1
+    text = t_safe :product_offers_number_1
     text += " "
     text += count.to_s
     text += " "

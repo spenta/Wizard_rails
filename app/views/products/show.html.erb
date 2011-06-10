@@ -18,6 +18,7 @@
     var bar_length_6 = <%= infos[:specification_values][9][:sv_score] %>
   </script>
   <%= include_javascripts :product %>
+  <script type="text/javascript" src="http://apis.google.com/js/plusone.js"></script>
   <!--[if lte IE 8]>
     <link type="text/css" rel="stylesheet" href="/stylesheets/product_lteie8.css">
   <![endif]-->
@@ -29,8 +30,10 @@
 
       <div class="picture_box">
         <div id="zoom">
-          <p><%= t_safe :zoom_in %></p>
-          <%= image_tag infos[:big_img_url], :alt => "#{t :product_laptop} #{infos[:brand_name]} #{infos[:name]}", :id => "picture" %>
+          <a href="#">
+            <%= image_tag infos[:big_img_url], :alt => "#{t :product_laptop} #{infos[:brand_name]} #{infos[:name]}", :id => "picture" %>
+            <p  class="zoom"><%= t_safe :zoom_in %></p>
+          </a>
         </div>
         <%# Image zoom %>
         <div id="popup">
@@ -52,12 +55,14 @@
             <% end -%>
           </tbody>
         </table>
+        <div class="clearfix"></div>
+        <h2 class="faint_title above_border"><%= t_safe :product_description_title %></h2>
       </div>
 
       <div class="clearfix"></div>
 
       <div id="product_description">
-        <h2 class="faint_title"><%= t_safe :product_description_title %></h2>
+
         <p><%= usage_class_generator @product %> <%= storage_class_generator @product %> <%= weight_class_generator @product %></p>
       </div>
 
@@ -65,23 +70,27 @@
 
 
     <div id="top_right">
-      <h1 class="wizard_cta_title"><%= t_safe :wizard_cta_title %></h1>
-      <p class="wizard_incentive"><%= t_safe :wizard_intro_text %></p>
-      <%= link_to user_requests_path, :method => :post, :class => "no_underline" do%>
-          <div class="wizard_button"><p class="label"><%= t :cat_wizard_label %></p></div>
-      <% end %>
-      <p class="wizard_emphasis"><%= t :cat_wizard_emphasis %></p>
-      <p class="wizard_incentive"><%= t_safe :catalogue_text_1 %> <strong><%= Product.all_cached.count %> <%= t_safe :catalogue_text_2 %></strong></p>
-      <%= link_to products_path, :class => "no_underline" do%>
-          <div class="wizard_button"><p class="label"><%= t :prod_catalogue_label %></p></div>
-      <% end %>
+      <div id="wizard_box" class="cta_box">
+        <h1 class="wizard_cta_title"><%= t_safe :wizard_cta_title %></h1>
+        <p class="wizard_incentive"><%= t_safe :wizard_intro_text %></p>
+        <%= link_to user_requests_path, :method => :post, :class => "no_underline" do%>
+            <div class="wizard_button"><p class="label"><%= t :cat_wizard_label %></p></div>
+        <% end %>
+        <p class="wizard_emphasis"><%= t :cat_wizard_emphasis %></p>
+      </div>
+      <div id="catalogue_box" class="cta_box">
+        <p class="wizard_incentive"><%= t_safe :catalogue_text_1 %> <strong><%= Product.all_cached.count %> <%= t_safe :catalogue_text_2 %></strong></p>
+        <%= link_to products_path, :class => "no_underline" do%>
+            <div class="wizard_button"><p class="label"><%= t :prod_catalogue_label %></p></div>
+        <% end %>
+      </div>
     </div>
     <div class="clearfix"></div>
 
 
     <div id="offers">
 
-      <h2><%= offers_number_text %></h2>
+      <h2 class="offer_title"><%= offers_number_text %></h2>
 
       <div class="offers_wrapper">
        <table id="offers_table">
@@ -91,7 +100,10 @@
             <% end -%>
             <tr class="retailers_checked">
               <td colspan="5">
-              Affiche les retailers sans offre
+                <p>Nous avons recherché ce PC sur <%= retailers_with_no_offers_count = 8 - @product.offers.uniq.count %> autres sites marchands, mais ils ne proposent pas cet ordinateur pour le moment.</p>
+                    <% ["/images/logo/fnac.png","/images/logo/pixmania.png","/images/logo/rueducommerce.png","/images/logo/cdiscount.png","/images/logo/hp.png","/images/logo/mistergooddeal.png","/images/logo/boulanger.png","/images/logo/misco.png"].each do |url| %>
+                      <img src="<%= url %>" />
+                    <% end %>
               </td>
             </tr>
           </tbody>

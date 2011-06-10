@@ -11,7 +11,7 @@ function barResize(valIn) { return ((valIn + 1) / 11) * 100; }
 
 // Resizes the product picture so that it fits in the box without distorsion
 $j(document).ready(function() {
-	$j( "#picture" ).aeImageResize({ height: 216, width: 326 });
+	$j( "#picture" ).aeImageResize({ height: 224, width: 270 });
 });
 
 $j(document).ready(function() {

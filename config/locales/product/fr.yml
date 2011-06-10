@@ -18,14 +18,14 @@ fr:
   usage_class_l_l_l: |
     Cet ordinateur portable est avant tout prévu pour aller sur Internet et faire un peu de bureautique. Ne le choisissez pas pour des usages plus exigeants, il n'y est pas vraiment adapté.
   usage_class_l_l_m: |
-    Cet ordinateur d'entrée de gamme est parfait pour Internet et la bureautique. Il a une quantité de mémoire vive raisonnable : vous ne subirez pas de ralentissements intempestifs si vous utilisez plusieurs progammes en même temps.
+    Cet ordinateur d'entrée de gamme est parfait pour Internet et la bureautique. Il a une quantité de mémoire vive raisonnable : il ne sera pas trop lent si vous utilisez plusieurs progammes en même temps.
   usage_class_l_l_h: |
     Un ordinateur portable basique, aux performances suffisantes pour aller sur Internet et rédiger des documents. Il embarque beaucoup de mémoire vive : pratique si vous avez l'habitude d'utiliser plusieurs programmes à la fois.
 
   usage_class_l_m_l: |
     Cet ordinateur dispose d'un processeur très correct. Il vous permettra d'aller sur internet, de profiter du multimédia ou de faire de la bureautique. Par contre, il n'est pas du tout adapté au jeu vidéo.
   usage_class_l_m_m: |
-    Cet ordinateur polyvalent est parfaitement adapté au multimédia et à la bueautique. En revanche, sa carte graphique d'entrée de gamme le bride pour le jeu vidéo.
+    Cet ordinateur polyvalent est parfaitement adapté au multimédia et à la bureautique. En revanche, sa carte graphique d'entrée de gamme le bride pour le jeu vidéo.
   usage_class_l_m_h: |
     Parfaitement adapté au multimédia et à la bureatique, cet ordinateur dispose d'un assez bon processeur et d'une mémoire suffisante pour beaucoup d'usages. En revanche, sa carte graphique n'est pas adaptée aux jeux vidéos récents.
 
@@ -35,28 +35,28 @@ fr:
   usage_class_l_h_m: |
     Avec son très bon processeur, cet ordinateur est adapté aux usages professionnels et au multimédia. En revanche, sa carte graphique d'entrée de gamme n'est pas suffisante pour jouer aux jeux récents.
   usage_class_l_h_h: |
-    Cet ordinateur est une parfaite station de travail. Son processeur puissant et sa mémoire vive importante le rendent tout désigné pour la bureautique avancée, le graphisme...
+    Cet ordinateur est une parfaite station de travail. Son processeur puissant et sa mémoire vive importante le rendent tout désigné pour la bureautique.
 
   usage_class_m_l_l: |
     Cet ordinateur pourra convenir aux joueurs occasionnels, mais il est limité par son processeur et la mémoire vive qu'il embarque.
   usage_class_m_l_m: |
-    Cet ordinateur est polyvalent. Ses performances son adéquates pour la plupart des usages. Il  est bien adapté aux amateurs de jeu vidéo grâce à carte graphique milieu de gamme, assez rare sur ce type de modèles.
+    Cet ordinateur est polyvalent. Ses performances son adéquates pour la plupart des usages. Il est bien adapté aux amateurs de jeu vidéo grâce à sa carte graphique milieu de gamme, assez rare sur ce type de modèles.
   usage_class_m_l_h: |
     Cet ordinateur est bien adapté aux amateurs de jeu vidéo : sa carte graphique milieu de gamme compensera les performances limitées de son processeur. Sa mémoire vive conséquente est un atout.
 
   usage_class_m_m_l: |
     Un PC portable polyvalent, aux performances correctes pour la majorité des usages. Un petit bémol toutefois : il a assez peu de mémoire vive et pourra être lent si vous lancez plusieurs programmes en même temps ou que vous manipulez de gros documents.
   usage_class_m_m_m: |
-    Cet ordinateur a une configuration très équilibrée. Il aura des performances correctes pour la plupart des usages : multimédia, bureautique et jeux. Il fera plaisir à toute la famille !
+    Cet ordinateur a une configuration très équilibrée. Il aura des performances correctes pour la plupart des usages : multimédia, bureautique, jeux... Le PC familial par excellence !
   usage_class_m_m_h: |
     Ce modèle est très polyvalent. Vous pourrez confortablement l'utiliser comme station multimédia, pour travailler ou pour jouer. Il a beaucoup de mémoire vive, cela vous permettra d'utiliser de nombreux programmes en même temps.
 
   usage_class_m_h_l: |
     Ce modèle polyvalent convient à la plupart des usages. Par contre, il a pour défaut de ne pas avoir beaucoup de mémoire vive : c'est gênant  si vous utilisez plusieurs programmes en même temps.
   usage_class_m_h_m: |
-    Ce modèle fait partie des ordinateur polyvalents milieu-haut de gamme. Vous pourrez confortablement l'utiliser en station multimédia ou pour la bureautique. Bien que sa carte graphique ne soit pas la plus puissante, il convient très bien aux joueurs occasionnels.
+    Ce modèle fait partie des ordinateurs polyvalents milieu-haut de gamme. Vous pourrez confortablement l'utiliser en station multimédia ou pour la bureautique. Bien que sa carte graphique ne soit pas la plus puissante, il convient très bien à la plupart des joueurs.
   usage_class_m_h_h: |
-    Ce modèle polyvalent a de très bonnes performances. Vous pourrez confortablement l'utiliser comme station multimédia ou pour faire de la bureautique. Bien que sa carte graphique ne soit pas la plus puissante, il conviendra aux joueurs occasionnels.
+    Ce modèle polyvalent a de très bonnes performances. Vous pourrez confortablement l'utiliser comme station multimédia ou pour faire de la bureautique. Bien que sa carte graphique ne soit pas la plus puissante, il conviendra à la plupart des joueurs.
 
   usage_class_h_l_l: |
     Avec une carte graphique performante, mais un processeur bas de gamme et peu de mémoire, cet ordinateur a une configuration atypique. Il se destine aux joueurs, mais il reste médiocre dans cet usage.
@@ -75,9 +75,9 @@ fr:
   usage_class_h_h_l: |
     Ce PC portable a des performances élevées, mais il n'a que peu de mémoire vive. Il est adapté pour le jeu vidéo, mais il sera limité si vous l'utilisez pour faire du graphisme ou pour travailler sur de gros documents.
   usage_class_h_h_m: |
-    Cet ordinateur très performant est taillé pour le jeu vidéo. Sa carte graphique haut de gamme et son processeur puissant vous permettront de jouer aux jeux 3D sans problème. En revanche, sa mémoire vive est un peu juste pour la bureautique avancée ou le graphisme.
+    Cet ordinateur très performant est taillé pour le jeu vidéo. Sa carte graphique haut de gamme et son processeur puissant vous permettront de jouer aux jeux 3D sans problème. En revanche, sa mémoire vive est un peu juste pour des usages tels que le montage vidéo.
   usage_class_h_h_h: |
-    Cet ordinateur est extrêmement performant. Aucun usage ne lui fait peur : jeux, multimédia, bureautique avancée, graphisme... Il embarque une carte graphique haut de gamme, un processeur puissant et beaucoup de mémoire vive.
+    Cet ordinateur est extrêmement performant. Aucun usage ne lui fait peur : jeux, multimédia, bureautique avancée, graphisme, vidéo... Il embarque une carte graphique haut de gamme, un processeur puissant et beaucoup de mémoire vive.
 
   # Storage
 
@@ -87,8 +87,8 @@ fr:
 
   # Weight
 
-  weight_class_l: Son poids plume est parfait pour les nomades !
-  weight_class_m: D'un poids intermédiaire, il ne vous encombrera guère lors de vos déplacements.
+  weight_class_l: Son poids plume en fait un PC parfait pour les nomades !
+  weight_class_m: D'un poids intermédiaire, il reste facilement transportable.
   weight_class_h: Relativement lourd, il est plus destiné à remplacer un ordinateur fixe qu'à vous accompagner dans vos déplacements.
 
   # ---------------------------------------------------------------------------------------
@@ -110,22 +110,23 @@ fr:
   product_9_tooltip: Lorsque vous transporterez votre ordinateur, vous apprécierez qu'il soit assez léger !
 
   # Zoom
-  zoom_in: Cliquez pour zoomer
+  zoom_in: Cliquez l'image pour zoomer
   zoom_out: Cliquez pour quitter le zoom
 
   # Wizard box
   wizard_cta_title: Comment choisir<br />un PC portable ?
   wizard_intro_text: |
-    Il vous suffit de répondre à quelques questions et notre conseiller interactif vous indiquera les ordinateurs les plus adaptés à <strong>vos besoins</strong>.
-  catalogue_text_1: Vous pouvez également utiliser notre catalogue, sur lequel vous trouverez
+    Il suffit de répondre à quelques questions ! Le conseiller interactif vous indiquera des PC adaptés à <strong>vos besoins</strong>.
+  catalogue_text_1: Vous pouvez également utiliser notre catalogue interactif. Vous y retrouverez
   catalogue_text_2: modèles de PC portables.
 
   prod_catalogue_label: Notre catalogue
 
   # Offers
-  product_offers_number_1: Il y a actuellement
-  product_offers_number_2_singular: offre pour cet ordinateur portable.
-  product_offers_number_2_plural: offres pour cet ordinateur portable.
+  product_offers_number_1: |
+    <strong>Où acheter cet ordinateur ?</strong> Il y a actuellement
+  product_offers_number_2_singular: offre pour ce PC portable.
+  product_offers_number_2_plural: offres pour ce PC portable.
 
   product_sold_by: vendu par
   product_buy: J'y vais !

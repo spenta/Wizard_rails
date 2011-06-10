@@ -12,12 +12,12 @@ Styles par défaut
 }
 
 .faint_title {
-	text-align:center;
+	text-align:left;
 	text-shadow:none;
 	color:#666666;
 	font-size:1.3em;
 	font-weight:bold;
-	margin:0 0 7px 0;
+	margin:0 0 3px 0;
 }
 
 strong {
@@ -41,7 +41,7 @@ body, html { background-color:#E5E5E5; }
 
 #top_wrapper {
 	background-color:#50A5D7;
-	padding:15px 0;
+	padding:20px 0;
 }
 
 #bottom_wrapper {
@@ -52,15 +52,15 @@ body, html { background-color:#E5E5E5; }
 /* Product name */
 
 .title {
-	text-align:center;
+	text-align:left;
 	font-size:1.8em;
 	font-weight:bold;
-	color:#33332F;
+	color:#50A5D7;
 	margin-bottom:15px;
 }
 
 .title strong {
-	text-align:center;
+	text-align:left;
 	font-size:0.9em;
 	font-weight:bold;
 	color:#33332F;
@@ -102,9 +102,13 @@ body, html { background-color:#E5E5E5; }
 	float:left;
 	margin-left:20px;
 	width:236px;
-	height:306px;
+	height:310px;
+}
+
+.cta_box {
 	background-color:white;
-	padding:12px;
+	width:236px;
+	padding:8px;
 	-webkit-border-radius:12px;
   -khtml-border-radius:12px;
   -moz-border-radius:12px;
@@ -112,6 +116,10 @@ body, html { background-color:#E5E5E5; }
 	border-radius:12px;
 	behavior: url(/stylesheets/PIE.htc);
 	position: relative;
+}
+
+#wizard_box {
+  margin:14px 0 14px 0;
 }
 
 /* --- Description --- */
@@ -122,8 +130,13 @@ body, html { background-color:#E5E5E5; }
   margin: 5px 10px 0 0;
 }
 
+.above_border {
+  margin-top:12px;
+}
+
 #product_description p {
   text-align:justify;
+  font-size:1.1em;
 }
 
 /* --- Photo --- */
@@ -140,17 +153,14 @@ body, html { background-color:#E5E5E5; }
 #picture {
 	margin:auto;
 	display:block;
-	height:230px;
-  margin-top:-14px;
 }
 
-#zoom p {
+#zoom p.zoom {
+  z-index:1;
+  position:relative;
   color:#50A5D7;
   text-decoration:underline;
   text-align:center;
-  z-index:1;
-  position:relative;
-  margin-top:5px;
 }
 
 .unzoom {
@@ -197,7 +207,6 @@ body, html { background-color:#E5E5E5; }
 /* --- Top right : specs --- */
 
 #main_specs {
-	margin-left:8px;
 	float:left;
 }
 
@@ -290,13 +299,14 @@ a.tooltip:hover span {
   color:#33332F;
   text-align:center;
   font-weight:bold;
+  margin-bottom:6px;
 }
 
 .wizard_incentive {
   font-size:1em;
   color:#33332F;
   text-align:justify;
-  margin:18px 0 12px 0;
+  margin:0 0 12px 0;
 }
 
 .wizard_emphasis {
@@ -340,7 +350,7 @@ p.label {
 #offers {
 	margin:20px auto 0 auto;
 	background-color:#E5E5E5;
-	padding:2px 0 12px 0;
+	padding:5px 0 12px 0;
 	-webkit-border-radius:12px;
   -khtml-border-radius:12px;
   -moz-border-radius:12px;
@@ -350,13 +360,19 @@ p.label {
 	position: relative;
 }
 
-#offers h2 {
-	text-align:center;
-	font-size:1.6em;
+h2.offer_title {
+	text-align:left;
+	font-size:1.35em;
+	color:#555555;
+	border-bottom:12px;
+	margin-left:15px;
+}
+
+h2.offer_title strong {
+	font-size:1.1em;
 	font-weight:bold;
 	color:#33332F;
-	text-shadow:1px 1px white;
-	border-bottom:12px;
+  text-shadow:1px 1px white;
 }
 
 .offers_wrapper {
@@ -368,11 +384,6 @@ p.label {
 }
 
 /* Contents of the offer boxes */
-
-.retailers_checked {
-  background-image:url('/images/product/offer_bckg.png');
-  height:78px;
-}
 
 .offer {
   height:78px;
@@ -399,7 +410,7 @@ p.label {
 .offer_name a {
   text-align:justify;
 	color:#666;
-	font-size:1.3em;
+	font-size:1.2em;
 }
 
 .offer_price {
@@ -407,20 +418,21 @@ p.label {
   border-top:1px solid #E5E5E5;
   border-bottom:1px solid #E5E5E5;
   width:110px;
+  text-align:center;
 }
 
 .offer_price a {
   color:#33332F;
 	font-weight:bold;
 	font-size:2em;
+	text-align:center;
 }
 
 .offer_logo {
   background-image:url('/images/product/offer_bckg.png');
   border-top:1px solid #E5E5E5;
   border-bottom:1px solid #E5E5E5;
-
-  padding-left:8px;
+  padding:0 4px;
 }
 
 .retailer_logo {
@@ -466,12 +478,37 @@ p.label {
 	padding-top:1.5px;
 }
 
+/* --- Retailers without offers --- */
+.retailers_checked {
+  background-image:url('/images/product/offer_bckg.png');
+  height:78px;
+  text-align:center;
+}
+
+.retailers_checked td p {
+  margin:0 0 5px 0;
+  font-size:1.25em;
+  font-style:italic;
+  color:#555555;
+}
+
+.retailers_checked td img {
+  width:100px;
+  margin:0px 3px;
+}
+
+
+
 /* --- Specs sheet --- */
 
 /* Mise en page */
 
 #specs_sheet {
-	margin:30px 0 8px 0;
+	margin:15px 0 8px 0;
+}
+
+#specs_sheet h2 {
+	text-align:center;
 }
 
 #tables_header {
@@ -553,9 +590,8 @@ p.label {
 
 .social_media {
 	width:960px;
-	margin:10px auto;
+	margin:0 auto;
 	text-align:right;
-	padding:0 30px;
 }
 
 .social_media p {
