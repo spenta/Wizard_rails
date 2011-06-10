@@ -81,6 +81,7 @@ body, html { background-color:#E5E5E5; }
 #top_left {
 	float:left;
 	width:656px;
+	height:325px;
 	padding:12px;
 	background-color:white;
 	-webkit-border-radius:12px;
@@ -96,30 +97,6 @@ body, html { background-color:#E5E5E5; }
   border-top:1px solid #E5E5E5;
   padding-top:8px;
   margin-top:1px;
-}
-
-#top_right {
-	float:left;
-	margin-left:20px;
-	width:236px;
-	height:310px;
-}
-
-.cta_box {
-	background-color:white;
-	width:236px;
-	padding:8px;
-	-webkit-border-radius:12px;
-  -khtml-border-radius:12px;
-  -moz-border-radius:12px;
-  -o-border-radius:12px;
-	border-radius:12px;
-	behavior: url(/stylesheets/PIE.htc);
-	position: relative;
-}
-
-#wizard_box {
-  margin:14px 0 14px 0;
 }
 
 /* --- Description --- */
@@ -204,7 +181,7 @@ body, html { background-color:#E5E5E5; }
   width:550px;
 }
 
-/* --- Top right : specs --- */
+/* --- Main Specs --- */
 
 #main_specs {
 	float:left;
@@ -293,7 +270,31 @@ a.tooltip:hover span {
 
 .spec_rating strong { font-size:1.2em; }
 
-/* ---- Wizard box ---- */
+/* ---- Menu & Wizard box ---- */
+#top_right {
+	float:left;
+	margin-left:20px;
+	width:236px;
+	height:310px;
+}
+
+.cta_box {
+	background-color:white;
+	width:236px;
+	padding:12px;
+	-webkit-border-radius:12px;
+  -khtml-border-radius:12px;
+  -moz-border-radius:12px;
+  -o-border-radius:12px;
+	border-radius:12px;
+	behavior: url(/stylesheets/PIE.htc);
+	position: relative;
+}
+
+#wizard_box {
+  margin:25px 0 0 0;
+}
+
 .wizard_cta_title {
   font-size:1.5em;
   color:#33332F;
@@ -306,14 +307,14 @@ a.tooltip:hover span {
   font-size:1em;
   color:#33332F;
   text-align:justify;
-  margin:0 0 12px 0;
+  margin:0 0 0 0;
 }
 
 .wizard_emphasis {
 	text-align:center;
 	font-size:1.1em;
 	font-weight:bold;
-	margin-top:5px;
+	margin:5px 0;
 }
 
 .wizard_button {
@@ -330,6 +331,28 @@ p.label {
     font-size:1.8em;
     color:white;
     text-shadow:1px 1px #666666;
+}
+
+.catalogue_link {
+  color:#50A5D7;
+}
+
+#nav_box p {
+  font-size:1.3em;
+  font-weight:bold;
+  margin-bottom:6px;
+  text-align:center;
+  }
+
+#nav_box ul li {
+  list-style-type: disc;
+  list-style-position:inside;
+  margin-left:30px;
+  font-size:1.2em;
+}
+
+#nav_box ul li a {
+  color: #50A5D7;
 }
 
 /* ---------------------------

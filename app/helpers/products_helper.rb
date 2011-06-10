@@ -72,7 +72,7 @@ module ProductsHelper
           t_safe :usage_class_l_l_h
         end
 
-      elsif product.infos[:specification_values][11][:sv_score] > 4 and product.infos[:specification_values][3][:sv_score] <= 7
+      elsif product.infos[:specification_values][11][:sv_score] > 4 and product.infos[:specification_values][11][:sv_score] <= 7
 
         if product.infos[:specification_values][2][:sv_score] <= 4
         # GPU = low, CPU = medium, RAM = low
@@ -116,7 +116,7 @@ module ProductsHelper
           t_safe :usage_class_m_l_h
         end
 
-      elsif product.infos[:specification_values][11][:sv_score] > 4 and product.infos[:specification_values][3][:sv_score] < 7
+      elsif product.infos[:specification_values][11][:sv_score] > 4 and product.infos[:specification_values][11][:sv_score] < 7
 
         if product.infos[:specification_values][2][:sv_score] <= 4
         # GPU = medium, CPU = medium, RAM = low
@@ -160,7 +160,7 @@ module ProductsHelper
           t_safe :usage_class_h_l_h
         end
 
-      elsif product.infos[:specification_values][11][:sv_score] > 4 and product.infos[:specification_values][3][:sv_score] < 7
+      elsif product.infos[:specification_values][11][:sv_score] > 4 and product.infos[:specification_values][11][:sv_score] < 7
 
         if product.infos[:specification_values][2][:sv_score] <= 4
         # GPU = high, CPU = medium, RAM = low

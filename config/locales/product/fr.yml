@@ -54,9 +54,9 @@ fr:
   usage_class_m_h_l: |
     Ce modèle polyvalent convient à la plupart des usages. Par contre, il a pour défaut de ne pas avoir beaucoup de mémoire vive : c'est gênant  si vous utilisez plusieurs programmes en même temps.
   usage_class_m_h_m: |
-    Ce modèle fait partie des ordinateurs polyvalents milieu-haut de gamme. Vous pourrez confortablement l'utiliser en station multimédia ou pour la bureautique. Bien que sa carte graphique ne soit pas la plus puissante, il convient très bien à la plupart des joueurs.
+    Ce modèle fait partie des ordinateurs polyvalents milieu-haut de gamme. Vous pourrez confortablement l'utiliser en station multimédia ou pour la bureautique. Avec sa carte graphique milieu de gamme, il conviendra à la plupart des joueurs.
   usage_class_m_h_h: |
-    Ce modèle polyvalent a de très bonnes performances. Vous pourrez confortablement l'utiliser comme station multimédia ou pour faire de la bureautique. Bien que sa carte graphique ne soit pas la plus puissante, il conviendra à la plupart des joueurs.
+    Ce modèle polyvalent a de très bonnes performances. Vous pourrez confortablement l'utiliser comme station multimédia ou pour faire de la bureautique. Bien que sa carte graphique ne soit pas la plus puissante, il conviendra à la majorité des joueurs.
 
   usage_class_h_l_l: |
     Avec une carte graphique performante, mais un processeur bas de gamme et peu de mémoire, cet ordinateur a une configuration atypique. Il se destine aux joueurs, mais il reste médiocre dans cet usage.
@@ -113,12 +113,22 @@ fr:
   zoom_in: Cliquez l'image pour zoomer
   zoom_out: Cliquez pour quitter le zoom
 
+  # Nav_menu
+  product_nav_title: Tout savoir sur ce PC portable
+  product_nav_1: Fiche technique résumée
+  product_nav_2: Offres des sites marchands
+  product_nav_3: Caractéristiques techniques
+
   # Wizard box
   wizard_cta_title: Comment choisir<br />un PC portable ?
   wizard_intro_text: |
-    Il suffit de répondre à quelques questions ! Le conseiller interactif vous indiquera des PC adaptés à <strong>vos besoins</strong>.
-  catalogue_text_1: Vous pouvez également utiliser notre catalogue interactif. Vous y retrouverez
-  catalogue_text_2: modèles de PC portables.
+    Il suffit de répondre à quelques questions ! Le conseiller interactif vous indiquera des <strong>PC adaptés à vos besoins</strong>.
+  catalogue_link_text_1: Vous pouvez aussi utiliser le
+  catalogue_link_anchor: catalogue PC interactif.
+  catalogue_link_text_2: |
+    Vous y retrouverez
+  catalogue_link_text_3: |
+    modèles de PC portables !
 
   prod_catalogue_label: Notre catalogue
 
@@ -127,6 +137,9 @@ fr:
     <strong>Où acheter cet ordinateur ?</strong> Il y a actuellement
   product_offers_number_2_singular: offre pour ce PC portable.
   product_offers_number_2_plural: offres pour ce PC portable.
+
+  retailers_checked_1: Nous avons recherché ce PC sur
+  retailers_checked_2: autres sites marchands, mais ils ne le proposent pas pour le moment.
 
   product_sold_by: vendu par
   product_buy: J'y vais !

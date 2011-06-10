@@ -27,7 +27,7 @@
 <div id="top_wrapper">
   <div id="top">
     <div id="top_left">
-
+      <a name="short"></a>
       <div class="picture_box">
         <div id="zoom">
           <a href="#">
@@ -70,6 +70,14 @@
 
 
     <div id="top_right">
+      <div id="nav_box" class="cta_box">
+        <p><%= t_safe :product_nav_title %></p>
+        <ul>
+          <li><a href="#short"><%= t_safe :product_nav_1 %></a></li>
+          <li><a href="#offers"><%= t_safe :product_nav_2 %></a></li>
+          <li><a href="#long"><%= t_safe :product_nav_3 %></a></li>
+        </ul>
+      </div>
       <div id="wizard_box" class="cta_box">
         <h1 class="wizard_cta_title"><%= t_safe :wizard_cta_title %></h1>
         <p class="wizard_incentive"><%= t_safe :wizard_intro_text %></p>
@@ -77,19 +85,19 @@
             <div class="wizard_button"><p class="label"><%= t :cat_wizard_label %></p></div>
         <% end %>
         <p class="wizard_emphasis"><%= t :cat_wizard_emphasis %></p>
-      </div>
-      <div id="catalogue_box" class="cta_box">
-        <p class="wizard_incentive"><%= t_safe :catalogue_text_1 %> <strong><%= Product.all_cached.count %> <%= t_safe :catalogue_text_2 %></strong></p>
-        <%= link_to products_path, :class => "no_underline" do%>
-            <div class="wizard_button"><p class="label"><%= t :prod_catalogue_label %></p></div>
-        <% end %>
+        <p class="wizard_incentive">
+          <%= t_safe :catalogue_link_text_1 %>
+          <%= link_to "#{t_safe :catalogue_link_anchor}", products_path, :class => "catalogue_link" %>
+          <%= t_safe :catalogue_link_text_2 %> <strong><%= Product.all_cached.count %>
+          <%= t_safe :catalogue_link_text_3 %></strong>
+        </p>
       </div>
     </div>
     <div class="clearfix"></div>
 
 
     <div id="offers">
-
+      <a name="offers"></a>
       <h2 class="offer_title"><%= offers_number_text %></h2>
 
       <div class="offers_wrapper">
@@ -100,7 +108,7 @@
             <% end -%>
             <tr class="retailers_checked">
               <td colspan="5">
-                <p>Nous avons recherché ce PC sur <%= retailers_with_no_offers_count = 8 - @product.offers.uniq.count %> autres sites marchands, mais ils ne proposent pas cet ordinateur pour le moment.</p>
+                <p><%= t_safe :retailers_checked_1 %> <%= retailers_with_no_offers_count = 8 - @product.offers.uniq.count %> <%= t_safe :retailers_checked_2 %></p>
                     <% ["/images/logo/fnac.png","/images/logo/pixmania.png","/images/logo/rueducommerce.png","/images/logo/cdiscount.png","/images/logo/hp.png","/images/logo/mistergooddeal.png","/images/logo/boulanger.png","/images/logo/misco.png"].each do |url| %>
                       <img src="<%= url %>" />
                     <% end %>
@@ -128,7 +136,7 @@
 	  </div>
 
     <div id="specs_sheet">
-
+    <a name="long"></a>
       <div id="tables_header">
         <h2><%= t :product_detailed_specs %></h2>
       </div>
