@@ -9,6 +9,7 @@
   <META name="y_key" content="4314c2339f6890c3" />
   <%= include_javascripts :home%>
   <%= include_stylesheets :home%>
+  <script type="text/javascript" src="http://apis.google.com/js/plusone.js"></script>
   <!--[if lte IE 8]>
     <link rel="stylesheet" type="text/css" href="/stylesheets/home_lteie8.css" />
   <![endif]-->
@@ -80,9 +81,18 @@
       <%= link_to user_requests_path, :method => :post, :id => "link_to_form", :class => "no_underline" do%>
         <div class="button"><%= t_safe :home_wizard_button%></div>
       <% end -%>
+      <div class="catalogue_incentive">Vous vous y connaissez en informatique ? Recherchez votre ordinateur dans le <%= link_to "catalogue PC", products_path %></div>
     </div>
   </div>
   <div id="home_infos_wrapper">
+	  <div class="social_media">
+		  <p><%= t :home_vote_for_us %> </p>
+		  <div class="plus_one">
+			  <iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.choisirfacile.com&amp;send=false&amp;layout=button_count&amp;width=100&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:21px;" allowTransparency="true"></iframe>
+			  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.choisirfacile.com" data-text="Un conseiller interactif trouver un PC portable :" data-count="horizontal" data-lang="fr">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+			<g:plusone href="http://www.choisirfacile.com" size="medium"></g:plusone>
+			</div>
+		</div>
     <div id="home_infos">
       <div id="brands">
         <h2><%= t :home_brand_title %></h2>
@@ -101,7 +111,7 @@
       <div id="middle_boxes">
         <div id="tour">
           <%= link_to "/visite-guidee", :class => "no_underline" do %>
-            <h2><%= t :home_tour_title %></h2>
+            <h2 class="extra_margin"><%= t :home_tour_title %></h2>
           <% end -%>
           <img class="illustration" src="/images/home/usages_pc_portable.png" alt="Un PC pour chaque usage"></img>
           <p><%= t :home_tour_text %></p>

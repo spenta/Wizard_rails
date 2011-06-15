@@ -17,15 +17,15 @@ Home
 #home {
 	background-color:#50A5D7;
 	margin:0px auto;
-	padding:10px 0 10px 0;
+	padding-bottom:10px;
 }
 
 /* --- Title ---*/
 .explain {
 	text-align:center;
 	font-size:1.4em;
-	padding:10px 0 20px 0;
-	margin:15px 0;
+	padding:20px 0 5px 0;
+	margin:0;
 	text-shadow:none;
 }
 
@@ -90,7 +90,7 @@ h2 {
 /* --- Bouton --- */
 
 .button {
-	margin:10px auto;
+	margin:5px auto;
 	height:30px;
 	width:235px;
 	background-image:url('/images/home/home_button.png');
@@ -105,10 +105,20 @@ h2 {
 
 .no_underline { text-decoration:none; }
 
+.catalogue_incentive {
+  text-align:center;
+  font-size:1.2em;	
+}
+
+.catalogue_incentive a {
+  color:#D4FCD9;
+  font-size:1em;	
+}
+
 /* Extra infos */
 #home_infos_wrapper {
 	background-color:white;
-	padding:25px 0 35px 0;
+	padding:5px 0 20px 0;
 }
 
 #home_infos {
@@ -126,8 +136,12 @@ h2 {
 	font-weight:bold;
 	font-size:1.6em;
 	text-align:center;
-	margin-bottom:8px;
+	margin:0 0 8px 0;
 	text-shadow:none;
+}
+
+#home_infos h2.extra_margin {
+	margin-top:11px;
 }
 
 .no_underline { text-decoration:none; }
@@ -136,6 +150,7 @@ h2 {
   float:left;
   width:268px;
   height:205px;
+  margin-left:20px;
   padding:10px 0px;
   border:1px solid #E5E5E5;
   background-position:0px 145px;
@@ -221,3 +236,25 @@ h2 {
   margin:15px 0;
 }
 
+/* --------------------------- Social media -------------------------- */
+
+.social_media {
+	width:960px;
+	margin:10px auto;
+	text-align:right;
+	padding:0 50px;
+}
+
+.social_media p {
+	font-size:1.2em;
+	font-style:italic;
+	color:#666666;
+	display:inline-block;
+	margin-right:15px;
+	position:relative;
+	top:-5px;
+}
+
+.plus_one {
+	display:inline-block;
+}
