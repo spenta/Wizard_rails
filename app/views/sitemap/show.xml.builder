@@ -7,8 +7,6 @@ xml.urlset(:xmlns => "http://www.sitemaps.org/schemas/sitemap/0.9") do
   #legal & terms
   sitemap_tag xml, legal_url, :freq => 'yearly', :prio => 0.1 
   sitemap_tag xml, terms_url, :freq => 'yearly', :prio => 0.1
-  sitemap_tag xml, visite_guidee_url, :freq => 'yearly', :prio => 0.1
-  sitemap_tag xml, presse_partenaires_url, :freq => 'yearly', :prio => 0.1
 
   #products
   Product.all.each do |p| 
