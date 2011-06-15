@@ -27,7 +27,9 @@ fr:
   # META Tags
   home_html_title: Comment choisir un PC portable ?
   home_html_description: Notre conseiller interactif vous aide à choisir le meilleur ordinateur portable, selon vos besoins. Comparez des centaines de modèles de PC !
-
+  home_canonical: |
+    http://www.choisirfacile.com
+    
   # Line to explain our purpose
   home_explain: |
     Choisir Facile vous aide à choisir un <strong>PC portable</strong> pour vos besoins. C'est <strong>Gratuit</strong>, <strong>Objectif</strong> et <strong>Rapide</strong> !
