@@ -32,6 +32,7 @@ Header
 	display:block;
 	margin:0;
 	font-size:12px;
+	font-family:"Arial", Arial, sans-serif;
 }
 
 #header_menu li {
@@ -40,12 +41,14 @@ Header
 	margin:0;
 	list-style:none;
 	font-size:12px;
+	font-family:"Arial", Arial, sans-serif;
 	padding:5px 0px 6px 16px;
 }
 
 #header_menu a li.wizard_header_button {
   color:white;
 	font-size:17px;
+	font-family:"Arial", Arial, sans-serif;
 	padding:5px 0px 6px 16px;
 }
 
@@ -54,6 +57,7 @@ Header
 	font-size:1.4em;
 	text-decoration:none;
 	margin:0px;
+	font-family:"Arial", Arial, sans-serif;
 }
 
 #header_menu a:hover {
@@ -66,6 +70,7 @@ Header
   text-align:center;
   margin-right:15px;
   margin-top:-3px;
+  font-family:"Arial", Arial, sans-serif;
 }
 
 #header_menu .wizard_incentive_text p  {
@@ -73,6 +78,7 @@ Header
   font-size:12px;
   font-style:inherit;
   text-align:center;
+  font-family:"Arial", Arial, sans-serif;
 }
 
 #header_menu .wizard_incentive_text strong {
@@ -81,6 +87,7 @@ Header
   font-size:12px;
   font-style:inherit;
   text-align:center;
+  font-family:"Arial", Arial, sans-serif;
 }
 
 #header_menu .wizard_header_button {
