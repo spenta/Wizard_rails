@@ -2,34 +2,32 @@
 
 /* --- Styles par défaut --- */
 
-#page_content {
-	font-family:"Arial", Arial, sans-serif;
-	font-size:11px;
-}
-
 body, html { background-color:#E5E5E5; }
 
 #page_content h1 {
-    font-size:1.6em;
+    font-size:18px;
     font-weight:bold;
     text-shadow:1px 1px #E5E5E5;
     text-align:center;
 		color:#33332F;
 		margin-bottom:15px;
+		font-family:"Arial", Arial, sans-serif;
 }
 
 #page_content h2 {
-    font-size:1.4em;
+    font-size:14px;
     font-weight:bold;
 		color:#33332F;
 		margin:12px 0;
+		font-family:"Arial", Arial, sans-serif;
 }
 
 #page_content p {
-    font-size:1em;
+    font-size:11px;
     margin-bottom:10px;
 		color:#33332F;
 		text-align:justify;
+		font-family:"Arial", Arial, sans-serif;
 }
 
 #page_content a {
@@ -49,6 +47,8 @@ body, html { background-color:#E5E5E5; }
   color:#666666;
   font-style:italic;
   margin-top:4px;
+  font-family:"Arial", Arial, sans-serif;
+  font-size:11px;
 }
 
 #page_content .pic {
@@ -58,13 +58,15 @@ body, html { background-color:#E5E5E5; }
 #page_content ul {
 	margin-bottom:10px;
 	padding-left:50px;
+	font-family:"Arial", Arial, sans-serif;
+  font-size:11px;
 }
 
 #page_content li {
-	font-size:1.2em;
 	color:#33332F;
 	list-style:disc;
-
+  font-family:"Arial", Arial, sans-serif;
+  font-size:11px;
 	padding-bottom:3px;
 }
 
