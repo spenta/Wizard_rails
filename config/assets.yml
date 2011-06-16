@@ -61,8 +61,8 @@ stylesheets:
     - public/stylesheets/product.css
 
   basic:
-    - public/stylesheets/basic_page.css
+    - public/stylesheets/basic.css
 
   tour:
-    - public/stylesheets/basic_page.css
+    - public/stylesheets/basic.css
     - public/stylesheets/tour.css
