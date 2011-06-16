@@ -4,9 +4,9 @@ Footer
 
 #footer p, #footer a {
 	color:#666;
-	margin:5px auto 15px auto;
 	text-decoration:none;
 	font-family:"Arial", Arial, sans-serif;
+	font-size:11px;
 }
 
 #footer {
