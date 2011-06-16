@@ -2,10 +2,9 @@
 
 /* --- Styles par défaut --- */
 
-#page_content * {
+#page_content {
 	font-family:"Arial", Arial, sans-serif;
 	font-size:11px;
-	color:#33332F;
 }
 
 body, html { background-color:#E5E5E5; }
