@@ -2,15 +2,15 @@
 
 /* --- Styles par défaut --- */
 
-h1, h2, p, a, ul, li {
+#page_content * {
 	font-family:"Arial", Arial, sans-serif;
-	font-size:10px;
+	font-size:11px;
 	color:#33332F;
 }
 
 body, html { background-color:#E5E5E5; }
 
-h1 {
+#page_content h1 {
     font-size:1.6em;
     font-weight:bold;
     text-shadow:1px 1px #E5E5E5;
@@ -19,7 +19,7 @@ h1 {
 		margin-bottom:15px;
 }
 
-h2 {
+#page_content h2 {
     font-size:1.4em;
     font-weight:bold;
 		color:#33332F;
@@ -27,7 +27,7 @@ h2 {
 }
 
 #page_content p {
-    font-size:1.0em;
+    font-size:1em;
     margin-bottom:10px;
 		color:#33332F;
 		text-align:justify;
@@ -39,7 +39,7 @@ h2 {
 		color:#50A5D7;
 }
 
-.pic_align {
+#page_content .pic_align {
 	float:left;
 	width:270px;
 	margin:0 14px;
@@ -52,7 +52,7 @@ h2 {
   margin-top:4px;
 }
 
-.pic {
+#page_content .pic {
   display:block;
 }
 
