@@ -39,8 +39,21 @@ h2 {
 		color:#50A5D7;
 }
 
-.center {
-	text-align:center;
+.pic_align {
+	float:left;
+	width:270px;
+	margin:0 14px;
+}
+
+#page_content .pic_align p {
+  text-align:center;
+  color:#666666;
+  font-style:italic;
+  margin-top:4px;
+}
+
+.pic {
+  display:block;
 }
 
 #page_content ul {

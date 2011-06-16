@@ -13,6 +13,7 @@ WizardRails::Application.routes.draw do
   get 'terms' => 'misc#terms'
   get 'visite-guidee' => 'misc#tour'
   get 'presse-partenaires' => 'misc#press'
+  get 'contact' => 'misc#contact'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

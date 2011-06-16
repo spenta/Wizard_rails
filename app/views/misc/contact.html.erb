@@ -1,0 +1,41 @@
+<%= content_for :head do %>
+
+  <title><%= t_safe :contact_html_title %></title>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+
+  <meta name="language" content="fr"></meta>
+  <meta name="description" content="<%= t_safe :contact_html_description %>"></meta>
+  <meta name="keywords" content="<%= t_safe :meta_keywords %>"></meta>
+
+  <%= include_stylesheets :basic %>
+<% end %>
+
+<div id="page_wrapper">
+  <div id="page_content">
+    <h1>Contacter Choisir Facile</h1>
+    <p>N'hésitez pas à prendre contact avec nous ! Nous serons ravis de répondre à vos questions sur Choisir Facile...</p>
+    <ul>
+      <li>Mail : <a href="mailto:contact@spenta.biz">contact@spenta.biz</a></li>
+      <li>Téléphone : +33 6 98 99 08 87</li>
+    </ul>
+    <h1>Rencontrez l'équipe</h1>
+    <p>Le guide d'achat interactif Choisir Facile vous est proposé par la société <strong>Spenta</strong>, une petite start-up gérée par trois jeunes passionnés de high-tech : Thomas, Vincent et Youssef. Ingénieurs de formation, nous en avions plus qu'assez de perdre du temps à choisir le moindre produit technique. Le conseiller interactif PC de Choisir Facile n'est que le premier de la série : la famille s'agrandira pour vous aider à choisir les principales catégories de biens techniques !</p>
+    <div>
+      <div class="pic_align">
+        <img class="pic" src="/images/misc/thomas-franquelin-fondateur-de-choisir-facile.jpg" alt="Thomas Franquelin"></img>
+        <p>Thomas</p>
+      </div>
+      <div class="pic_align">
+        <img class="pic" src="/images/misc/vincent-porcel-fondateur-de-choisir-facile.jpg" alt="Vincent Porcel"></img>
+        <p>Vincent</p>
+      </div>
+      <div class="pic_align">
+        <img class="pic" src="/images/misc/youssef-sakr-fondateur-de-choisir-facile.jpg" alt="Youssef Sakr"></img>
+        <p>Youssef</p>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+</div>
+

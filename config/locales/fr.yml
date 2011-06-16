@@ -29,7 +29,7 @@ fr:
   home_html_description: Notre conseiller interactif vous aide à choisir le meilleur ordinateur portable, selon vos besoins. Comparez des centaines de modèles de PC !
   home_canonical: |
     http://www.choisirfacile.com
-    
+
   # Line to explain our purpose
   home_explain: |
     Nous vous aidons à choisir un <strong>PC portable</strong> adapté à vos besoins. C'est <strong>Gratuit</strong>, <strong>Objectif</strong> et <strong>Rapide</strong> !
@@ -75,8 +75,6 @@ fr:
 
   # Contact tooltip
   contact_text: Contactez-nous
-  contact_tooltip: |
-    Le guide d'achat interactif Choisir Facile vous est proposé par la société <strong>Spenta</strong>, une petite start-up gérée par trois jeunes passionnés de high-tech : Thomas, Vincent et Youssef.<br />N'hésitez pas à nous faire parvenir vos questions sur <strong>contact@spenta.biz</strong> !
 
   legal_info: Mentions légales
   eula: Conditions d'utilisation
@@ -84,7 +82,7 @@ fr:
   rights_reserved: Tous droits réservés
 
   #'------------------------------------------------------------------------------------------------------------------------
-  # TOUR and other static pages
+  # Static pages
   #------------------------------------------------------------------------------------------------------------------------
 
   # META tags
@@ -99,6 +97,9 @@ fr:
 
   press_html_title: Articles sur Choisir Facile, le site qui vous dit comment choisir un PC portable
   press_html_description: Liste d'articles à propos de Choisir Facile et liens vers nos partenaires.
+
+  contact_html_title: Contactez le site d'aide au choix PC Choisir Facile
+  contact_html_description: Les coordonnées pour prendre contact avec Choisir Facile
 
   #------------------------------------------------------------------------------------------------------------------------
   # SUPER USAGES
