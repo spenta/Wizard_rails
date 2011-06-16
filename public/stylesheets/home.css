@@ -107,12 +107,12 @@ h2 {
 
 .catalogue_incentive {
   text-align:center;
-  font-size:1.2em;	
+  font-size:1.2em;
 }
 
 .catalogue_incentive a {
   color:#D4FCD9;
-  font-size:1em;	
+  font-size:1em;
 }
 
 /* Extra infos */
@@ -172,7 +172,7 @@ h2 {
 
 #partners {
   width:268px;
-  padding:0px 10px 5px 10px;
+  padding:8px 10px;
   border:1px solid #E5E5E5;
   background-position:0px 40px;
   background-repeat:repeat-x;
@@ -258,3 +258,4 @@ h2 {
 .plus_one {
 	display:inline-block;
 }
+
