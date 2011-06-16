@@ -6,7 +6,8 @@ Footer
 	color:#666;
 	text-decoration:none;
 	font-family:"Arial", Arial, sans-serif;
-	font-size:11px;
+	font-size:12px;
+	margin:0;
 }
 
 #footer {
@@ -22,7 +23,7 @@ Footer
 
 .footer_left { float:left; }
 
-.footer_right { float:right; color:#666; }
+.footer_right { float:right; font-size:12px; color:#666; }
 
 .clearfix { clear:both; }
 
