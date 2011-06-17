@@ -78,6 +78,12 @@ h2 {
 	margin: 10px 0 0 0;
 }
 
+h3 {
+	font-size:1.6em;
+	text-shadow:1px 1px #33332F;
+	margin: 10px 0 0 0;
+}
+
 .subtitle {
 	font-size:1.1em;
 	font-style:italic;
