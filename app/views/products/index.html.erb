@@ -3,10 +3,16 @@
   <meta name="description" content="La liste complète des ordinateurs disponibles sur les sites marchands partenaires." />
 
   <%= include_stylesheets :catalogue%>
-  <%= include_javascripts :catalogue%>
   <!--[if lte IE 8]>
-  <link type="text/css" rel="stylesheet" href="/stylesheets/catalogue_lteie8.css">
+    <link type="text/css" rel="stylesheet" href="/stylesheets/catalogue_lteie8.css">
   <![endif]-->
+  <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"%>
+  <script type="text/javascript">
+    $j = jQuery.noConflict();
+  </script>
+  <%= include_javascripts :catalogue%>
+  <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js"%>
+
   <script type="text/javascript">
     // Price filter initialisation
     $j(function() {

@@ -7,6 +7,10 @@
   <meta name="description" content="<%= t_safe :home_html_description %>" />
   <meta name="keywords" content="<%= t_safe :meta_keywords %>" />
   <META name="y_key" content="4314c2339f6890c3" />
+  <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"%>
+  <script type="text/javascript">
+      $j = jQuery.noConflict();
+  </script>
   <%= include_javascripts :home%>
   <%= include_stylesheets :home%>
   <script type="text/javascript" src="http://apis.google.com/js/plusone.js"></script>
