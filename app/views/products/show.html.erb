@@ -1,11 +1,11 @@
 <% infos = @product.infos -%>
 <%= content_for :head do %>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
   <title><%= "#{t :product_page_title} #{infos[:brand_name]} #{infos[:name]}" %></title>
 
-  <meta name="description" content="<%= t_safe :product_meta_description %> <%= infos[:brand_name] %> <%= infos[:name] %>"></meta>
-  <meta name="keywords" content="<%= t :meta_keywords %>, <%= t :product_laptop %>"></meta>
+  <meta name="description" content="<%= t_safe :product_meta_description %> <%= infos[:brand_name] %> <%= infos[:name] %>" />
+  <meta name="keywords" content="<%= t :meta_keywords %>, <%= t :product_laptop %>" />
 
   <%= include_stylesheets :product %>
   <script type="text/javascript">
@@ -105,7 +105,7 @@
               <td colspan="5">
                 <p><%= t_safe :retailers_checked_1 %> <%= retailers_with_no_offers_count = 8 - @product.offers.uniq.count %> <%= t_safe :retailers_checked_2 %></p>
                     <% ["/images/logo/fnac.png","/images/logo/pixmania.png","/images/logo/rueducommerce.png","/images/logo/cdiscount.png","/images/logo/hp.png","/images/logo/mistergooddeal.png","/images/logo/boulanger.png","/images/logo/misco.png"].each do |url| %>
-                      <img src="<%= url %>" />
+                      <img src="<%= url %>" alt="<%= t_safe :retailer_checked_but_no_offers" />
                     <% end %>
               </td>
             </tr>
