@@ -82,7 +82,7 @@
     <%= link_to user_requests_path, :method => :post, :id => "link_to_form", :class => "no_underline" do%>
       <div class="button"><%= t_safe :home_wizard_button%></div>
     <% end -%>
-    <div class="catalogue_incentive">Vous vous y connaissez en informatique ? Recherchez votre ordinateur dans le <%= link_to "catalogue PC", products_path %></div>
+    <div class="catalogue_incentive"><%= t_safe :catalogue_incentive %> <%= link_to "catalogue comparatif PC", products_path %></div>
   </div>
 </div>
 <div id="home_infos_wrapper">
@@ -107,7 +107,7 @@
         <li><img src="/images/home/brands/packard_samsung.png" alt="Choisir un ordinateur Packard-bell ou Samsung" /></li>
         <li><img src="/images/home/brands/sony_toshiba.png" alt="Choisir un ordinateur Sony ou Toshiba" /></li>
       </ul>
-      <p><%= t :home_brand_text %></p>
+      <p><%= t_safe :home_brand_text %></p>
     </div>
     <div id="middle_boxes">
       <div id="tour">
@@ -115,7 +115,7 @@
           <h2 class="extra_margin"><%= t :home_tour_title %></h2>
         <% end -%>
         <img class="illustration" src="/images/home/usages_pc_portable.png" alt="Un PC pour chaque usage" />
-        <p><%= t :home_tour_text %></p>
+        <p><%= t_safe :home_tour_text %></p>
         <p class="page_link">>
           <%= link_to "/visite-guidee" do %>
             <%= t :home_tour_link %>
@@ -142,9 +142,12 @@
         <li><img class="retailer_logo" src="/images/home/retailers/cdiscount_misco.png" alt="Choisir un pc sur le site CDiscount ou Misco avec Choisir Facile" /></li>
         <li><img class="retailer_logo" src="/images/home/retailers/hp_mistergooddeal.png" alt="Choisir un pc sur le site HP ou MisterGoodDeal avec Choisir Facile" /></li>
       </ul>
-      <p><%= t :home_retailer_count_1 %> 8 <%= t :home_retailer_count_2 %> <%= Product.all_cached.count %> <%= t :home_retailer_count_3 %></p>
+      <p><%= t :home_retailer_count_1 %> 8 <%= t :home_retailer_count_2 %> <em><%= Product.all_cached.count %> <%= t :home_retailer_count_3 %></em></p>
     </div>
     <div class="clearfix"></div>
+    <div id="extra_content">
+      <%= t_safe :home_extra_description %>
+    </div>
   </div>
 </div>
 

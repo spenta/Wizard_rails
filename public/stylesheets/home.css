@@ -137,6 +137,11 @@ h3 {
 	text-align:justify;
 }
 
+#home_infos em {
+	color:#33332F;
+	font-style:italic;
+}
+
 #home_infos h2 {
 	color:#50A5D7;
 	font-weight:bold;
@@ -241,6 +246,23 @@ h3 {
   text-align:center;
   margin:15px 0;
 }
+
+/* --- Extra content --- */
+
+#extra_content {
+  width:800px;
+  margin:20px auto 0 auto;
+  text-align:justify;
+}
+
+#extra_content strong {
+  color:#33332F;
+}
+
+#extra_content a {
+  color:#50A5D7;
+}
+
 
 /* --------------------------- Social media -------------------------- */
 

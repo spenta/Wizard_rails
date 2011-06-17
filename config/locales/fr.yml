@@ -18,7 +18,13 @@ fr:
   # Banner to inform about no IE6 compatibility
   ie6_disclaimer: |
     <p class="disclaimer">Ce site n'est pas conçu pour Internet Explorer 6.</p>
-    <p class="disclaimer">Pour profiter pleinement de nos conseils d'achat pour PC portables, <br/>nous vous suggérons d'installer un navigateur récent, comme<br/><a href="http://www.google.com/chrome/?hl=fr" rel="nofollow" target="_blank">Google Chrome</a>, <a href="http://www.mozilla-europe.org/fr/" rel="nofollow" target="_blank">Firefox 4</a> ou encore <a href="http://windows.microsoft.com/fr-FR/internet-explorer/products/ie/home" rel="nofollow" target="_blank">Internet Explorer 9</a></p>
+    <p class="disclaimer">Pour profiter pleinement de nos conseils d'achat pour PC portables, <br />nous vous suggérons d'installer un navigateur récent, comme<br /><a href="http://www.google.com/chrome/?hl=fr" rel="nofollow" target="_blank">Google Chrome</a>, <a href="http://www.mozilla-europe.org/fr/" rel="nofollow" target="_blank">Firefox 4</a> ou encore <a href="http://windows.microsoft.com/fr-FR/internet-explorer/products/ie/home" rel="nofollow" target="_blank">Internet Explorer 9</a></p>
+
+  # Footer
+  contact_text: Contactez-nous
+  legal_info: Mentions légales
+  eula: Conditions d'utilisation
+  rights_reserved: Tous droits réservés
 
   #------------------------------------------------------------------------------------------------------------------------
   # HOME PAGE
@@ -45,43 +51,44 @@ fr:
   home_step_3_subtitle: Nous sommes 100% indépendants
 
   # Button to wizard
-  home_wizard_button: Choisir votre PC
+  home_wizard_button: Trouvez votre PC
+
+  # Link to catalogue
+  catalogue_incentive: Vous vous y connaissez en informatique ? Recherchez votre ordinateur dans notre
 
   # Social media
-  home_vote_for_us: Vous aimez Choisir Facile ? Partagez l'adresse !
+  home_vote_for_us: Vous aimez Choisir Facile ? Partagez notre adresse !
 
   # ------ Info boxes
   # Brands
   home_brand_title: Comparez 16 marques
-  home_brand_text: Chaque fabricant a ses points forts. Avec notre large éventail de marques, vous pourrez toujours choisir un PC adapté.
+  home_brand_text: |
+    Chaque fabricant a ses points forts. Dans le large éventail de marques d'ordinateurs sur Choisir Facile, vous trouverez toujours un <em>PC portable adapté à vos besoins</em>.
 
   # Partners
   home_partner_title: Choisir Facile sur Internet
   home_partner_text: |
-    Avec ses conseils d'achats interactifs, Choisir Facile est un comparateur de PC innovant.<br /> Que dit-on de nous ?
+    Avec ses conseils d'achats interactifs, Choisir Facile est le comparatif PC qui innove en 2011.<br /> Que dit-on de nous sur la Toile ?
   home_partner_link: Choisir Facile sur le web
 
   # Product tour
   home_tour_title: Comment ça marche ?
-  home_tour_text: Choisir Facile vous aide à choisir le bon ordinateur pour vos besoins, au meilleur prix.
+  home_tour_text: |
+    Choisir Facile vous aide à <em>choisir le bon ordinateur</em> pour vos besoins, au meilleur prix.
   home_tour_link: Visite guidée
 
   # Retailers
   home_retailer_title: Les marchands référencés
-  home_retailer_count_1: Pour bien choisir votre ordinateur, vous avez accès à
-  home_retailer_count_2: marchands sur Choisir Facile. Vous pouvez comparer
-  home_retailer_count_3: modèles de PC !
+  home_retailer_count_1: Pour vous offrir un choix de PC étendu, nous référençons
+  home_retailer_count_2: marchands sur Choisir Facile. Actuellement, vous pouvez comparer
+  home_retailer_count_3: modèles d'ordinateurs portables !
   home_retailer_link: Liste des marchands
 
-  # Contact tooltip
-  contact_text: Contactez-nous
+  # ------- Extra text to give some extra SEO content to Google & friends
+  home_extra_description: |
+    <p>Le conseiller interactif Choisir Facile est conçu pour vous apporter <strong>les suggestions les plus pertinentes pour choisir un ordinateur portable</strong>. Nous nous engageons à vous apporter <strong>des conseils d'achat PC objectifs</strong>, sans faire de favoritisme entre les marques de PC portables ou les sites marchands. Si vous avez des questions ou que vous souhaitez nous faire part de votre avis sur le site, n'hésitez pas à <a href="/contact">nous contacter</a> !
 
-  legal_info: Mentions légales
-  eula: Conditions d'utilisation
-
-  rights_reserved: Tous droits réservés
-
-  #'------------------------------------------------------------------------------------------------------------------------
+  #------------------------------------------------------------------------------------------------------------------------
   # Static pages
   #------------------------------------------------------------------------------------------------------------------------
 
