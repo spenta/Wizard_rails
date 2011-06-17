@@ -100,134 +100,131 @@
   </script>
 <% end -%>
 
-<body>
 
-  <%# Wrapper (centrage et arrière-plan) %>
-  <div id="catalogue">
+<%# Wrapper (centrage et arrière-plan) %>
+<div id="catalogue">
 
-    <%# Section supérieure : titre %>
-    <div id="top">
-      <%= content_tag :h1, t(:cat_title) %>
-      <%= content_tag :p, cat_subtitle, :class => "subtitle" %>
-    </div>
-
-    <%# Filtres & lien vers le Wizard %>
-    <div id="middle">
-      <%# Outils de filtrage %>
-      <div id="filters">
-        <%# En haut : filtrage du prix & infos %>
-        <div id="top_filters">
-          <div id="infos">
-            <%= content_tag :h2, t(:cat_refine_title) %>
-            <%= content_tag :p, t(:cat_refine_explanation), :class => "explain" %>
-          </div>
-
-          <div id="price_filter">
-            <%= content_tag :h3, t(:cat_filters_price_title) %>
-            <div class="price_slider">
-              <p>
-                <label for="price_display"><%= t :cat_filters_price_label %></label>
-                <input type="text" id="price_display" />
-              </p>
-              <div id="price_slider"></div>
-            </div>
-          </div>
-
-          <div class="clearfix"></div>
-
-        </div>
-
-        <%# Filtrage des specs : 3 colonnes %>
-        <div id="specs_filters">
-          <div class="sliderStyle">
-            <p>
-              <label for="display_1"><%=t :cat_filters_label_1 %></label>
-              <input type="text" id="display_1" />
-            </p>
-            <div id="slider_1"></div>
-          </div>
-          <div class="sliderStyle">
-            <p>
-              <label for="display_2"><%= t :cat_filters_label_2 %></label>
-              <input type="text" id="display_2" />
-            </p>
-            <div id="slider_2"></div>
-          </div>
-          <div class="sliderStyle">
-            <p>
-              <label for="display_3"><%= t :cat_filters_label_3 %></label>
-              <input type="text" id="display_3" />
-            </p>
-            <div id="slider_3"></div>
-          </div>
-
-          <div class="clearfix"></div>
-
-          <div class="sliderStyle">
-            <p>
-              <label for="display_4"><%= t :cat_filters_label_4 %></label>
-              <input type="text" id="display_4" />
-            </p>
-            <div id="slider_4"></div>
-          </div>
-          <div class="sliderStyle">
-            <p>
-              <label for="display_5"><%= t :cat_filters_label_5 %></label>
-              <input type="text" id="display_5" />
-            </p>
-            <div id="slider_5"></div>
-          </div>
-          <div class="sliderStyle">
-            <p>
-              <label for="display_6"><%= t :cat_filters_label_6 %></label>
-              <input type="text" id="display_6" />
-            </p>
-            <div id="slider_6"></div>
-          </div>
-          <div class="clearfix"></div>
-
-        </div>
-      </div>
-
-      <%# Droite : lien vers le wizard %>
-      <div id="wizard_box">
-        <%= t_safe :cat_wizard_text %>
-        <%= link_to user_requests_path, :method => :post, :class => "no_underline" do%>
-          <div class="wizard_button"><p class="label"><%= t :cat_wizard_label %></p></div>
-        <% end %>
-        <p class="wizard_emphasis"><%= t :cat_wizard_emphasis %></p>
-      </div>
-      <div class="clearfix"></div>
-    </div>
-
-
-
-    <%# Tableau des produits %>
-    <div id="full_list">
-      <table id="list">
-        <thead>
-          <tr>
-            <th class="product_info"></th>
-            <%= content_tag :th, t(:cat_table_header_price) %>
-            <%= content_tag :th, t(:cat_filters_label_1) %>
-            <%= content_tag :th, t(:cat_filters_label_2) %>
-            <%= content_tag :th, t(:cat_filters_label_3) %>
-            <%= content_tag :th, t(:cat_filters_label_4) %>
-            <%= content_tag :th, t(:cat_filters_label_5) %>
-            <%= content_tag :th, t(:cat_filters_label_6) %>
-          </tr>
-        </thead>
-
-        <tbody>
-          <% Product.all_cached.each do |product| -%>
-            <%= render 'product', :product => product %>
-          <% end -%>
-        </tbody>
-      </table>
-      <p id="spec_disclaimer"><%=  t :disclaimer_for_specs_values%></p>
-    </div>
-
-
+  <%# Section supérieure : titre %>
+  <div id="top">
+    <%= content_tag :h1, t(:cat_title) %>
+    <%= content_tag :p, cat_subtitle, :class => "subtitle" %>
   </div>
-</body>
+
+  <%# Filtres & lien vers le Wizard %>
+  <div id="middle">
+    <%# Outils de filtrage %>
+    <div id="filters">
+      <%# En haut : filtrage du prix & infos %>
+      <div id="top_filters">
+        <div id="infos">
+          <%= content_tag :h2, t(:cat_refine_title) %>
+          <%= content_tag :p, t(:cat_refine_explanation), :class => "explain" %>
+        </div>
+
+        <div id="price_filter">
+          <%= content_tag :h3, t(:cat_filters_price_title) %>
+          <div class="price_slider">
+            <p>
+              <label for="price_display"><%= t :cat_filters_price_label %></label>
+              <input type="text" id="price_display" />
+            </p>
+            <div id="price_slider"></div>
+          </div>
+        </div>
+
+        <div class="clearfix"></div>
+
+      </div>
+
+      <%# Filtrage des specs : 3 colonnes %>
+      <div id="specs_filters">
+        <div class="sliderStyle">
+          <p>
+            <label for="display_1"><%=t :cat_filters_label_1 %></label>
+            <input type="text" id="display_1" />
+          </p>
+          <div id="slider_1"></div>
+        </div>
+        <div class="sliderStyle">
+          <p>
+            <label for="display_2"><%= t :cat_filters_label_2 %></label>
+            <input type="text" id="display_2" />
+          </p>
+          <div id="slider_2"></div>
+        </div>
+        <div class="sliderStyle">
+          <p>
+            <label for="display_3"><%= t :cat_filters_label_3 %></label>
+            <input type="text" id="display_3" />
+          </p>
+          <div id="slider_3"></div>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="sliderStyle">
+          <p>
+            <label for="display_4"><%= t :cat_filters_label_4 %></label>
+            <input type="text" id="display_4" />
+          </p>
+          <div id="slider_4"></div>
+        </div>
+        <div class="sliderStyle">
+          <p>
+            <label for="display_5"><%= t :cat_filters_label_5 %></label>
+            <input type="text" id="display_5" />
+          </p>
+          <div id="slider_5"></div>
+        </div>
+        <div class="sliderStyle">
+          <p>
+            <label for="display_6"><%= t :cat_filters_label_6 %></label>
+            <input type="text" id="display_6" />
+          </p>
+          <div id="slider_6"></div>
+        </div>
+        <div class="clearfix"></div>
+
+      </div>
+    </div>
+
+    <%# Droite : lien vers le wizard %>
+    <div id="wizard_box">
+      <%= t_safe :cat_wizard_text %>
+      <%= link_to user_requests_path, :method => :post, :class => "no_underline" do%>
+        <div class="wizard_button"><p class="label"><%= t :cat_wizard_label %></p></div>
+      <% end %>
+      <p class="wizard_emphasis"><%= t :cat_wizard_emphasis %></p>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+
+
+
+  <%# Tableau des produits %>
+  <div id="full_list">
+    <table id="list">
+      <thead>
+        <tr>
+          <th class="product_info"></th>
+          <%= content_tag :th, t(:cat_table_header_price) %>
+          <%= content_tag :th, t(:cat_filters_label_1) %>
+          <%= content_tag :th, t(:cat_filters_label_2) %>
+          <%= content_tag :th, t(:cat_filters_label_3) %>
+          <%= content_tag :th, t(:cat_filters_label_4) %>
+          <%= content_tag :th, t(:cat_filters_label_5) %>
+          <%= content_tag :th, t(:cat_filters_label_6) %>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% Product.all_cached.each do |product| -%>
+          <%= render 'product', :product => product %>
+        <% end -%>
+      </tbody>
+    </table>
+    <p id="spec_disclaimer"><%=  t :disclaimer_for_specs_values%></p>
+  </div>
+
+</div>
 
