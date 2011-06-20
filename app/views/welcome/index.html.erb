@@ -31,10 +31,10 @@
       <div class="step">
         <div class="left">
           <div class="top"></div>
-          <img class="bottom" src="/images/home/number_1.png" alt="Etape 1" />
+          <img class="bottom" src="/images/home/number_1.png" alt="<%= t :number_1_alt %>" />
         </div>
         <div class="right">
-          <img class="top" src="/images/home/step_1.png" alt="3 questions simples pour choisir son PC" />
+          <img class="top" src="/images/home/step_1.png" alt="<%= t :step_1_alt %>" />
           <div class="bottom">
             <h3><%= t_safe :home_step_1_title %></h3>
             <p class="subtitle"><%= t_safe :home_step_1_subtitle %></p>
@@ -48,10 +48,10 @@
       <div class="step">
         <div class="left">
           <div class="top"></div>
-          <img class="bottom" src="/images/home/number_2.png" alt="Etape 2" />
+          <img class="bottom" src="/images/home/number_2.png" alt="<%= t :number_2_alt %>" />
         </div>
         <div class="right">
-          <img class="top" src="/images/home/step_2.png" alt="Des conseils d'achat d'ordinateur personnalises" />
+          <img class="top" src="/images/home/step_2.png" alt="<%= t :step_2_alt %>" />
           <div class="bottom">
             <h3><%= t_safe :home_step_2_title %></h3>
             <p class="subtitle"><%= t_safe :home_step_2_subtitle %></p>
@@ -65,10 +65,10 @@
       <div class="step">
         <div class="left">
           <div class="top"></div>
-          <img class="bottom" src="/images/home/number_3.png" alt="Etape 3" />
+          <img class="bottom" src="/images/home/number_3.png" alt="<%= t :number_3_alt %>" />
         </div>
         <div class="right">
-          <img class="top" src="/images/home/step_3.png" alt="Une comparaison sur de nombreux sites marchands pour trouver le meilleur prix" />
+          <img class="top" src="/images/home/step_3.png" alt="<%= t :step_3_alt %>" />
           <div class="bottom">
             <h3><%= t_safe :home_step_3_title %></h3>
             <p class="subtitle"><%= t_safe :home_step_3_subtitle %></p>
@@ -80,7 +80,7 @@
     </div>
 
     <div class="clearfix">
-      <img class="hspacer" src="/images/home/hspacer.png" alt="Separateur vertical" />
+      <img class="hspacer" src="/images/home/hspacer.png" alt="<%= t :hspacer_alt %>Separateur vertical" />
     </div>
 
     <%= link_to user_requests_path, :method => :post, :id => "link_to_form", :class => "no_underline" do%>
@@ -101,16 +101,7 @@
   <div id="home_infos">
     <div id="brands">
       <h2><%= t :home_brand_title %></h2>
-      <ul id="brand_logos">
-        <li><img src="/images/home/brands/acer_alienware.png" alt="Choisir un ordinateur Acer ou Alienware" /></li>
-        <li><img src="/images/home/brands/apple_asus.png" alt="Choisir un ordinateur Apple ou Asus" /></li>
-        <li><img src="/images/home/brands/compaq_dell.png" alt="Choisir un ordinateur Compaq ou Dell" /></li>
-        <li><img src="/images/home/brands/emachines_boulanger.png" alt="Choisir un ordinateur eMachines ou Boulanger" /></li>
-        <li><img src="/images/home/brands/fujitsu_hp.png" alt="Choisir un ordinateur Fujitsu ou HP" /></li>
-        <li><img src="/images/home/brands/lenovo_msi.png" alt="Choisir un ordinateur Lenovo ou Msi" /></li>
-        <li><img src="/images/home/brands/packard_samsung.png" alt="Choisir un ordinateur Packard-bell ou Samsung" /></li>
-        <li><img src="/images/home/brands/sony_toshiba.png" alt="Choisir un ordinateur Sony ou Toshiba" /></li>
-      </ul>
+      <img class="retailer_logo" src="/images/home/marques_pc_portables.jpg" alt="<%= t :brands_alt %>" />
       <p><%= t_safe :home_brand_text %></p>
     </div>
     <div id="middle_boxes">
@@ -118,7 +109,7 @@
         <%= link_to "/visite-guidee", :class => "no_underline" do %>
           <h2 class="extra_margin"><%= t :home_tour_title %></h2>
         <% end -%>
-        <img class="illustration" src="/images/home/usages_pc_portable.png" alt="Un PC pour chaque usage" />
+        <img class="illustration" src="/images/home/usages_pc_portable.png" alt="<%= t :tour_alt %>" />
         <p><%= t_safe :home_tour_text %></p>
         <p class="page_link">>
           <%= link_to "/visite-guidee" do %>
@@ -140,13 +131,8 @@
     </div>
     <div id="merchants">
       <h2><%= t :home_retailer_title %></h2>
-      <ul id="retailer_logos">
-        <li><img class="retailer_logo" src="/images/home/retailers/fnac_rueducommerce.png" alt="Choisir un pc la FNAC ou Rue du Commerce avec Choisir Facile" /></li>
-        <li><img class="retailer_logo" src="/images/home/retailers/boulanger_pixmania.png" alt="Choisir un pc sur le site Boulanger ou Pixmania avec Choisir Facile" /></li>
-        <li><img class="retailer_logo" src="/images/home/retailers/cdiscount_misco.png" alt="Choisir un pc sur le site CDiscount ou Misco avec Choisir Facile" /></li>
-        <li><img class="retailer_logo" src="/images/home/retailers/hp_mistergooddeal.png" alt="Choisir un pc sur le site HP ou MisterGoodDeal avec Choisir Facile" /></li>
-      </ul>
-      <p><%= t :home_retailer_count_1 %> 8 <%= t :home_retailer_count_2 %> <em><%= Product.all_cached.count %> <%= t :home_retailer_count_3 %></em></p>
+      <img class="retailer_logo" src="/images/home/marchands_ordinateur_portable.jpg" alt="<%= t :retailers_alt %>" />
+      <p><%= t :home_retailer_count_1 %> <%= Retailer.count %> <%= t :home_retailer_count_2 %> <em><%= Product.all_cached.count %> <%= t :home_retailer_count_3 %></em></p>
     </div>
     <div class="clearfix"></div>
     <div id="extra_content">

@@ -11,7 +11,6 @@ javascripts:
   home:
     - public/javascripts/rails/prototype.js
     - public/javascripts/rails/rails.js
-    - public/javascripts/jquery.ulslide.js
     - public/javascripts/home.js
 
   form:

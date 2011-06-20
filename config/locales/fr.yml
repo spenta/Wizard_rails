@@ -36,6 +36,18 @@ fr:
   home_canonical: |
     http://www.choisirfacile.com
 
+  # Image ALTS
+  number_1_alt: Etape 1
+  step_1_alt: 3 questions simples pour choisir son ordinateur portable
+  number_2_alt: Etape 2
+  step_2_alt: Des conseils d'achat d'ordinateur personnalises
+  number_3_alt: Etape 3
+  step_3_alt: Une comparaison sur de nombreux sites marchands pour trouver le meilleur prix
+  hspacer_alt: Separateur vertical
+  brands_alt: Choisir un ordinateur parmi les meilleures marques du marché
+  tour_alt: Un PC portable pour chaque usage
+  retailers_alt: Choisir un ordinateur chez les plus grands sites marchands
+
   # Line to explain our purpose
   home_explain: |
     Nous vous aidons à choisir un <strong>PC portable</strong> adapté à vos besoins. C'est <strong>Gratuit</strong>, <strong>Objectif</strong> et <strong>Rapide</strong> !
