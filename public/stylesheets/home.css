@@ -151,6 +151,15 @@ h3 {
 	text-shadow:none;
 }
 
+#home_infos h3.emphasized_h3 {
+	color:#50A5D7;
+	font-weight:bold;
+	font-size:1.6em;
+	text-align:center;
+	margin:0 0 8px 0;
+	text-shadow:none;
+}
+
 #home_infos h2.extra_margin {
 	margin-top:11px;
 }
