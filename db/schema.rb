@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110517101300) do
+ActiveRecord::Schema.define(:version => 20110621133928) do
 
   create_table "affiliation_platforms", :force => true do |t|
     t.string   "name"
@@ -34,6 +34,14 @@ ActiveRecord::Schema.define(:version => 20110517101300) do
     t.integer  "product_id"
     t.string   "retailer_product_name"
     t.text     "retailer_small_img_url"
+  end
+
+  create_table "product_spec_scores", :force => true do |t|
+    t.integer  "product_id"
+    t.integer  "specification_id"
+    t.float    "score"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "products", :force => true do |t|
@@ -130,6 +138,14 @@ ActiveRecord::Schema.define(:version => 20110517101300) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "user_response"
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "name"
+    t.string   "password_hash"
+    t.string   "password_salt"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

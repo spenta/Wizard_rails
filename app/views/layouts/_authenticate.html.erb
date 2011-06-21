@@ -1,0 +1,6 @@
+<% if current_user %>
+  Connecté en tant que <%= current_user.name %>. 
+  <%= link_to "Déconnexion", logout_path %>
+<% else %>
+  <%= link_to "Connexion", login_path %>
+<% end %>

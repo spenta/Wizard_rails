@@ -5,4 +5,12 @@ class ApplicationController < ActionController::Base
       # if params[:locale] is nil then I18n.default_locale will be used
       I18n.locale = params[:locale]
   end
+
+  helper_method :current_user
+
+  private
+
+  def current_user
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  end
 end

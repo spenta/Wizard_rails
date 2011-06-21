@@ -5,6 +5,7 @@ gem 'sqlite3'
 gem 'mysql2'
 gem 'dalli'
 gem 'jammit'
+gem "bcrypt-ruby", :require => "bcrypt"
 group :test do
   gem 'cucumber-rails'
   gem 'capybara'

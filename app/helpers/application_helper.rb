@@ -35,6 +35,5 @@ module ApplicationHelper
       t :not_communicated
     end
   end
-
 end
 

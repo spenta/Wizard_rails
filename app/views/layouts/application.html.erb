@@ -70,7 +70,7 @@
           <p>© 2011 | Spenta SAS | <%= t_safe :rights_reserved %></p>
         </div>
         <div class="footer_right">
-          <%= link_to t_safe(:contact_text), "/contact" %> | <%= link_to t_safe(:legal_info), "/legal" %> | <%= link_to t_safe(:eula), "/terms" %>
+          <%= link_to t_safe(:contact_text), "/contact" %> | <%= link_to t_safe(:legal_info), "/legal" %> | <%= link_to t_safe(:eula), "/terms" %> | <%= render "layouts/authenticate" %>
         </div>
         <div class="clearfix"></div>
       </div>
