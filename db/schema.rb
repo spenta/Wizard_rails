@@ -10,10 +10,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110622103110) do
+ActiveRecord::Schema.define(:version => 20110622124904) do
 
   create_table "affiliation_platforms", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "articles", :force => true do |t|
+    t.text     "title"
+    t.text     "meta"
+    t.text     "summary"
+    t.text     "body"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -113,6 +123,13 @@ ActiveRecord::Schema.define(:version => 20110622103110) do
 
   create_table "super_usages", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tag_article_associations", :force => true do |t|
+    t.integer  "tag_id"
+    t.integer  "article_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

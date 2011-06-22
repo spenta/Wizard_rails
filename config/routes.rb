@@ -1,6 +1,8 @@
 WizardRails::Application.routes.draw do
 
 
+  resources :articles
+
   get "tag/new"
 
   get "tag/create"

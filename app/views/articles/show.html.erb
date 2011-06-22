@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @article.title %>
+</p>
+
+<p>
+  <b>Meta:</b>
+  <%= @article.meta %>
+</p>
+
+<p>
+  <b>Summary:</b>
+  <%= @article.summary %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%= @article.body %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @article.user.name %>
+</p>
+
+
+<%= link_to 'Edit |', edit_article_path(@article) if current_user%>
+<%= link_to 'Back', articles_path %>
