@@ -1,0 +1,5 @@
+<h1><b>Tag#index</b></h1>
+<% Tag.all.each do |t| %>
+  <%= content_tag :p, t.name %>
+<% end -%>
+

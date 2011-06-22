@@ -1,0 +1,19 @@
+<h1>Tag creation</h1>
+
+<%= form_for @tag do |f| %>
+  <% if @tag.errors.any? %>
+    <div class="error_messages">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% for message in @tag.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p class="button"><%= f.submit %></p>
+<% end %>

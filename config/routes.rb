@@ -1,6 +1,12 @@
 WizardRails::Application.routes.draw do
 
 
+  get "tag/new"
+
+  get "tag/create"
+
+  get "tag/index"
+
   get 'sitemap', :to => 'sitemap#show.xml'
 
   resources :user_requests, :path => "conseiller-virtuel", :only => [:create, :update, :edit, :index], :path_names =>  {:edit => "questionnaire", :user_response => "resultats"} do
@@ -20,6 +26,7 @@ WizardRails::Application.routes.draw do
   get "signup" => "users#new", :as => "signup"
   resources :users
   resources :sessions
+  resources :tags
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
