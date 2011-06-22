@@ -128,7 +128,7 @@ Then /^(?:|I )should (?:see|get) (?:the|a|an) "([^"]*)" error$/ do |error_str|
 end
 
 Then /^(?:|I )should be on the results page$/ do
-  expected_path = "/user_requests/#{@user_request.id}/user_response"
+  expected_path = "/conseiller-virtuel/#{@user_request.id}/resultats"
   raise "not on the right page\nexpected #{expected_path}, but the current path is #{current_path}" unless current_path ==  expected_path
 end
 
