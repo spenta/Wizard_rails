@@ -193,6 +193,7 @@ h3 {
 
 #partners {
   width:268px;
+  margin-top:15px;
   padding:8px 10px;
   border:1px solid #E5E5E5;
   background-position:0px 40px;
@@ -210,7 +211,6 @@ h3 {
 #tour {
   width:270px;
   padding:0px 10px;
-  margin-bottom:10px;
 }
 
 .illustration {
