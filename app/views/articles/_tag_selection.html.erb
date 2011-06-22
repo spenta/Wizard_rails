@@ -1,0 +1,6 @@
+<p>-------------------------------------------------------------------------</p>
+<h1>Tag selection</h1>
+<% Tag.all.each do |t|%> 
+  <%= check_box_tag "tag_#{t.name}", "1", has_tag(article, t.name) %>
+  <%= t.name %>
+<% end -%>

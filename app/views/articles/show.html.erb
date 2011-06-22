@@ -25,6 +25,12 @@
   <%= @article.user.name %>
 </p>
 
+<p>---------------------------</p>
+<p>Tags</p>
+<p>---------------------------</p>
+<% @article.tags.each do |t| -%>
+  <%= content_tag :p, t.name %>
+<% end -%>
 
 <%= link_to 'Edit |', edit_article_path(@article) if current_user%>
 <%= link_to 'Back', articles_path %>

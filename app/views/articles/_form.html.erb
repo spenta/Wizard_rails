@@ -28,9 +28,14 @@
     <%= f.text_area :body %>
   </div>
   <div class="field">
-    <%= f.label :user %><br />
-    <%= f.text_field :user %>
+    <%= f.label :user_name %><br />
+    <% if @article.user -%>
+      <%= text_field_tag "user_name", @article.user.name %>
+    <% else -%>
+      <%= text_field_tag "user_name" %>
+    <% end -%>
   </div>
+  <%= render "tag_selection", :article => @article %>
   <div class="actions">
     <%= f.submit %>
   </div>

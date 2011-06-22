@@ -1,3 +1,7 @@
+<% if flash[:warning] -%>
+  <%= flash[:warning] %>
+<% end -%>
+
 <h1>Tag creation</h1>
 
 <%= form_for @tag do |f| %>
@@ -17,3 +21,9 @@
   </p>
   <p class="button"><%= f.submit %></p>
 <% end %>
+<p>----------------------------</p>
+<p>Tag list</p>
+<p>----------------------------</p>
+<% Tag.all.each do |t| %>
+  <%= content_tag :p, t.name %>
+<% end -%>

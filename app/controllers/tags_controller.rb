@@ -6,11 +6,8 @@ class TagsController < ApplicationController
 
   def create
     @tag = Tag.new(params[:tag])
-    if @tag.save
-      redirect_to root_url
-    else
-      render "new"
-    end
+    flash[:warning] = "erreur dans la creation (tag deja existant ?)" unless @tag.save
+    redirect_to tags_new_path
   end
 
   def index

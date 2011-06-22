@@ -35,5 +35,9 @@ module ApplicationHelper
       t :not_communicated
     end
   end
+  def has_tag article, tag_name
+    raise "no tag name #{tag_name}" unless tag = Tag.where(:name => tag_name).first
+    article.tags.includes?(tag)
+  end
 end
 

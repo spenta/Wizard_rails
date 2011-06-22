@@ -41,14 +41,16 @@ class ArticlesController < ApplicationController
   # POST /articles
   # POST /articles.xml
   def create
-    raise "unknown user" unless User.where(:name => params[:article][:user]).first 
+    raise "unknown user #{params[:user_name]}" unless User.where(:name => params[:user_name]).first 
     @article = Article.new(
       :title => params[:article][:title],
       :summary => params[:article][:summary],
       :meta => params[:article][:meta],
       :body => params[:article][:body],
-      :user => User.where(:name => params[:article][:user]).first
+      :user => User.where(:name => params[:user_name]).first
     )
+
+    create_tag_article_association
 
     respond_to do |format|
       if @article.save
@@ -65,16 +67,16 @@ class ArticlesController < ApplicationController
   # PUT /articles/1.xml
   def update
     @article = Article.find(params[:id])
-
-    respond_to do |format|
-      if @article.update_attributes(params[:article])
-        format.html { redirect_to(@article, :notice => 'Article was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @article.errors, :status => :unprocessable_entity }
-      end
-    end
+    new_params = {
+      :title => params[:article][:title],
+      :summary => params[:article][:summary],
+      :meta => params[:article][:meta],
+      :body => params[:article][:body],
+      :user => User.where(:name => params[:user_name]).first
+    }
+    @article.tag_article_associations.delete_all
+    create_tag_article_association params
+    redirect_to @article
   end
 
   # DELETE /articles/1
@@ -93,5 +95,21 @@ class ArticlesController < ApplicationController
 
   def check_user_login
     redirect_to :root unless current_user
+  end
+
+  private
+
+  def create_tag_article_association params
+    params.keys.each do |key|
+      if key =~ /^tag_./
+        tag_name = key.split('tag_').last
+        if tag = Tag.where(:name => tag_name).first 
+          tag_article_association = TagArticleAssociation.new(:tag => tag, :article => @article)
+          tag_article_association.save
+        else
+          raise "tag #{tag_name} does not exist"
+        end
+      end
+    end
   end
 end

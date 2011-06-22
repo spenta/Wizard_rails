@@ -3,11 +3,11 @@ WizardRails::Application.routes.draw do
 
   resources :articles
 
-  get "tag/new"
+  get "tags/new"
 
-  get "tag/create"
+  get "tags/create"
 
-  get "tag/index"
+  get "tags/index"
 
   get 'sitemap', :to => 'sitemap#show.xml'
 
