@@ -1,8 +1,8 @@
 source 'http://rubygems.org'
 gem 'rake','0.8.7'
-gem 'rails', '3.0.7'
+gem 'rails', '3.0.9'
 gem 'sqlite3'
-gem 'mysql2'
+gem 'mysql2', '< 0.3'
 gem 'dalli'
 gem 'jammit'
 group :test do
