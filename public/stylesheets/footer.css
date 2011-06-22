@@ -4,8 +4,10 @@ Footer
 
 #footer p, #footer a {
 	color:#666;
-	margin:5px auto 15px auto;
 	text-decoration:none;
+	font-family:"Arial", Arial, sans-serif;
+	font-size:12px;
+	margin:0;
 }
 
 #footer {
@@ -21,7 +23,7 @@ Footer
 
 .footer_left { float:left; }
 
-.footer_right { float:right; color:#666; }
+.footer_right { float:right; font-size:12px; color:#666; }
 
 .clearfix { clear:both; }
 

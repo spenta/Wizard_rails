@@ -2,57 +2,72 @@
 
 /* --- Styles par défaut --- */
 
-* {
-	font-family:"Arial", Arial, sans-serif;
-	font-size:12px;
-	color:#33332F;
-}
-
 body, html { background-color:#E5E5E5; }
 
-h1 {
-    font-size:2em;
+#page_content h1 {
+    font-size:20px;
     font-weight:bold;
     text-shadow:1px 1px #E5E5E5;
     text-align:center;
 		color:#33332F;
 		margin-bottom:15px;
+		font-family:"Arial", Arial, sans-serif;
 }
 
-h2 {
-    font-size:1.5em;
+#page_content h2 {
+    font-size:16px;
     font-weight:bold;
 		color:#33332F;
 		margin:12px 0;
+		font-family:"Arial", Arial, sans-serif;
 }
 
 #page_content p {
-    font-size:1.2em;
+    font-size:12px;
     margin-bottom:10px;
 		color:#33332F;
 		text-align:justify;
+		font-family:"Arial", Arial, sans-serif;
 }
 
 #page_content a {
-    font-size:1em;
+    font-size:12px;
     margin-bottom:10px;
 		color:#50A5D7;
+		font-family:"Arial", Arial, sans-serif;
 }
 
-.center {
-	text-align:center;
+#page_content .pic_align {
+	float:left;
+	width:270px;
+	margin:0 14px;
+}
+
+#page_content .pic_align p {
+  text-align:center;
+  color:#666666;
+  font-style:italic;
+  margin-top:4px;
+  font-family:"Arial", Arial, sans-serif;
+  font-size:12px;
+}
+
+#page_content .pic {
+  display:block;
 }
 
 #page_content ul {
 	margin-bottom:10px;
 	padding-left:50px;
+	font-family:"Arial", Arial, sans-serif;
+  font-size:12px;
 }
 
 #page_content li {
-	font-size:1.2em;
 	color:#33332F;
 	list-style:disc;
-
+  font-family:"Arial", Arial, sans-serif;
+  font-size:12px;
 	padding-bottom:3px;
 }
 

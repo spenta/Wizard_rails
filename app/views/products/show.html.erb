@@ -1,13 +1,21 @@
 <% infos = @product.infos -%>
 <%= content_for :head do %>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-  <title><%= "#{t :product_page_title} #{infos[:brand_name]} #{infos[:name]}" %></title>
+  <title><%= "#{infos[:brand_name]} #{infos[:name]} #{t :product_page_title}" %></title>
 
-  <meta name="description" content="<%= t_safe :product_meta_description %> <%= infos[:brand_name] %> <%= infos[:name] %>"></meta>
-  <meta name="keywords" content="<%= t :meta_keywords %>, <%= t :product_laptop %>"></meta>
+  <meta name="description" content="<%= t_safe :product_meta_description %> <%= infos[:brand_name] %> <%= infos[:name] %>" />
+  <meta name="keywords" content="<%= t :meta_keywords %>, <%= t :product_laptop %>" />
 
   <%= include_stylesheets :product %>
+  <!--[if lte IE 8]>
+    <link type="text/css" rel="stylesheet" href="/stylesheets/product_lteie8.css">
+  <![endif]-->
+
+  <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"%>
+  <script type="text/javascript">
+    $j = jQuery.noConflict();
+  </script>
   <script type="text/javascript">
     // Load values for the specs ratings in the bar display
     var bar_length_1 = <%= infos[:specification_values][11][:sv_score] %>
@@ -19,9 +27,7 @@
   </script>
   <%= include_javascripts :product %>
   <script type="text/javascript" src="http://apis.google.com/js/plusone.js"></script>
-  <!--[if lte IE 8]>
-    <link type="text/css" rel="stylesheet" href="/stylesheets/product_lteie8.css">
-  <![endif]-->
+
 
 <% end %>
 <div id="top_wrapper">
@@ -105,7 +111,7 @@
               <td colspan="5">
                 <p><%= t_safe :retailers_checked_1 %> <%= retailers_with_no_offers_count = 8 - @product.offers.uniq.count %> <%= t_safe :retailers_checked_2 %></p>
                     <% ["/images/logo/fnac.png","/images/logo/pixmania.png","/images/logo/rueducommerce.png","/images/logo/cdiscount.png","/images/logo/hp.png","/images/logo/mistergooddeal.png","/images/logo/boulanger.png","/images/logo/misco.png"].each do |url| %>
-                      <img src="<%= url %>" />
+                      <img src="<%= url %>" alt="<%= t_safe :retailer_checked_but_no_offers %>" />
                     <% end %>
               </td>
             </tr>

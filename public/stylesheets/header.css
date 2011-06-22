@@ -31,7 +31,7 @@ Header
 	list-style-type:none;
 	display:block;
 	margin:0;
-	font-size:12px;
+	font-size:14px;
 }
 
 #header_menu li {
@@ -39,21 +39,29 @@ Header
 	float:left;
 	margin:0;
 	list-style:none;
-	font-size:12px;
-	padding:5px 0px 6px 16px;
+	font-family:"Arial", Arial, sans-serif;
+	color:white;
 }
 
-#header_menu a li.wizard_header_button {
+#header_menu li.header_text_link {
+	padding:6px 0px 6px 16px;
+}
+
+#header_menu li div.wizard_header_button {
+  padding:6px 0px 6px 16px;
+  margin-right:16px;
+}
+
+#header_menu li div.wizard_header_button {
   color:white;
-	font-size:17px;
-	padding:5px 0px 6px 16px;
 }
 
 #header_menu a, #header_menu p {
 	color:white;
-	font-size:1.4em;
+	font-size:17px;
 	text-decoration:none;
 	margin:0px;
+	font-family:"Arial", Arial, sans-serif;
 }
 
 #header_menu a:hover {
@@ -62,10 +70,10 @@ Header
 
 #header_menu .wizard_incentive_text  {
   width:135px;
-  height:28px;
+  height:27px;
   text-align:center;
   margin-right:15px;
-  margin-top:-3px;
+  margin-top:5px;
 }
 
 #header_menu .wizard_incentive_text p  {
@@ -86,7 +94,7 @@ Header
 #header_menu .wizard_header_button {
   background-image:url('/images/wizard_header_button.png');
   width:160px;
-  height:20px;
+  height:19px;
 }
 
 #header_menu .wizard_header_button:hover {

@@ -9,7 +9,8 @@ javascripts:
     - public/javascripts/rails/rails.js
 
   home:
-    - public/javascripts/jquery.ulslide.js
+    - public/javascripts/rails/prototype.js
+    - public/javascripts/rails/rails.js
     - public/javascripts/home.js
 
   form:
@@ -25,11 +26,15 @@ javascripts:
     - public/javascripts/result.js
 
   catalogue:
+    - public/javascripts/rails/prototype.js
+    - public/javascripts/rails/rails.js
     - public/javascripts/rangeslider.min.js
     - public/javascripts/jquery.dataTables.min.js
     - public/javascripts/catalogue.js
 
   product:
+    - public/javascripts/rails/prototype.js
+    - public/javascripts/rails/rails.js
     - public/javascripts/jquery.ae.image.resize.min.js
     - public/javascripts/product.js
 
@@ -61,8 +66,8 @@ stylesheets:
     - public/stylesheets/product.css
 
   basic:
-    - public/stylesheets/basic_page.css
+    - public/stylesheets/basic.css
 
   tour:
-    - public/stylesheets/basic_page.css
+    - public/stylesheets/basic.css
     - public/stylesheets/tour.css
