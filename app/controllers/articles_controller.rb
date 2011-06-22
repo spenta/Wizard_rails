@@ -50,7 +50,7 @@ class ArticlesController < ApplicationController
       :user => User.where(:name => params[:user_name]).first
     )
 
-    create_tag_article_association
+    create_tag_article_association params
 
     respond_to do |format|
       if @article.save
@@ -74,6 +74,7 @@ class ArticlesController < ApplicationController
       :body => params[:article][:body],
       :user => User.where(:name => params[:user_name]).first
     }
+    @article.update_attributes(new_params)
     @article.tag_article_associations.delete_all
     create_tag_article_association params
     redirect_to @article
