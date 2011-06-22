@@ -2,4 +2,5 @@
 <% Tag.all.each do |t| %>
   <%= content_tag :p, t.name %>
 <% end -%>
+<%= link_to 'New tag', new_tag_path if current_user %>
 
