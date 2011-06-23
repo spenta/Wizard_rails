@@ -55,7 +55,6 @@ class UserResponseBuilder
     @products_for_calculations=[]
     Product.all_cached.each { |p| @products_for_calculations << ProductForCalculations.new(p)}
 
-    @good_deals = []
   end
 
   def process_specification_needs!
@@ -183,112 +182,16 @@ class UserResponseBuilder
   end
 
   def process_good_deals!
-    #good score means >= S_MIN
-    products_with_good_scores = []
-    @products_for_calculations.each { |p| products_with_good_scores << p }
-    remaining_products = remove_low_scores_from products_with_good_scores
-    #add the first products to good_deals and move the rest to remaining_products
-    remaining_products = remaining_products | add_to_good_deals_from(products_with_good_scores)
-    complete_good_deals_from remaining_products if @good_deals.size < N_BA
-    restrict_good_deals if @good_deals.size > N_BA
-    @products_for_calculations.each {|p| p.is_good_deal = true if @good_deals.include? p}
+    good_deals = (sort_by_Q(@products_for_calculations)).last(N_BA)
+    #finally tag good_deal products
+    good_deals.each { |p| p.is_good_deal = true }
   end
 
   def process_stars!
-    stars = (sort_by_Q(@good_deals)).last(N_S)
+    good_deals = @products_for_calculations.select{|p| p.is_good_deal}
+    stars = (sort_by_Q(good_deals)).last(N_S)
     #finally tag star products
     stars.each { |p| p.is_star = true }
-  end
-
-  def complete_good_deals_from remaining_products
-    products_closest_to_good_deals = []
-    other_products_close_to_good_deals = []
-    @good_deals.each do |good_ps|
-      #best distance to good_ps among remaining products
-      best_distance = 10
-      #best candidate among remaining_products
-      best_candidate = nil
-      remaining_products.each do |candidate_ps| #aka DSK
-        distance = distance good_ps, candidate_ps
-        if distance < 1
-          other_products_close_to_good_deals << candidate_ps unless other_products_close_to_good_deals.include? candidate_ps
-          best_candidate, best_distance = candidate_ps, distance if distance < best_distance
-        end
-      end
-      #move the best candidate, if any, to new_good_deals
-      unless best_candidate.nil? or products_closest_to_good_deals.include? best_candidate
-        products_closest_to_good_deals << best_candidate
-        other_products_close_to_good_deals.delete best_candidate
-      end
-    end
-    other_products_close_to_good_deals.each {|p| remaining_products.delete other_products_close_to_good_deals}
-    #complete good_deals with products_closest_to_good_deals, by s/p descending
-    sort_by_score_over_price products_closest_to_good_deals
-    complete @good_deals, :with => products_closest_to_good_deals, :until_size_is => N_BA, :and_delete_from_source => false
-    #complete good_deals with other_products_close_to_good_deals, by s/p descending
-    sort_by_score_over_price other_products_close_to_good_deals
-    complete @good_deals, :with => other_products_close_to_good_deals, :until_size_is => N_BA, :and_delete_from_source => false if @good_deals.size < N_BA
-    #complete with remaining_products of good score by s/p descending
-    if @good_deals.size < N_BA
-      low_scores = remove_low_scores_from remaining_products
-      sort_by_score_over_price remaining_products
-      complete @good_deals, :with => remaining_products, :until_size_is => N_BA, :and_delete_from_source => false
-    end
-    #complete with low_scores b score desc
-    if @good_deals.size < N_BA
-      low_scores.sort! {|p1, p2| p1.spenta_score <=> p2.spenta_score}
-      complete @good_deals, :with => low_scores, :until_size_is => N_BA, :and_delete_from_source => false
-    end
-  end
-
-
-  def restrict_good_deals
-    #products with spenta_score = S_R
-    products_with_perfect_score = []
-    other_products = []
-    @good_deals.each {|p| p.spenta_score == S_R ? products_with_perfect_score << p : other_products << p}
-    #sort other_products by descending Q
-    sort_by_Q other_products
-    other_products.reverse!
-    #products with the least spenta_scores are removed
-    until (@good_deals.size <=N_BA or other_products.empty?)
-      @good_deals.delete other_products.last
-      other_products.pop
-    end
-    #sort products_with_perfect_score by ascending price
-    sort_by_price products_with_perfect_score
-    #the most expensive products with perfect scores are removed
-    until (@good_deals.size <=N_BA or products_with_perfect_score.empty?)
-      @good_deals.delete products_with_perfect_score.last
-      products_with_perfect_score.pop
-    end
-  end
-
-  #returns the products which where not added to good_deals
-  def add_to_good_deals_from products
-    remaining_products = []
-    sort_by_price products
-    products.each do |current_ps|
-      if @good_deals.empty?
-        @good_deals << current_ps
-      else
-        last_ps = @good_deals.last
-        #if the current product is as good as and as cheap as the previous one, or if it is
-        #more expensive, but better, then put it in good_deals
-        if (current_ps.price == last_ps.price and current_ps.spenta_score == last_ps.spenta_score) or (current_ps.price > last_ps.price and current_ps.spenta_score > last_ps.spenta_score)
-          @good_deals << current_ps
-        #if the current product is as cheap as the previous one but better,
-        #add it to good_deals and remove the previous one
-        elsif current_ps.price == last_ps.price and current_ps.spenta_score > last_ps.spenta_score
-          @good_deals.delete last_ps
-          remaining_products << last_ps
-          @good_deals << current_ps
-        else
-          remaining_products << current_ps
-        end
-      end
-    end
-    remaining_products
   end
 
   def build_user_response
