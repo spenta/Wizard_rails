@@ -23,12 +23,6 @@ module WizardUtilities
     end
   end
 
-  def distance p1, p2
-    price_spread = (p1.price - p2.price)/C_P
-    score_spread = (p1.spenta_score - p2.spenta_score)/C_S
-    d = Math.sqrt(price_spread**2+score_spread**2)
-  end
-
   def sort_by_price ary
     ary.sort! {|p1, p2| p1.price <=> p2.price}
   end
@@ -38,7 +32,7 @@ module WizardUtilities
   end
 
   def sort_by_score_over_price ary
-    ary.sort! {|p1, p2| p1.spenta_score/p1.price <=> p2.spenta_score/p2.price}
+    ary.sort! {|p1, p2| score_over_price(p1) <=> score_over_price(p2)}
   end
 
   def sort_by_Q ary
@@ -48,8 +42,111 @@ module WizardUtilities
   def quality_score product
     product.spenta_score >= S_R ? exp_factor = EXP_FACTOR_SUP : exp_factor = EXP_FACTOR_INF
     spread_factor = Math.exp(-((product.spenta_score-S_R)**2/(exp_factor*S_R**2)))
-    score_price_ratio_factor = product.spenta_score/product.price
-    score = spread_factor * score_price_ratio_factor
+    score = spread_factor * score_over_price(product)
+  end
+
+  def get_highest_energy_pair products
+    highest_energy = 0
+    highest_energy_pair = [products[0], products[1]]
+    for i in [0..products.length-2]
+      p1 = products[0]
+      p2 = products[1]
+      energy = get_energy p1, p2, products
+      #TEMP
+      highest_energy_name = gets_highest_energy_name p1, p2, products
+      if energy > highest_energy
+        highest_energy = energy
+        highest_energy_pair = [p1, p2]
+      end
+    end
+    #TEMP
+    puts highest_energy_name
+    highest_energy_pair
+  end
+
+  def get_energy p1, p2, products
+    1000*energy_bad_score(p1, p2)+100*energy_better_deal(p1, p2)+10*energy_brand(p1, p2, products)+energy_similar(p1, p2)
+  end
+
+  #TEMP
+  def gets_highest_energy_name p1, p2, products
+    energies= {
+      "bad_score" => 1000*energy_bad_score(p1, p2),
+      "better_deal" => 100*energy_better_deal(p1, p2),
+      "brand" => 10*energy_brand(p1, p2, products),
+      "similar" => energy_similar(p1, p2)
+    }
+    highest_energy_name = "none"
+    highest_energy_value = 0
+    energies.each do |key, value| 
+      if value > highest_energy_value
+        highest_energy_name = key
+        highest_energy_value = value
+      end
+    end
+    highest_energy_name
+  end
+
+  def energy_bad_score p1, p2
+    a = ENERGY_BAD_SCORE_MODIFICATOR
+    b = ENERGY_BAD_SCORE_FACTOR
+    b*Math.exp(-(p1.spenta_score+p2.spenta_score)/(a*S_R))
+  end
+
+  def energy_better_deal p1, p2
+    ENERGY_BETTER_DEAL_FACTOR*delta_score_over_price(p1,p2)/average_score_over_price(p1,p2)
+  end
+
+  def energy_brand p1, p2, products
+    a = ENERGY_BRAND_MODIFICATOR
+    b = ENERGY_BRAND_FACTOR
+    num_brand1 = num_products_with_same_brand p1, products
+    num_brand2 = num_products_with_same_brand p2, products
+    b * (1-Math.exp(-a*(num_brand1+num_brand2-2)**3))
+  end
+
+  def energy_similar p1,p2
+    s1 = p1.spenta_score
+    s2 = p2.spenta_score
+    p1 = p1.price
+    p2 = p2.price
+    get_relative_spread(s1, s2) + get_relative_spread(p1, p2)
+  end
+
+  def delta_score_over_price p1, p2
+    (score_over_price(p1)-score_over_price(p2)).abs
+  end
+  
+  def average_score_over_price p1, p2
+    (score_over_price(p1)+score_over_price(p2))/2
+  end
+
+  def score_over_price product
+    product.spenta_score/product.price
+  end
+
+  def num_products_with_same_brand product_for_calculations, products
+    brand = product_for_calculations.product.infos[:brand_name]
+    num = 0
+    products.each {|p| num += 1 if p.product.infos[:brand_name] == brand}
+    num
+  end
+  
+  def get_relative_spread num1, num2
+    1/(1+(num1-num2).abs/(num1+num2))
+  end
+
+  def worst_product p1, p2, products
+    if quality_score_with_brand_penalty(p1, products) <= quality_score_with_brand_penalty(p2, products)
+      p1
+    else
+      p2
+    end
+  end
+
+  def quality_score_with_brand_penalty product, products
+    a = BRAND_PENALTY
+    quality_score(product)*Math.exp(-a*(num_products_with_same_brand(product, products)**3))
   end
 
   #completes an array with another by beginning from last position
@@ -68,16 +165,5 @@ module WizardUtilities
       end
       ary_to_add.pop
     end
-  end
-
-  #returns removed products
-  def remove_low_scores_from products
-    products_with_low_scores = []
-    products.each do |p|
-      if p.spenta_score < S_MIN
-        products_with_low_scores << p
-      end
-    end
-    products_with_low_scores.each {|p| products.delete p}
   end
 end

@@ -182,9 +182,19 @@ class UserResponseBuilder
   end
 
   def process_good_deals!
-    good_deals = (sort_by_Q(@products_for_calculations)).last(N_BA)
-    #finally tag good_deal products
-    good_deals.each { |p| p.is_good_deal = true }
+    good_deals = @products_for_calculations.dup
+    sort_by_price good_deals
+    while good_deals.length > N_BA
+      highest_energy_pair = get_highest_energy_pair good_deals
+      p1 = highest_energy_pair[0]
+      p2 = highest_energy_pair[1]
+      good_deals.delete worst_product(p1, p2, good_deals)
+      #TEMP
+      puts "p1 score:#{p1.spenta_score} price:#{p1.price}"
+      puts "p2 score:#{p2.spenta_score} price:#{p2.price}"
+      puts "worst product score: #{worst_product(p1,p2,good_deals).spenta_score}"
+    end
+    good_deals.each {|p| p.is_good_deal = true}
   end
 
   def process_stars!

@@ -18,4 +18,27 @@ module WizardParameters
   N_S = 3
   EXP_FACTOR_SUP = 2
   EXP_FACTOR_INF = 0.05
+
+  #----------
+  # energy_bad_score
+  #----------
+  ENERGY_BAD_SCORE_FACTOR = 10**10
+  ENERGY_BAD_SCORE_MODIFICATOR = 0.06
+
+  #----------
+  # energy_better_deal
+  #----------
+  ENERGY_BETTER_DEAL_FACTOR = 10
+
+  #----------
+  # energy_brand
+  #----------
+  ENERGY_BRAND_FACTOR = 1
+  ENERGY_BRAND_MODIFICATOR = 0.1
+
+  #----------
+  # brand_penalty
+  #----------
+  BRAND_PENALTY = 0.01
+
 end
