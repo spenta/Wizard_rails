@@ -30,7 +30,7 @@ class UserResponseBuilder
   include WizardParameters
   include WizardUtilities
 
-  attr_accessor :specification_needs_for_mobilities, :specification_needs_for_usages, :gammas, :sigmas, :user_response, :products_for_calculations, :user_request, :good_deals
+  attr_accessor :specification_needs_for_mobilities, :specification_needs_for_usages, :gammas, :sigmas, :user_response, :products_for_calculations, :user_request, :good_dealsCO
 
 
   def initialize

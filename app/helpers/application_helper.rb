@@ -1,23 +1,8 @@
 module ApplicationHelper
 
-  #def check_cache_state
-    #build_cache unless Rails.cache.read('cache_state') == 'complete'
-  #end
-
   # translate to HTML safe
   def t_safe str
     t((str.to_s.to_sym), :default => "").html_safe
-  end
-
-  def build_cache
-    Rails.cache.write('cache_state', 'busy')
-    Product.all_cached.each do |p|
-      p.infos
-    end
-    Requirement.usages_requirements
-    Requirement.mobilities_requirements
-    Specification.all_cached
-    Rails.cache.write('cache_state', 'complete')
   end
 
   def get_cents_from price
