@@ -84,7 +84,6 @@ class UserRequest < ActiveRecord::Base
       end
     end
     UserRequest.find(params[:id]).update_attributes(:is_complete => true)
-    raise self.usage_choices.inspect
     load 'user_response.rb'
     director = UserResponseDirector.new
     director.init_builder self 
