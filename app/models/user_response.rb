@@ -191,11 +191,12 @@ class UserResponseBuilder
     remaining_products = remaining_products | add_to_good_deals_from(products_with_good_scores)
     complete_good_deals_from remaining_products if @good_deals.size < N_BA
     restrict_good_deals if @good_deals.size > N_BA
+    substitute_with_other_brands @good_deals, @products_for_calculations
     @products_for_calculations.each {|p| p.is_good_deal = true if @good_deals.include? p}
   end
 
   def process_stars!
-    stars = (sort_by_Q(@good_deals)).last(N_S)
+    stars = (sort_by_q(@good_deals)).last(N_S)
     #finally tag star products
     stars.each { |p| p.is_star = true }
   end
@@ -204,22 +205,14 @@ class UserResponseBuilder
     products_closest_to_good_deals = []
     other_products_close_to_good_deals = []
     @good_deals.each do |good_ps|
-      #best distance to good_ps among remaining products
-      best_distance = 10
-      #best candidate among remaining_products
-      best_candidate = nil
-      remaining_products.each do |candidate_ps| #aka DSK
-        distance = distance good_ps, candidate_ps
-        if distance < 1
-          other_products_close_to_good_deals << candidate_ps unless other_products_close_to_good_deals.include? candidate_ps
-          best_candidate, best_distance = candidate_ps, distance if distance < best_distance
-        end
-      end
+      similar_products = get_similar_products good_ps, remaining_products
+      best_candidate = similar_products[:best_candidate]
+      other_close_products = similar_products[:other_close_products]
       #move the best candidate, if any, to new_good_deals
       unless best_candidate.nil? or products_closest_to_good_deals.include? best_candidate
         products_closest_to_good_deals << best_candidate
-        other_products_close_to_good_deals.delete best_candidate
       end
+      other_products_close_to_good_deals = other_products_close_to_good_deals | other_close_products
     end
     other_products_close_to_good_deals.each {|p| remaining_products.delete other_products_close_to_good_deals}
     #complete good_deals with products_closest_to_good_deals, by s/p descending
@@ -248,7 +241,7 @@ class UserResponseBuilder
     other_products = []
     @good_deals.each {|p| p.spenta_score == S_R ? products_with_perfect_score << p : other_products << p}
     #sort other_products by descending Q
-    sort_by_Q other_products
+    sort_by_q other_products
     other_products.reverse!
     #products with the least spenta_scores are removed
     until (@good_deals.size <=N_BA or other_products.empty?)
@@ -289,6 +282,21 @@ class UserResponseBuilder
       end
     end
     remaining_products
+  end
+
+  def substitute_with_other_brands products_to_substitute, candidate_products
+    sort_by_q products_to_substitute
+    candidate_products_not_products_to_substitute = candidate_products.select{|p| !products_to_substitute.include?(p)}
+    for i in 0..products_to_substitute.length-1
+      p = products_to_substitute[i]
+      if num_products_with_same_brand(p, products_to_substitute) > THRESHOLD_NUM_PRODUCTS_WITH_SAME_BRAND
+        best_candidate = get_similar_products(p, candidate_products_not_products_to_substitute, :with_brand_penalty => products_to_substitute )
+        if best_candidate
+          products_to_substitute[i] = best_candidate
+          candidate_products_not_products_to_substitute.delete best_candidate
+        end
+      end
+    end
   end
 
   def build_user_response
