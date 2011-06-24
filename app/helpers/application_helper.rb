@@ -35,5 +35,11 @@ module ApplicationHelper
       t :not_communicated
     end
   end
+
+  def cat_subtitle
+    str = "#{t :cat_subtitle_1 } <strong>#{Product.all_cached.size} #{t :cat_subtitle_2 }</strong> #{t :cat_subtitle_3} <strong>#{Retailer.count} #{t :cat_subtitle_4}</strong> #{t :cat_subtitle_5}"
+    str.html_safe
+  end
+
 end
 

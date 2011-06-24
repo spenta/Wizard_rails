@@ -109,10 +109,10 @@
             <% end -%>
             <tr class="retailers_checked">
               <td colspan="5">
-                <p><%= t_safe :retailers_checked_1 %> <%= retailers_with_no_offers_count = 8 - @product.offers.uniq.count %> <%= t_safe :retailers_checked_2 %></p>
-                    <% ["/images/logo/fnac.png","/images/logo/pixmania.png","/images/logo/rueducommerce.png","/images/logo/cdiscount.png","/images/logo/hp.png","/images/logo/mistergooddeal.png","/images/logo/boulanger.png","/images/logo/misco.png"].each do |url| %>
-                      <img src="<%= url %>" alt="<%= t_safe :retailer_checked_but_no_offers %>" />
-                    <% end %>
+                <p><%= t_safe :retailers_checked_1 %> <%= retailers_with_no_offers(@product).size%> <%= t_safe :retailers_checked_2 %></p>
+                <% retailers_with_no_offers(@product).each do |r| -%>
+                  <%= image_tag r.logo_url, :alt => t(:retailer_checked_but_no_offers) %>
+                <% end -%>
               </td>
             </tr>
           </tbody>

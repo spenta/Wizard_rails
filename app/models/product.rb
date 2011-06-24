@@ -3,7 +3,7 @@ class Product < ActiveRecord::Base
   has_many :specification_values, :through => :products_specs_values
   has_many :products_specs_values
   has_many :offers
-  validates :name, :small_img_url, :big_img_url, :brand, :presence => true
+  validates :name, :brand, :presence => true
   
   #to_param method is overriden in order to have custom url names
   def to_param
@@ -17,7 +17,7 @@ class Product < ActiveRecord::Base
   end
 
   def self.all_cached
-    products = Product.all.select{|p| p.price>0}
+    products = Product.all.select{|p| p.price>0 and p.infos[:has_image]}
     Rails.cache.fetch("all_products") {products}
   end
 
@@ -43,8 +43,17 @@ class Product < ActiveRecord::Base
     # Price
     infos[:price] = build_price
     # Images
+    infos[:has_image] = true
     infos[:small_img_url] = small_img_url
     infos[:big_img_url] = big_img_url
+    if infos[:small_img_url] == ""
+      infos[:small_img_url] = "/images/product/not_available.png" 
+      infos[:has_image] = false
+    end
+    if infos[:big_img_url] == ""
+      infos[:big_img_url] = "/images/product/not_available_big.png" 
+      infos[:has_image] = false
+    end
     infos
   end
 

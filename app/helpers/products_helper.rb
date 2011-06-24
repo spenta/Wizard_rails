@@ -210,5 +210,10 @@ module ProductsHelper
     end
   end
 
+  def retailers_with_no_offers product
+    retailer_with_offers = []
+    product.offers.each {|o| retailer_with_offers << o.retailer unless retailer_with_offers.include?(o.retailer)  }
+    Retailer.all.select{|r| !retailer_with_offers.include?(r)}
+  end
 end
 
