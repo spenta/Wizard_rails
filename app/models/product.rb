@@ -46,11 +46,11 @@ class Product < ActiveRecord::Base
     infos[:has_image] = true
     infos[:small_img_url] = small_img_url
     infos[:big_img_url] = big_img_url
-    if infos[:small_img_url] == ""
+    if infos[:small_img_url] == "" or infos[:small_img_url].nil?
       infos[:small_img_url] = "/images/product/not_available.png" 
       infos[:has_image] = false
     end
-    if infos[:big_img_url] == ""
+    if infos[:big_img_url] == "" or infos[:big_img_url].nil?
       infos[:big_img_url] = "/images/product/not_available_big.png" 
       infos[:has_image] = false
     end

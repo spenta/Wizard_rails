@@ -14,9 +14,6 @@ class ProductsController < ApplicationController
   # GET /products/pc-portable-acer-truc-1
   def show
     @product = Product.find(params[:id].split('-').last)
-    if @product.price == 0
-      redirect_to :root
-    end
   end
 
   private
