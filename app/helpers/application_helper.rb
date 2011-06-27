@@ -26,5 +26,38 @@ module ApplicationHelper
     str.html_safe
   end
 
+  def render_widgets text
+    #text.gsub(/\[\[[a-zA-Z0-9]+\|[a-zA-Z0-9,]+\]\]/){|s| $2}
+    text.gsub(/\[\[[a-zA-Z0-9_]+\|[a-z-A-Z0-9]+\]\]/) do |s|
+      widget_name = "widget_#{s.split('|').first.split("[[").last}"
+      widget_argument = "#{s.split('|').last.split("]]").first}"
+      begin
+        send(widget_name, widget_argument)
+      rescue => error
+        raise error
+        #raise "no such widget as #{widget_name}"
+      end
+    end
+  end
+
+  private
+
+  #---------------------
+  # Widget definition
+  #---------------------
+
+
+  #widget definition go here
+  #they must start by "widget_" and must have one and only one argument (a string)
+  #example below
+  
+  #def widget_test argument
+    #argument*3
+  #end
+  
+  #Widget are called in the view with the following syntax
+  #   render_widgets("blablabla [[user_profile|gamer]] fsdgdgf")
+  #The string [[user_profile|gamer]] will then be replace by widget_user_profile("gamer")
+
 end
 
