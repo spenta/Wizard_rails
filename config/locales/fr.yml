@@ -164,6 +164,7 @@ fr:
     <p>Si vous passez du temps sur des réseaux sociaux, des blogs ou des forums, tous les PC vous conviendront.</p>
     <h5>Regarder et écouter</h5>
     <p>Vous utilisez Internet pour découvrir de nouveaux artistes ? Voir des vidéos ? On écartera les processeurs très peu performants.</p>
+
   weight_step_question_superusage2: Utilisez-vous Internet intensivement ?
 
   #--------------------
@@ -454,4 +455,5 @@ fr:
   currency: €
 
   #Disclaimer
-  disclaimer_for_specs_values: * Cette valeur est extrapolée car elle ne nous a pas été communiquée.
+  disclaimer_for_specs_values: |
+    * Cette valeur est extrapolée car elle ne nous a pas été communiquée.
