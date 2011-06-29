@@ -30,11 +30,11 @@ class ProductsController < ApplicationController
     Requirement.usages_requirements
     Requirement.mobilities_requirements
     Specification.all_cached
-    Rails.cache.write('cache_state', 'complete')
     USER_PROFILES_CONFIG.each_key do |profile|
       puts USER_PROFILES_CONFIG.inspect
       build_response_for_user_profile profile
     end
+    Rails.cache.write('cache_state', 'complete')
   end
 
   def build_response_for_user_profile profile
