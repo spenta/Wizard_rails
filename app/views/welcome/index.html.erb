@@ -7,10 +7,6 @@
   <meta name="description" content="<%= t_safe :home_html_description %>" />
   <meta name="keywords" content="<%= t_safe :meta_keywords %>" />
   <META name="y_key" content="4314c2339f6890c3" />
-  <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"%>
-  <script type="text/javascript">
-      $j = jQuery.noConflict();
-  </script>
   <%= include_javascripts :home%>
   <%= include_stylesheets :home%>
   <script type="text/javascript" src="http://apis.google.com/js/plusone.js"></script>
@@ -106,24 +102,24 @@
     </div>
     <div id="middle_boxes">
       <div id="tour">
-        <%= link_to "/visite-guidee", :class => "no_underline" do %>
+        <%= link_to tour_path, :class => "no_underline" do %>
           <h2 class="extra_margin"><%= t :home_tour_title %></h2>
         <% end -%>
         <img class="illustration" src="/images/home/usages_pc_portable.png" alt="<%= t :tour_alt %>" />
         <p><%= t_safe :home_tour_text %></p>
         <p class="page_link">>
-          <%= link_to "/visite-guidee" do %>
+          <%= link_to tour_path do %>
             <%= t :home_tour_link %>
           <% end -%>
         </p>
       </div>
       <div id="partners">
-        <%= link_to "/presse-partenaires", :class => "no_underline" do %>
+        <%= link_to press_path, :class => "no_underline" do %>
           <h3 class="emphasized_h3"><%= t :home_partner_title %></h3>
         <% end -%>
         <p><%= t_safe :home_partner_text %></p>
         <p class="page_link">>
-          <%= link_to "/presse-partenaires" do %>
+          <%= link_to press_path do %>
             <%= t :home_partner_link %>
           <% end -%>
         </p>
