@@ -11,9 +11,9 @@ xml.urlset(:xmlns => "http://www.sitemaps.org/schemas/sitemap/0.9") do
   #tour
   sitemap_tag xml, tour_url, :freq => 'monthly', :prio => 0.6 
   #press
-  sitemap_tag xml, press_url, :freq => 'weekly', :prio => 0.6
+  sitemap_tag xml, press_url, :freq => 'press', :prio => 0.6
   #contact
-  sitemap_tag xml, contact_url, :freq => 'monthly', :prio => 0.2
+  sitemap_tag xml, contact_url, :freq => 'contact', :prio => 0.2
 
 
   #products
