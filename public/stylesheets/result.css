@@ -599,7 +599,7 @@ p.specstooltip {
 }
 
 .left .macspacer {
-  height:40px;
+  height:20px;
 }
 
 .middle .macspacer {
@@ -613,7 +613,7 @@ p.specstooltip {
 }
 
 .maccontent .left {
-  padding-top:5px;
+  padding-top:25px;
   float:left;
   width:230px;
   margin-left:20px;
