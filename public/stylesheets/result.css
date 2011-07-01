@@ -131,7 +131,7 @@ Vert foncé = #057619
 }
 
 /* Nom des modèles (ce sont aussi des liens vers la fiche technique) */
-.bestpickcolumn h1 {
+.bestpickcolumn h1, .maccontent h1 {
 	font-size:2.0em;
 	text-shadow:1px 1px 0 #E5E5E5;
 	color:#33332F;
@@ -142,7 +142,7 @@ Vert foncé = #057619
 	text-decoration:none;
 }
 
-.bestpickcolumn strong {
+.bestpickcolumn strong, .maccontent strong {
 	font-size:1em;
 	font-weight:bold;
 }
@@ -205,9 +205,10 @@ td.rounded_bottom {
 td.bestpickcolumn {
 	background-color:white;
 	width:268px;
-	border-left:1px solid #E5E5E5;
-	border-right:1px solid #E5E5E5;
+	border-left:1px solid #e5e5e5;
+	border-right:1px solid #e5e5e5;
 }
+
 
 td.bestpickvspacer {
 	width:30px;
@@ -575,6 +576,29 @@ p.specstooltip {
 	text-align:justify;
 	list-style-type:disc;
 	list-style-position:inside;
+}
+
+/*--------------------------------- Mac ---------------------------------------*/
+div.mactop {
+	background-image:url('/images/results/mactop.png');
+	width:900px;
+	height:10px;
+}
+
+div.mac {
+  margin: 0px auto;
+  margin-top:20px;
+  padding-bottom:200px;
+  width:900px;
+}
+
+div.maccontent {
+  background-color:white;
+}
+
+.maccontent .left {
+  float:left;
+  width:300px;
 }
 
 /* ---------------- Bouton pour dérouler les caractéristiques ---------------- */
