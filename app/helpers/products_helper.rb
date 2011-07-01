@@ -45,11 +45,11 @@ module ProductsHelper
 
   def link_to_offer offer, product
     if root_url == "http://www.choisirfacile.com/"
-      link_to offer.link, :target => "_blank", :onClick => "_gaq.push(['_trackEvent', 'retailer_clicks', 'buy', \'buy-#{product.to_param}-#{offer.retailer.name}\']);" do
+      link_to offer, :target => "_blank", :onClick => "_gaq.push(['_trackEvent', 'retailer_clicks', 'buy', \'buy-#{product.to_param}-#{offer.retailer.name}\']);" do
         yield
       end
     else
-      link_to offer.link, :target => "_blank" do
+      link_to offer, :target => "_blank" do
         yield
       end
     end

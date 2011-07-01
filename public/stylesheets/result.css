@@ -639,6 +639,11 @@ div.macbottom {
   height:10px;
 }
 
+.macfeaturedimg {
+  height:160px;
+  margin:0px auto;
+  display:block;
+}
 /* ---------------- Bouton pour dérouler les caractéristiques ---------------- */
 
 .toggle {

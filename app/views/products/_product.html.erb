@@ -15,7 +15,7 @@
   <td>
     <span title="<%= p_infos[:price] %>"></span>
     <% cheapest_offer = product.offers.order("price asc").first %>
-    <%= link_to cheapest_offer[:link], :onClick => "_gaq.push(['_trackEvent', 'retailer_clicks', 'buy', \'buy-#{cheapest_offer.retailer.name}-#{cheapest_offer.product[:name]}\']);", :class => "no_underline" do %>
+    <%= link_to cheapest_offer, :onClick => "_gaq.push(['_trackEvent', 'retailer_clicks', 'buy', \'buy-#{cheapest_offer.retailer.name}-#{cheapest_offer.product[:name]}\']);", :class => "no_underline", :target => "_blank" do %>
       <p  class="from"><%= p_infos[:price].floor %><small> <%= t :cat_currency %><%= get_cents_from p_infos[:price] %></small></p>
       <%= image_tag cheapest_offer.retailer.logo_url, :class =>"offer_logo" %>
     <% end -%>

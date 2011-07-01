@@ -1,6 +1,8 @@
 WizardRails::Application.routes.draw do
 
 
+  get "offers/show"
+
   resources :articles
 
   get "tags/new"
@@ -30,6 +32,7 @@ WizardRails::Application.routes.draw do
   resources :users
   resources :sessions
   resources :tags
+  resources :offers
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

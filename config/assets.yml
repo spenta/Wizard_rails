@@ -68,3 +68,6 @@ stylesheets:
   tour:
     - public/stylesheets/basic.css
     - public/stylesheets/tour.css
+
+  redirection:
+    - public/stylesheets/redirection.css
