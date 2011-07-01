@@ -322,6 +322,10 @@ class UserResponse
     #sort_by_spenta_score(@products_scored.select{|p| p.is_good_deal and !p.is_star})
     sort_by_spenta_score(@products_scored.select{|p| p.is_good_deal})
   end
+  
+  def get_best_mac
+    sort_by_q(@products_scored.select{|p| Rails.cache.read("product_infos_#{p.product_id}")[:brand_name] == "Apple"}).last
+  end
 end
 
 class ProductForCalculations
