@@ -51,7 +51,7 @@ class UserRequestsController < ApplicationController
           raise "unknown form state : #{session[:user_request_step]}"
       end
     rescue => error
-      redirect_to edit_user_request_path, :flash => {:error => error.message}
+      redirect_to edit_user_request_path, :flash => {:error => "#{error.message}\n#{error.backtrace}"}
     end
   end
 

@@ -117,6 +117,6 @@ module WizardUtilities
       end
     end
     result[:other_close_products].delete result[:best_candidate]
-    result[:best_candidate]
+    result
   end
 end

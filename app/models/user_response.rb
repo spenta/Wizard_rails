@@ -189,6 +189,10 @@ class UserResponseBuilder
     remaining_products = remove_low_scores_from products_with_good_scores
     #add the first products to good_deals and move the rest to remaining_products
     remaining_products = remaining_products | add_to_good_deals_from(products_with_good_scores)
+    if @good_deals.empty?
+      @good_deals = sort_by_q(@products_for_calculations).last(3)
+      @good_deals.each{|p| remaining_products.delete p}
+    end
     complete_good_deals_from remaining_products if @good_deals.size < N_BA
     restrict_good_deals if @good_deals.size > N_BA
     substitute_with_other_brands @good_deals, @products_for_calculations
@@ -290,7 +294,7 @@ class UserResponseBuilder
     for i in 0..products_to_substitute.length-1
       p = products_to_substitute[i]
       if num_products_with_same_brand(p, products_to_substitute) > THRESHOLD_NUM_PRODUCTS_WITH_SAME_BRAND
-        best_candidate = get_similar_products(p, candidate_products_not_products_to_substitute, :with_brand_penalty => products_to_substitute )
+        best_candidate = get_similar_products(p, candidate_products_not_products_to_substitute, :with_brand_penalty => products_to_substitute )[:best_candidate]
         if best_candidate
           products_to_substitute[i] = best_candidate
           candidate_products_not_products_to_substitute.delete best_candidate
