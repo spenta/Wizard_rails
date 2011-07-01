@@ -62,26 +62,26 @@ Vert foncé = #057619
 
 /* ---------------- Titre & sous-titres de la page ---------------- */
 
-#toptitle {
+.toptitle {
   display:block;
   text-align:center;
   padding:15px 50px 8px 0;
   margin-bottom:10px;
 }
 
-#toptitle h1 {
+.toptitle h1 {
   font-size:3em;
   color:white;
   text-shadow:1px 1px 0 #666666;
   margin-top:5px;
 }
 
-#toptitle h2 {
+.toptitle h2 {
   font-size:1.4em;
   color:white;
 }
 
-#toptitle a {
+.toptitle a {
   font-size:1.0em;
   font-weight:bold;
   color:white;
@@ -138,7 +138,7 @@ Vert foncé = #057619
   text-align:center;
 }
 
-.bestpickcolumn a {
+.bestpickcolumn a, .maccontent a {
   text-decoration:none;
 }
 
@@ -249,10 +249,13 @@ td.score_price {
 }
 
 .price_box {
-  background-image:url('/images/results/scorebox.png');
   width:280px;
   padding:5px 0 0 0;
   border-bottom:1px solid #E5E5E5;
+}
+
+.score_price .price_box {
+  background-image:url('/images/results/scorebox.png');
 }
 
 .price_box a {
@@ -579,26 +582,60 @@ p.specstooltip {
 }
 
 /*--------------------------------- Mac ---------------------------------------*/
-div.mac {
+.mac {
   margin: 0px auto;
-  margin-top:20px;
-  padding-bottom:200px;
+  padding-bottom:20px;
   width:900px;
 }
 
-div.mactop {
+.mactop {
   background-image:url('/images/results/mactop.png');
   width:900px;
   height:10px;
 }
 
-div.maccontent {
+#mactitle {
+  padding:0px;
+}
+
+.left .macspacer {
+  height:40px;
+}
+
+.middle .macspacer {
+  height:20px;
+}
+
+.maccontent {
   background-color:white;
+  height:235px;
+  padding-top:10px;
 }
 
 .maccontent .left {
+  padding-top:5px;
   float:left;
-  width:300px;
+  width:230px;
+  margin-left:20px;
+}
+
+.maccontent .middle {
+  padding-top:5px;
+  float:left;
+  margin-left:65px;
+}
+
+.maccontent .right {
+  padding-top:0px;
+  float:left;
+  margin-left:25px;
+  width:280px;
+}
+
+div.macbottom {
+  background-image:url('/images/results/macbottom.png');
+  width:900px;
+  height:10px;
 }
 
 /* ---------------- Bouton pour dérouler les caractéristiques ---------------- */

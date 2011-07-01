@@ -1,0 +1,39 @@
+<% product = Product.find(mac.product_id) -%>
+<% infos = product.infos -%>
+<div class="mac">
+  <div class="toptitle" id="mactitle">
+    <%= content_tag :h1, t(:i_want_mac) %>
+  </div>
+  <div class="mactop"></div>
+  <div class="maccontent">
+    <div class="left">
+      <%= link_to_suggestion product do%>
+        <%= content_tag :h1, infos[:name] %>
+        <div class="macspacer"></div>
+        <%= image_tag infos[:big_img_url], :class => "featuredimg" %>
+      <% end -%>
+    </div>
+    <div class="middle">
+      <%= render 'score_box', :product_scored => mac %>
+      <%= render 'price_box', :product_scored => mac %>
+      <div class="macspacer"></div>
+      <%= link_to_suggestion product do %>
+        <div class="productbutton">
+          <h4><%= go_button product %></h4>
+        </div>
+      <% end -%>
+    </div>
+    <div class="right">
+      <% num_line = 1 -%>
+      <% important_specs_id.each do |spec_id| -%>
+        <%= content_tag :div, nil, :class => "bestpickhspacer" unless num_line == 1 %>
+        <%= render 'main_specs', :num_line => num_line, :p_infos => infos, :spec_id => spec_id %>
+        <div class="clearfix"></div>
+        <% num_line += 1 -%>
+      <% end -%>
+    </div>
+  </div>
+  <div class="clearfix"></div>
+  <div class="macbottom"></div>
+  <div class="clearfix"></div>
+</div>

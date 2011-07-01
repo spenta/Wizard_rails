@@ -1,0 +1,15 @@
+<div class="score_box">
+  <div class="score_left">
+    <%= content_tag :h3, :class => "colorid#{get_color_number_relative(product_scored.spenta_score/100)} score_value" do %>
+      <%= product_scored.spenta_score.round%><small>%</small>
+    <%end%>
+    <a href="#" class="scoretooltip">
+      <p class="your_needs"><%= t :bestpick_metric %><%= image_tag "/images/results/tooltip.png", :class => "scoretooltipicon", :alt => t(:bestpick_score_tooltip_icon)%></p>
+      <span><%= t_safe :bestpick_spenta_score_tooltip%></span>
+    </a>
+  </div>
+  <div class="score_right">
+    <p class="score_text"><%= product_score_flavor_text product_scored %></p>
+  </div>
+  <div class="clearfix"></div>
+</div>

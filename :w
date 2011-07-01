@@ -1,0 +1,28 @@
+<% product = Product.find(mac.product_id) -%>
+<% infos = product.infos -%>
+<div class="mac">
+  <div class="mactop">
+    <div class="clearfix"></div>
+  </div>
+  <div class="maccontent">
+    <h1><strong>Plutôt Mac ?</strong></h1>
+    <div class="left">
+      <%= link_to_suggestion product do%>
+        <%= content_tag :h1, infos[:name] %>
+      <% end -%>
+      <%= link_to_suggestion product do%>
+        <%= image_tag infos[:big_img_url], :class => "featuredimg" %>
+      <% end -%>
+    </div>
+    <div class="middle">
+      <%= render 'score_box', :product_scored => mac %>
+      <%= render 'price_box', :product_scored => mac %>
+    </div>
+    <div class="right">
+      <p>test</p>
+    </div>
+  </div>
+  <div class="clearfix"></div>
+  <div class="macbottom"></div>
+  <div class="clearfix"></div>
+</div>

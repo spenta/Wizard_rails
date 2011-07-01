@@ -1,35 +1,6 @@
 <%= render 'vspacer', :is_first_column => is_first_column %>
 <td class="score_price" colspan="2">
-  <div class="score_box">
-    <div class="score_left">
-      <%= content_tag :h3, :class => "colorid#{get_color_number_relative(p.spenta_score/100)} score_value" do %>
-        <%= p.spenta_score.round%><small>%</small>
-      <%end%>
-      <a href="#" class="scoretooltip">
-        <p class="your_needs"><%= t :bestpick_metric %><%= image_tag "/images/results/tooltip.png", :class => "scoretooltipicon", :alt => t(:bestpick_score_tooltip_icon)%></p>
-        <span><%= t_safe :bestpick_spenta_score_tooltip%></span>
-      </a>
-    </div>
-    <div class="score_right">
-      <p class="score_text"><%= product_score_flavor_text p %></p>
-    </div>
-    <div class="clearfix"></div>
-  </div>
-
-  <div class="price_box">
-    <% product = Product.find(p.product_id) %>
-    <% best_offer = product.offers.order("price asc").first %>
-    <%= link_to best_offer[:link], :target => "_blank", :onClick => "_gaq.push(['_trackEvent', 'retailer_clicks', 'buy', \'buy-#{best_offer.retailer.name}-#{best_offer.product[:name]}\']);" do %>
-      <div class="price_left">
-        <p class="price"><%= t :bestpick_price %></p>
-        <h3 class="price"><%= p.price.floor %><small><%= t(:bestpick_currency)+get_cents_from(p.price) -%></small></h3>
-      </div>
-      <div class="price_right">
-        <p class="best_offer_text_link"><%= t :best_offer_text_3 %></p>
-        <%= image_tag best_offer.retailer.logo_url, :class =>"best_offer_logo" %>
-      </div>
-    <% end -%>
-    <div class="clearfix"></div>
-  </div>
+  <%= render 'score_box', :product_scored => p %>
+  <%= render 'price_box', :product_scored => p%>
 </td>
 

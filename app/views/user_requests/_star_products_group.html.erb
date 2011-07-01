@@ -14,7 +14,7 @@
       <% end -%>
     </div>
 
-    <div id="toptitle">
+    <div class="toptitle">
       <h1><%= t :result_page_title %></h1>
       <h2><%= t_safe :result_page_subtitle1 %><%= link_to "#{Product.all_cached.count} #{t_safe(:result_page_subtitle2)}".html_safe, products_path, :target => "_blank" %> <%= t_safe :result_page_subtitle3  %></h2>
     </div>
