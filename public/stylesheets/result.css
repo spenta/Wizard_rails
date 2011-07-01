@@ -8,7 +8,7 @@ Gris foncé = #666666
 Anthracite = #33332F
 Vert pâle = #D4FCD9
 Vert foncé = #057619
-*/
+ */
 
 /* ---------------- COLOR PICKER = mettre les scores dans la bonne couleur ---------------- */
 .colorid0 { color:#8e8e8e; }
@@ -41,14 +41,14 @@ Vert foncé = #057619
 }
 
 #topwrapper {
-	background-color:#50A5D7;
-	margin:0 auto;
+  background-color:#50A5D7;
+  margin:0 auto;
 }
 
 #bestpicks {
-	width:960px;
-	margin:0 auto;
-	padding-bottom:15px;
+  width:960px;
+  margin:0 auto;
+  padding-bottom:15px;
 }
 
 .clearfix { clear:both; }
@@ -56,70 +56,70 @@ Vert foncé = #057619
 /* ---------------- FORMATAGE DES TEXTES PAR DEFAUT ---------------- */
 
 * {
-	font-family:"Arial", Arial, sans-serif;
-	font-size:10px;
+  font-family:"Arial", Arial, sans-serif;
+  font-size:10px;
 }
 
 /* ---------------- Titre & sous-titres de la page ---------------- */
 
 #toptitle {
-	display:block;
-	text-align:center;
-	padding:15px 50px 8px 0;
-	margin-bottom:10px;
+  display:block;
+  text-align:center;
+  padding:15px 50px 8px 0;
+  margin-bottom:10px;
 }
 
 #toptitle h1 {
-	font-size:3em;
-	color:white;
-	text-shadow:1px 1px 0 #666666;
-	margin-top:5px;
+  font-size:3em;
+  color:white;
+  text-shadow:1px 1px 0 #666666;
+  margin-top:5px;
 }
 
 #toptitle h2 {
-	font-size:1.4em;
-	color:white;
+  font-size:1.4em;
+  color:white;
 }
 
 #toptitle a {
-	font-size:1.0em;
-	font-weight:bold;
-	color:white;
+  font-size:1.0em;
+  font-weight:bold;
+  color:white;
 }
 
 /* ---------------- Boutons de retour au wizard ---------------- */
 
 #navbuttons {
-	padding:15px 0px 8px 0px;
-	margin-left:35px;
-	float:left;
+  padding:15px 0px 8px 0px;
+  margin-left:35px;
+  float:left;
 }
 
 .backbutton {
-	background-image:url('/images/results/backbutton.png');
-	width:200px;
-	height:30px;
+  background-image:url('/images/results/backbutton.png');
+  width:200px;
+  height:30px;
 }
 
 .backbutton:hover {
-	background-image:url('/images/results/backbutton_hover.png');
+  background-image:url('/images/results/backbutton_hover.png');
 }
 
 .restartbutton {
-	background-image:url('/images/results/restartbutton.png');
-	width:200px;
-	height:30px;
-	margin-top:8px;
+  background-image:url('/images/results/restartbutton.png');
+  width:200px;
+  height:30px;
+  margin-top:8px;
 }
 
 .restartbutton:hover {
-	background-image:url('/images/results/restartbutton_hover.png');
+  background-image:url('/images/results/restartbutton_hover.png');
 }
 
 .buttonlabel {
-	font-size:1.8em;
-	color:white;
-	padding:5px 0 0 40px;
+  font-size:1.8em;
+  color:white;
+  padding:5px 0 0 40px;
 }
 
 #navbuttons a { text-decoration:none; }
@@ -132,92 +132,92 @@ Vert foncé = #057619
 
 /* Nom des modèles (ce sont aussi des liens vers la fiche technique) */
 .bestpickcolumn h1, .maccontent h1 {
-	font-size:2.0em;
-	text-shadow:1px 1px 0 #E5E5E5;
-	color:#33332F;
-	text-align:center;
+  font-size:2.0em;
+  text-shadow:1px 1px 0 #E5E5E5;
+  color:#33332F;
+  text-align:center;
 }
 
 .bestpickcolumn a {
-	text-decoration:none;
+  text-decoration:none;
 }
 
 .bestpickcolumn strong, .maccontent strong {
-	font-size:1em;
-	font-weight:bold;
+  font-size:1em;
+  font-weight:bold;
 }
 
 /* Paragraphes d'explication sur les 3 PC retenus & lien "+ d'informations" */
 
 .bestpickcategory {
-	text-align:center;
+  text-align:center;
 }
 
 .bestpickcolumn h2 {
-	font-size:1.8em;
-	text-shadow:1px 1px 0 #E5E5E5;
-	color:#036CAA;
-	text-align:center;
-	display:inline;
+  font-size:1.8em;
+  text-shadow:1px 1px 0 #E5E5E5;
+  color:#036CAA;
+  text-align:center;
+  display:inline;
 }
 
 .medal {
-	margin-right:10px;
-	vertical-align:-8px;
+  margin-right:10px;
+  vertical-align:-8px;
 }
 
 p.bestpickcolumn {
-	margin:5px 15px;
-	font-size:1.3em;
-	color:#666666;
-	font-style:italic;
-	text-align:justify;
+  margin:5px 15px;
+  font-size:1.3em;
+  color:#666666;
+  font-style:italic;
+  text-align:justify;
 }
 
 p.more {
-	margin-right:20px;
-	font-size:1.3em;
-	color:#036CAA;
-	text-align:right;
-	text-decoration:underline;
+  margin-right:20px;
+  font-size:1.3em;
+  color:#036CAA;
+  text-align:right;
+  text-decoration:underline;
 }
 
 /* --- Formatage du tableau --- */
 
 #bestpicktable {
-	margin:0 auto;
+  margin:0 auto;
 }
 
 /* Arrondis du tableau */
 td.bestpickcolumntop {
-	background-image:url('/images/results/bestpickbox-top.png');
-	width:280px;
-	height:10px;
+  background-image:url('/images/results/bestpickbox-top.png');
+  width:280px;
+  height:10px;
 }
 
 td.rounded_bottom {
-	background-image:url('/images/results/bestpickbox-bottom.png');
-	width:280px;
-	height:10px;
+  background-image:url('/images/results/bestpickbox-bottom.png');
+  width:280px;
+  height:10px;
 }
 
 /* Cases préseantant les PC : Modèle, Image, etc */
 td.bestpickcolumn {
-	background-color:white;
-	width:268px;
-	border-left:1px solid #e5e5e5;
-	border-right:1px solid #e5e5e5;
+  background-color:white;
+  width:268px;
+  border-left:1px solid #e5e5e5;
+  border-right:1px solid #e5e5e5;
 }
 
 
 td.bestpickvspacer {
-	width:30px;
+  width:30px;
 }
 
 .featuredimg {
-	width:220px;
-	margin:0px auto;
-	display:block;
+  width:220px;
+  margin:0px auto;
+  display:block;
 }
 
 /* Cases pour le score et le prix */
@@ -232,14 +232,14 @@ td.score_price {
 }
 
 .score_box {
-	width:280px;
-	border-bottom:1px solid #E5E5E5;
-	padding:5px 0 5px 0;
+  width:280px;
+  border-bottom:1px solid #E5E5E5;
+  padding:5px 0 5px 0;
 }
 
 .score_left {
-	width:110px;
-	float:left;
+  width:110px;
+  float:left;
 }
 
 .score_right {
@@ -251,8 +251,8 @@ td.score_price {
 .price_box {
   background-image:url('/images/results/scorebox.png');
   width:280px;
-	padding:5px 0 0 0;
-	border-bottom:1px solid #E5E5E5;
+  padding:5px 0 0 0;
+  border-bottom:1px solid #E5E5E5;
 }
 
 .price_box a {
@@ -260,8 +260,8 @@ td.score_price {
 }
 
 .price_left {
-	width:110px;
-	float:left;
+  width:110px;
+  float:left;
 }
 
 .price_right {
@@ -272,31 +272,31 @@ td.score_price {
 
 /* Texte d'accompagnement des scores */
 h3.score_value {
-	font-size:4.8em;
-	text-shadow:1px 1px 0 #E5E5E5;
-	text-align:center;
+  font-size:4.8em;
+  text-shadow:1px 1px 0 #E5E5E5;
+  text-align:center;
 }
 
 small {
-	font-size:0.5em;
+  font-size:0.5em;
 }
 
 p.your_needs {
-	font-size:1.2em;
-	color:#33332F;
-	text-align:center;
+  font-size:1.2em;
+  color:#33332F;
+  text-align:center;
 }
 
 h3.price {
-	font-size:3.5em;
-	text-shadow:1px 1px 0 white;
-	text-align:center;
+  font-size:3.5em;
+  text-shadow:1px 1px 0 white;
+  text-align:center;
 }
 
 p.price {
-	font-size:1.35em;
-	color:#33332F;
-	text-align:center;
+  font-size:1.35em;
+  color:#33332F;
+  text-align:center;
 }
 
 p.score_text {
@@ -314,10 +314,10 @@ p.best_offer_text_link {
 }
 
 .best_offer_logo {
-	height:35px;
-	width:92px;
-	display:block;
-	margin:0 auto;
+  height:35px;
+  width:92px;
+  display:block;
+  margin:0 auto;
 }
 
 
@@ -325,130 +325,130 @@ p.best_offer_text_link {
 /* Meilleure offre */
 
 .best_offer_count {
-	font-size:1.2em;
-	color:#33332F;
-	margin:5px 0 3px 0;
-	text-align:center;
+  font-size:1.2em;
+  color:#33332F;
+  margin:5px 0 3px 0;
+  text-align:center;
 }
 
 .best_offer {
-	width:270px;
-	padding:0px 5px 0px 5px;
-	height:40px;
-	text-align:center;
+  width:270px;
+  padding:0px 5px 0px 5px;
+  height:40px;
+  text-align:center;
 }
 
 
 
 /* Icône du tooltip */
 .scoretooltipicon {
-	vertical-align:text-bottom;
-	height:14px;
-	width:14px;
-	margin-left:5px;
+  vertical-align:text-bottom;
+  height:14px;
+  width:14px;
+  margin-left:5px;
 }
 
 /* --- Tooltip du Spenta Score --- */
 
 a.scoretooltip {
-	position:relative;
-	text-decoration:none;
+  position:relative;
+  text-decoration:none;
 }
 
 a.scoretooltip:hover {
-	background: none;
-	z-index: 1;
+  background: none;
+  z-index: 1;
 }
 
 a.scoretooltip span {
-	display: none;
-	position:relative;
+  display: none;
+  position:relative;
 }
 
 /* Style du popup lorsqu'il s'affiche */
 a.scoretooltip:hover span {
-	display: block;
-	position: absolute;
-	width:300px;
-	top:0px;
-	left:-20px;
-	background:#D4FCD9;
-	padding: 8px;
-	border: 1px solid #057619;
-	-moz-border-radius: 8px;
-	border-radius: 8px;
+  display: block;
+  position: absolute;
+  width:300px;
+  top:0px;
+  left:-20px;
+  background:#D4FCD9;
+  padding: 8px;
+  border: 1px solid #057619;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
 }
 
 /* Formatage du texte du tooltip */
 
 .scoretooltip strong {
-	font-size:1.3em;
-	font-weight:bold;
-	color:#33332F;
-	text-align:justify;
+  font-size:1.3em;
+  font-weight:bold;
+  color:#33332F;
+  text-align:justify;
 }
 
 .scoretooltip li {
-	font-size:1.3em;
-	color:#33332F;
-	margin:1px 5px;
-	text-align:justify;
-	list-style-type:disc;
-	list-style-position:inside;
+  font-size:1.3em;
+  color:#33332F;
+  margin:1px 5px;
+  text-align:justify;
+  list-style-type:disc;
+  list-style-position:inside;
 }
 
 /* --- Bouton pour aller sur la fiche produit --- */
 .productbutton {
-	width:188px;
-	height:41px;
-	margin:5px auto 10px auto;
-	background-image:url('/images/results/productbutton.png');
+  width:188px;
+  height:41px;
+  margin:5px auto 10px auto;
+  background-image:url('/images/results/productbutton.png');
 }
 
 .productbutton h4 {
-	font-size:1.9em;
-	text-shadow:1px 1px 0 #666666;
-	color:white;
-	position:absolute;
-	margin:9px 0px 0px 10px;
+  font-size:1.9em;
+  text-shadow:1px 1px 0 #666666;
+  color:white;
+  position:absolute;
+  margin:9px 0px 0px 10px;
 }
 
 .productbutton:hover {
-	background-image:url('/images/results/productbutton-hover.png');
+  background-image:url('/images/results/productbutton-hover.png');
 }
 
 /* ---------------- Caractéristiques des 3 PC mis en avant ---------------- */
 /* Rang d'explications */
 tr.bestpick_motives {
-	background-color:white;
-	background-image:url(../images/results/scorebox.png);
-	border: 1px solid #E5E5E5;
-	width:958px;
+  background-color:white;
+  background-image:url(../images/results/scorebox.png);
+  border: 1px solid #E5E5E5;
+  width:958px;
 }
 
 .bestpick_motives td {
-	width:880px;
-	padding:4px 10px;
+  width:880px;
+  padding:4px 10px;
 }
 
 .bestpick_motives h3 {
-	font-size:1.4em;
-	font-weight:bold;
-	color:#33332F;
-	text-align:center;
+  font-size:1.4em;
+  font-weight:bold;
+  color:#33332F;
+  text-align:center;
 }
 
 .bestpick_motives p {
-	font-size:1.2em;
-	color:#33332F;
-	text-align:justify;
-	margin:3px 20px 0 20px;
+  font-size:1.2em;
+  color:#33332F;
+  text-align:justify;
+  margin:3px 20px 0 20px;
 }
 
 .bestpick_motives strong {
-	font-weight:bold;
-	font-size:1.0em;
-	color:#33332F;
+  font-weight:bold;
+  font-size:1.0em;
+  color:#33332F;
 }
 
 .important_specs_title {
@@ -468,64 +468,64 @@ tr.bestpick_motives {
 
 /* Positionnement des elements image, carac et score soient sur la même ligne */
 .specsrankimage {
-	float:left;
-	padding:8px 10px;
+  float:left;
+  padding:8px 10px;
 }
 
 .specsleft {
-	width:210px;
-	float:left;
-	padding:3px 0;
+  width:210px;
+  float:left;
+  padding:3px 0;
 }
 
 .specsright {
-	width:70px;
-	float:left;
+  width:70px;
+  float:left;
 }
 
 .specsname {
-	color:#33332F;
-	font-size:1.6em;
-	font-weight:bold;
-	margin:0 0 3px 0;
+  color:#33332F;
+  font-size:1.6em;
+  font-weight:bold;
+  margin:0 0 3px 0;
 }
 
 p.specsvalue {
-	color:#666666;
-	font-size:1.3em;
-	font-style:normal;
-	margin:0 0 2px 0;
+  color:#666666;
+  font-size:1.3em;
+  font-style:normal;
+  margin:0 0 2px 0;
 }
 
 p.specscore {
-	font-size:3em;
-	font-weight:bold;
-	margin:3px 10px 0 0;
-	text-align:right;
+  font-size:3em;
+  font-weight:bold;
+  margin:3px 10px 0 0;
+  text-align:right;
 }
 
 /* Lignes horizontales entre les specs */
 
 .bestpickhspacer {
-	background-image:url('/images/results/hspacer.png');
-	height:1px;
+  background-image:url('/images/results/hspacer.png');
+  height:1px;
 }
 
 /* --- Tooltip des caracteristiques --- */
 
 a.specstooltip {
-	position:relative;
-	text-decoration:none;
+  position:relative;
+  text-decoration:none;
 }
 
 a.specstooltip:hover {
-	background: none;
-	z-index: 1;
+  background: none;
+  z-index: 1;
 }
 
 a.specstooltip span {
-	display: none;
-	position:relative;
+  display: none;
+  position:relative;
 }
 
 .tooltip_icon {
@@ -538,16 +538,16 @@ a.specstooltip span {
 
 /* Style du popup lorsqu'il s'affiche */
 a.specstooltip:hover span {
-	display: block;
-	position: absolute;
-	width:180px;
-	top:-35px;
-	left:-160px;
-	background:#D4FCD9;
-	padding: 8px;
-	border: 1px solid #057619;
-	-moz-border-radius: 8px;
-	border-radius: 8px;
+  display: block;
+  position: absolute;
+  width:180px;
+  top:-35px;
+  left:-160px;
+  background:#D4FCD9;
+  padding: 8px;
+  border: 1px solid #057619;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
 }
 
 a.mark_tooltip:hover span {
@@ -557,39 +557,39 @@ a.mark_tooltip:hover span {
 /* Formatage du texte du tooltip */
 
 p.specstooltip {
-	font-size:1.2em;
-	color:#33332F;
-	text-align:justify;
+  font-size:1.2em;
+  color:#33332F;
+  text-align:justify;
 }
 
 .specstooltip strong {
-	font-size:1em;
-	font-weight:bold;
-	color:#33332F;
-	text-align:justify;
+  font-size:1em;
+  font-weight:bold;
+  color:#33332F;
+  text-align:justify;
 }
 
 .specstooltip li {
-	font-size:1.2em;
-	color:#33332F;
-	margin:1px 5px;
-	text-align:justify;
-	list-style-type:disc;
-	list-style-position:inside;
+  font-size:1.2em;
+  color:#33332F;
+  margin:1px 5px;
+  text-align:justify;
+  list-style-type:disc;
+  list-style-position:inside;
 }
 
 /*--------------------------------- Mac ---------------------------------------*/
-div.mactop {
-	background-image:url('/images/results/mactop.png');
-	width:900px;
-	height:10px;
-}
-
 div.mac {
   margin: 0px auto;
   margin-top:20px;
   padding-bottom:200px;
   width:900px;
+}
+
+div.mactop {
+  background-image:url('/images/results/mactop.png');
+  width:900px;
+  height:10px;
 }
 
 div.maccontent {
@@ -604,171 +604,171 @@ div.maccontent {
 /* ---------------- Bouton pour dérouler les caractéristiques ---------------- */
 
 .toggle {
-	background-image:url('/images/results/toggle-background.png');
-	height:28px;
-	text-align:center;
-	border:1px #56DC70 solid;
-	border-bottom-color:#057619;
-        font-weight:400;
+  background-image:url('/images/results/toggle-background.png');
+  height:28px;
+  text-align:center;
+  border:1px #56DC70 solid;
+  border-bottom-color:#057619;
+  font-weight:400;
 }
 
 .toggle:hover {
-	background-image:url('/images/results/toggle-background-hover.png');
+  background-image:url('/images/results/toggle-background-hover.png');
 }
 
 .toggle a {
-	font-size:1.7em;
-	color:white;
-	text-decoration:none;
+  font-size:1.7em;
+  color:white;
+  text-decoration:none;
 }
 
 /* --------------------------- Social media -------------------------- */
 
 .social_media {
-	width:960px;
-	margin:10px auto;
-	text-align:right;
-	padding:0 30px;
+  width:960px;
+  margin:10px auto;
+  text-align:right;
+  padding:0 30px;
 }
 
 .social_media p {
-	font-size:1.2em;
-	font-style:italic;
-	color:#666666;
-	display:inline-block;
-	margin-right:15px;
-	position:relative;
-	top:-5px;
+  font-size:1.2em;
+  font-style:italic;
+  color:#666666;
+  display:inline-block;
+  margin-right:15px;
+  position:relative;
+  top:-5px;
 }
 
 .plus_one {
-	display:inline-block;
+  display:inline-block;
 }
 
 /* ---------------- Conteneurs pour la mise en page des sections du bas ---------------- */
 
 #bottomwrapper {
-	background-color:white;
-	margin:0 auto;
-	padding:0px 0 25px 0;
+  background-color:white;
+  margin:0 auto;
+  padding:0px 0 25px 0;
 }
 
 #extras {
-	width:958px;
-	position:relative;
-	margin:0px auto 0px auto;
-	border:1px #50A5D7 solid;
+  width:958px;
+  position:relative;
+  margin:0px auto 0px auto;
+  border:1px #50A5D7 solid;
 }
 
 /* --- Arrondi en haut du cadre contenant le tableau --- */
 #bottomhead {
-	background-color:white;
-	margin:0 auto;
-	width:960px;
-	display:block;
+  background-color:white;
+  margin:0 auto;
+  width:960px;
+  display:block;
 }
 
 #bottomhead h1 {
-	font-size:2.5em;
-	color:white;
-	text-shadow:1px 1px 0 #666666;
-	margin-top:8px
+  font-size:2.5em;
+  color:white;
+  text-shadow:1px 1px 0 #666666;
+  margin-top:8px
 }
 
 .bottomheaderleft {
-	background-image:url('/images/results/bottomheader-left.png');
-	float:left;
-	width:12px;
-	height:40px;
+  background-image:url('/images/results/bottomheader-left.png');
+  float:left;
+  width:12px;
+  height:40px;
 }
 
 .bottomheader {
-	background-image:url('/images/results/bottomheader.png');
-	float:left;
-	width:936px;
-	height:40px;
-	text-align:center;
+  background-image:url('/images/results/bottomheader.png');
+  float:left;
+  width:936px;
+  height:40px;
+  text-align:center;
 }
 
 .bottomheaderright {
-	background-image:url('/images/results/bottomheader-right.png');
-	float:left;
-	width:12px;
-	height:40px;
+  background-image:url('/images/results/bottomheader-right.png');
+  float:left;
+  width:12px;
+  height:40px;
 }
 
 /* ---------------- Table des 10 produits supplémentaires ---------------- */
 
 /* Texte d'explications avant le tableau */
 .extrasexplain {
-	margin:20px 30px 0px 30px;
-	color:#33332F;
-	font-size:1.3em;
-	text-align:justify;
+  margin:20px 30px 0px 30px;
+  color:#33332F;
+  font-size:1.3em;
+  text-align:justify;
 }
 
 #rating_explain {
-	color:#33332F;
-	padding:10px 20px 10px 20px;
+  color:#33332F;
+  padding:10px 20px 10px 20px;
 }
 
 #rating_explain p {
-	font-size:1.4em;
-	text-align:justify;
+  font-size:1.4em;
+  text-align:justify;
 }
 
 .paragraph_left {
-	width:480px;
-	float:left;
-	margin-left:0px;
+  width:480px;
+  float:left;
+  margin-left:0px;
 }
 
 .paragraph_right {
-	width:370px;
-	float:right;
-	margin-right:0px;
+  width:370px;
+  float:right;
+  margin-right:0px;
 }
 
 #rating_explain h3 {
-	font-size:1.6em;
-	text-align:center;
-	font-weight:bold;
+  font-size:1.6em;
+  text-align:center;
+  font-weight:bold;
 }
 
 .top_explain {
-	clear:both;
-	margin-top:5px;
+  clear:both;
+  margin-top:5px;
 }
 
 .explain_img {
-	display:block;
-	margin:0px auto;
+  display:block;
+  margin:0px auto;
 }
 
 .left_explain {
-	float:left;
-	margin-left:10px;
+  float:left;
+  margin-left:10px;
 }
 
 .right_explain {
-	float:right;
-	margin-right:10px;
+  float:right;
+  margin-right:10px;
 }
 
 #rating_explain .fulllist {
-	margin-top:10px;
-	color:#666666;
-	font-size:1.4em;
-	text-align:left;
-	font-style:italic;
+  margin-top:10px;
+  color:#666666;
+  font-size:1.4em;
+  text-align:left;
+  font-style:italic;
 }
 
 .clearfix { clear:both; }
 
 .fulllist a {
-	color:#036CAA;
-	font-size:1em;
-	font-style:italic;
+  color:#036CAA;
+  font-size:1em;
+  font-style:italic;
 }
 
 /* --- Formatage des cellules de la table --- */
@@ -777,17 +777,17 @@ div.maccontent {
   margin:0px auto;
 }
 #extras td, #extras th {
-	border-width:2px 1px;
-	border-style:solid;
-	border-color:#E5E5E5;
+  border-width:2px 1px;
+  border-style:solid;
+  border-color:#E5E5E5;
 }
 
 #extras th {
-	padding:2px 4px 2px 16px;
+  padding:2px 4px 2px 16px;
 }
 
 #extras td {
-	padding:4px 4px;
+  padding:4px 4px;
 }
 
 /* Pas de bordures sur les infos produit et les en-têtes associés */
@@ -796,112 +796,112 @@ div.maccontent {
   border-left-width:0px;
  }
 
-.thumbnail { border-style: none; }
+ .thumbnail { border-style: none; }
 
-#extras td.infos {
-	border-right-width:0px;
-	border-left-width:0px;
-	text-align:left;
+ #extras td.infos {
+   border-right-width:0px;
+   border-left-width:0px;
+   text-align:left;
 }
 
 #extras td.values { width:90px; }
 
 #extras .empty {
-	border-right-width:0px;
-	border-left-width:0px;
+  border-right-width:0px;
+  border-left-width:0px;
 }
 
 /* --- En-têtes --- */
 tr.headers {
-	background-image:url('/images/results/table-header-bckg.gif');
-	height:39px;
+  background-image:url('/images/results/table-header-bckg.gif');
+  height:39px;
 }
 
 #extras .header {
-	background-image:url('/images/results/small.gif');
-	background-repeat:no-repeat;
-	background-position:left;
-	text-align:center;
-	font-size:1.2em;
-	text-shadow:1px 1px 0 #E5E5E5;
+  background-image:url('/images/results/small.gif');
+  background-repeat:no-repeat;
+  background-position:left;
+  text-align:center;
+  font-size:1.2em;
+  text-shadow:1px 1px 0 #E5E5E5;
 }
 
 #extras .headerSortDown {
-	background-image:url('/images/results/small_asc.gif');
-	background-repeat:no-repeat;
-	background-position:left;
-	background-color:#999999;
-	text-shadow:1px 1px 0 #777777;
+  background-image:url('/images/results/small_asc.gif');
+  background-repeat:no-repeat;
+  background-position:left;
+  background-color:#999999;
+  text-shadow:1px 1px 0 #777777;
 }
 
 #extras .headerSortUp {
-	background-image:url('/images/results/small_desc.gif');
-	background-repeat:no-repeat;
-	background-position:left;
-	background-color:#999999;
-	text-shadow:1px 1px 0 #777777;
+  background-image:url('/images/results/small_desc.gif');
+  background-repeat:no-repeat;
+  background-position:left;
+  background-color:#999999;
+  text-shadow:1px 1px 0 #777777;
 }
 
 /* --- Rangées --- */
 
 #extras td {
-	height:61px;
-	text-align:center;
-	font-size:3em;
-	font-weight:bold;
+  height:61px;
+  text-align:center;
+  font-size:3em;
+  font-weight:bold;
 }
 
 #extras var {
-    font-size:1em;
+  font-size:1em;
 }
 
 #extras .thumbnail {
-	height:60px;
-	padding:0;
+  height:60px;
+  padding:0;
 }
 
 .brand {
-	color:#33332F;
-	font-size:1.3em;
-	text-transform:uppercase;
+  color:#33332F;
+  font-size:1.3em;
+  text-transform:uppercase;
 }
 
 .name {
-	font-size:1.3em;
-	color:#666666;
-	overflow:hidden;
-	font-weight:normal;
+  font-size:1.3em;
+  color:#666666;
+  overflow:hidden;
+  font-weight:normal;
 }
 
 a.nounderline {
-	text-decoration:none;
+  text-decoration:none;
 }
 
 .price {
-	color:#33332F;
-	font-size:2em;
+  color:#33332F;
+  font-size:2em;
 }
 
 .more {
-	color:#036CAA;
-	font-size:1.1em;
-	margin-right:5px
-	text-align:right;
-	text-decoration:underline;
+  color:#036CAA;
+  font-size:1.1em;
+  margin-right:5px
+  text-align:right;
+  text-decoration:underline;
 }
 
 .specvalue {
-	font-weight:normal;
-	text-shadow:none;
-	font-size:11px;
+  font-weight:normal;
+  text-shadow:none;
+  font-size:11px;
 }
 
 .textshading {
-	text-shadow:1px 1px 0 #E5E5E5;
+  text-shadow:1px 1px 0 #E5E5E5;
 }
 
 .textshadingdark {
-	text-shadow:1px 1px 0 #666666;
+  text-shadow:1px 1px 0 #666666;
 }
 
 .offer_logo {
