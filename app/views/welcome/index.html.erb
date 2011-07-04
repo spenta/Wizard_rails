@@ -86,7 +86,7 @@
     <%= link_to user_requests_path, :method => :post, :id => "link_to_form", :class => "no_underline" do%>
       <div class="button"><%= t_safe :home_wizard_button%></div>
     <% end -%>
-    <div class="catalogue_incentive"><%= t_safe :catalogue_incentive %> <%= link_to "catalogue comparatif PC", products_path %></div>
+    <!-- <div class="catalogue_incentive"><%= t_safe :catalogue_incentive %> <%= link_to "catalogue comparatif PC", products_path %></div> -->
   </div>
 </div>
 <div id="home_infos_wrapper">
@@ -99,24 +99,155 @@
 		</div>
 	</div>
   <div id="home_infos">
-    <div id="brands">
-      <h2><%= t :home_brand_title %></h2>
-      <img class="retailer_logo" src="/images/home/marques_pc_portables.jpg" alt="<%= t :brands_alt %>" />
-      <p><%= t_safe :home_brand_text %></p>
-    </div>
-    <div id="middle_boxes">
-      <div id="tour">
-        <%= link_to "/visite-guidee", :class => "no_underline" do %>
-          <h2 class="extra_margin"><%= t :home_tour_title %></h2>
-        <% end -%>
-        <img class="illustration" src="/images/home/usages_pc_portable.png" alt="<%= t :tour_alt %>" />
-        <p><%= t_safe :home_tour_text %></p>
-        <p class="page_link">>
-          <%= link_to "/visite-guidee" do %>
-            <%= t :home_tour_link %>
-          <% end -%>
-        </p>
+    <div id="leftbody">
+      <div id="best_laptops">
+        <h2><%= t :home_best_laptops_title %></h2>
+        <p><%= t_safe :home_best_laptops_intro %></p>
+
+        <div class="best_laptop">
+          <h3><strong><%= t :home_best_laptop_profile1 %> : </strong><br />ASUS G57 XK768XK768</h3>
+          <div class="best_laptop_main">
+            <div class="best_laptop_pic">
+              <img  src="images/product/not_available.png" alt="nom du PC + le meilleur PC PROFILE du moment" />
+            </div>
+            <a href="#">
+              <div class="best_laptop_price">
+                <p class="price_from">À partir de</p>
+                <p class="best_price">2455€</p>
+                <p class="best_merchant_text">Le moins cher</p>
+                <img class="best_merchant" src="images/logo/rueducommerce.png" alt="rue du commerce" />
+              </div>
+            </a>
+          </div>
+          <p>Un ordinateur puissant, taillé pour le jeu vidéo.</p>
+          <ul>
+            <li>&gt; <a href="#">Fiche technique</a></li>
+            <li>&gt; <a href="#">PC similaires</a></li>
+          </ul>
+        </div>
+
+        <div class="gridspacer"></div>
+
+        <div class="best_laptop">
+          <h3><strong><%= t :home_best_laptop_profile1 %> : </strong><br />ASUS G57 XK768XK768</h3>
+          <div class="best_laptop_main">
+            <div class="best_laptop_pic">
+              <img  src="images/product/not_available.png" alt="nom du PC + le meilleur PC PROFILE du moment" />
+            </div>
+            <a href="#">
+              <div class="best_laptop_price">
+                <p class="price_from">À partir de</p>
+                <p class="best_price">2455€</p>
+                <p class="best_merchant_text">Le moins cher</p>
+                <img class="best_merchant" src="images/logo/rueducommerce.png" alt="rue du commerce" />
+              </div>
+            </a>
+          </div>
+          <p>Un ordinateur puissant, taillé pour le jeu vidéo.</p>
+          <ul>
+            <li>&gt; <a href="#">Fiche technique</a></li>
+            <li>&gt; <a href="#">PC similaires</a></li>
+          </ul>
+        </div>
+
+        <div class="gridspacer"></div>
+
+        <div class="best_laptop">
+          <h3><strong><%= t :home_best_laptop_profile1 %> : </strong><br />ASUS G57 XK768XK768</h3>
+          <div class="best_laptop_main">
+            <div class="best_laptop_pic">
+              <img  src="images/product/not_available.png" alt="nom du PC + le meilleur PC PROFILE du moment" />
+            </div>
+            <a href="#">
+              <div class="best_laptop_price">
+                <p class="price_from">À partir de</p>
+                <p class="best_price">2455€</p>
+                <p class="best_merchant_text">Le moins cher</p>
+                <img class="best_merchant" src="images/logo/rueducommerce.png" alt="rue du commerce" />
+              </div>
+            </a>
+          </div>
+          <p>Un ordinateur puissant, taillé pour le jeu vidéo.</p>
+          <ul>
+            <li>&gt; <a href="#">Fiche technique</a></li>
+            <li>&gt; <a href="#">PC similaires</a></li>
+          </ul>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="best_laptop">
+          <h3><strong><%= t :home_best_laptop_profile1 %> : </strong><br />ASUS G57 XK768XK768</h3>
+          <div class="best_laptop_main">
+            <div class="best_laptop_pic">
+              <img  src="images/product/not_available.png" alt="nom du PC + le meilleur PC PROFILE du moment" />
+            </div>
+            <a href="#">
+              <div class="best_laptop_price">
+                <p class="price_from">À partir de</p>
+                <p class="best_price">2455€</p>
+                <p class="best_merchant_text">Le moins cher</p>
+                <img class="best_merchant" src="images/logo/rueducommerce.png" alt="rue du commerce" />
+              </div>
+            </a>
+          </div>
+          <p>Un ordinateur puissant, taillé pour le jeu vidéo.</p>
+          <ul>
+            <li>&gt; <a href="#">Fiche technique</a></li>
+            <li>&gt; <a href="#">PC similaires</a></li>
+          </ul>
+        </div>
+
+        <div class="gridspacer"></div>
+
+        <div class="best_laptop">
+          <h3><strong><%= t :home_best_laptop_profile1 %> : </strong><br />ASUS G57 XK768XK768</h3>
+          <div class="best_laptop_main">
+            <div class="best_laptop_pic">
+              <img  src="images/product/not_available.png" alt="nom du PC + le meilleur PC PROFILE du moment" />
+            </div>
+            <a href="#">
+              <div class="best_laptop_price">
+                <p class="price_from">À partir de</p>
+                <p class="best_price">2455€</p>
+                <p class="best_merchant_text">Le moins cher</p>
+                <img class="best_merchant" src="images/logo/rueducommerce.png" alt="rue du commerce" />
+              </div>
+            </a>
+          </div>
+          <p>Un ordinateur puissant, taillé pour le jeu vidéo.</p>
+          <ul>
+            <li>&gt; <a href="#">Fiche technique</a></li>
+            <li>&gt; <a href="#">PC similaires</a></li>
+          </ul>
+        </div>
+
+        <div class="gridspacer"></div>
+
+        <div class="best_laptop">
+          <h3><strong><%= t :home_best_laptop_profile1 %> : </strong><br />ASUS G57 XK768XK768</h3>
+          <div class="best_laptop_main">
+            <div class="best_laptop_pic">
+              <img  src="images/product/not_available.png" alt="nom du PC + le meilleur PC PROFILE du moment" />
+            </div>
+            <a href="#">
+              <div class="best_laptop_price">
+                <p class="price_from">À partir de</p>
+                <p class="best_price">2455€</p>
+                <p class="best_merchant_text">Le moins cher</p>
+                <img class="best_merchant" src="images/logo/rueducommerce.png" alt="rue du commerce" />
+              </div>
+            </a>
+          </div>
+          <p>Un ordinateur puissant, taillé pour le jeu vidéo.</p>
+          <ul>
+            <li>&gt; <a href="#">Fiche technique</a></li>
+            <li>&gt; <a href="#">PC similaires</a></li>
+          </ul>
+        </div>
+
       </div>
+
       <div id="partners">
         <%= link_to "/presse-partenaires", :class => "no_underline" do %>
           <h3 class="emphasized_h3"><%= t :home_partner_title %></h3>
@@ -128,16 +259,53 @@
           <% end -%>
         </p>
       </div>
+
+      <div id="extra_content">
+        <%= t_safe :home_extra_description %>
+      </div>
+
     </div>
-    <div id="merchants">
-      <h2><%= t :home_retailer_title %></h2>
-      <img class="retailer_logo" src="/images/home/marchands_ordinateur_portable.jpg" alt="<%= t :retailers_alt %>" />
-      <p><%= t :home_retailer_count_1 %> <%= Retailer.count %> <%= t :home_retailer_count_2 %> <em><%= Product.all_cached.count %> <%= t :home_retailer_count_3 %></em></p>
-    </div>
+
+
+    <div id="sidebar">
+
+      <div id="tour">
+        <%= link_to "/visite-guidee", :class => "no_underline" do %>
+          <h3 class="emphasized_h3"><%= t :home_tour_title %></h3>
+        <% end -%>
+        <img class="illustration" src="/images/home/usages_pc_portable.png" alt="<%= t :tour_alt %>" />
+        <p><%= t_safe :home_tour_text %></p>
+        <p class="page_link">>
+          <%= link_to "/visite-guidee" do %>
+            <%= t :home_tour_link %>
+          <% end -%>
+        </p>
+      </div>
+
+      <div class="clearfix"></div>
+
+      <div id="merchants">
+        <h2><%= t :home_retailer_title %></h2>
+        <img class="retailer_logo" src="/images/home/marchands_ordinateur_portable.jpg" alt="<%= t :retailers_alt %>" />
+        <p><%= t :home_retailer_count_1 %> <%= Retailer.count %> <%= t :home_retailer_count_2 %> <em><%= Product.all_cached.count %> <%= t :home_retailer_count_3 %></em></p>
+      </div>
+
+      <div class="clearfix"></div>
+
+      <div id="brands">
+        <h2><%= t :home_brand_title %></h2>
+        <img class="retailer_logo" src="/images/home/marques_pc_portables.jpg" alt="<%= t :brands_alt %>" />
+        <p><%= t_safe :home_brand_text %></p>
+      </div>
+
+      <div class="clearfix"></div>
+
+
+    </div><!-- Close Sidebar -->
+
+
     <div class="clearfix"></div>
-    <div id="extra_content">
-      <%= t_safe :home_extra_description %>
-    </div>
+
   </div>
 </div>
 

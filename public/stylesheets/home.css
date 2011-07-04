@@ -122,7 +122,10 @@ h3 {
   font-size:1em;
 }
 
-/* Extra infos */
+/* ------------------------------------
+             Extra infos
+------------------------------------- */
+
 #home_infos_wrapper {
 	background-color:white;
 	padding:5px 0 20px 0;
@@ -133,6 +136,7 @@ h3 {
 	margin:0px auto;
 }
 
+/* Text formatting */
 #home_infos p {
 	color:#33332F;
 	text-align:justify;
@@ -161,18 +165,211 @@ h3 {
 	text-shadow:none;
 }
 
-#home_infos h2.extra_margin {
-	margin-top:11px;
+#extra_content strong {
+  color:#33332F;
+}
+
+#extra_content a {
+  color:#50A5D7;
 }
 
 .no_underline { text-decoration:none; }
 
-#brands {
+/* --- leftbody --- */
+
+#leftbody {
+  width:662px;
+  padding:0;
   float:left;
+}
+
+/* best laptops */
+#best_laptops {
+  width:662px;
+  height:441px;
+  padding:0;
+}
+
+.best_laptop {
+  float:left;
+  width:212px;
+  height:172px;
+  margin:8px 0 0 0;
+  padding:0;
+
+
+}
+
+.gridspacer {
+  width:10px;
+  float:left;
+  height:170px;
+}
+
+.best_laptop h3 strong {
+  font-size:1.1em;
+  font-weight:bold;
+  color:#33332F;
+  text-shadow:none;
+  text-align:center;
+}
+
+.best_laptop h3 {
+  font-size:1.0em;
+  font-weight:bold;
+  color:#50A5D7;
+  text-shadow:none;
+  margin:0;
+  text-align:center;
+}
+
+#home_infos .best_laptop_main {
+  border:1px solid #E5E5E5;
+  height:89px;
+  margin:3px 0;
+  width:212px;
+  text-align:center;
+  background-color:white;
+}
+
+#home_infos .best_laptop_pic {
+  width: 108px;
+  height:79px;
+  padding:2px;
+  float:left;
+  text-align:center;
+}
+
+#home_infos .best_laptop_pic img {
+  width: 104px;
+  text-align:center;
+}
+
+#home_infos .best_laptop_price {
+  width:81px;
+  height:84px;
+  margin-left:8px;
+  padding:5px 5px 0 5px;
+  float:left;
+  border-left:1px solid #E5E5E5;
+  background-image:url('../images/home/best_laptop_price_box.png');
+  background-repeat:repeat-x;
+  background-position:0px 25px;
+}
+
+#home_infos .price_from {
+  font-size:0.9em;
+  color:#33332F;
+  margin-bottom:2px;
+  text-align:center;
+}
+
+#home_infos .best_price {
+  font-weight:bold;
+  font-size:1.35em;
+  color:#33332F;
+  text-align:center;
+}
+
+#home_infos .best_merchant_text {
+  font-size:0.8em;
+  margin-top:2px;
+  margin-bottom:2px;
+  color:#50A5D7;
+  text-decoration:underline;
+  text-align:center;
+}
+
+#home_infos img.best_merchant {
+  width:80px;
+}
+
+#home_infos .best_laptop ul {
+  list-style-type:none;
+}
+
+#home_infos .best_laptop li {
+  float:left;
+  margin-left:2px;
+}
+
+#home_infos .best_laptop ul li a {
+  float:left;
+  color:#50A5D7;
+}
+
+/* Extras */
+
+
+#extra_content {
+  width:350px;
+  margin-left:30px;
+  margin-top:16px;
+  text-align:justify;
+  float:left;
+}
+
+#partners {
+  width:258px;
+  padding:5px 10px 10px 10px;
+  margin-top:16px;
+
+  float:left;
+  border:1px solid #E5E5E5;
+  background-position:0px 25px;
+  background-repeat:repeat-x;
+  background-image:url('/images/home/box_bckg.png');
+  -webkit-border-radius:8px;
+  -khtml-border-radius:8px;
+  -moz-border-radius:8px;
+  -o-border-radius:8px;
+	border-radius:8px;
+	behavior: url(/stylesheets/PIE.htc);
+	position: relative;
+}
+
+#best_laptops p strong {
+  color:#33332F;
+  font-weight:bold;
+  font-size:1em;
+}
+
+/* --- Sidebar --- */
+#sidebar {
   width:268px;
-  height:205px;
-  margin-left:20px;
-  padding:10px 0px;
+  float:left;
+  margin-left:30px;
+}
+
+#tour {
+  width:268px;
+  padding:0;
+}
+
+.illustration {
+  float:left;
+  margin-right:8px;
+}
+
+#merchants {
+  padding:5px 0 10px 0;
+  margin-top:10px;
+  border:1px solid #E5E5E5;
+  background-image:url('/images/home/box_bckg.png');
+  background-position:0px 145px;
+  background-repeat:repeat-x;
+  -webkit-border-radius:8px;
+  -khtml-border-radius:8px;
+  -moz-border-radius:8px;
+  -o-border-radius:8px;
+	border-radius:8px;
+	behavior: url(/stylesheets/PIE.htc);
+	position: relative;
+}
+
+#brands {
+  padding:5px 0 10px 0;
+  margin-top:10px;
   border:1px solid #E5E5E5;
   background-position:0px 145px;
   background-repeat:repeat-x;
@@ -184,38 +381,6 @@ h3 {
 	border-radius:8px;
 	behavior: url(/stylesheets/PIE.htc);
 	position: relative;
-}
-
-#middle_boxes {
-  float:left;
-  padding:0 45px 0 45px;
-}
-
-#partners {
-  width:268px;
-  padding:8px 10px;
-  border:1px solid #E5E5E5;
-  background-position:0px 40px;
-  background-repeat:repeat-x;
-  background-image:url('/images/home/box_bckg.png');
-  -webkit-border-radius:8px;
-  -khtml-border-radius:8px;
-  -moz-border-radius:8px;
-  -o-border-radius:8px;
-	border-radius:8px;
-	behavior: url(/stylesheets/PIE.htc);
-	position: relative;
-}
-
-#tour {
-  width:270px;
-  padding:0px 10px;
-  margin-bottom:10px;
-}
-
-.illustration {
-  float:left;
-  margin-right:8px;
 }
 
 #home_infos .page_link {
@@ -227,24 +392,6 @@ h3 {
 .page_link a {
   color:#50A5D7;
   padding-top:8px;
-}
-
-#merchants {
-  float:left;
-  width:268px;
-  padding:10px 0px;
-  height:205px;
-  border:1px solid #E5E5E5;
-  background-image:url('/images/home/box_bckg.png');
-  background-position:0px 145px;
-  background-repeat:repeat-x;
-  -webkit-border-radius:8px;
-  -khtml-border-radius:8px;
-  -moz-border-radius:8px;
-  -o-border-radius:8px;
-	border-radius:8px;
-	behavior: url(/stylesheets/PIE.htc);
-	position: relative;
 }
 
 #merchants p, #brands p {
@@ -262,28 +409,14 @@ h3 {
   margin-bottom:4px;
 }
 
-/* --- Extra content --- */
 
-#extra_content {
-  width:800px;
-  margin:20px auto 0 auto;
-  text-align:justify;
-}
-
-#extra_content strong {
-  color:#33332F;
-}
-
-#extra_content a {
-  color:#50A5D7;
-}
 
 
 /* --------------------------- Social media -------------------------- */
 
 .social_media {
 	width:960px;
-	margin:10px auto;
+	margin:5px auto;
 	text-align:right;
 	padding:0 50px;
 }

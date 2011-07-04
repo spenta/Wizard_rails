@@ -71,6 +71,15 @@ fr:
   # Social media
   home_vote_for_us: Vous aimez Choisir Facile ? Partagez notre adresse !
 
+  # ------ Best laptops
+  home_best_laptops_title: Les meilleurs PC portables, pour chaque usage
+  home_best_laptops_intro: |
+    Chaque jour, retrouvez les ordinateurs les plus adaptés à votre profil d'utilisateur. Tous ces modèles offrent les <strong>meilleurs compromis entre la performance et le prix</strong>. Découvrez plus d'offres sur notre <a href="#" class="page_link">sélection des meilleurs PC</a> !
+
+  # Profiles
+  home_best_laptop_profile1: Le bon plan GAMER
+  home_best_laptop_text_profile1: Un ordinateur puissant, taillé pour les jeux vidéos.
+
   # ------ Info boxes
   # Brands
   home_brand_title: Comparez 16 marques
@@ -80,7 +89,7 @@ fr:
   # Partners
   home_partner_title: Choisir Facile sur Internet
   home_partner_text: |
-    Avec ses conseils d'achats interactifs, Choisir Facile est le comparatif PC qui innove en 2011.<br /> Que dit-on de nous sur la Toile ?
+    Avec ses conseils d'achats interactifs, Choisir Facile est le comparatif PC innovant de 2011.<br /> Que dit-on de nous sur la Toile ?
   home_partner_link: Choisir Facile sur le web
 
   # Product tour
@@ -98,7 +107,7 @@ fr:
 
   # ------- Extra text to give some extra SEO content to Google & friends
   home_extra_description: |
-    <p>Le conseiller interactif Choisir Facile est conçu pour vous apporter <strong>les suggestions les plus pertinentes pour choisir un ordinateur portable</strong>. Nous nous engageons à vous apporter <strong>des conseils d'achat PC objectifs</strong>, sans faire de favoritisme entre les marques de PC portables ou les sites marchands. Si vous avez des questions ou que vous souhaitez nous faire part de votre avis sur le site, n'hésitez pas à <a href="/contact">nous contacter</a> !</p>
+    <p>Le conseiller interactif Choisir Facile est conçu pour vous apporter <strong>les suggestions les plus pertinentes pour choisir un ordinateur portable</strong>.<br />Nous nous engageons à vous apporter <strong>des conseils d'achat PC objectifs</strong>, sans faire de favoritisme entre les marques de PC portables ou les sites marchands.<br />Si vous avez des questions ou que vous souhaitez nous faire part de votre avis sur le site, n'hésitez pas à <a href="/contact">nous contacter</a> !</p>
 
   #------------------------------------------------------------------------------------------------------------------------
   # Static pages
