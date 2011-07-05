@@ -13,16 +13,12 @@
         <%= image_tag infos[:big_img_url], :alt => t_safe(:best_laptop_alt_img).gsub(/profile/, profile).gsub(/pc_name/, infos[:name]) %>
       <% end -%>
     </div>
-    <div class="best_laptop_score">
-      <%= content_tag :var, "#{score.round} %", :class => "colorid#{get_color_number_relative(score/100)}" %>
-      <%= content_tag :p, t(:best_laptops_of_your_needs), :class => "best_laptops_of_your_needs" %>  
-    </div>
     <div class="clearfix"></div>
     <div class="best_laptop_offer">
       <%= link_to offer_path(infos[:best_offer_id]) do%>
         <div class="best_laptop_price">
           <p class="price_from"><%=t :best_laptop_from_price %></p>
-          <var class="best_price"><%= "#{price.floor} #{t :currency}"%> <%= content_tag :span, get_cents_from(price), :class => "cents" %></var>
+          <var class="best_price"><%= "#{price.floor}#{t :currency}"%><%= content_tag :span, get_cents_from(price), :class => "cents" %></var>
         </div>
         <div class="best_laptop_retailer">
           <p class="best_retailer_text"><%= t :best_laptop_cheapest %></p>
@@ -33,5 +29,4 @@
   </div>
   <div class="clearfix"></div>
   <p class="best_laptop_description"><%= t_safe("best_laptop_#{profile}_text") %></p>
-  <a href="#"><%= t :best_laptop_specs %></a>
 </div>
