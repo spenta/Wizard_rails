@@ -67,7 +67,7 @@ fr:
     <ul>
     <li>Autour de 100%, vous pourrez faire confortablement tout ce que vous avez choisi dans le questionnaire.</li>
     <li>Au-dessus, le PC est plus performant que nécessaire. Cela vous laisse de la marge si vous voulez l'utiliser pour des usages plus exigeants.</li>
-    <li>Plus le score est bas, moins l'utilisation sera agréable. Nous avons éliminé tous les PC à moins de 70% : ils ne sont pas suffisants !</li>
+    <li>Plus le score est bas, moins l'utilisation sera agréable. Nous avons éliminé les PC trop peu performants.</li>
     </ul>
 
   # Price : in the <p> tag of the "pricebox" <td>
