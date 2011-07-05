@@ -69,7 +69,7 @@ class UserResponseBuilder
       if su.name == 'Mobilite'
         su.usages.each do |m|
           mobility_id = m.id
-          mobility_choice = @user_request.usage_choices.select{|uc| uc.usage_id = mobility_id}.first
+          mobility_choice = @user_request.usage_choices.select{|uc| uc.usage_id == mobility_id}.first
           unless mobility_choice.nil?
             Requirement.mobilities_requirements[mobility_id].each do |spec_id, req_hash|
               #needs should be the same as requirements.
