@@ -41,8 +41,12 @@ module WizardUtilities
     ary.sort! {|p1, p2| p1.spenta_score/p1.price <=> p2.spenta_score/p2.price}
   end
 
-  def sort_by_Q ary
+  def sort_by_q ary
     ary.sort! {|p1, p2| quality_score(p1) <=> quality_score(p2)}
+  end
+
+  def sort_by_q_with_brand_penalty ary
+    ary.sort! {|p1, p2| quality_score_with_brand_penalty(p1) <=> quality_score_with_brand_penalty(p2)}
   end
 
   def quality_score product
@@ -79,5 +83,40 @@ module WizardUtilities
       end
     end
     products_with_low_scores.each {|p| products.delete p}
+  end
+
+  def num_products_with_same_brand product_for_calculations, products
+    #raise product_for_calculations.inspect
+    brand = product_for_calculations.product.infos[:brand_name]
+    num = 0
+    products.each {|p| num += 1 if p.product.infos[:brand_name] == brand}
+    num
+  end
+
+  def quality_score_with_brand_penalty product, products
+    quality_score(product)*brand_penalty(product, products)
+  end
+
+  def brand_penalty product, products
+    a = BRAND_PENALTY
+    Math.exp(-a*(num_products_with_same_brand(product, products)**3))
+  end
+
+  def get_similar_products product, products, options={:with_brand_penalty => nil}
+    result={}
+    result[:best_candidate] = nil
+    result[:other_close_products] = []
+    #best distance to products among products
+    best_distance = 10
+    brand_factor = options[:with_brand_penalty].nil? ? 1 : brand_penalty(product, options[:with_brand_penalty])
+    products.select{|p| p != product}.each do |candidate_product|
+      distance = brand_factor*distance(product, candidate_product)
+      if distance < 1
+        result[:other_close_products] << candidate_product
+        result[:best_candidate], best_distance = candidate_product, distance if distance < best_distance
+      end
+    end
+    result[:other_close_products].delete result[:best_candidate]
+    result
   end
 end

@@ -1,8 +1,10 @@
 WizardRails::Application.routes.draw do
 
 
+
   resources :articles
 
+  resources :offers, :only => ["show"]
   get "tags/new"
 
   get "tags/create"
@@ -17,11 +19,11 @@ WizardRails::Application.routes.draw do
 
   resources :products, :path => "ordinateurs", :only => [:index, :show]
 
-  get 'legal' => 'misc#legal'
-  get 'terms' => 'misc#terms'
-  get 'visite-guidee' => 'misc#tour'
-  get 'presse-partenaires' => 'misc#press'
-  get 'contact' => 'misc#contact'
+  get 'mentions-legales' => 'misc#legal', :as => "legal"
+  get 'conditions-utilisation' => 'misc#terms', :as => "terms"
+  get 'visite-guidee' => 'misc#tour', :as => "tour"
+  get 'presse-partenaires' => 'misc#press', :as => "press"
+  get 'contact' => 'misc#contact', :as => "contact"
 
   get "logout" => "sessions#destroy", :as => "logout"
   get "login" => "sessions#new", :as => "login"
@@ -29,7 +31,7 @@ WizardRails::Application.routes.draw do
   get "admin" => "admin#show", :as => "admin"
   resources :users
   resources :sessions
-  resources :tags
+  resources :tags, :only => ["new", "create", "index"]
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

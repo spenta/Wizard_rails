@@ -8,12 +8,14 @@
           closeText:'<%= t :selection_step_validate %>',
           infoContainer:$j('#myFormInfoContainer')
         });
-
         $j('.answer.multichoice').answerMultichoice({
           addNone:true,
           noneText:"<%=t_safe :selection_step_dont_care %>"
-          });
         });
+        $j(".question").click(function(event){
+          $j(".warning").remove();
+        });
+      });
     </script>
 <% end -%>
 <%SuperUsage.all.each do |su|%>

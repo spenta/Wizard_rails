@@ -1,10 +1,6 @@
 module UserRequestsHelper
   include WizardUtilities
 
-  #thresholds for colors display, in proportion on value corresponding to a "right" value
-  COLOR_THRESHOLDS_RELATIVE = [0, 0.5, 0.7, 0.8, 0.9, 1.1, 1.3, 1.6, 2]
-  COLOR_THRESHOLDS_ABSOLUTE = [-6, -4, -2, -1, 0, 1, 2, 4, 7]
-
   def sortable column, title = nil
     title ||= column.titleize
     direction = column == params[:sort] && params[:direction] == "desc" ? "asc" :"desc"
@@ -38,26 +34,6 @@ module UserRequestsHelper
       ratio = score/score_recommended
       result = (ratio*100).round
     end
-  end
-
-  # returns the color code corresponding to the ratio between actual value and target value
-  def get_color_number_relative value
-    color_number = 0
-    color_number += 1 while (value > (COLOR_THRESHOLDS_RELATIVE[color_number]||0) and color_number < COLOR_THRESHOLDS_RELATIVE.size)
-    color_number
-  end
-
-  # returns the color code corresponding to the difference between actual value and target value
-  def get_color_number_absolute value
-    color_number = 0
-    color_number += 1 while (value >= (COLOR_THRESHOLDS_ABSOLUTE[color_number]||0) and color_number < COLOR_THRESHOLDS_ABSOLUTE.size)
-    color_number
-  end
-
-
-  def cat_subtitle
-    str = "#{t :cat_subtitle_1 } <strong>#{Product.all_cached.size} #{t :cat_subtitle_2 }</strong> #{t :cat_subtitle_3} <strong>#{Retailer.count} #{t :cat_subtitle_4}</strong> #{t :cat_subtitle_5}"
-    str.html_safe
   end
 
   def get_score_or_zero p_infos, spec_id

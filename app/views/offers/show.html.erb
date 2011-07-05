@@ -1,0 +1,10 @@
+<%= content_for :head do %>
+  <meta http-equiv="Refresh" content="1; url=<%= @offer.link %>" />
+  <%= include_stylesheets :home, :redirection%>
+<% end -%>
+<div id="home">
+  <div class="wrapper">
+    <%= content_tag :h1, t(:thanks_and_bye)  -%>
+    <img class="top" src="/images/home/step_2.png" alt="Des conseils d'achat d'ordinateur personnalises">
+  </div>
+</div>

@@ -3,7 +3,7 @@ class Product < ActiveRecord::Base
   has_many :specification_values, :through => :products_specs_values
   has_many :products_specs_values
   has_many :offers
-  validates :name, :small_img_url, :big_img_url, :brand, :presence => true
+  validates :name, :brand, :presence => true
   
   #to_param method is overriden in order to have custom url names
   def to_param
@@ -17,7 +17,7 @@ class Product < ActiveRecord::Base
   end
 
   def self.all_cached
-    products = Product.all.select{|p| p.price>0}
+    products = Product.all.select{|p| p.price>0 and p.infos[:has_image]}
     Rails.cache.fetch("all_products") {products}
   end
 
@@ -41,10 +41,22 @@ class Product < ActiveRecord::Base
     # Brand 
     infos[:brand_name] = brand.name
     # Price
-    infos[:price] = build_price
+    best_price_and_retailer = get_best_price_and_retailer
+    infos[:price] = best_price_and_retailer[:best_price]
+    infos[:cheapest_retailer_id] = best_price_and_retailer[:cheapest_retailer_id]
+    infos[:best_offer_id] = best_price_and_retailer[:best_offer_id]
     # Images
+    infos[:has_image] = true
     infos[:small_img_url] = small_img_url
     infos[:big_img_url] = big_img_url
+    if infos[:small_img_url] == "" or infos[:small_img_url].nil?
+      infos[:small_img_url] = "/images/product/not_available.png" 
+      infos[:has_image] = false
+    end
+    if infos[:big_img_url] == "" or infos[:big_img_url].nil?
+      infos[:big_img_url] = "/images/product/not_available_big.png" 
+      infos[:has_image] = false
+    end
     infos
   end
 
@@ -69,11 +81,13 @@ class Product < ActiveRecord::Base
   end
 
   #gets the minimal price among all offers
-  def build_price
+  def get_best_price_and_retailer
+    result={}
     if self.offers.count > 0
-      price = self.offers.sort{|o1, o2| o1.price <=> o2.price}.first.price
+      best_offer = self.offers.sort{|o1, o2| o1.price <=> o2.price}.first
+      result = {:best_price => best_offer.price, :best_offer_id => best_offer.id, :cheapest_retailer_id => best_offer.retailer_id}
     else
-      0
+      result={:best_price => 0, :best_offer_id => "none", :cheapest_retailer => "none"}
     end  
   end
 

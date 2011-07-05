@@ -25,7 +25,7 @@
     </td>
     <td class="price">
       <% cheapest_offer = product.offers.order("price asc").first %>
-      <%= link_to cheapest_offer[:link], :target => "_blank", :onClick => "_gaq.push(['_trackEvent', 'retailer_clicks', 'buy', \'buy-#{cheapest_offer.retailer.name}-#{cheapest_offer.product[:name]}\']);", :class => "nounderline" do%>
+      <%= link_to cheapest_offer, :target => "_blank", :onClick => "_gaq.push(['_trackEvent', 'retailer_clicks', 'buy', \'buy-#{cheapest_offer.retailer.name}-#{cheapest_offer.product[:name]}\']);", :class => "nounderline" do%>
         <div class="price">
           <%= p.price.floor %><small>€<%= get_cents_from p.price %></small><br/>
           <%= image_tag cheapest_offer.retailer.logo_url, :class =>"offer_logo" %>

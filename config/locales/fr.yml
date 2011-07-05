@@ -70,15 +70,11 @@ fr:
 
   # Social media
   home_vote_for_us: Vous aimez Choisir Facile ? Partagez notre adresse !
-
-  # ------ Best laptops
-  home_best_laptops_title: Les meilleurs PC portables, pour chaque usage
+  #
+  #best laptops
+  home_best_laptops_title: Les meilleures affaires du jour
   home_best_laptops_intro: |
     Chaque jour, retrouvez les ordinateurs les plus adaptés à votre profil d'utilisateur. Tous ces modèles offrent les <strong>meilleurs compromis entre la performance et le prix</strong>. Découvrez plus d'offres sur notre <a href="#" class="page_link">sélection des meilleurs PC</a> !
-
-  # Profiles
-  home_best_laptop_profile1: Le bon plan GAMER
-  home_best_laptop_text_profile1: Un ordinateur puissant, taillé pour les jeux vidéos.
 
   # ------ Info boxes
   # Brands
@@ -173,6 +169,7 @@ fr:
     <p>Si vous passez du temps sur des réseaux sociaux, des blogs ou des forums, tous les PC vous conviendront.</p>
     <h5>Regarder et écouter</h5>
     <p>Vous utilisez Internet pour découvrir de nouveaux artistes ? Voir des vidéos ? On écartera les processeurs très peu performants.</p>
+
   weight_step_question_superusage2: Utilisez-vous Internet intensivement ?
 
   #--------------------
@@ -463,4 +460,5 @@ fr:
   currency: €
 
   #Disclaimer
-  disclaimer_for_specs_values: * Cette valeur est extrapolée car elle ne nous a pas été communiquée.
+  disclaimer_for_specs_values: |
+    * Cette valeur est extrapolée car elle ne nous a pas été communiquée.

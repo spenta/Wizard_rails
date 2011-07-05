@@ -6,3 +6,5 @@ tmp/
 *.swo
 config/database.yml
 public/assets/**/*
+#vim session
+*.vim

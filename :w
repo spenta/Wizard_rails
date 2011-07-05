@@ -1,5 +1,0 @@
-<h1>Admin</h1>
-<p><%= "Loggé en tant que #{current_user.name}" %> | <%= link_to 'Déconnexion', logout_path %></p>
-<p><%= link_to "Ajouter un utilisateur", signup_path %></p>
-<p><%= link_to "Liste des articles", articles_path %></p>
-<p><%= link_to "Liste des tags", tags_path %></p>

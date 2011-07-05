@@ -3,9 +3,6 @@ package_assets: on
 javascripts:
   rails:
     - public/javascripts/rails/prototype.js
-    - public/javascripts/rails/effects.js
-    - public/javascripts/rails/controls.js
-    - public/javascripts/rails/dragdrop.js
     - public/javascripts/rails/rails.js
 
   home:
@@ -71,3 +68,12 @@ stylesheets:
   tour:
     - public/stylesheets/basic.css
     - public/stylesheets/tour.css
+
+  redirection:
+    - public/stylesheets/redirection.css
+
+  best_laptop:
+    - public/stylesheets/best_laptop.css
+
+  score_colors:
+    - public/stylesheets/score_colors.css

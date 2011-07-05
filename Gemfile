@@ -6,6 +6,7 @@ gem 'mysql2', '< 0.3'
 gem 'dalli'
 gem 'jammit'
 gem "bcrypt-ruby", :require => "bcrypt"
+gem "nifty-generators", :group => :development
 group :test do
   gem 'cucumber-rails'
   gem 'capybara'

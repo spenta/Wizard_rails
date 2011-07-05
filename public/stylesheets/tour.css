@@ -1,12 +1,12 @@
 #page_content .intro {
-  font-size:1em;
+  font-size:12px;
   color:#33332F;
   margin:8px 40px 8px 40px;
 }
 
 #page_content .intro_center {
   text-align:center;
-  font-size:1.1em;
+  font-size:13px;
   font-weight:bold;
   color:#33332F;
   margin:8px 40px 40px 40px;
@@ -48,22 +48,22 @@
 	margin-bottom:10px;
 }
 
-.title_box h2 {
+#page_content .title_box h2 {
   color:white;
-  font-size:1.4em;
+  font-size:16px;
   text-align:center;
   margin:0px;
 }
 
 #page_content .feature_text p {
-  font-size:1em;
+  font-size:12px;
 }
 
 .vspacer { padding:15px 0; }
 
 #page_content ul, #page_content li {
   list-style-type:disc;
-  font-size:1em;
+  font-size:12px;
   margin:3px 5px;
   padding-left:5px;
   text-align:justify;

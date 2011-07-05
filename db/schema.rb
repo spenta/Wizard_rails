@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110622124904) do
+ActiveRecord::Schema.define(:version => 20110630101101) do
 
   create_table "affiliation_platforms", :force => true do |t|
     t.string   "name"
@@ -46,6 +46,8 @@ ActiveRecord::Schema.define(:version => 20110622124904) do
     t.text     "retailer_small_img_url"
   end
 
+  add_index "offers", ["product_id"], :name => "index_offers_on_product_id"
+
   create_table "product_spec_scores", :force => true do |t|
     t.integer  "product_id"
     t.integer  "specification_id"
@@ -63,6 +65,8 @@ ActiveRecord::Schema.define(:version => 20110622124904) do
     t.datetime "updated_at"
   end
 
+  add_index "products", ["brand_id"], :name => "index_products_on_brand_id"
+
   create_table "products_specs_scores", :force => true do |t|
     t.integer  "product_id"
     t.integer  "specification_id"
@@ -79,6 +83,9 @@ ActiveRecord::Schema.define(:version => 20110622124904) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "products_specs_values", ["product_id"], :name => "index_products_specs_values_on_product_id"
+  add_index "products_specs_values", ["specification_id"], :name => "index_products_specs_values_on_specification_id"
 
   create_table "requirements", :force => true do |t|
     t.float    "target_score"

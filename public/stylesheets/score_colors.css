@@ -1,0 +1,35 @@
+/* ---------------- PALETTE ---------------- */
+
+/*
+Bleu clair = #50A5D7
+Bleu sombre = #036CAA
+Gris pâle = #E5E5E5
+Gris foncé = #666666
+Anthracite = #33332F
+Vert pâle = #D4FCD9
+Vert foncé = #057619
+ */
+
+/* ---------------- COLOR PICKER = mettre les scores dans la bonne couleur ---------------- */
+.colorid0 { color:#8e8e8e; }
+.colorid1 { color:#e93511; }
+.colorid2 { color:#f5880c; }
+.colorid3 { color:#e8aa05; }
+.colorid4 { color:#b1be1f; }
+.colorid5 { color:#5fa53f; }
+.colorid6 { color:#08c383; }
+.colorid7 { color:#08b1b3; }
+.colorid8 { color:#039ae6; }
+.colorid9 { color:#385feb; }
+
+/* Pour des cases colorées */
+.bckgcolorid0 { background-color:#8e8e8e; color:white; }
+.bckgcolorid1 { background-color:#e93511; color:white; }
+.bckgcolorid2 { background-color:#f5880c; color:white; }
+.bckgcolorid3 { background-color:#e8aa05; color:white; }
+.bckgcolorid4 { background-color:#b1be1f; color:white; }
+.bckgcolorid5 { background-color:#5fa53f; color:white; }
+.bckgcolorid6 { background-color:#08c383; color:white; }
+.bckgcolorid7 { background-color:#08b1b3; color:white; }
+.bckgcolorid8 { background-color:#039ae6; color:white; }
+.bckgcolorid9 { background-color:#385feb; color:white; }

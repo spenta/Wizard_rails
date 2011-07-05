@@ -1,0 +1,37 @@
+<% best_pc_id_and_score = get_best_pc_for_profile profile%>
+<% score = best_pc_id_and_score[:score] %>
+<% best_pc_id = best_pc_id_and_score[:product_id] -%>
+<% best_pc = Product.find(best_pc_id) -%>
+<% infos = Rails.cache.read("product_infos_#{best_pc_id}") -%>
+<% price = infos[:price] -%>
+<% retailer = Retailer.find(infos[:cheapest_retailer_id]) -%>
+<div class="best_laptop">
+  <h3><strong><%= t_safe("best_laptop_#{profile}_title") %> : </strong><br /><%= infos[:name] %></h3>
+  <div class="best_laptop_main">
+    <div class="best_laptop_pic">
+      <%= link_to_suggestion best_pc do %>
+        <%= image_tag infos[:big_img_url], :alt => t_safe(:best_laptop_alt_img).gsub(/profile/, profile).gsub(/pc_name/, infos[:name]) %>
+      <% end -%>
+    </div>
+    <div class="best_laptop_score">
+      <%= content_tag :var, "#{score.round} %", :class => "colorid#{get_color_number_relative(score/100)}" %>
+      <%= content_tag :p, t(:best_laptops_of_your_needs), :class => "best_laptops_of_your_needs" %>  
+    </div>
+    <div class="clearfix"></div>
+    <div class="best_laptop_offer">
+      <%= link_to offer_path(infos[:best_offer_id]) do%>
+        <div class="best_laptop_price">
+          <p class="price_from"><%=t :best_laptop_from_price %></p>
+          <var class="best_price"><%= "#{price.floor} #{t :currency}"%> <%= content_tag :span, get_cents_from(price), :class => "cents" %></var>
+        </div>
+        <div class="best_laptop_retailer">
+          <p class="best_retailer_text"><%= t :best_laptop_cheapest %></p>
+          <%= image_tag retailer.logo_url, :alt => retailer.name, :class => "best_retailer_logo" %>
+        </div>
+      <% end -%>
+    </div>
+  </div>
+  <div class="clearfix"></div>
+  <p class="best_laptop_description"><%= t_safe("best_laptop_#{profile}_text") %></p>
+  <a href="#"><%= t :best_laptop_specs %></a>
+</div>

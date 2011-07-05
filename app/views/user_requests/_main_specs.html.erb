@@ -1,0 +1,18 @@
+<div class="specsleft">
+  <%= image_tag "/images/results/rank#{num_line}.png", :class => "specsrankimage" %>
+  <a href="#" class="specstooltip">
+    <%= image_tag "/images/results/tooltip.png", :class => "tooltip_icon" %>
+    <h5 class="specsname"><%= t_safe "spec_name_#{spec_id}" %></h5>
+    <p class="specsvalue"><%= spec_value_with_unit p_infos, spec_id%></p>
+    <span><p class="specstooltip"><%= t_safe "spec_tooltip_#{spec_id}" %></p></span>
+  </a>
+</div>
+<div class="specsright">
+  <a href="#" class="specstooltip mark_tooltip">
+    <%spec_score = p_infos[:specification_values][spec_id][:sv_score] %>
+    <%= content_tag :p, :class => "specscore colorid#{get_color_number_absolute(spec_score.round-(@user_response.sigmas[spec_id]))}" do%>
+      <%= spec_score.round %><small>/10</small>
+    <% end %>
+    <span><p class="specstooltip"><%= t_safe :bestpick_score_tooltip %></p></span>
+  </a>
+</div>
