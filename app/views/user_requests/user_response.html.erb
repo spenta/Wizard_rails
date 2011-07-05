@@ -1,5 +1,5 @@
-<% star_products = @user_response.get_star_products%>
-<% good_deal_products = @user_response.get_good_deal_products-%>
+<% star_products = sort_by_spenta_score(@user_response.get_star_products).reverse%>
+<% good_deal_products = sort_by_spenta_score(@user_response.get_good_deal_products).reverse-%>
 <% important_specs_id = get_important_specs_id_from @user_response.gammas -%>
 
 <% content_for :head do -%>
@@ -14,9 +14,9 @@
   <link type="text/css" rel="stylesheet" href="/stylesheets/result_ie9.css">
   <![endif]-->
   <%= include_javascripts :rails %>
-  <%= include_javascripts :result%>
   <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"%>
   <script type="text/javascript" src="http://apis.google.com/js/plusone.js"></script>
+  <%= include_javascripts :result%>
 <% end -%>
 
 <div id="resultpage">
