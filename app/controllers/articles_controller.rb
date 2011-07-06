@@ -43,13 +43,14 @@ class ArticlesController < ApplicationController
   def create
     raise "unknown user #{params[:user_name]}" unless User.where(:name => params[:user_name]).first 
     @article = Article.new(
+      :title_for_head => params[:article][:title_for_head],
       :title => params[:article][:title],
       :summary => params[:article][:summary],
       :meta => params[:article][:meta],
       :body => params[:article][:body],
+      :sidebar => params[:article][:sidebar],
       :user => User.where(:name => params[:user_name]).first
     )
-
     create_tag_article_association params
 
     respond_to do |format|
@@ -68,10 +69,12 @@ class ArticlesController < ApplicationController
   def update
     @article = Article.find(params[:id])
     new_params = {
+      :title_for_head => params[:article][:title_for_head],
       :title => params[:article][:title],
       :summary => params[:article][:summary],
       :meta => params[:article][:meta],
       :body => params[:article][:body],
+      :sidebar => params[:article][:sidebar],
       :user => User.where(:name => params[:user_name]).first
     }
     @article.update_attributes(new_params)

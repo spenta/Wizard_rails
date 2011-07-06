@@ -1,5 +1,8 @@
-<h1>New article</h1>
-
+<%= content_for :head do %>
+  <%= include_stylesheets :edit_article %>
+  <%= include_stylesheets :codemirror %>
+  <%= include_javascripts :codemirror %>
+<% end -%>
 <%= render 'form' %>
 
 <%= link_to 'Back', articles_path %>

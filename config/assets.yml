@@ -35,6 +35,10 @@ javascripts:
     - public/javascripts/jquery.ae.image.resize.min.js
     - public/javascripts/product.js
 
+  codemirror:
+    - public/javascripts/codemirror/codemirror.js
+    - public/javascripts/codemirror/htmlmixed.js
+    - public/javascripts/codemirror/xml.js
 
 stylesheets:
   reset:
@@ -77,3 +81,13 @@ stylesheets:
 
   score_colors:
     - public/stylesheets/score_colors.css
+
+  article:
+    - public/stylesheets/article.css
+
+  edit_article:
+    - public/stylesheets/edit_article.css
+
+  codemirror:
+    - public/stylesheets/codemirror.css
+    - public/stylesheets/codemirror_default.css

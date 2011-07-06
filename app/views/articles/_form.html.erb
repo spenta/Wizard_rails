@@ -2,41 +2,62 @@
   <% if @article.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
-
       <ul>
-      <% @article.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
+        <% @article.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_area :title %>
-  </div>
-  <div class="field">
-    <%= f.label :meta %><br />
-    <%= f.text_area :meta %>
-  </div>
-  <div class="field">
-    <%= f.label :summary %><br />
-    <%= f.text_area :summary %>
-  </div>
-  <div class="field">
-    <%= f.label :body %><br />
-    <%= f.text_area :body %>
-  </div>
-  <div class="field">
-    <%= f.label :user_name %><br />
-    <% if @article.user -%>
-      <%= text_field_tag "user_name", @article.user.name %>
-    <% else -%>
-      <%= text_field_tag "user_name" %>
-    <% end -%>
-  </div>
-  <%= render "tag_selection", :article => @article %>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="article_edition">
+    <div class="field">
+      <%= f.label :title_for_head %><br />
+      <%= f.text_area :title_for_head, :cols => 100, :rows => 2%>
+    </div>
+    <div class="field">
+      <%= f.label :meta %><br />
+      <%= f.text_area :meta, :cols => 100, :rows => 4%>
+    </div>
+    <script>
+      var meta_editor = CodeMirror.fromTextArea(document.getElementById("article_meta"), {mode: "text/html", tabMode: "indent"});
+    </script>
+    <div class="field">
+      <%= f.label :title %><br />
+      <%= f.text_area :title, :cols => 100, :rows => 2%>
+    </div>
+    <div class="field">
+      <%= f.label :summary %><br />
+      <%= f.text_area :summary, :cols => 100, :rows => 5 %>
+    </div>
+    <script>
+      var summary_editor = CodeMirror.fromTextArea(document.getElementById("article_summary"), {mode: "text/html", tabMode: "indent"});
+    </script>
+    <div class="field">
+      <%= f.label :body %><br />
+      <%= f.text_area :body, :cols => 100, :rows => 40%>
+    </div>
+    <script>
+      var body_editor = CodeMirror.fromTextArea(document.getElementById("article_body"), {mode: "text/html", tabMode: "indent"});
+    </script>
+    <div class="field">
+      <%= f.label :sidebar %><br />
+      <%= f.text_area :sidebar, :cols => 100, :rows => 20%>
+    </div>
+    <script>
+      var sidebar_editor = CodeMirror.fromTextArea(document.getElementById("article_sidebar"), {mode: "text/html", tabMode: "indent"});
+    </script>
+    <div class="field">
+      <%= f.label :user_name %><br />
+      <% if @article.user -%>
+        <%= text_field_tag "user_name", @article.user.name %>
+      <% else -%>
+        <%= text_field_tag "user_name" %>
+      <% end -%>
+    </div>
+    <%= render "tag_selection", :article => @article %>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
   </div>
 <% end %>

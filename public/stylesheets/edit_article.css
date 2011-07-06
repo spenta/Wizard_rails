@@ -1,0 +1,25 @@
+.article_edition {
+  margin:0px auto;
+  width:1000px;
+}
+
+.field {
+  width:1000px;
+}
+
+label {
+  font-size:2em;
+  text-align:center;
+  width:1000px;
+}
+
+.CodeMirror {
+  margin-top:10px;
+  margin-bottom:20px;
+  border: 1px solid;
+}
+
+textarea {
+  margin-top:10px;
+  margin-bottom:20px;
+}

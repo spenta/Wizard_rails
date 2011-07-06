@@ -31,8 +31,7 @@ module ApplicationHelper
   end
 
   def render_widgets text
-    #text.gsub(/\[\[[a-zA-Z0-9]+\|[a-zA-Z0-9,]+\]\]/){|s| $2}
-    text.gsub(/\[\[[a-zA-Z0-9_]+\|[a-z-A-Z0-9]+\]\]/) do |s|
+    text.gsub(/\[\[[a-zA-Z0-9_]+\|[a-z-A-Z0-9 ,]+\]\]/) do |s|
       widget_name = "widget_#{s.split('|').first.split("[[").last}"
       widget_argument = "#{s.split('|').last.split("]]").first}"
       begin
@@ -84,6 +83,13 @@ module ApplicationHelper
   #Widget are called in the view with the following syntax
   #   render_widgets("blablabla [[user_profile|gamer]] fsdgdgf")
   #The string [[user_profile|gamer]] will then be replace by widget_user_profile("gamer")
+  
+  #ex: [[link_to_article|12,,,super article]]
+  def widget_link_to_article arg
+    article_id = arg.split(",,,").first
+    content = arg.split(",,,").last
+    link_to content, article_path(article_id)
+    end
 
 end
 
