@@ -9,6 +9,7 @@
   # -family: pc utilisé par toute la famile (petits et grands), il doit ętre complet et facilement transportable
   # -professional: recherche un ordinateur pour travailler au bureau et lors de rares déplacements
   # -mobile_professional: recherche un ordinateur pour l'emporter réguličrement en déplacement (consultant, commercial)
+  # -sitting_professional: exactement comme le précédent, mais sans la mobilité (utile pour les articles)
   # -secondary_pc: pc de soutien ŕ un premier ordinateur dans la maison. Utilisé pour regarder des films, dialoguer et aller sur le net principalement.
   # -simple_pc: recherche un ordinateur simple pour réaliser les tâches de bases: répondre au mail, dialoguer, aller sur le net sans pour autant avoir besoin de le déplacer en voyage.
 
@@ -1021,6 +1022,107 @@ mobile_professional:
   usage20:
     usage_id: 20
     weight_for_user: 100
+    is_selected: TRUE
+  # ------Cas: Professionnel mobile ------------------------------
+sitting_professional:
+  usage1:
+    usage_id: 1
+    weight_for_user: 100
+    is_selected: FALSE
+
+  usage2:
+    usage_id: 2
+    weight_for_user: 100
+    is_selected: TRUE
+
+  usage3:
+    usage_id: 3
+    weight_for_user: 60
+    is_selected: TRUE
+
+  usage4:
+    usage_id: 4
+    weight_for_user: 60
+    is_selected: FALSE
+
+  usage5:
+    usage_id: 5
+    weight_for_user: 60
+    is_selected: FALSE
+
+  usage6:
+    usage_id: 6
+    weight_for_user: 60
+    is_selected: TRUE
+
+  usage7:
+    usage_id: 7
+    weight_for_user: 60
+    is_selected: TRUE
+
+  usage8:
+    usage_id: 8
+    weight_for_user: 60
+    is_selected: TRUE
+
+  usage9:
+    usage_id: 9
+    weight_for_user: 0
+    is_selected: FALSE
+
+  usage10:
+    usage_id: 10
+    weight_for_user: 0
+    is_selected: FALSE
+
+  usage11:
+    usage_id: 11
+    weight_for_user: 0
+    is_selected: FALSE
+
+  usage12:
+    usage_id: 12
+    weight_for_user: 0
+    is_selected: FALSE
+
+  usage13:
+    usage_id: 13
+    weight_for_user: 0
+    is_selected: FALSE
+
+  usage14:
+    usage_id: 14
+    weight_for_user: 0
+    is_selected: FALSE
+
+  usage15:
+    usage_id: 15
+    weight_for_user: 0
+    is_selected: FALSE
+
+  usage16:
+    usage_id: 16
+    weight_for_user: 0
+    is_selected: FALSE
+
+  usage17:
+    usage_id: 17
+    weight_for_user: 0
+    is_selected: FALSE
+
+  usage18:
+    usage_id: 18
+    weight_for_user: 0
+    is_selected: TRUE
+
+  usage19:
+    usage_id: 19
+    weight_for_user: 0
+    is_selected: TRUE
+
+  usage20:
+    usage_id: 20
+    weight_for_user: 0
     is_selected: TRUE
   # ------Cas: PC de complément ------------------------------
 secondary_pc:

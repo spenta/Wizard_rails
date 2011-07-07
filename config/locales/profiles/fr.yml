@@ -4,8 +4,13 @@ fr:
   best_laptop_gamer_title: Le bon plan GAMER
   best_laptop_gamer_text: Un ordinateur puissant, taillé pour les jeux vidéos. Sa carte graphique vous permettra de jouer à des titres exigeants.
   #mobile_professional
-  best_laptop_mobile_professional_title: Le bon plan PRO
-  best_laptop_mobile_professional_text: Un ordinateur pro, compact mais capable de traiter tous vos document rapidement pour vous rendre plus productif.
+  best_laptop_mobile_professional_title: Le bon plan PRO mobile
+  best_laptop_mobile_professional_text: Un ordinateur pro, compact et léger mais capable de traiter tous vos document rapidement pour vous rendre plus productif.
+  #professional
+  best_laptop_sitting_professional_title: Le bon plan PRO
+  best_laptop_sitting_professional_text: |
+    Un station de travail moile pro, assez puissante pour travailler en toute sérennité mais destinée à être transportée plutôt qu'emportée à la main.
+
   #family
   best_laptop_family_title: Le bon plan FAMILIAL
   best_laptop_family_text: Le PC de toute la famille, économique et fait pour le divertissement ou les tâches de la vie courante.
