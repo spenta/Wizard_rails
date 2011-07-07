@@ -1,53 +1,40 @@
 <%= content_for :head do %>
   <%= include_stylesheets :article %>
+  <%= include_stylesheets :best_laptop %>
   <%= content_tag :title, @article.title_for_head -%>
-
+  <script type="text/javascript" src="http://apis.google.com/js/plusone.js"></script>
+  <%= @article.meta.html_safe %>
 <% end -%>
-
-<script type="text/javascript" src="http://apis.google.com/js/plusone.js"></script>
-
-<!-- FB tags -->
-<meta property="og:title" content="Un truc SEO en rapport avec la page" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="http://www.choisirfacile.com" />
-<meta property="og:image" content="/images/choisir-facile-sur-facebook.png" />
-<meta property="og:site_name" content="Choisir Facile" />
-<meta property="fb:admins" content="555277085" />
-
-</head>
-
-<body>
-  <div id="main_wrapper">
-    <div id="main">
-      <div id="content">
-        <h1 class="main_title"><%= @article.title %></h1>
+<div class="main_wrapper">
+  <div class="main">
+    <div class="content">
+      <h1 class="main_title"><%= @article.title %></h1>
+      <div class="content_hspacer"></div>
+      <div class="chapeau"><%= (render_widgets @article.summary).html_safe %></div>
+      <div class="social_media">
         <div class="content_hspacer"></div>
-        <div class="chapeau"><%= (render_widgets @article.summary).html_safe %></div>
-        <div class="social_media">
-          <div class="content_hspacer"></div>
-          <p>Vous aimez les conseils de Choisir Facile ? Partagez-les !</p>
-          <div class="social_widget">
-            <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.choisirfacile.com" data-text="Un conseiller interactif trouver un PC portable #choisirfacile " data-count="horizontal" data-lang="fr">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-          </div>
-          <div class="social_widget">
-            <g:plusone href="http://www.choisirfacile.com" size="medium"></g:plusone>
-          </div>
-          <div class="social_widget">
-            <div id="fb-root"></div><script src="http://connect.facebook.net/fr_FR/all.js#appId=171689572872723&amp;xfbml=1"></script><fb:like href="http://www.choisirfacile.com" send="true" width="450" show_faces="false" font="arial"></fb:like>
-          </div>
-          <div class="clearfix"></div>
+        <p>Vous aimez les conseils de Choisir Facile ? Partagez-les !</p>
+        <div class="social_widget">
+          <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.choisirfacile.com" data-text="Un conseiller interactif trouver un PC portable #choisirfacile " data-count="horizontal" data-lang="fr">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
         </div>
-        
-        <div id="article_body">
-          <%=(render_widgets @article.body).html_safe %>
+        <div class="social_widget">
+          <g:plusone href="http://www.choisirfacile.com" size="medium"></g:plusone>
         </div>
+        <div class="social_widget">
+          <div class="fb-root"></div><script src="http://connect.facebook.net/fr_FR/all.js#appId=171689572872723&amp;xfbml=1"></script><fb:like href="http://www.choisirfacile.com" send="true" width="450" show_faces="false" font="arial"></fb:like>
+        </div>
+        <div class="clearfix"></div>
       </div>
-      <div id="sidebar">
-        <%= (render_widgets @article.sidebar).html_safe %>
+
+      <div class="article_body">
+        <%=(render_widgets @article.body).html_safe %>
       </div>
-      <div class="clearfix"></div>
     </div>
+    <div class="sidebar">
+      <%= (render_widgets @article.sidebar).html_safe %>
+    </div>
+    <div class="clearfix"></div>
   </div>
-</body>
+</div>
 </html>
 <%= link_to 'Edit', edit_article_path(@article) if current_user%>

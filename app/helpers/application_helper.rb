@@ -31,7 +31,7 @@ module ApplicationHelper
   end
 
   def render_widgets text
-    text.gsub(/\[\[[a-zA-Z0-9_]+\|[a-z-A-Z0-9 ,]+\]\]/) do |s|
+    text.gsub(/\[\[[a-zA-Z0-9_]+\|[a-z-A-Z0-9 ,_]+\]\]/) do |s|
       widget_name = "widget_#{s.split('|').first.split("[[").last}"
       widget_argument = "#{s.split('|').last.split("]]").first}"
       begin
@@ -89,7 +89,11 @@ module ApplicationHelper
     article_id = arg.split(",,,").first
     content = arg.split(",,,").last
     link_to content, article_path(article_id)
-    end
+  end
+
+  def widget_link_to_profile profile
+    render 'layouts/best_laptop.html', :profile => profile
+  end
 
 end
 
