@@ -14,7 +14,7 @@ class ArticlesController < ApplicationController
   # GET /articles/1
   # GET /articles/1.xml
   def show
-    @article = Article.find(params[:id])
+    @article = get_article params
 
     respond_to do |format|
       format.html # show.html.erb
@@ -35,7 +35,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles/1/edit
   def edit
-    @article = Article.find(params[:id])
+    @article = get_article params
   end
 
   # POST /articles
@@ -47,6 +47,7 @@ class ArticlesController < ApplicationController
       :title => params[:article][:title],
       :summary => params[:article][:summary],
       :meta => params[:article][:meta],
+      :url => params[:article][:url],
       :body => params[:article][:body],
       :sidebar => params[:article][:sidebar],
       :user => User.where(:name => params[:user_name]).first
@@ -67,26 +68,34 @@ class ArticlesController < ApplicationController
   # PUT /articles/1
   # PUT /articles/1.xml
   def update
-    @article = Article.find(params[:id])
+    raise "unknown user #{params[:user_name]}" unless User.where(:name => params[:user_name]).first 
+    @article = get_article params
     new_params = {
       :title_for_head => params[:article][:title_for_head],
       :title => params[:article][:title],
       :summary => params[:article][:summary],
       :meta => params[:article][:meta],
+      :url => params[:article][:url],
       :body => params[:article][:body],
       :sidebar => params[:article][:sidebar],
       :user => User.where(:name => params[:user_name]).first
     }
-    @article.update_attributes(new_params)
-    @article.tag_article_associations.delete_all
-    create_tag_article_association params
-    redirect_to @article
+    if @article.update_attributes(new_params)
+      @article.tag_article_associations.delete_all
+      create_tag_article_association params
+      redirect_to @article
+    else
+      flash[:error] = "Probleme dans la sauvegarde de l'article. Bien verifier les champs"
+      redirect_to edit_article_path(@article.id)
+    end
+
   end
 
   # DELETE /articles/1
   # DELETE /articles/1.xml
   def destroy
-    @article = Article.find(params[:id])
+    raise "unknown user #{params[:user_name]}" unless User.where(:name => params[:user_name]).first 
+    @article = get_article params
     @article.destroy
 
     respond_to do |format|
@@ -96,6 +105,10 @@ class ArticlesController < ApplicationController
   end
   
   private
+
+  def get_article parameters
+    Article.find(params[:id].split('-').last)
+  end
 
   def check_user_login
     redirect_to :root unless current_user

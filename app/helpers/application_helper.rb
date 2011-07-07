@@ -31,7 +31,7 @@ module ApplicationHelper
   end
 
   def render_widgets text
-    text.gsub(/\[\[[a-zA-Z0-9_]+\|[a-z-A-Z0-9 ,_]+\]\]/) do |s|
+    text.gsub(/\[\[[a-zA-Z0-9_]+\|[a-z-A-Z0-9 ,_\-]+\]\]/) do |s|
       widget_name = "widget_#{s.split('|').first.split("[[").last}"
       widget_argument = "#{s.split('|').last.split("]]").first}"
       begin
@@ -84,11 +84,12 @@ module ApplicationHelper
   #   render_widgets("blablabla [[user_profile|gamer]] fsdgdgf")
   #The string [[user_profile|gamer]] will then be replace by widget_user_profile("gamer")
   
-  #ex: [[link_to_article|12,,,super article]]
+  #ex: [[link_to_article|url-du-super-article-sans-l'id,,,super article]]
   def widget_link_to_article arg
-    article_id = arg.split(",,,").first
+    article_url = arg.split(",,,").first
     content = arg.split(",,,").last
-    link_to content, article_path(article_id)
+    article = Article.where(:url => article_url).first
+    link_to content, article_path(article.to_param)
   end
 
   def widget_link_to_profile profile
