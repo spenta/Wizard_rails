@@ -46,6 +46,8 @@ class ApplicationController < ActionController::Base
     profile_hash = {}
     profile_hash[:star_products] = sort_by_q(user_response.get_star_products).collect{|p| {:product_id => p.product_id, :score => p.spenta_score}}
     profile_hash[:good_deal_products] = sort_by_q(user_response.get_good_deal_products).collect{|p| {:product_id => p.product_id, :score => p.spenta_score}}
+    profile_hash[:gammas] = user_response.gammas
+    profile_hash[:sigmas] = user_response.sigmas
     Rails.cache.write("#{profile}_profile", profile_hash)
   end
 
