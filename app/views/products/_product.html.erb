@@ -2,7 +2,7 @@
 <tr>
   <%# Thumbnail, marque, modèle, lien %>
   <td class="first_column">
-    <%= link_to product_path(product.to_param), :class => "no_underline" , :target => "_blank" do %>
+    <%= link_to product_path(p_infos[:to_param]), :class => "no_underline" , :target => "_blank" do %>
       <%= image_tag p_infos[:small_img_url], :alt => "PC #{p_infos[:brand_name]} #{p_infos[:name]}", :class => "thumbnail" %>
       <div class="product_name">
         <%= content_tag :h4, p_infos[:brand_name] %>

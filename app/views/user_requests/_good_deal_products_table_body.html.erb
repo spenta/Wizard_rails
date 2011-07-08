@@ -12,12 +12,12 @@
       <% end -%>
     </td>
     <td class="thumb">
-      <%= link_to product_path(product.to_param), :target => "_blank" do%>
+      <%= link_to product_path(p_infos[:to_param]), :target => "_blank" do%>
         <%= image_tag p_infos[:small_img_url], :alt => p_infos[:brand_name]+' '+p_infos[:name], :class => "thumbnail" %>
       <% end -%>
     </td>
     <td class="infos">
-      <%= link_to product_path(product.to_param), :target => "_blank", :class => "nounderline" do%>
+      <%= link_to product_path(p_infos[:to_param]), :target => "_blank", :class => "nounderline" do%>
         <div class="brand"><%= p_infos[:brand_name] %></div>
         <div class="name"><%= truncate p_infos[:name], :length => 20 %></div>
         <div class="more"><%= t :extras_more_1 -%><br /><%= t :extras_more_2 -%> <%= product.offers.count %> <%= t :extras_more_3 -%></div>

@@ -6,11 +6,11 @@ class Product < ActiveRecord::Base
   validates :name, :brand, :presence => true
   
   #to_param method is overriden in order to have custom url names
-  def to_param
+  def to_param brand_name, product_name
     str = "pc-portable-"
-    str += infos[:brand_name]
+    str += brand_name
     str += "-"
-    str += infos[:name]
+    str += product_name
     str += "-"
     str += id.to_s
     str.gsub(/[\/\ \.]/,'-')
@@ -39,7 +39,8 @@ class Product < ActiveRecord::Base
     # Name
     infos[:name] = name
     # Brand 
-    infos[:brand_name] = brand.name
+    brand_name = brand.name
+    infos[:brand_name] = brand_name
     # Price
     best_price_and_retailer = get_best_price_and_retailer
     infos[:price] = best_price_and_retailer[:best_price]
@@ -57,6 +58,7 @@ class Product < ActiveRecord::Base
       infos[:big_img_url] = "/images/product/not_available_big.png" 
       infos[:has_image] = false
     end
+    infos[:to_param] = to_param(brand_name, name)
     infos
   end
 

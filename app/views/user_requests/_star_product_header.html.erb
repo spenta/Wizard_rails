@@ -1,10 +1,10 @@
 <%= render 'vspacer', :is_first_column => is_first_column %>
 <td class="bestpickcolumn" colspan="2">
   <% product = Product.find(p.product_id) -%>
-  <%= link_to_suggestion product do %>
+  <%= link_to_suggestion product.infos[:to_param] do %>
     <h1><strong><%= product.infos[:brand_name] %></strong><br/> <%= truncate product.name, :length => 25 %></h1>
   <% end -%>
-  <%= link_to_suggestion product do %>
+  <%= link_to_suggestion product.infos[:to_param] do %>
     <p class="more"><%= t :bestpick_more %></p>
   <% end -%>
 </td>

@@ -7,7 +7,7 @@
   <div class="mactop"></div>
   <div class="maccontent">
     <div class="left">
-      <%= link_to_suggestion product do%>
+      <%= link_to_suggestion product.infos[:to_param] do%>
         <%= content_tag :h1, infos[:name] %>
         <div class="macspacer"></div>
         <%= image_tag infos[:big_img_url], :class => "macfeaturedimg" %>
@@ -17,7 +17,7 @@
       <%= render 'score_box', :product_scored => mac %>
       <%= render 'price_box', :product_scored => mac %>
       <div class="macspacer"></div>
-      <%= link_to_suggestion product do %>
+      <%= link_to_suggestion product.infos[:to_param] do %>
         <div class="productbutton">
           <h4><%= go_button product %></h4>
         </div>

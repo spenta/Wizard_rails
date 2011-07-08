@@ -63,13 +63,13 @@ module UserRequestsHelper
     end
   end
 
-  def link_to_suggestion product
+  def link_to_suggestion product_to_param
     if root_url == "http://www.choisirfacile.com/"
-      link_to product_path(product.to_param), :target => "_blank", :onClick => "_gaq.push(['_trackEvent', 'results_clicks', 'suggestion', \'star-#{product.to_param}\']);" do
+      link_to product_path(product_to_param), :target => "_blank", :onClick => "_gaq.push(['_trackEvent', 'results_clicks', 'suggestion', \'star-#{product_to_param}\']);" do
         yield
       end
     else
-      link_to product_path(product.to_param), :target => "_blank" do
+      link_to product_path(product_to_param), :target => "_blank" do
         yield
       end
     end

@@ -4,7 +4,7 @@
   <%= render 'vspacer', :is_first_column => is_first_column  %>
   <td class="bestpickcolumn" colspan="2">
   <% is_first_column = false -%>
-  <%= link_to_suggestion product do %>
+  <%= link_to_suggestion product.infos[:to_param] do %>
     <div class="productbutton">
       <h4><%= go_button product %></h4>
     </div>
