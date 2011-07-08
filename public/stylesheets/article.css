@@ -83,20 +83,24 @@ ARTICLE STYLES
   clear:both;
   display:block;
   margin:24px auto;
-  width:400px;
+  width:515px;
 }
 
 /* Basic text */
 .article_body h2 {
-  font-size:1.7em;
-  font-weight:bold;
-  margin:24px 0 12px 8px;
-}
-
-.article_body h3 {
   font-size:1.4em;
   font-weight:bold;
   margin:18px 0 8px 16px;
+}
+
+.article_body>h3 {
+  font-size: 1.2em;
+  font-weight: normal;
+  margin: 18px 0 8px 16px;
+  text-align: right;
+  border-bottom: 1px solid;
+  color: dimGray;
+  font-style: italic;
 }
 
 .article_body p {
@@ -299,8 +303,13 @@ SIDEBAR STYLES
   width:300px;
 }
 
+.box_300px img {
+  width:300px;
+}
+
 p.legend {
   font-style:italic;
   margin-top:6px;
   margin-bottom:6px;
+  font-size:0.9em;
 }

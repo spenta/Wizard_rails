@@ -9,8 +9,14 @@ fr:
   #professional
   best_laptop_sitting_professional_title: Le bon plan PRO
   best_laptop_sitting_professional_text: |
-    Un station de travail moile pro, assez puissante pour travailler en toute sérennité mais destinée à être transportée plutôt qu'emportée à la main.
+    Un station de travail mobile pro, assez puissante pour travailler en toute sérennité mais destinée à être transportée plutôt qu'emportée à la main.
+  
+  #'
+  #photoshoper
+  best_laptop_photoshoper_title: Le bon plan AMATEUR PHOTOS
+  best_laptop_photoshoper_text: Une machine très puissante, à même de dompter les logiciels de retouche, de montage et d'infographie.
 
+  #'
   #family
   best_laptop_family_title: Le bon plan FAMILIAL
   best_laptop_family_text: Le PC de toute la famille, économique et fait pour le divertissement ou les tâches de la vie courante.

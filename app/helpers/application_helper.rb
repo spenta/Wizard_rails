@@ -31,7 +31,7 @@ module ApplicationHelper
   end
 
   def render_widgets text
-    text.gsub(/\[\[[a-zA-Z0-9_]+\|[a-z-A-Z0-9 ,_\-]+\]\]/) do |s|
+    text.gsub(/\[\[[a-zA-Z0-9_]+\|.+\]\]/) do |s|
       widget_name = "widget_#{s.split('|').first.split("[[").last}"
       widget_argument = "#{s.split('|').last.split("]]").first}"
       begin

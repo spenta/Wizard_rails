@@ -532,32 +532,32 @@ photoshoper:
 
   usage3:
     usage_id: 3
-    weight_for_user: 20
+    weight_for_user: 10
     is_selected: TRUE
 
   usage4:
     usage_id: 4
-    weight_for_user: 20
+    weight_for_user: 10
     is_selected: TRUE
 
   usage5:
     usage_id: 5
-    weight_for_user: 20
+    weight_for_user: 10
     is_selected: FALSE
 
   usage6:
     usage_id: 6
-    weight_for_user: 20
+    weight_for_user: 10
     is_selected: TRUE
 
   usage7:
     usage_id: 7
-    weight_for_user: 20
+    weight_for_user: 10
     is_selected: FALSE
 
   usage8:
     usage_id: 8
-    weight_for_user: 20
+    weight_for_user: 10
     is_selected: FALSE
 
   usage9:
@@ -578,7 +578,7 @@ photoshoper:
   usage12:
     usage_id: 12
     weight_for_user: 100
-    is_selected: TRUE
+    is_selected: FALSE
 
   usage13:
     usage_id: 13
