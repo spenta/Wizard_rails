@@ -1,12 +1,16 @@
 <div id="popup">
   <h2><%= t :searching_title %></h2>
   <h3><%= t :searching_subtitle %></h3>
-  <img src="/images/searching.gif" />
+  <img src="/images/searching.gif" class="wait_circle"/>
   <ul>
     <li id="wait_1"><%= t :searching_1 %></li>
     <li id="wait_2"><%= t :searching_2 %></li>
     <li id="wait_3"><%= t :searching_3 %></li>
   </ul>
+  <div class = "retailers">
+    <% Retailer.all_cached.each do |r| -%>
+      <%= image_tag r.logo_url, :class => "retailer_logo", :alt => "#{r.name} logo"%>
+    <% end -%>
+  </div >
 </div>
-
 <div id="overlay"></div>

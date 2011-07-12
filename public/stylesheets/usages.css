@@ -11,158 +11,158 @@
 }
 
 /*----------------------------------------------------------------
-	USAGES
+USAGES
 ------------------------------------------------------------------*/
 
 /*----------------------------------------------------------------
-	COULEURS ET EFFETS DE TEXTE
+COULEURS ET EFFETS DE TEXTE
 ------------------------------------------------------------------*/
 
 /* NOM DES USAGES */
 
 #question h3 {
-	color:white;
+  color:white;
 }
 
 
 h2.usageTitle {
-    color:white;
-	text-shadow: 0px 1px 1px #333333;
-	margin:0 0 5px 0;
-	font-size:1.5em;
+  color:white;
+  text-shadow: 0px 1px 1px #333333;
+  margin:0 0 5px 0;
+  font-size:1.5em;
 }
 
 /* Question explicative sur les sous-usages*/
 
 h3.usageSubQuestion {
-	color: #D0D0D0;
-	text-shadow: 0px 1px 1px black;
-	font-weight:bold;
-	letter-spacing:1px;
-	margin:0px 0px 0px 0px;
+  color: #D0D0D0;
+  text-shadow: 0px 1px 1px black;
+  font-weight:bold;
+  letter-spacing:1px;
+  margin:0px 0px 0px 0px;
 }
 
 /* Explication sous les sous-usages */
 p.usageExplain {
-	color:#C0C0C0;
-	margin:5px 0 10px 0;
+  color:#C0C0C0;
+  margin:5px 0 10px 0;
 }
 
 /*Explication sous les mobilit�s*/
 
 p.weightExplain {
-	color:white;
-	font-weight:normal;
-	margin:0 0 10px 0;
+  color:white;
+  font-weight:normal;
+  margin:0 0 10px 0;
 }
 
 .weightExplain strong {
-    color:white;
+  color:white;
 }
 
 p.usageSubtitle {
-	font-size:1.3em;
+  font-size:1.3em;
 }
 
 /* Messages d'erreur */
 
 .warningbox {
-    background-color:white;
-    margin-top:5px;
-    padding:5px;
-    border:1px FireBrick dotted;
-    -webkit-border-radius:4px;
-	  -khtml-border-radius:4px;
-	  -moz-border-radius:4px;
-	  -o-border-radius:4px;
-	  border-radius:4px;
+  background-color:white;
+  margin-top:5px;
+  padding:5px;
+  border:1px FireBrick dotted;
+  -webkit-border-radius:4px;
+  -khtml-border-radius:4px;
+  -moz-border-radius:4px;
+  -o-border-radius:4px;
+  border-radius:4px;
 }
 
 .warning {
-    color:FireBrick;
-    font-size:1.4em;
-    text-align:center;
+  color:FireBrick;
+  font-size:1.4em;
+  text-align:center;
 }
 
 /*----------------------------------------------------------------
-	.SIDEINFO
+.SIDEINFO
 ------------------------------------------------------------------*/
 
 .sideinfo
 {
-	width:370px;
-	margin:10px 0 0 0;
-	float:right;
-	padding:0px;
+  width:370px;
+  margin:10px 0 0 0;
+  float:right;
+  padding:0px;
 }
 
 .sideinfo h5
 {
-	margin-top:0px;
-	font-size:1.3em;
-	font-weight:bold;
-	color:#50A5D7;
+  margin-top:0px;
+  font-size:1.3em;
+  font-weight:bold;
+  color:#50A5D7;
 }
 
 /*----------------------------------------------------------------
-	FORM
+FORM
 ------------------------------------------------------------------*/
 
 form {
-	width:500px;
-	padding:5px 0;
-	position:relative;
-	float:left;
+  width:500px;
+  padding:5px 0;
+  position:relative;
+  float:left;
 }
 
 /*----------------------------------------------------------------
-	.QUESTION
+.QUESTION
 ------------------------------------------------------------------*/
 
 .question
 {
-	min-height:40px;
-	padding:8px 5px;
-	margin:5px 0;
-	color:#33332F;
-	background-color:#036CAA;     /*Couleur du fond des boites d'usage non sélectionnés*/
-	background-image:url('../images/question_bckg.png');
-	background-repeat:repeat-x;
-	-webkit-border-radius:8px;
-	-khtml-border-radius:8px;
-	-moz-border-radius:8px;
-	-o-border-radius:8px;
-	border-radius:8px;
+  min-height:40px;
+  padding:8px 5px;
+  margin:5px 0;
+  color:#33332F;
+  background-color:#036CAA;     /*Couleur du fond des boites d'usage non sélectionnés*/
+  background-image:url('../images/question_bckg.png');
+  background-repeat:repeat-x;
+  -webkit-border-radius:8px;
+  -khtml-border-radius:8px;
+  -moz-border-radius:8px;
+  -o-border-radius:8px;
+  border-radius:8px;
 }
 
 .question hr
 {
-	height:2px;
-	margin:20px 0;
-	background-image:url(/images/usages/hr.gif);
-	background-repeat:repeat-x;
-	background-position:top left;
-	border:none;
+  height:2px;
+  margin:20px 0;
+  background-image:url(/images/usages/hr.gif);
+  background-repeat:repeat-x;
+  background-position:top left;
+  border:none;
 }
 
 
 /*--------------------------------
-	> .QICON
+> .QICON
 ----------------------------------*/
 
 .question .qicon
 {
-	width:40px;
-	height:40px;
-	display:inline-block;
+  width:40px;
+  height:40px;
+  display:inline-block;
 
-	float:left;
-	margin-left:5px;
-	margin-right:5px;
+  float:left;
+  margin-left:5px;
+  margin-right:5px;
 
-	background-image:url(/images/usages/usage-icon.png);
-	background-repeat:no-repeat;
-	background-position:0px -40px;
+  background-image:url(/images/usages/usage-icon.png);
+  background-repeat:no-repeat;
+  background-position:0px -40px;
 }
 
 
@@ -179,116 +179,116 @@ form {
 .question#mobility20 .qicon { background-image:url(/images/usages/mobility2-icon.png); }
 
 /*--------------------------------
-	> .QINFO
+> .QINFO
 ----------------------------------*/
 
 .question .qinfo
 {
-	margin:10px 5px;
-	padding:15px;
-	background-color:#e3e3e3;
+  margin:10px 5px;
+  padding:15px;
+  background-color:#e3e3e3;
 }
 
 .question .qinfo p
 {
-	text-align:justify;
+  text-align:justify;
 }
 
 /*--------------------------------
-	> .QBODY
+> .QBODY
 ----------------------------------*/
 
 .question .qbody
 {
-	margin-left:50px;
-	padding:5px 10px;
+  margin-left:50px;
+  padding:5px 10px;
 }
 
 /* Style pour l'intitul� des usages dans les form */
 
 .question .qbody .qname
 {
-	margin:2px 0 -14px 0;
-	font-size:1.15em;
-	font-weight:bold;
+  margin:2px 0 -14px 0;
+  font-size:1.15em;
+  font-weight:bold;
 }
 
 
 .question .qbody .qdesc,
 .question .qbody .qabst
 {
-	margin:0 0 -5px 0;
-	padding:10px 0 0 0;
-	color:#4B4B4B;
+  margin:0 0 -5px 0;
+  padding:10px 0 0 0;
+  color:#4B4B4B;
 }
 
 .question .qbody .answer
 {
-	padding:0 10px;
+  padding:0 10px;
 }
 
 /*--------------------------------
-	> label
+> label
 ----------------------------------*/
 
 .question label
 {
-	display:block;
-	margin:20px 0px;
-	position:relative;
+  display:block;
+  margin:20px 0px;
+  position:relative;
 }
 
 /* Regarder si je peux contr�ler la couleur du bazard ouvert avec �a */
 
 .question label .name
 {
-	display:block;
-	color:inherit;
-	font-size:1.4em;
-	font-weight:bold;
-	text-shadow: 0px 1px 1px black;
+  display:block;
+  color:inherit;
+  font-size:1.4em;
+  font-weight:bold;
+  text-shadow: 0px 1px 1px black;
 }
 
 
 .question label .desc
 {
-	display:block;
-	color:#C0C0C0;
+  display:block;
+  color:#C0C0C0;
 }
 
 /*----------------------------------------------------------------
-	QUESTION.OPENED
+QUESTION.OPENED
 ------------------------------------------------------------------*/
 
 .question.opened,
 .question.opened.selected
 {
-	color:#ffffff;
-	background-color:#555555;
-		background-image:url('../images/home/header_bckg.png');
+  color:#ffffff;
+  background-color:#555555;
+  background-image:url('../images/home/header_bckg.png');
 }
 
 /*Intitul� des usages lorsque c'est ouvert*/
 .question.opened h2 {
-	color:white;
-	text-shadow: 0px 1px 1px black;
+  color:white;
+  text-shadow: 0px 1px 1px black;
 }
 
 .question.opened.selected h2 {
-	color:white;
-	text-shadow: 0px 1px 1px black;
-	font-weight:bold;
+  color:white;
+  text-shadow: 0px 1px 1px black;
+  font-weight:bold;
 }
 
 .question.opened hr,
 .question.opened.selected hr
 {
-	background-image:url(/images/usages/hr-opened.gif);
+  background-image:url(/images/usages/hr-opened.gif);
 }
 
 .question.opened .qicon
 {
-	background-position:0px -40px;
+  background-position:0px -40px;
 }
 
 .question.opened .qabst,
@@ -298,216 +298,227 @@ form {
 .question.opened.selected .qdesc,
 .question.opened.selected .answer label .desc
 {
-	color:#d2d2d2;
+  color:#d2d2d2;
 }
 
 .question.opened .qabst,
 .question.opened.selected .qabst
 {
-	display:none;
+  display:none;
 }
 
 .question.opened .qinfo,
 .question.opened.selected .qinfo
 {
-	background-color:#595959;
+  background-color:#595959;
 }
 
 /*--------------------------------
-	...SELECTED
+...SELECTED
 ----------------------------------*/
 
 .question.opened.selected .qicon {
-	background-position:0px -80px;
+  background-position:0px -80px;
 }
 
 /*----------------------------------------------------------------
-	QUESTION.SELECTED
+QUESTION.SELECTED
 ------------------------------------------------------------------*/
 
 .question.selected {
-	background-color:#50A5D7; /*Fond des usages sélectionnés*/
-    background-image:url('../images/question_selected.png');
+  background-color:#50A5D7; /*Fond des usages sélectionnés*/
+  background-image:url('../images/question_selected.png');
 }
 
 .question.selected h2 {
-    color:white;
-    font-weight:normal;
-    text-shadow: 1px 1px 0 #666666;
+  color:white;
+  font-weight:normal;
+  text-shadow: 1px 1px 0 #666666;
 }
 
 .question.slideroverride {
-	background-color:#D0D0D0;
+  background-color:#D0D0D0;
 }
 
 .question.selected .qicon {
-	background-position:0px -40px;
+  background-position:0px -40px;
 }
 
 .question.selected .qabst,
 .question.selected .qdesc,
 .question.selected .answer label .desc {
-	color:white;
+  color:white;
 }
 
 .question.selected .qinfo
 {
-	background-color:#5f993a;
+  background-color:#5f993a;
 }
 
 /*----------------------------------------------------------------
-	UI-SLIDER
+UI-SLIDER
 ------------------------------------------------------------------*/
 
 /* Bouton de validation des sous-usages*/
 .answer .close {
-	z-index:2;
-	min-height:20px;
+  z-index:2;
+  min-height:20px;
 
-	margin-top:-40px;
-	padding:5px 5px 5px 8px;
-	position:relative;
-	float:right;
-	cursor:pointer;
+  margin-top:-40px;
+  padding:5px 5px 5px 8px;
+  position:relative;
+  float:right;
+  cursor:pointer;
 
-	font-size:1.3em;
-	font-weight:bold;
-	text-decoration:none;
-	background:#4B4B4B;
-	border:1px solid #a6a6a6;
-	-webkit-border-radius:4px;
-	-khtml-border-radius:4px;
-	-moz-border-radius:4px;
-	-o-border-radius:4px;
-	border-radius:4px;
+  font-size:1.3em;
+  font-weight:bold;
+  text-decoration:none;
+  background:#4B4B4B;
+  border:1px solid #a6a6a6;
+  -webkit-border-radius:4px;
+  -khtml-border-radius:4px;
+  -moz-border-radius:4px;
+  -o-border-radius:4px;
+  border-radius:4px;
 }
 
 .answer .close:hover {
-		background:#8e8e8e;
+  background:#8e8e8e;
 }
 
 
 .answer .close .label {
-	font-size:inherit;
-	color:#fff; /*Couleur du texte du bouton de validation des sous-usages*/
-	display:inline-block;
+  font-size:inherit;
+  color:#fff; /*Couleur du texte du bouton de validation des sous-usages*/
+  display:inline-block;
 }
 
 .answer .close .icon {
-	float:right;
-	margin-left:5px;
-	display:inline-block;
-	width:20px; height:20px;
-	background-image:url(/images/usages/valid-icon.png);
-	background-repeat:no-repeat;
-	background-position:0px 0px;
+  float:right;
+  margin-left:5px;
+  display:inline-block;
+  width:20px; height:20px;
+  background-image:url(/images/usages/valid-icon.png);
+  background-repeat:no-repeat;
+  background-position:0px 0px;
 }
 
 /*----------------------------------------------------------------
-	Submmit
+Submmit
 ------------------------------------------------------------------*/
 
 .next-button,
 .prev-button {
-	margin-top:5px;
-	cursor:pointer;
-	display:inline-block;
-	overflow:hidden;
-	border:0px solid #000;
-	background:none;
-	color:white;
-	text-shadow:1px 1px #666666;
-	font-size:1.6em;
-    text-decoration:none;
-	background-image:url(/images/nav_buttons.png);
-	background-repeat:no-repeat;
-	background-position:0px 0px;
+  margin-top:5px;
+  cursor:pointer;
+  display:inline-block;
+  overflow:hidden;
+  border:0px solid #000;
+  background:none;
+  color:white;
+  text-shadow:1px 1px #666666;
+  font-size:1.6em;
+  text-decoration:none;
+  background-image:url(/images/nav_buttons.png);
+  background-repeat:no-repeat;
+  background-position:0px 0px;
 }
 
 .next-button {
-	float:right;
-	text-align:left;
-	padding-left:35px;
-	width:155px;
-	height:36px;
-	background-position:-156px -1px; }
+  float:right;
+  text-align:left;
+  padding-left:35px;
+  width:155px;
+  height:36px;
+  background-position:-156px -1px; }
 .next-button:hover { background-position:-156px -38px; }
 .next-button:active { background-position:-156px -75px; }
 .next-button:focus { background-position:-156px -75px; }
 
 .prev-button {
-	float:left;
-	text-align:center;
-	padding-top:6px;
-	padding-left:18px;
-	height:30px;
-	width:137px;
-	background-position:0px -1px; }
-	.prev-button:hover { background-position:0px -38px; color:white; }
-	.prev-button:active { background-position:0px -75px; color:white;  }
-	.prev-button:focus { background-position:0px -75px; color:white;  }
+  float:left;
+  text-align:center;
+  padding-top:6px;
+  padding-left:18px;
+  height:30px;
+  width:137px;
+  background-position:0px -1px; }
+.prev-button:hover { background-position:0px -38px; color:white; }
+.prev-button:active { background-position:0px -75px; color:white;  }
+.prev-button:focus { background-position:0px -75px; color:white;  }
 
 /*----------------------------------------------------------------
-	SEARCHING... POPUP
+SEARCHING... POPUP
 ------------------------------------------------------------------*/
 #popup {
-	position: fixed;
-    left:50%;
-    top:25%;
+  position: fixed;
+  left:50%;
+  top:25%;
 
-    width:450px;
-    margin-left:-237px;
-    height:220px;
+  width:450px;
+  margin-left:-237px;
+  height:420px;
 
-    z-index:2;
+  z-index:2;
 
-    background-color:white;
-    padding:12px;
+  background-color:white;
+  padding:12px;
 
-    border:1px solid #E5E5E5;
-    -webkit-border-radius:8px;
-	  -khtml-border-radius:8px;
-	  -moz-border-radius:8px;
-	  -o-border-radius:8px;
-	  border-radius:8px;
-	  behavior: url(/stylesheets/PIE.htc);
+  border:1px solid #E5E5E5;
+  -webkit-border-radius:8px;
+  -khtml-border-radius:8px;
+  -moz-border-radius:8px;
+  -o-border-radius:8px;
+  border-radius:8px;
+  behavior: url(/stylesheets/PIE.htc);
 }
 
 #popup h2 {
-    color:#50A5D7;
-    font-size:1.6em;
-    font-weight:bold;
-    text-shadow: 1px 1px #E5E5E5;
-    text-align:center;
+  color:#50A5D7;
+  font-size:1.6em;
+  font-weight:bold;
+  text-shadow: 1px 1px #E5E5E5;
+  text-align:center;
 }
 
 #popup h3 {
-    color:#666666;
-    font-size:1em;
-    font-style:italic;
-    font-weight:normal;
-    text-align:center;
+  color:#666666;
+  font-size:1em;
+  font-style:italic;
+  font-weight:normal;
+  text-align:center;
 }
 
-#popup img {
-   display:block;
-   margin:20px auto;
+#popup img.wait_circle {
+  display:block;
+  margin:20px auto;
 }
 
 #popup ul {
-    display:block;
-    margin:30px 50px 0px 120px;
+  display:block;
+  margin:30px 50px 0px 120px;
 }
 
 #overlay {
-    position: fixed;
-    left:0%;
-    top:0%;
-    z-index:1;
-    width:100%;
-    height:200%;
-    background-color:black;
-    opacity:0.5;
-    filter: alpha(opacity=50);
+  position: fixed;
+  left:0%;
+  top:0%;
+  z-index:1;
+  width:100%;
+  height:200%;
+  background-color:black;
+  opacity:0.5;
+  filter: alpha(opacity=50);
 }
 
+.retailers .retailer_logo{
+  margin-left:10px;
+  margin-right:10px;
+  margin-top:10px;
+  margin-bottom:10px;
+  float:left;
+  width:90px;
+}
+
+.retailers {
+}

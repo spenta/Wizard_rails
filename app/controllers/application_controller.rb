@@ -28,6 +28,7 @@ class ApplicationController < ActionController::Base
     USER_PROFILES_CONFIG.each_key do |profile|
       build_response_for_user_profile profile
     end
+    Retailer.all_cached
     Rails.cache.write('cache_state', 'complete')
   end
 
