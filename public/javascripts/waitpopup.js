@@ -24,7 +24,7 @@ $j(document).ready(
           var currentDelay = 300;
           for (var i=0; i<retailers.length; i++) {
             currentDelay += 50 + 350 * Math.random();
-            $j('.retailers .retailer_logo:nth-child('+i.toString()+')').delay(currentDelay).fadeIn('Slow');
+            $j('.retailers .retailer_logo:nth-child('+(i+1).toString()+')').delay(currentDelay).fadeIn('Slow');
           }
         }
       );
