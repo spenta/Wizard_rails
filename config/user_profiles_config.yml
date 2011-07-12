@@ -634,7 +634,7 @@ gamer:
   usage3:
     usage_id: 3
     weight_for_user: 50
-    is_selected: TRUE
+    is_selected: FALSE
 
   usage4:
     usage_id: 4
@@ -644,17 +644,17 @@ gamer:
   usage5:
     usage_id: 5
     weight_for_user: 50
-    is_selected: TRUE
+    is_selected: FALSE
 
   usage6:
     usage_id: 6
     weight_for_user: 20
-    is_selected: TRUE
+    is_selected: FALSE
 
   usage7:
     usage_id: 7
     weight_for_user: 20
-    is_selected: TRUE
+    is_selected: FALSE
 
   usage8:
     usage_id: 8
@@ -689,7 +689,7 @@ gamer:
   usage14:
     usage_id: 14
     weight_for_user: 50
-    is_selected: TRUE
+    is_selected: FALSE
 
   usage15:
     usage_id: 15
@@ -704,7 +704,7 @@ gamer:
   usage17:
     usage_id: 17
     weight_for_user: 50
-    is_selected: TRUE
+    is_selected: FALSE
 
   usage18:
     usage_id: 18
