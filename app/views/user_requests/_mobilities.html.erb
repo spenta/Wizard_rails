@@ -1,25 +1,24 @@
 <% content_for :head do -%>
   <title><%= t :mobility_main_title %></title>
   <script type="text/javascript">
-    var $j = jQuery.noConflict();
     $j(document).ready(function()
-      {
-          $j('select.slider').selectSlider(); 
-          $j("a").click(function(event){
-            $j(".warning").remove();
+        {
+        $j('select.slider').selectSlider(); 
+        $j("a").click(function(event){
+          $j(".warning").remove();
           });
-      });
-  </script>
+        });
+</script>
 <% end -%>
 <% @user_request.mobility_choices.each do |mc| -%>
   <% mc_id = mc.id -%>
   <% m_id = mc.usage_id -%>
   <div class="question" id=<%= "mobility#{m_id}" %>>
-  <span class="qicon"></span> 
+    <span class="qicon"></span> 
     <div class="qbody">
       <div class="qname">
-          <h2 class="usageTitle"><%= t_safe "mobility_title#{m_id}" %></h2>
-          <p class="weightExplain"><%= t_safe "mobilities_step_question_mobility#{m_id}" %></p>
+        <h2 class="usageTitle"><%= t_safe "mobility_title#{m_id}" %></h2>
+        <p class="weightExplain"><%= t_safe "mobilities_step_question_mobility#{m_id}" %></p>
       </div>
       <div class="answer">
         <%= content_tag :select,{:class => "slider nosnap", :name => "mobility_weight_#{mc_id}"} do %>

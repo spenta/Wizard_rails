@@ -5,9 +5,10 @@ javascripts:
     - public/javascripts/rails/prototype.js
     - public/javascripts/rails/rails.js
 
+  resize:
+    - public/javascripts/jquery.ae.image.resize.min.js
+
   home:
-    - public/javascripts/rails/prototype.js
-    - public/javascripts/rails/rails.js
     - public/javascripts/home.js
 
   form:
@@ -23,16 +24,11 @@ javascripts:
     - public/javascripts/result.js
 
   catalogue:
-    - public/javascripts/rails/prototype.js
-    - public/javascripts/rails/rails.js
     - public/javascripts/rangeslider.min.js
     - public/javascripts/jquery.dataTables.min.js
     - public/javascripts/catalogue.js
 
   product:
-    - public/javascripts/rails/prototype.js
-    - public/javascripts/rails/rails.js
-    - public/javascripts/jquery.ae.image.resize.min.js
     - public/javascripts/product.js
 
   codemirror:
