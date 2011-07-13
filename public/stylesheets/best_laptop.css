@@ -38,6 +38,7 @@
 
 .best_laptop_pic {
   padding:2px;
+  overflow:hidden;
   text-align:center;
 }
 
