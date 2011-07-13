@@ -13,7 +13,7 @@
         <h1><strong><%= infos[:brand_name] %></strong><br/> <%= truncate infos[:name], :length => 25 %></h1>
       <% end -%>
       <%= link_to_suggestion product_link do %>
-        <p class="more"><%= t :bestpick_more %></p>
+        <p class="bpws_more"><%= t :bestpick_more %></p>
       <% end -%>
     </div>
     <div class = "bpws_image">
@@ -24,11 +24,11 @@
     <div class="bpws_score_price">
       <div class="bpws_score_box">
         <div class="bpws_score_left">
-          <%= content_tag :h3, :class => "colorid#{get_color_number_relative(score/100)} score_value" do %>
+          <%= content_tag :h3, :class => "colorid#{get_color_number_relative(score/100)} bpws_score_value" do %>
             <%= score.round%><small>%</small>
           <%end%>
-          <a href="#" class="scoretooltip">
-            <p class="bpws_your_needs"><%= t :bestpick_metric %><%= image_tag "/images/best_product_with_specs/tooltip.png", :class => "scoretooltipicon", :alt => t(:bestpick_score_tooltip_icon)%></p>
+          <a href="#" class="bpws_scoretooltip">
+            <p class="bpws_your_needs"><%= t :bestpick_metric %><%= image_tag "/images/best_product_with_specs/tooltip.png", :class => "bpws_scoretooltipicon", :alt => t(:bestpick_score_tooltip_icon)%></p>
             <span><%= t_safe :bestpick_spenta_score_tooltip%></span>
           </a>
         </div>
@@ -44,8 +44,8 @@
             <h3 class="bpws_price"><%= infos[:price].floor %><small><%= t(:bestpick_currency)+get_cents_from(infos[:price]) -%></small></h3>
           </div>
           <div class="bpws_price_right">
-            <p class="best_offer_text_link"><%= t :best_offer_text_3 %></p>
-            <%= image_tag retailer.logo_url, :class =>"best_offer_logo" %>
+            <p class="bpws_best_offer_text_link"><%= t :best_offer_text_3 %></p>
+            <%= image_tag retailer.logo_url, :class =>"bpws_best_offer_logo" %>
           </div>
         <% end -%>
         <div class="clearfix"></div>

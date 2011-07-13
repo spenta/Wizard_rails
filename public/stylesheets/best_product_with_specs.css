@@ -1,10 +1,10 @@
 .bpws_wrapper {
   float:left;
   width:281px;
-  height:757px;
+  height:770px;
   margin-left:19px;
   margin-right:19px;
-  margin-bottom:20px;
+  margin-bottom:40px;
 }
 
 .bpws_top{
@@ -19,7 +19,7 @@
 
 .bpws_main{
   background-color:white;
-  height:760px;
+  height:770px;
   border-left:1px solid #e5e5e5;
   border-right:1px solid #e5e5e5;
 }
@@ -42,6 +42,22 @@
 .bpws_title strong{
   font-size:1em;
   font-weight:bold;
+}
+
+.bpws_more {
+  color:#036CAA;
+  font-size:1.1em;
+  margin-right:5px
+  text-align:right;
+  text-decoration:underline;
+}
+
+p.bpws_more {
+  margin-right:20px;
+  font-size:1.3em;
+  color:#036CAA;
+  text-align:right;
+  text-decoration:underline;
 }
 
 .bpws_image{
@@ -92,6 +108,74 @@ p.bpws_your_needs {
   font-style:italic;
 }
 
+/* Icône du tooltip */
+.bpws_scoretooltipicon {
+  vertical-align:text-bottom;
+  height:14px;
+  width:14px;
+  margin-left:5px;
+}
+
+/* --- Tooltip du Spenta Score --- */
+
+a.bpws_scoretooltip {
+  position:relative;
+  text-decoration:none;
+}
+
+a.bpws_scoretooltip:hover {
+  background: none;
+  z-index: 1;
+}
+
+a.bpws_scoretooltip span {
+  display: none;
+  position:relative;
+}
+
+/* Style du popup lorsqu'il s'affiche */
+a.bpws_scoretooltip:hover span {
+  display: block;
+  position: absolute;
+  width:300px;
+  top:0px;
+  left:-20px;
+  background:#D4FCD9;
+  padding: 8px;
+  border: 1px solid #057619;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+}
+
+/* Texte d'accompagnement des scores */
+h3.bpws_score_value {
+  font-size:4.8em;
+  text-shadow:1px 1px 0 #E5E5E5;
+  text-align:center;
+}
+
+small {
+  font-size:0.5em;
+}
+
+/* Formatage du texte du tooltip */
+
+.bpws_scoretooltip strong {
+  font-size:1.3em;
+  font-weight:bold;
+  color:#33332F;
+  text-align:justify;
+}
+
+.bpws_scoretooltip li {
+  font-size:1.3em;
+  color:#33332F;
+  margin:1px 5px;
+  text-align:justify;
+  list-style-type:disc;
+  list-style-position:inside;
+}
+
 p.bpws_score_text {
   padding-top:10px;
   font-size:1.2em;
@@ -131,6 +215,36 @@ p.bpws_price {
   float:left;
 }
 
+/* Meilleure offre */
+
+.bpws_best_offer_count {
+  font-size:1.2em;
+  color:#33332F;
+  margin:5px 0 3px 0;
+  text-align:center;
+}
+
+.bpws_best_offer {
+  width:270px;
+  padding:0px 5px 0px 5px;
+  height:40px;
+  text-align:center;
+}
+
+p.bpws_best_offer_text_link {
+  text-decoration:underline;
+  font-size:1em;
+  color:#036CAA;
+  text-align:center;
+  margin:0 0 3px 0;
+}
+
+.bpws_best_offer_logo {
+  height:35px;
+  width:92px;
+  display:block;
+  margin:0 auto;
+}
 /* --- Bouton pour aller sur la fiche produit --- */
 .bpws_button {
   width:188px;
@@ -151,6 +265,10 @@ p.bpws_price {
 
 .bpws_button:hover {
   background-image:url('/images/best_product_with_specs/button-hover.png');
+}
+
+.bpws_specs{
+  margin-bottom:10px;
 }
 
 .bpws_specs_title {

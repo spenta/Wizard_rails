@@ -26,7 +26,11 @@
       <% end -%>
       <div class="clearfix"></div>
     </div>
+    <div class="mac">
+      <div class="toptitle" id="mactitle">
+        <%= content_tag :h1, t(:i_want_mac) %>
+      </div>
+    </div>
   </div>
-  <%= render "best_mac", :mac => @user_response.get_best_mac, :important_specs_id => important_specs_id %>
 </div>
 
