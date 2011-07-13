@@ -14,6 +14,9 @@
 
   <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"%>
   <script type="text/javascript">
+    $j = jQuery.noConflict();
+  </script>
+  <script type="text/javascript">
     // Load values for the specs ratings in the bar display
     var bar_length_1 = <%= infos[:specification_values][11][:sv_score] %>
     var bar_length_2 = <%= infos[:specification_values][5][:sv_score] %>
