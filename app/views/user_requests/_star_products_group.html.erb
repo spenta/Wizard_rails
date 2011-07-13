@@ -22,7 +22,7 @@
     <div class="clearfix"></div>
     <div class="bestpick_wrapper">
       <% star_products.first(3).each do |ps| -%>
-        <%= render "layouts/best_product_with_specs", :product_scored => ps, :important_specs_id => important_specs_id  %>
+        <%= render "layouts/best_product_with_specs", :product_scored => ps, :important_specs_id => important_specs_id, :layout => :vertical  %>
       <% end -%>
       <div class="clearfix"></div>
     </div>
@@ -30,6 +30,7 @@
       <div class="toptitle" id="mactitle">
         <%= content_tag :h1, t(:i_want_mac) %>
       </div>
+      <%= render "layouts/best_product_with_specs", :product_scored => @user_response.get_best_mac, :important_specs_id => important_specs_id, :layout => :horizontal %>
     </div>
   </div>
 </div>

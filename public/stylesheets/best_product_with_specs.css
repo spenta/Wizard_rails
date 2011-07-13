@@ -1,4 +1,5 @@
-.bpws_wrapper {
+/*vertical layout specific */
+.bpws_v_wrapper {
   float:left;
   width:281px;
   height:770px;
@@ -7,23 +8,103 @@
   margin-bottom:40px;
 }
 
-.bpws_top{
+.bpws_v_top{
   height:10px;
-  background-image:url('/images/best_product_with_specs/top.png');
+  background-image:url('/images/best_product_with_specs/top_v.png');
 }
 
-.bpws_bottom{
+.bpws_v_bottom{
   height:10px;
-  background-image:url('/images/best_product_with_specs/bottom.png');
+  background-image:url('/images/best_product_with_specs/bottom_v.png');
 }
 
-.bpws_main{
+.bpws_v_main{
   background-color:white;
   height:770px;
   border-left:1px solid #e5e5e5;
   border-right:1px solid #e5e5e5;
 }
 
+.bpws_v_name_image{
+}
+
+
+.bpws_v_price_box{
+  padding: 10px 2px 0px;
+}
+
+.bpws_v_price_box a{
+  text-decoration:none;
+}
+
+.bpws_v_score_price .bpws_v_price_box{
+  background-image:url('/images/best_product_with_specs/scorebox.png');
+}
+
+.bpws_v_specs{
+  margin-bottom:10px;
+}
+
+/*horizontal layout specific */
+
+.bpws_h_wrapper {
+  float:left;
+  width:915px;
+  height:300px;
+  margin-left:19px;
+  margin-right:19px;
+  margin-bottom:40px;
+}
+
+.bpws_h_top{
+  height:10px;
+  background-image:url('/images/best_product_with_specs/top_h.png');
+}
+
+.bpws_h_bottom{
+  height:10px;
+  background-image:url('/images/best_product_with_specs/bottom_h.png');
+}
+
+.bpws_h_main{
+  height:250px;
+  background-color:white;
+  border-left:1px solid #e5e5e5;
+  border-right:1px solid #e5e5e5;
+}
+
+.bpws_h_name_image{
+  margin-left:30px;
+  width:220px;
+  float:left;
+}
+
+
+.bpws_h_price_box{
+  padding: 10px 2px 0px;
+}
+
+.bpws_h_price_box a{
+  text-decoration:none;
+}
+
+.bpws_h_score_price {
+  margin-top:10px;
+  margin-left:68px;
+  width:280px;
+  float:left;
+}
+.bpws_h_score_price .bpws_h_price_box{
+  margin-bottom:20px;
+}
+
+.bpws_h_specs{
+  float:left;
+  width:278px;
+  margin-left:37px;
+  margin-bottom:10px;
+}
+/*common elements*/
 .bpws_title{
   height:63px;
 }
@@ -82,10 +163,6 @@ p.bpws_more {
   height:72px;
   border-bottom:1px solid #E5E5E5;
   padding:5px 0 15px 0;
-}
-
-.bpws_score_price .bpws_price_box{
-  background-image:url('/images/best_product_with_specs/scorebox.png');
 }
 
 .bpws_score_left {
@@ -184,14 +261,6 @@ p.bpws_score_text {
   text-align:justify;
 }
 
-.bpws_price_box{
-  padding: 10px 2px 0px;
-}
-
-.bpws_price_box a{
-  text-decoration:none;
-}
-
 h3.bpws_price {
   font-size:3.5em;
   text-shadow:1px 1px 0 white;
@@ -267,15 +336,9 @@ p.bpws_best_offer_text_link {
   background-image:url('/images/best_product_with_specs/button-hover.png');
 }
 
-.bpws_specs{
-  margin-bottom:10px;
-}
-
 .bpws_specs_title {
   background-color:white;
   padding:0 5px 5px 5px;
-  border-left: 1px solid #E5E5E5;
-  border-right: 1px solid #E5E5E5;
   width:268px;
 }
 
