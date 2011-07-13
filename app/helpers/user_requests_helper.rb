@@ -63,18 +63,6 @@ module UserRequestsHelper
     end
   end
 
-  def link_to_suggestion product_to_param
-    if root_url == "http://www.choisirfacile.com/"
-      link_to product_path(product_to_param), :target => "_blank", :onClick => "_gaq.push(['_trackEvent', 'results_clicks', 'suggestion', \'star-#{product_to_param}\']);" do
-        yield
-      end
-    else
-      link_to product_path(product_to_param), :target => "_blank" do
-        yield
-      end
-    end
-  end
-
   def link_to_toggle_star_details open_or_close, label_on_button
     if root_url == "http://www.choisirfacile.com/"
       link_to label_on_button, '#', :onClick => "_gaq.push(['_trackEvent', 'toggle_details_click', 'toggle_details', \'#{open_or_close}-star-details\']);"
@@ -95,15 +83,6 @@ module UserRequestsHelper
       t_safe :product_score_flavor_text_high
     else
       t_safe :product_score_flavor_text_performance
-    end
-  end
-
-  def go_button product
-    offer_count = product.offers.count
-    if offer_count == 1
-      t_safe :one_offer_button
-    else
-      (t_safe :several_offers_button_1) + " " + offer_count.to_s +  " " + (t_safe :several_offers_button_2)
     end
   end
 

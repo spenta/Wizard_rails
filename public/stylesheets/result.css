@@ -90,7 +90,7 @@
 
 /* ---------------- Tableau des 3 PC mis en avant ---------------- */
 
-#bestpicktablewrapper {
+#bestpick_wrapper {
   margin:0px auto;
 }
 
@@ -364,25 +364,6 @@ a.scoretooltip:hover span {
   list-style-position:inside;
 }
 
-/* --- Bouton pour aller sur la fiche produit --- */
-.productbutton {
-  width:188px;
-  height:41px;
-  margin:5px auto 10px auto;
-  background-image:url('/images/results/productbutton.png');
-}
-
-.productbutton h4 {
-  font-size:1.9em;
-  text-shadow:1px 1px 0 #666666;
-  color:white;
-  position:absolute;
-  margin:9px 0px 0px 10px;
-}
-
-.productbutton:hover {
-  background-image:url('/images/results/productbutton-hover.png');
-}
 
 /* ---------------- Caractéristiques des 3 PC mis en avant ---------------- */
 /* Rang d'explications */
@@ -937,5 +918,27 @@ a.nounderline {
   color:#666666;
   font-size:1.1em;
   font-style:italic;
+}
+
+.best_mac_button{
+  width:188px;
+  height:41px;
+  margin:5px auto 10px auto;
+  background-image:url('/images/results/productbutton.png');
+}
+
+.best_mac_button:hover {
+  background-image:url('/images/results/productbutton-hover.png');
+}
+
+.best_mac_button a{
+  text-decoration:none;
+}
+.best_mac_button h4 {
+  font-size:1.9em;
+  text-shadow:1px 1px 0 #666666;
+  color:white;
+  position:absolute;
+  margin:9px 0px 0px 10px;
 }
 

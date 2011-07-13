@@ -82,10 +82,6 @@ fr:
   best_offer_text_3: |
     Marchand le moins cher
 
-  # Title before the important specs list
-  important_specs_title: |
-    Les caractéristiques qui comptent pour vous :
-
   #Motives for picking those PCs (OLD)
   bestpicks_motive_1: |
     <h3>Pourquoi avons-nous sélectionné ces trois ordinateurs ?</h3>

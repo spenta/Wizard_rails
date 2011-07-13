@@ -20,37 +20,11 @@
     </div>
     <%# Table pour afficher les 3 PC recommandes %>
     <div class="clearfix"></div>
-    <div id="bestpicktablewrapper">
-      <table id="bestpicktable">
-        <%= render 'star_products_top', :star_products => star_products %>
-
-        <tbody>
-          <%# Boutons pour aller sur la fiche produit %>
-          <tr>
-            <%= render 'star_products_go_buttons', :star_products => star_products%>
-          </tr>
-        </tbody>
-
-
-        <%# Caracteristiques detaillées des produits (le toggle est declare en dessous) %>
-        <tbody id="Collapsable">
-          <%= render 'star_products_bottom', :star_products => star_products, :important_specs_id => important_specs_id %>
-        </tbody>
-
-        <%# Bouton pour afficher ou masquer les caracteristiques completes %>
-        <%#<%= render :partial => 'star_products_expand_buttons' %>
-
-        <%# Arrondis en bas du tableau %>
-        <tbody>
-          <tr>
-            <td class="rounded_bottom" colspan="2"></td>
-            <td class="vspacer"></td>
-            <td class="rounded_bottom" colspan="2"></td>
-            <td class="vspacer"></td>
-            <td class="rounded_bottom" colspan="2"></td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="bestpick_wrapper">
+      <% star_products.first(3).each do |ps| -%>
+        <%= render "layouts/best_product_with_specs", :product_scored => ps, :important_specs_id => important_specs_id  %>
+      <% end -%>
+      <div class="clearfix"></div>
     </div>
   </div>
   <%= render "best_mac", :mac => @user_response.get_best_mac, :important_specs_id => important_specs_id %>

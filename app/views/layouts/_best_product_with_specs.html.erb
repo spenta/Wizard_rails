@@ -1,0 +1,75 @@
+<% infos = product_infos product_scored.product_id -%>
+<% score = product_scored.spenta_score -%>
+<% product_link = infos[:to_param] -%>
+<% offer = Offer.find(infos[:best_offer_id]) -%>
+<% retailer = Retailer.find(infos[:cheapest_retailer_id]) %>
+<div class="bpws_wrapper">
+
+  <div class="bpws_top"></div>
+
+  <div class="bpws_main">
+    <div class = "bpws_title">
+      <%= link_to_suggestion product_link do %>
+        <h1><strong><%= infos[:brand_name] %></strong><br/> <%= truncate infos[:name], :length => 25 %></h1>
+      <% end -%>
+      <%= link_to_suggestion product_link do %>
+        <p class="more"><%= t :bestpick_more %></p>
+      <% end -%>
+    </div>
+    <div class = "bpws_image">
+      <%= link_to_suggestion product_link do %>
+        <%= image_tag infos[:big_img_url], :alt => t(:bestpick_img)+" "+infos[:brand_name]+" "+infos[:name], %>
+      <% end -%>
+    </div>
+    <div class="bpws_score_price">
+      <div class="bpws_score_box">
+        <div class="bpws_score_left">
+          <%= content_tag :h3, :class => "colorid#{get_color_number_relative(score/100)} score_value" do %>
+            <%= score.round%><small>%</small>
+          <%end%>
+          <a href="#" class="scoretooltip">
+            <p class="bpws_your_needs"><%= t :bestpick_metric %><%= image_tag "/images/best_product_with_specs/tooltip.png", :class => "scoretooltipicon", :alt => t(:bestpick_score_tooltip_icon)%></p>
+            <span><%= t_safe :bestpick_spenta_score_tooltip%></span>
+          </a>
+        </div>
+        <div class="bpws_score_right">
+          <p class="bpws_score_text"><%= product_score_flavor_text product_scored %></p>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+      <div class="bpws_price_box">
+        <%= link_to_offer(offer) do %>
+          <div class="bpws_price_left">
+            <p class="bpws_price"><%= t :bestpick_price %></p>
+            <h3 class="bpws_price"><%= infos[:price].floor %><small><%= t(:bestpick_currency)+get_cents_from(infos[:price]) -%></small></h3>
+          </div>
+          <div class="bpws_price_right">
+            <p class="best_offer_text_link"><%= t :best_offer_text_3 %></p>
+            <%= image_tag retailer.logo_url, :class =>"best_offer_logo" %>
+          </div>
+        <% end -%>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+    <div class="bpws_button">
+      <%= link_to_suggestion product_link do %>
+        <h4><%= go_button Product.find(product_scored.product_id) %></h4>
+      <% end -%>
+    </div>
+    <div class="bpws_specs_title">
+      <p><%= t_safe :bpws_specs_title %></p>
+    </div>
+    <div class = "bpws_specs">
+      <% num_line = 1 -%>
+      <% important_specs_id.each do |spec_id| -%>
+        <%= content_tag :div, nil, :class => "bpws_specs_hspacer" unless num_line == 1 %>
+        <%= render 'layouts/bpws_main_specs.html', :num_line => num_line, :spec_id => spec_id, :p_infos => infos %>
+        <div class="clearfix"></div>
+        <% num_line += 1 -%>
+      <% end -%>
+    </div>
+  </div>
+
+  <div class="bpws_bottom"></div>
+
+</div>

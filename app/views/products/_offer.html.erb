@@ -1,27 +1,27 @@
 <% retailer = Retailer.find(offer.retailer_id) %>
 <tr class="offer">
   <td class="offer_thumbnail">
-    <%= link_to_offer offer, @product do %>
+    <%= link_to_offer offer do %>
       <%= image_tag((offer.retailer_small_img_url || "/images/product/not_available.png"), {:alt => product_sold_by(infos, retailer.name), :class => "thumbnail"}) %>
     <% end -%>
   </td>
   <td class="offer_name">
-    <%= link_to_offer offer, @product do %>
+    <%= link_to_offer offer do %>
       <%= retailer_product_name offer%>
     <% end -%>
   </td>
   <td class="offer_logo">
-    <%= link_to_offer offer, @product do %>
+    <%= link_to_offer offer do %>
       <%= image_tag retailer.logo_url, :class => "retailer_logo" %>
     <% end -%>
   </td>
   <td class="offer_price">
-    <%= link_to_offer offer, @product do %>
+    <%= link_to_offer offer do %>
      <%= offer.price.floor %><small>,<%= get_cents_from offer.price%></small> <%= t :currency %>
     <% end -%>
   </td>
   <td class="offer_link">
-    <%= link_to_offer offer, @product do %>
+    <%= link_to_offer offer do %>
       <p class="retailer_incentive">Plus d'informations sur le site marchand</p>
       <div class="offer_button">
         <p class="buy"><%= t :product_buy %></p>

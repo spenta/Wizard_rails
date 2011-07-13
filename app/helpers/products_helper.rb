@@ -43,18 +43,6 @@ module ProductsHelper
     offer.retailer_product_name || "#{infos[:brand_name]} #{infos[:name]}"
   end
 
-  def link_to_offer offer, product
-    if root_url == "http://www.choisirfacile.com/"
-      link_to offer, :target => "_blank", :onClick => "_gaq.push(['_trackEvent', 'retailer_clicks', 'buy', \'buy-#{product.infos[:to_param]}-#{offer.retailer.name}\']);" do
-        yield
-      end
-    else
-      link_to offer, :target => "_blank" do
-        yield
-      end
-    end
-  end
-
   def usage_class_generator product
     if product.infos[:specification_values][3][:sv_score] <= 5
     # GPU = low

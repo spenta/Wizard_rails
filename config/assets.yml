@@ -84,6 +84,9 @@ stylesheets:
   edit_article:
     - public/stylesheets/edit_article.css
 
+  best_product_with_specs:
+    - public/stylesheets/best_product_with_specs.css
+
   codemirror:
     - public/stylesheets/codemirror.css
     - public/stylesheets/codemirror_default.css

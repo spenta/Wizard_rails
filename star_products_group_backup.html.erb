@@ -1,0 +1,58 @@
+<div id="topwrapper">
+  <div id="bestpicks">
+    <!-- Navigation -->
+    <div id="navbuttons">
+      <%= link_to edit_user_request_path do %>
+        <div class="backbutton">
+          <h3 class="buttonlabel"><%= t :result_nav_back %></h3>
+        </div>
+      <% end -%>
+      <%= link_to user_requests_path, :method => :post do %>
+        <div class="restartbutton">
+          <h3 class="buttonlabel"><%= t :result_nav_restart %></h3>
+        </div>
+      <% end -%>
+    </div>
+
+    <div class="toptitle">
+      <h1><%= t :result_page_title %></h1>
+      <h2><%= t_safe :result_page_subtitle1 %><%= link_to "#{Product.all_cached.count} #{t_safe(:result_page_subtitle2)}".html_safe, products_path, :target => "_blank" %> <%= t_safe :result_page_subtitle3  %></h2>
+    </div>
+    <%# Table pour afficher les 3 PC recommandes %>
+    <div class="clearfix"></div>
+    <div id="bestpicktablewrapper">
+      <table id="bestpicktable">
+        <%= render 'star_products_top', :star_products => star_products %>
+
+        <tbody>
+          <%# Boutons pour aller sur la fiche produit %>
+          <tr>
+            <%= render 'star_products_go_buttons', :star_products => star_products%>
+          </tr>
+        </tbody>
+
+
+        <%# Caracteristiques detaillées des produits (le toggle est declare en dessous) %>
+        <tbody id="Collapsable">
+          <%= render 'star_products_bottom', :star_products => star_products, :important_specs_id => important_specs_id %>
+        </tbody>
+
+        <%# Bouton pour afficher ou masquer les caracteristiques completes %>
+        <%#<%= render :partial => 'star_products_expand_buttons' %>
+
+        <%# Arrondis en bas du tableau %>
+        <tbody>
+          <tr>
+            <td class="rounded_bottom" colspan="2"></td>
+            <td class="vspacer"></td>
+            <td class="rounded_bottom" colspan="2"></td>
+            <td class="vspacer"></td>
+            <td class="rounded_bottom" colspan="2"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <%= render "best_mac", :mac => @user_response.get_best_mac, :important_specs_id => important_specs_id %>
+</div>
+

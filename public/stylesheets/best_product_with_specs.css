@@ -1,0 +1,279 @@
+.bpws_wrapper {
+  float:left;
+  width:281px;
+  height:757px;
+  margin-left:19px;
+  margin-right:19px;
+  margin-bottom:20px;
+}
+
+.bpws_top{
+  height:10px;
+  background-image:url('/images/best_product_with_specs/top.png');
+}
+
+.bpws_bottom{
+  height:10px;
+  background-image:url('/images/best_product_with_specs/bottom.png');
+}
+
+.bpws_main{
+  background-color:white;
+  height:760px;
+  border-left:1px solid #e5e5e5;
+  border-right:1px solid #e5e5e5;
+}
+
+.bpws_title{
+  height:63px;
+}
+
+.bpws_title h1{
+  font-size:2.0em;
+  text-shadow:1px 1px 0 #E5E5E5;
+  color:#33332F;
+  text-align:center;
+}
+
+.bpws_title a{
+  text-decoration:none;
+}
+
+.bpws_title strong{
+  font-size:1em;
+  font-weight:bold;
+}
+
+.bpws_image{
+  margin:20px auto;
+  width:220px;
+  height:200px;
+  overflow:hidden;
+}
+
+.bpws_image img{
+  margin:0px auto;
+  display:block;
+  width:220px;
+}
+
+.bpws_price{
+  color:#33332F;
+  font-size:2em;
+}
+.bpws_score_box {
+  width:280px;
+  height:72px;
+  border-bottom:1px solid #E5E5E5;
+  padding:5px 0 5px 0;
+}
+
+.bpws_score_price .bpws_price_box{
+  background-image:url('/images/best_product_with_specs/scorebox.png');
+}
+
+.bpws_score_left {
+  width:110px;
+  float:left;
+}
+
+
+.bpws_score_right {
+  margin-left:8px;
+  width:155px;
+  height:72px;
+  float:left;
+}
+
+p.bpws_your_needs {
+  font-size:1.2em;
+  color:#33332F;
+  text-align:center;
+  font-style:italic;
+}
+
+p.bpws_score_text {
+  padding-top:10px;
+  font-size:1.2em;
+  color:#33332F;
+  height:72px;
+  text-align:justify;
+}
+
+.bpws_price_box{
+  padding: 10px 2px 0px;
+}
+
+.bpws_price_box a{
+  text-decoration:none;
+}
+
+h3.bpws_price {
+  font-size:3.5em;
+  text-shadow:1px 1px 0 white;
+  text-align:center;
+}
+
+p.bpws_price {
+  font-size:1.35em;
+  color:#33332F;
+  text-align:center;
+}
+
+.bpws_price_left {
+  width:110px;
+  float:left;
+}
+
+.bpws_price_right {
+  margin-left:8px;
+  width:155px;
+  float:left;
+}
+
+/* --- Bouton pour aller sur la fiche produit --- */
+.bpws_button {
+  width:188px;
+  height:41px;
+  margin:5px auto 10px auto;
+  background-image:url('/images/best_product_with_specs/button.png');
+}
+.bpws_button a{
+  text-decoration:none;
+}
+.bpws_button h4 {
+  font-size:1.9em;
+  text-shadow:1px 1px 0 #666666;
+  color:white;
+  position:absolute;
+  margin:9px 0px 0px 10px;
+}
+
+.bpws_button:hover {
+  background-image:url('/images/best_product_with_specs/button-hover.png');
+}
+
+.bpws_specs_title {
+  background-color:white;
+  padding:0 5px 5px 5px;
+  border-left: 1px solid #E5E5E5;
+  border-right: 1px solid #E5E5E5;
+  width:268px;
+}
+
+.bpws_specs_title p {
+  color:#33332F;
+  font-size:1.2em;
+  font-weight:bold;
+  text-align:center;
+}
+
+/* Positionnement des elements image, carac et score soient sur la même ligne */
+.bpws_specsrankimage {
+  float:left;
+  padding:8px 10px;
+}
+
+.bpws_specsleft {
+  width:210px;
+  float:left;
+  padding:3px 0;
+}
+
+.bpws_specsright {
+  width:65px;
+  float:left;
+}
+
+.bpws_specsname {
+  color:#33332F;
+  font-size:1.6em;
+  font-weight:bold;
+  margin:0 0 3px 0;
+}
+
+p.bpws_specsvalue {
+  color:#666666;
+  font-size:1.3em;
+  font-style:normal;
+  margin:0 0 2px 0;
+}
+
+p.bpws_specscore {
+  font-size:3em;
+  font-weight:bold;
+  margin:3px 10px 0 0;
+  text-align:right;
+}
+
+/* --- Tooltip des caracteristiques --- */
+
+a.bpws_specstooltip {
+  position:relative;
+  text-decoration:none;
+}
+
+a.bpws_specstooltip:hover {
+  background: none;
+  z-index: 1;
+}
+
+a.bpws_specstooltip span {
+  display: none;
+  position:relative;
+}
+
+.bpws_tooltip_icon {
+  float:right;
+  margin-right:4px;
+  height:12px;
+  width:12px;
+  margin-top:12px;
+}
+
+/* Style du popup lorsqu'il s'affiche */
+a.bpws_specstooltip:hover span {
+  display: block;
+  position: absolute;
+  width:180px;
+  top:-35px;
+  left:-160px;
+  background:#D4FCD9;
+  padding: 8px;
+  border: 1px solid #057619;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+}
+
+a.mark_tooltip:hover span {
+  left:-180px;
+}
+
+/* Formatage du texte du tooltip */
+
+p.bpws_specstooltip {
+  font-size:1.2em;
+  color:#33332F;
+  text-align:justify;
+}
+
+.bpws_specstooltip strong {
+  font-size:1em;
+  font-weight:bold;
+  color:#33332F;
+  text-align:justify;
+}
+
+.bpws_specstooltip li {
+  font-size:1.2em;
+  color:#33332F;
+  margin:1px 5px;
+  text-align:justify;
+  list-style-type:disc;
+  list-style-position:inside;
+}
+
+.bpws_specs_hspacer{
+  background-image: url('/images/best_product_with_specs/hspacer.png');
+  height: 1px;
+}
