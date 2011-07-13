@@ -63,14 +63,14 @@ p.bpws_more {
 .bpws_image{
   margin:20px auto;
   width:220px;
-  height:200px;
+  height:170px;
   overflow:hidden;
 }
 
 .bpws_image img{
   margin:0px auto;
   display:block;
-  width:220px;
+  height:170px;
 }
 
 .bpws_price{

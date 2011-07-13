@@ -1,7 +1,0 @@
-<%= render :partial => 'vspacer', :locals => {:is_first_column => is_first_column} %>
-<td class="bestpickcolumn" colspan="2" >
-  <% product = Product.find(p.product_id) -%>
-  <%= link_to_suggestion product.infos[:to_param] do %>
-    <%= image_tag product.big_img_url, :alt => t(:bestpick_img)+" "+product.infos[:brand_name]+" "+product.name, :class => "featuredimg"%>
-  <% end -%>
-</td>
