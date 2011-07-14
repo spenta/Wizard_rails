@@ -18,32 +18,29 @@
       });
     </script>
 <% end -%>
-<%SuperUsage.all.each do |su|%>
-  <%unless su.name == "Mobilite"%>
-    <% su_id = su.id -%>
-    <%= content_tag :div, :class => "question", :id => "super-usage#{su_id}" do %>
-      <span class="qicon"></span>
-      <div class="qbody">
-        <div class="qname"><h2 class="usageTitle"><%=t_safe "super_usage_title#{su_id}"%></h2></div>
-        <div class="qdesc">
-          <h3 class="usageSubQuestion"><%=t_safe "super_usage_question#{su_id}"%></h3>
-          <p class="usageExplain"><%=t :selection_step_hint %></p>
-        </div>
-        <div class="qinfo">
-          <%= t_safe "selection_step_sideinfo_superusage#{su_id}" %>
-        </div>
-        <%@usage_choices=@user_request.usage_choices.where(:usage_id => su.usages)%>
-        <div class="answer multichoice">
-          <%@usage_choices.each do |uc|%>
-            <% usage_id = uc.usage.id -%>
-            <label>
-              <%=check_box_tag "usage_choice_selected_#{uc.id}", 1, uc.is_selected%><input type="hidden" value="on"/>
-              <span class="name"><%=t_safe "usage_title#{usage_id}"%></span>
-              <span class="desc"><%=t_safe "usage_description#{usage_id}"%></span>
-            </label>
-          <%end%>
-        </div>
+<% SuperUsage.all_cached_no_mobilities.each do |su_id, u_ids| -%>
+  <%= content_tag :div, :class => "question", :id => "super-usage#{su_id}" do %>
+    <span class="qicon"></span>
+    <div class="qbody">
+      <div class="qname"><h2 class="usageTitle"><%=t_safe "super_usage_title#{su_id}"%></h2></div>
+      <div class="qdesc">
+        <h3 class="usageSubQuestion"><%=t_safe "super_usage_question#{su_id}"%></h3>
+        <p class="usageExplain"><%=t :selection_step_hint %></p>
       </div>
-    <% end -%>
-  <%end%>
+      <div class="qinfo">
+        <%= t_safe "selection_step_sideinfo_superusage#{su_id}" %>
+      </div>
+      <%@usage_choices=@user_request.usage_choices.where(:usage_id => u_ids)%>
+      <div class="answer multichoice">
+        <%@usage_choices.each do |uc|%>
+          <% usage_id = uc.usage_id -%>
+          <label>
+            <%=check_box_tag "usage_choice_selected_#{uc.id}", 1, uc.is_selected%><input type="hidden" value="on"/>
+            <span class="name"><%=t_safe "usage_title#{usage_id}"%></span>
+            <span class="desc"><%=t_safe "usage_description#{usage_id}"%></span>
+          </label>
+        <%end%>
+      </div>
+    </div>
+  <% end -%>
 <%end%>

@@ -20,17 +20,22 @@ class UserRequest < ActiveRecord::Base
     %w[selection weights mobilities]
   end
   
-  #array of [super_usage_id, weight_for_user] 
+  #hash of {super_usage_id => weight_for_user} 
   def selected_super_usages
-    #gets all selected super usages
-    result = []
-    usage_choices.where(:is_selected => true).all.each {|uc| result << [Usage.find(uc.usage_id).super_usage_id, uc.weight_for_user]}
-    result.uniq!
+    result = {}
+    super_usages = SuperUsage.all_cached_no_mobilities
+    mobility_ids = SuperUsage.mobilities
+    usage_choices.where(:is_selected => true).all.each do |uc|
+      unless mobility_ids.include?(uc.usage_id)
+        super_usage_id = super_usages.select{|su_id, u_ids| u_ids.include?(uc.usage_id)}.keys.first
+        result[super_usage_id] = uc.weight_for_user
+      end
+    end
     result
   end
 
   def mobility_choices
-    mobilities_id = SuperUsage.where(:name => "Mobilite").first.usages.all.collect{|m| m.id}
+    mobilities_id = SuperUsage.mobilities
     mobility_choices = usage_choices.select {|uc| mobilities_id.include?(uc.usage_id) }
   end
 

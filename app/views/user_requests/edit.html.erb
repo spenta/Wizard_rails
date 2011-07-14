@@ -20,13 +20,13 @@
       <div style="clear:both;"></div>
 
       <div class="actions">
-      <% unless @user_request.current_step == "selection"%>
-        <%= link_to  t(:nav_button_prev), edit_user_request_path(:back => "true"), :class => "prev-button"%>
-      <% end -%>
+        <% unless @user_request.current_step == "selection"%>
+          <%= link_to  t(:nav_button_prev), edit_user_request_path(:back => "true"), :class => "prev-button"%>
+        <% end -%>
 
-      <%= f.submit t(:nav_button_next), :class => "next-button" %>
+        <%= f.submit t(:nav_button_next), :class => "next-button" %>
 
-    </div>
+      </div>
 
     <% end %>
 

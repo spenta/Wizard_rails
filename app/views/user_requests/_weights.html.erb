@@ -8,21 +8,21 @@
       });
   </script>
 <% end -%> 
-<% @user_request.selected_super_usages.each do |su| -%>
-    <div class="question" id=<%= "super-usage#{su[0]}" %>>
+<% @user_request.selected_super_usages.each do |su_id, weight| -%>
+    <div class="question" id=<%= "super-usage#{su_id}" %>>
     <span class="qicon"></span> 
       <div class="qbody">
 
         <div class="qname">
-            <h2 class="usageTitle"><%= t_safe "super_usage_title#{su[0]}" %></h2>
-            <p class="weightExplain"><%= t_safe "weight_step_question_superusage#{su[0]}" %></p>
+            <h2 class="usageTitle"><%= t_safe "super_usage_title#{su_id}" %></h2>
+            <p class="weightExplain"><%= t_safe "weight_step_question_superusage#{su_id}" %></p>
         </div>
 
         <div class="answer">
-          <%= content_tag :select,{:class => "slider nosnap", :name => "super_usage_weight_#{su[0]}"} do %>
+          <%= content_tag :select,{:class => "slider nosnap", :name => "super_usage_weight_#{su_id}"} do %>
             <option value="0"><%= t :weights_step_not_important %></option>
             <option value=""></option>
-            <option value="<%= su[1].to_s %>" selected="selected"></option>
+            <option value="<%= weight.to_s %>" selected="selected"></option>
             <option value=""></option>
             <option value="100"><%= t :weights_step_very_important %></option>
           <% end -%>

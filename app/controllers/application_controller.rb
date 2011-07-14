@@ -29,6 +29,8 @@ class ApplicationController < ActionController::Base
       build_response_for_user_profile profile
     end
     Retailer.all_cached
+    SuperUsage.all_cached_no_mobilities
+    SuperUsage.mobilities
     Rails.cache.write('cache_state', 'complete')
   end
 

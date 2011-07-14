@@ -59,51 +59,12 @@ class UserRequestsController < ApplicationController
     if session[:user_response]
       session[:start_timer] = Time.new
       @user_response = session[:user_response]
-      #used for pagination
-      #sort_response! @user_response.products_for_display, :by => params[:sort], :order => params[:direction]
-      #request_options = process_request_options({:start_index => params[:start_index], :num_result => params[:num_result]})
-      #@start_index = request_options[:start_index]
-      #@num_result = request_options[:num_result]
     else
       redirect_to :root
     end
   end
 
   private
-
-  #used for pagination
-  #def sort_response!(ary, options = {:by => 'score', :order => 'desc'})
-    #case options[:by]
-    #when 'score' then ary.sort! {|p2, p1| p1.spenta_score <=> p2.spenta_score}
-    #when 'price' then ary.sort! {|p2, p1| p1.price <=> p2.price}
-    #when 'brand' then ary.sort! {|p1, p2| Product.find(p1.product_id).brand.name <=> Product.find(p2.product_id).brand.name}
-    #when 'name' then ary.sort! {|p1, p2| Product.find(p1.product_id).name <=> Product.find(p2.product_id).name}
-    #when 'medals'
-      ##create 3 different arrays, sorts them and concatenate them
-      #stars = ary.select {|p| p.is_star}
-      #good_deals = ary.select {|p| p.is_good_deal && !p.is_star}
-      #rest = ary.reject {|p| p.is_good_deal}
-      #sort_response! stars, :by => 'score'
-      #sort_response! good_deals, :by => 'score'
-      #sort_response! rest, :by => 'score'
-      #ary.clear
-      #new_ary = (stars + good_deals + rest)
-      #new_ary.each { |p| ary << p }
-    #else ary.sort! {|p2, p1| p1.spenta_score <=> p2.spenta_score}
-    #end
-    #ary.reverse! if options[:order] == "asc"
-  #end
-
-  #used for pagination
-  #def process_request_options options
-    #result = {}
-    #options[:start_index] ||= 0
-    #options[:num_result] ||= 10
-    #start_index = [options[:start_index].to_i, 0].max
-    #num_result = [options[:num_result].to_i, 5].max
-    #result = {:start_index => start_index, :num_result => num_result}
-  #end
-
   def create_usage_choices_for super_usage, user_request, options = {:with_initial_weight => 0}
     super_usage.usages.each do |u|
       usage_choice = UsageChoice.new(:weight_for_user => options[:with_initial_weight],
