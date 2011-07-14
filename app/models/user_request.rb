@@ -35,8 +35,8 @@ class UserRequest < ActiveRecord::Base
   end
 
   def mobility_choices
-    mobilities_id = SuperUsage.mobilities
-    mobility_choices = usage_choices.select {|uc| mobilities_id.include?(uc.usage_id) }
+    mobility_ids = SuperUsage.mobilities
+    mobility_choices = usage_choices.select {|uc| mobility_ids.include?(uc.usage_id) }
   end
 
   def update_selection params
@@ -49,8 +49,9 @@ class UserRequest < ActiveRecord::Base
     end
     raise I18n.t(:no_usage_selected_error) if @usage_choices_selected.empty?
     #update of is_selected for each usage_choice
+    mobility_ids = SuperUsage.mobilities
     usage_choices.each do |uc|
-      unless uc.usage.super_usage.name == "Mobilite"
+      unless mobility_ids.include?(uc.usage_id)
         uc.update_attributes :is_selected => @usage_choices_selected.include?(uc.id)
       end
     end
@@ -62,8 +63,9 @@ class UserRequest < ActiveRecord::Base
       if key =~ /super_usage_weight_./
         are_weights_selected = true if weight_for_user.to_i > 0
         super_usage_id = key.split('_').last
+        super_usages_cached = SuperUsage.all_cached_no_mobilities
         begin
-          usage_choices_to_update = SuperUsage.find(super_usage_id).usages.collect {|u| usage_choices.where(:usage_id => u.id).first}
+          usage_choices_to_update = usage_choices.select{|uc| uc.is_selected and super_usages_cached[super_usage_id]}
         rescue
           raise I18n.t(:weights_step_wrong_choices) unless uc.update_attributes(:weight_for_user => weight_for_user.to_i)
         end

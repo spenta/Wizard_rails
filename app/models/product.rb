@@ -41,11 +41,12 @@ class Product < ActiveRecord::Base
     # Brand 
     brand_name = brand.name
     infos[:brand_name] = brand_name
-    # Price
-    best_price_and_retailer = get_best_price_and_retailer
+    # offers
+    best_price_and_retailer = get_best_price_and_retailer offers
     infos[:price] = best_price_and_retailer[:best_price]
     infos[:cheapest_retailer_id] = best_price_and_retailer[:cheapest_retailer_id]
     infos[:best_offer_id] = best_price_and_retailer[:best_offer_id]
+    infos[:num_offers] = offers.count
     # Images
     infos[:has_image] = true
     infos[:small_img_url] = small_img_url
@@ -83,10 +84,10 @@ class Product < ActiveRecord::Base
   end
 
   #gets the minimal price among all offers
-  def get_best_price_and_retailer
+  def get_best_price_and_retailer offers
     result={}
-    if self.offers.count > 0
-      best_offer = self.offers.sort{|o1, o2| o1.price <=> o2.price}.first
+    if offers.count > 0
+      best_offer = offers.sort{|o1, o2| o1.price <=> o2.price}.first
       result = {:best_price => best_offer.price, :best_offer_id => best_offer.id, :cheapest_retailer_id => best_offer.retailer_id}
     else
       result={:best_price => 0, :best_offer_id => "none", :cheapest_retailer => "none"}

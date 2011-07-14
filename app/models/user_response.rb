@@ -60,46 +60,40 @@ class UserResponseBuilder
 
   def process_specification_needs!
     #selected usages without mobilities
-    @selected_usages_choices = []
+    @selected_usage_choices = []
+    mobility_ids = SuperUsage.mobilities
     @user_request.usage_choices.each do |uc|
-      @selected_usages_choices << uc unless uc.usage.super_usage.name == 'Mobilite' || !uc.is_selected
+      @selected_usage_choices << uc unless mobility_ids.include?(uc.usage_id) == 'Mobilite' || !uc.is_selected
     end
-    SuperUsage.all.each do |su|
-      #handling of mobilities
-      if su.name == 'Mobilite'
-        su.usages.each do |m|
-          mobility_id = m.id
-          mobility_choice = @user_request.usage_choices.select{|uc| uc.usage_id == mobility_id}.first
-          unless mobility_choice.nil?
-            Requirement.mobilities_requirements[mobility_id].each do |spec_id, req_hash|
-              #needs should be the same as requirements.
-              @specification_needs_for_mobilities[spec_id][mobility_id] = [req_hash[:target_score], req_hash[:weight], mobility_choice.weight_for_user]
-            end
-          end
+    #handling of mobilities
+    mobility_ids.each do |mobility_id|
+      mobility_choice = @user_request.usage_choices.select{|uc| uc.usage_id == mobility_id}.first
+      unless mobility_choice.nil?
+        Requirement.mobilities_requirements[mobility_id].each do |spec_id, req_hash|
+          #needs should be the same as requirements.
+          @specification_needs_for_mobilities[spec_id][mobility_id] = [req_hash[:target_score], req_hash[:weight], mobility_choice.weight_for_user]
         end
-      #handling of usages
-      else
-        @selected_usage_choices_for_super_usage = []
-        @selected_usages_choices.each do |selected_uc|
-          @selected_usage_choices_for_super_usage << selected_uc if su.usages.include?(selected_uc.usage)
-        end
-        num_selections = @selected_usage_choices_for_super_usage.size
+      end
+    end
+    #handling of usages
+    SuperUsage.all_cached_no_mobilities.each do |su_id, u_ids|
+      @selected_usage_choices_for_super_usage = @selected_usage_choices.select{|uc| u_ids.include?(uc.usage_id)}
+      num_selections = @selected_usage_choices_for_super_usage.size
 
-        Specification.all_cached.each do |spec|
-          if num_selections == 0
-            @specification_needs_for_usages[spec.id][su.id] = [0, 0, 0]
-          else
-            target_score = 0
-            weight = 0
-            @selected_usage_choices_for_super_usage.each do |uc|
-              usage_id = uc.usage_id
-              req_hash = Requirement.usages_requirements[usage_id][spec.id]
-              #target_score need is the maximal value among target_score for each requirement
-              target_score = req_hash[:target_score] if req_hash[:target_score] > target_score
-              #weight need is the average among weights for each requirement
-              weight += req_hash[:weight]/num_selections
-              @specification_needs_for_usages[spec.id][su.id] = [target_score, weight, uc.weight_for_user]
-            end
+      Specification.all_cached.each do |spec|
+        if num_selections == 0
+          @specification_needs_for_usages[spec.id][su_id] = [0, 0, 0]
+        else
+          target_score = 0
+          weight = 0
+          @selected_usage_choices_for_super_usage.each do |uc|
+            usage_id = uc.usage_id
+            req_hash = Requirement.usages_requirements[usage_id][spec.id]
+            #target_score need is the maximal value among target_score for each requirement
+            target_score = req_hash[:target_score] if req_hash[:target_score] > target_score
+            #weight need is the average among weights for each requirement
+            weight += req_hash[:weight]/num_selections
+            @specification_needs_for_usages[spec.id][su_id] = [target_score, weight, uc.weight_for_user]
           end
         end
       end
@@ -122,8 +116,8 @@ class UserResponseBuilder
   def process_gammas!
     #calculate sum_beta_usages et sum_beta_mobilities
     sum_beta_usages, sum_beta_mobilities = 0,0
-    @specification_needs_for_usages[Specification.first.id].each_value {|needs| sum_beta_usages += needs[2]}
-    @specification_needs_for_mobilities[Specification.first.id].each_value {|needs| sum_beta_mobilities += needs[2]}
+    @specification_needs_for_usages[Specification.all_cached.first.id].each_value {|needs| sum_beta_usages += needs[2]}
+    @specification_needs_for_mobilities[Specification.all_cached.first.id].each_value {|needs| sum_beta_mobilities += needs[2]}
     Specification.all_cached.each do |spec|
       #gammas for usages
       theta, theta_prime = 0,0
