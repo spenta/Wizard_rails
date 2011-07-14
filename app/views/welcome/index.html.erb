@@ -148,7 +148,7 @@
       <div id="merchants">
         <h2><%= t :home_retailer_title %></h2>
         <img class="retailer_logo" src="/images/home/marchands_ordinateur_portable.jpg" alt="<%= t :retailers_alt %>" />
-        <p><%= t :home_retailer_count_1 %> <%= Retailer.all_cached.length %> <%= t :home_retailer_count_2 %> <em><%= Product.all_cached.count %> <%= t :home_retailer_count_3 %></em></p>
+        <p><%= t :home_retailer_count_1 %> <%= Retailer.all_cached.length %> <%= t :home_retailer_count_2 %> <em><%= Product.num_valid %> <%= t :home_retailer_count_3 %></em></p>
       </div>
 
       <div class="clearfix"></div>

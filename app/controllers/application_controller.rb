@@ -22,6 +22,7 @@ class ApplicationController < ActionController::Base
     Product.all_cached.each do |p|
       p.infos
     end
+    Product.num_valid
     Requirement.usages_requirements
     Requirement.mobilities_requirements
     Specification.all_cached
@@ -31,6 +32,7 @@ class ApplicationController < ActionController::Base
     Retailer.all_cached
     SuperUsage.all_cached_no_mobilities
     SuperUsage.mobilities
+    Retailer.all_cached
     Rails.cache.write('cache_state', 'complete')
   end
 

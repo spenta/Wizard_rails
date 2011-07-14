@@ -2,8 +2,7 @@
   <% good_deal_products.each do |p| -%>
   <%# Produit %>
   <% p_id = p.product_id -%>
-  <% product = Product.find(p_id)%>
-  <% p_infos = product.infos%>
+  <% p_infos = Rails.cache.read("product_infos_#{p_id}")%>
   <tr class="product">
     <td class="thumb">
       <span></span>
@@ -20,17 +19,16 @@
       <%= link_to product_path(p_infos[:to_param]), :target => "_blank", :class => "nounderline" do%>
         <div class="brand"><%= p_infos[:brand_name] %></div>
         <div class="name"><%= truncate p_infos[:name], :length => 20 %></div>
-        <div class="more"><%= t :extras_more_1 -%><br /><%= t :extras_more_2 -%> <%= product.offers.count %> <%= t :extras_more_3 -%></div>
+        <div class="more"><%= t :extras_more_1 -%><br /><%= t :extras_more_2 -%> <%= p_infos[:num_offers] %> <%= t :extras_more_3 -%></div>
       <% end -%>
     </td>
     <td class="price">
-      <% cheapest_offer = product.offers.order("price asc").first %>
-      <%= link_to cheapest_offer, :target => "_blank", :onClick => "_gaq.push(['_trackEvent', 'retailer_clicks', 'buy', \'buy-#{cheapest_offer.retailer.name}-#{cheapest_offer.product[:name]}\']);", :class => "nounderline" do%>
+      <% cheapest_offer = Offer.find(p_infos[:best_offer_id]) %>
+      <%= link_to cheapest_offer, :target => "_blank", :onClick => "_gaq.push(['_trackEvent', 'retailer_clicks', 'buy', \'buy-#{Retailer.all_cached.find(:cheapest_retailer_id)}-#{cheapest_offer.product[:name]}\']);", :class => "nounderline" do%>
         <div class="price">
           <%= p.price.floor %><small>€<%= get_cents_from p.price %></small><br/>
           <%= image_tag cheapest_offer.retailer.logo_url, :class =>"offer_logo" %>
         </div>
-
       <% end -%>
     </td>
     <%# Spenta score %>

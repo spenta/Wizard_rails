@@ -17,8 +17,11 @@ class Product < ActiveRecord::Base
   end
 
   def self.all_cached
-    products = Product.all.select{|p| p.price>0 and p.infos[:has_image]}
-    Rails.cache.fetch("all_products") {products}
+    Rails.cache.fetch("all_products"){valid_products}
+  end
+
+  def self.num_valid
+    Rails.cache.fetch("products_count"){valid_products.length}
   end
 
   def price
@@ -92,6 +95,12 @@ class Product < ActiveRecord::Base
     else
       result={:best_price => 0, :best_offer_id => "none", :cheapest_retailer => "none"}
     end  
+  end
+
+  private
+
+  def self.valid_products
+    self.all.select{|p| p.price>0 and p.infos[:has_image]}
   end
 
 end

@@ -26,7 +26,7 @@ module ApplicationHelper
   end
 
   def cat_subtitle
-    str = "#{t :cat_subtitle_1 } <strong>#{Product.all_cached.size} #{t :cat_subtitle_2 }</strong> #{t :cat_subtitle_3} <strong>#{Retailer.count} #{t :cat_subtitle_4}</strong> #{t :cat_subtitle_5}"
+    str = "#{t :cat_subtitle_1 } <strong>#{Product.num_valid} #{t :cat_subtitle_2 }</strong> #{t :cat_subtitle_3} <strong>#{Retailer.count} #{t :cat_subtitle_4}</strong> #{t :cat_subtitle_5}"
     str.html_safe
   end
 
@@ -68,12 +68,11 @@ module ApplicationHelper
     Rails.cache.read("product_infos_#{product_id}")
   end
 
-  def go_button product
-    offer_count = product.offers.count
-    if offer_count == 1
+  def go_button num_offers
+    if num_offers == 1
       t_safe :one_offer_button
     else
-      (t_safe :several_offers_button_1) + " " + offer_count.to_s +  " " + (t_safe :several_offers_button_2)
+      (t_safe :several_offers_button_1) + " " + num_offers.to_s +  " " + (t_safe :several_offers_button_2)
     end
   end
 
