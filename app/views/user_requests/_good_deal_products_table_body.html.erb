@@ -24,7 +24,7 @@
     </td>
     <td class="price">
       <% cheapest_offer = Offer.find(p_infos[:best_offer_id]) %>
-      <%= link_to cheapest_offer, :target => "_blank", :onClick => "_gaq.push(['_trackEvent', 'retailer_clicks', 'buy', \'buy-#{Retailer.all_cached.find(:cheapest_retailer_id)}-#{cheapest_offer.product[:name]}\']);", :class => "nounderline" do%>
+      <%= link_to_offer cheapest_offer do %>
         <div class="price">
           <%= p.price.floor %><small>€<%= get_cents_from p.price %></small><br/>
           <%= image_tag cheapest_offer.retailer.logo_url, :class =>"offer_logo" %>

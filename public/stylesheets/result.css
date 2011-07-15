@@ -286,6 +286,11 @@ p.more {
   width:956px;
   margin:0px auto;
 }
+
+#extratable a{
+  text-decoration:none;
+}
+
 #extras td, #extras th {
   border-width:2px 1px;
   border-style:solid;

@@ -78,7 +78,7 @@ module ApplicationHelper
 
   def link_to_suggestion product_to_param
     if root_url == "http://www.choisirfacile.com/"
-      link_to product_path(product_to_param), :target => "_blank", :onClick => "_gaq.push(['_trackEvent', 'results_clicks', 'suggestion', \'star-#{product_to_param}\']);" do
+      link_to product_path(product_to_param), :target => "_blank", :onClick => "_gaq.push(['_trackEvent', 'results_clicks', 'suggestion', \'suggestion-#{product_to_param}\']);" do
         yield
       end
     else
@@ -89,8 +89,8 @@ module ApplicationHelper
   end
 
   def link_to_offer offer
-    if root_url == "http://www.choisirfacile.com/"
-      link_to offer_path(offer.to_param), :target => "_blank", :onClick => "_gaq.push(['_trackEvent', 'results_clicks', 'offre', \'offre-#{offer.to_param}\']);" do
+    if root_url != "http://www.choisirfacile.com/"
+      link_to offer_path(offer.to_param), :target => "_blank", :onClick => "_gaq.push(['_trackEvent', 'retailer_clicks', 'buy', \'buy-#{offer.to_param}\']);" do
         yield
       end
     else
