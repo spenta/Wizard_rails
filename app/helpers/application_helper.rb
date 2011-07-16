@@ -89,7 +89,7 @@ module ApplicationHelper
   end
 
   def link_to_offer offer
-    if root_url != "http://www.choisirfacile.com/"
+    if root_url == "http://www.choisirfacile.com/"
       link_to offer_path(offer.to_param), :target => "_blank", :onClick => "_gaq.push(['_trackEvent', 'retailer_clicks', 'buy', \'buy-#{offer.to_param}\']);" do
         yield
       end
