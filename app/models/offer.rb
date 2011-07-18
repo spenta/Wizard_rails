@@ -12,7 +12,7 @@ class Offer < ActiveRecord::Base
     str+=retailer_product_name
     str+="-"
     str += id.to_s
-    str.gsub(/[\/\ \.\"\']/,'-')
+    str.gsub(/[\/\ \.\"\'%]/,'-')
   end
 end
 
