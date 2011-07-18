@@ -39,6 +39,7 @@
 
 .bpws_v_score_price .bpws_v_price_box{
   background-image:url('/images/best_product_with_specs/scorebox.png');
+  height:90px;
 }
 
 .bpws_v_specs{
@@ -148,10 +149,31 @@ p.bpws_more {
   overflow:hidden;
 }
 
-.bpws_image img{
+.bpws_image img.product_image{
   margin:0px auto;
   display:block;
   height:170px;
+}
+
+.bpws_image div.discount_tag{
+  position: absolute;
+  background-image: url("/images/red-rectangle.png");
+  margin-left: 160px;
+  z-index: 1;
+  width: 70px;
+  height: 36px;
+}
+
+.bpws_image a{
+  text-decoration:none;
+}
+
+.bpws_image p.discount_percentage{
+  font-size: 2.4em;
+  color: white;
+  font-weight: bold;
+  margin-top: 5px;
+  text-align:center;
 }
 
 .bpws_price{
@@ -267,6 +289,10 @@ h3.bpws_price {
   text-align:center;
 }
 
+.bpws_price_left h3.red{
+  color:red;
+}
+
 p.bpws_price {
   font-size:1.35em;
   color:#33332F;
@@ -280,8 +306,17 @@ p.bpws_price {
 
 .bpws_price_right {
   margin-left:8px;
+  margin-top:12px;
   width:155px;
   float:left;
+}
+
+.bpws_old_price{
+  text-decoration:line-through;
+  color:black;
+  font-size:1.6em;
+  text-align:right;
+  padding-right:10px;
 }
 
 /* Meilleure offre */

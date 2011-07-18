@@ -18,7 +18,12 @@
       </div>
       <div class = "bpws_image">
         <%= link_to_suggestion product_link do %>
-          <%= image_tag infos[:big_img_url], :alt => t(:bestpick_img)+" "+infos[:brand_name]+" "+infos[:name] %>
+          <% if infos[:discount_percentage] -%>
+            <div class="discount_tag">
+              <p class="discount_percentage"><%= (infos[:discount_percentage]*100).round %>%</p>
+            </div>
+          <% end -%>
+          <%= image_tag infos[:big_img_url], :alt => t(:bestpick_img)+" "+infos[:brand_name]+" "+infos[:name], :class => "product_image" %>
         <% end -%>
       </div>
     <% end -%>
@@ -42,7 +47,14 @@
         <%= link_to_offer(offer) do %>
           <div class="bpws_price_left">
             <p class="bpws_price"><%= t :bestpick_price %></p>
-            <h3 class="bpws_price"><%= infos[:price].floor %><small><%= t(:bestpick_currency)+get_cents_from(infos[:price]) -%></small></h3>
+            <% formated_price = get_formated_price infos[:price] %>
+            <% if infos[:discount_percentage] -%>
+              <% formated_old_price = get_formated_price infos[:old_price] %>
+              <h3 class="bpws_price red"><%= "#{formated_price[:euros]}#{t(:bestpick_currency)}" %><small><%= formated_price[:cents] -%></small></h3>
+              <p class="bpws_old_price red"><%= "#{formated_old_price[:euros]}#{t(:bestpick_currency)}" %><small><%= formated_old_price[:cents] -%></small></p>
+            <% else -%>
+              <h3 class="bpws_price"><%= "#{formated_price[:euros]}#{t(:bestpick_currency)}" %><small><%= formated_price[:cents] -%></small></h3>
+            <% end -%>
           </div>
           <div class="bpws_price_right">
             <p class="bpws_best_offer_text_link"><%= t :best_offer_text_3 %></p>
