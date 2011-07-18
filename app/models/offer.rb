@@ -4,6 +4,8 @@ class Offer < ActiveRecord::Base
   belongs_to :retailer
   belongs_to :product
 
+  DISCOUNT_THRESHOLD = -0.02
+
   def to_param
     str = "pc portable"
     str+="-"
@@ -14,5 +16,19 @@ class Offer < ActiveRecord::Base
     str += id.to_s
     str.gsub(/[\/\ \.\"\']/,'-')
   end
+
+  def get_discount_percentage
+    if (old_price and old_price > 1)
+      discount = (price - old_price)/old_price
+    end
+    (discount and discount < DISCOUNT_THRESHOLD) ? discount : nil
+  end
+
+  def get_discount_absolute
+    if price && old_price
+      price - old_price
+    end
+  end
+
 end
 

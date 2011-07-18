@@ -100,6 +100,14 @@ module ApplicationHelper
     end
   end
 
+  def get_formated_price price
+    result={}
+    result[:euros] = price.floor
+    result[:cents] = get_cents_from price
+    result
+  end
+
+
 
   private
 

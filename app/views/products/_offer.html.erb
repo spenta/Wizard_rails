@@ -17,7 +17,23 @@
   </td>
   <td class="offer_price">
     <%= link_to_offer offer do %>
-     <%= offer.price.floor %><small>,<%= get_cents_from offer.price%></small> <%= t :currency %>
+      <% formated_price = get_formated_price(offer.price) %>
+      <% if offer.get_discount_percentage.nil? -%>
+        <p class="normal_price"><%= "#{formated_price[:euros]}#{t(:currency)}"%><small><%= formated_price[:cents]%></small></p> 
+      <% else -%>
+        <% formated_old_price = get_formated_price(offer.old_price) %>
+        <% formated_discount = get_formated_price(offer.old_price - offer.price) -%>
+        <div class="price_box">
+          <div class="price_box_left">
+            <p class="old_price"><%= "#{formated_old_price[:euros]}#{t(:currency)}"%><small><%= formated_old_price[:cents]%></p> 
+            <p class="discount_price"><%= "#{formated_price[:euros]}#{t(:currency)}"%><small><%= formated_price[:cents]%></p> 
+          </div>
+          <div class="price_box_right">
+            <p class="discount_percentage"><%= (offer.get_discount_percentage*100).round %> %</p> 
+            <p class="discount_absolute"><small>soit</small><%=" #{formated_discount[:euros]}#{t(:currency)} " %><small>d'éco.</small></p> 
+          </div>
+        </div>
+      <% end -%>
     <% end -%>
   </td>
   <td class="offer_link">

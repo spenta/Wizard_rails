@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110707124638) do
+ActiveRecord::Schema.define(:version => 20110718093740) do
 
   create_table "affiliation_platforms", :force => true do |t|
     t.string   "name"
@@ -47,6 +47,8 @@ ActiveRecord::Schema.define(:version => 20110707124638) do
     t.integer  "product_id"
     t.string   "retailer_product_name"
     t.text     "retailer_small_img_url"
+    t.float    "old_price"
+    t.float    "shipping_price"
   end
 
   add_index "offers", ["product_id"], :name => "index_offers_on_product_id"

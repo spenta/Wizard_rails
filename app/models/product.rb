@@ -4,6 +4,8 @@ class Product < ActiveRecord::Base
   has_many :products_specs_values
   has_many :offers
   validates :name, :brand, :presence => true
+
+  DISCOUNT_THRESHOLD = -0.02
   
   #to_param method is overriden in order to have custom url names
   def to_param brand_name, product_name
@@ -45,10 +47,20 @@ class Product < ActiveRecord::Base
     brand_name = brand.name
     infos[:brand_name] = brand_name
     # offers
-    best_price_and_retailer = get_best_price_and_retailer offers
-    infos[:price] = best_price_and_retailer[:best_price]
-    infos[:cheapest_retailer_id] = best_price_and_retailer[:cheapest_retailer_id]
-    infos[:best_offer_id] = best_price_and_retailer[:best_offer_id]
+    best_offer = get_best_offer
+    if best_offer
+      infos[:price] = best_offer.price
+      infos[:cheapest_retailer_id] = best_offer.retailer_id
+      infos[:best_offer_id] = best_offer.id
+      infos[:old_price] = best_offer.old_price
+      infos[:discount_percentage] = best_offer.get_discount_percentage
+      infos[:discount_absolute] = best_offer.get_discount_absolute
+      infos[:shipping_price] = best_offer.shipping_price
+    else
+      infos[:price] = 0
+      infos[:cheapest_retailer_id] = "none"
+      infos[:best_offer_id] = "none"
+    end
     infos[:num_offers] = offers.count
     # Images
     infos[:has_image] = true
@@ -87,13 +99,11 @@ class Product < ActiveRecord::Base
   end
 
   #gets the minimal price among all offers
-  def get_best_price_and_retailer offers
-    result={}
+  def get_best_offer
     if offers.count > 0
       best_offer = offers.sort{|o1, o2| o1.price <=> o2.price}.first
-      result = {:best_price => best_offer.price, :best_offer_id => best_offer.id, :cheapest_retailer_id => best_offer.retailer_id}
     else
-      result={:best_price => 0, :best_offer_id => "none", :cheapest_retailer => "none"}
+      nil
     end  
   end
 
