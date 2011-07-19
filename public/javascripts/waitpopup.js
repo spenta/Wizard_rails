@@ -7,11 +7,7 @@ $j(document).ready(
       $j('#wait_1').hide();
       $j('#wait_2').hide();
       $j('#wait_3').hide();
-      var retailers = $j('.retailer_logo');
-
-      for (var i=0; i<retailers.length; i++) {
-        retailers[i].hide();
-      }
+      $j('.retailer_logo').hide();
 
       $j('.next-button').click(
         function()
@@ -22,9 +18,14 @@ $j(document).ready(
           $j('#wait_2').delay(200).fadeIn('slow');
           $j('#wait_3').delay(300).fadeIn('slow');
           var currentDelay = 300;
-          for (var i=0; i<retailers.length; i++) {
-            currentDelay += 50 + 150 * Math.random();
-            $j('.retailers .retailer_logo:nth-child('+(i+1).toString()+')').delay(currentDelay).fadeIn('Slow');
+          if ($j.browser.msie ) {
+            $j('.retailer_logo').show();
+          }
+          else {
+            for (var i=0; i<retailers.length; i++) {
+              currentDelay += 50 + 150 * Math.random();
+              $j('.retailers .retailer_logo:nth-child('+(i+1).toString()+')').delay(currentDelay).fadeIn('Slow');
+            }
           }
         }
       );

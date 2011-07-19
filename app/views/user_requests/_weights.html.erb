@@ -5,6 +5,9 @@
     $j(document).ready(function()
       {
           $j('select.slider').selectSlider(); 
+          $j("a").click(function(event){
+            $j(".warning").remove();
+          });
       });
   </script>
 <% end -%> 
