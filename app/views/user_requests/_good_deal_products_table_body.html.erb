@@ -2,7 +2,8 @@
   <% good_deal_products.each do |p| -%>
   <%# Produit %>
   <% p_id = p.product_id -%>
-  <% p_infos = Rails.cache.read("product_infos_#{p_id}")%>
+  <% infos = Rails.cache.read("product_infos_#{p_id}")%>
+  <% cheapest_offer = Offer.find(infos[:best_offer_id]) %>
   <tr class="product">
     <td class="thumb">
       <span></span>
@@ -11,22 +12,32 @@
       <% end -%>
     </td>
     <td class="thumb">
-      <%= link_to product_path(p_infos[:to_param]), :target => "_blank" do%>
-        <%= image_tag p_infos[:small_img_url], :alt => p_infos[:brand_name]+' '+p_infos[:name], :class => "thumbnail" %>
+      <%= link_to product_path(infos[:to_param]), :target => "_blank" do%>
+        <% if cheapest_offer.get_discount_percentage -%>
+          <p class="discount_percentage"><%= cheapest_offer.get_discount_percentage %></p> 
+          <%= image_tag "/images/red-corner.png", :class => "discount_corner"-%>
+        <% end -%>
+        <%= image_tag infos[:small_img_url], :alt => infos[:brand_name]+' '+infos[:name], :class => "thumbnail" %>
       <% end -%>
     </td>
     <td class="infos">
-      <%= link_to product_path(p_infos[:to_param]), :target => "_blank", :class => "nounderline" do%>
-        <div class="brand"><%= p_infos[:brand_name] %></div>
-        <div class="name"><%= truncate p_infos[:name], :length => 20 %></div>
-        <div class="more"><%= t :extras_more_1 -%><br /><%= t :extras_more_2 -%> <%= p_infos[:num_offers] %> <%= t :extras_more_3 -%></div>
+      <%= link_to product_path(infos[:to_param]), :target => "_blank", :class => "nounderline" do%>
+        <div class="brand"><%= infos[:brand_name] %></div>
+        <div class="name"><%= truncate infos[:name], :length => 20 %></div>
+        <div class="more"><%= t :extras_more_1 -%><br /><%= t :extras_more_2 -%> <%= infos[:num_offers] %> <%= t :extras_more_3 -%></div>
       <% end -%>
     </td>
     <td class="price">
-      <% cheapest_offer = Offer.find(p_infos[:best_offer_id]) %>
       <%= link_to_offer cheapest_offer do %>
+        <% formated_price = get_formated_price cheapest_offer.price %>
         <div class="price">
-          <%= p.price.floor %><small>€<%= get_cents_from p.price %></small><br/>
+          <% if cheapest_offer.get_discount_percentage -%>
+            <% formated_old_price = get_formated_price cheapest_offer.old_price %>
+            <p class="old_price"><%= "#{formated_old_price[:euros]}#{t(:currency)}" %><small><%= formated_old_price[:cents] %></small></p> 
+            <p class="discount_price"><%= "#{formated_price[:euros]}#{t(:currency)}" %><small><%= formated_price[:cents] %></small></p>
+          <% else -%>
+            <p class="normal_price"><%= "#{formated_price[:euros]}#{t(:currency)}" %><small><%= formated_price[:cents] %></small></p> 
+          <% end -%>
           <%= image_tag cheapest_offer.retailer.logo_url, :class =>"offer_logo" %>
         </div>
       <% end -%>
@@ -37,10 +48,10 @@
     <% end -%>
     <%# Specs %>
     <% important_specs_id.each do |spec_id| -%>
-      <%spec_score = p_infos[:specification_values][spec_id][:sv_score] %>
+      <%spec_score = infos[:specification_values][spec_id][:sv_score] %>
       <%= content_tag :td, :class => "values textshading colorid#{get_color_number_absolute(spec_score.round-(@user_response.sigmas[spec_id]))}" do%>
         <var><%=spec_score.round%><var><small>/10</small>
-        <p class="specvalue"><%= spec_value_with_unit p_infos, spec_id%></p>
+        <p class="specvalue"><%= spec_value_with_unit infos, spec_id%></p>
       <% end -%>
     <% end -%>
   </tr>

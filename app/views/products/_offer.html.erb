@@ -29,7 +29,7 @@
             <p class="discount_price"><%= "#{formated_price[:euros]}#{t(:currency)}"%><small><%= formated_price[:cents]%></p> 
           </div>
           <div class="price_box_right">
-            <p class="discount_percentage"><%= (offer.get_discount_percentage*100).round %> %</p> 
+            <p class="discount_percentage"><%= offer.get_discount_percentage %></p> 
             <p class="discount_absolute"><small>soit</small><%=" #{formated_discount[:euros]}#{t(:currency)} " %><small>d'éco.</small></p> 
           </div>
         </div>

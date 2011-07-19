@@ -287,9 +287,45 @@ p.more {
   margin:0px auto;
 }
 
+#extratable p.discount_percentage {
+  z-index: 2;
+  color: white;
+  position: absolute;
+  display: block;
+  font-weight: bold;
+  font-size: 1.5em;
+  margin-left: 3px;
+  margin-top: -10px;
+}
+
+#extratable img.discount_corner{
+  z-index: 1;
+  display: block;
+  position: absolute;
+  width: 73px;
+  height: 33px;
+  margin-top: -10px;
+}
+
 #extratable a{
   text-decoration:none;
 }
+
+#extratable .price p.old_price{
+  font-size:0.6em;
+  text-decoration:line-through;
+}
+
+
+#extratable .price p.discount_price{
+  color:crimson;
+  font-size:1em;
+}
+
+#extratable .price p.normal_price{
+  font-size:1em;
+}
+
 
 #extras td, #extras th {
   border-width:2px 1px;

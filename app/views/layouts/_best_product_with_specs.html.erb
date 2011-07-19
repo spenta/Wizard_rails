@@ -20,7 +20,7 @@
         <%= link_to_suggestion product_link do %>
           <% if infos[:discount_percentage] -%>
             <div class="discount_tag">
-              <p class="discount_percentage"><%= (infos[:discount_percentage]*100).round %>%</p>
+              <p class="discount_percentage"><%= infos[:discount_percentage] %></p>
             </div>
           <% end -%>
           <%= image_tag infos[:big_img_url], :alt => t(:bestpick_img)+" "+infos[:brand_name]+" "+infos[:name], :class => "product_image" %>
