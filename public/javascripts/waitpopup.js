@@ -22,6 +22,7 @@ $j(document).ready(
             $j('.retailer_logo').show();
           }
           else {
+            var retailers = $j('.retailer_logo');
             for (var i=0; i<retailers.length; i++) {
               currentDelay += 50 + 150 * Math.random();
               $j('.retailers .retailer_logo:nth-child('+(i+1).toString()+')').delay(currentDelay).fadeIn('Slow');
