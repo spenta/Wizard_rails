@@ -542,7 +542,7 @@ h2.offer_title strong {
 .offer div.price_box_right {
   width:109px;
   height:53px;
-  background-image:url('/images/product/discount.png')
+  background-image:url('/images/product/discount.png');
   margin-top: 3px;
 }
 
