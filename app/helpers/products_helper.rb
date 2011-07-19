@@ -203,5 +203,18 @@ module ProductsHelper
     product.offers.each {|o| retailer_with_offers << o.retailer unless retailer_with_offers.include?(o.retailer)  }
     Retailer.all.select{|r| !retailer_with_offers.include?(r)}
   end
+
+  def get_shipping_price_message offer
+    formated_shipping_price = get_formated_price offer.shipping_price
+    message="Livraison&nbsp;:"
+    if (formated_shipping_price && formated_shipping_price[:euros].to_f+formated_shipping_price[:cents].to_f>0)
+      message += formated_shipping_price[:euros].to_s+t(:currency)+formated_shipping_price[:cents].to_s
+    elsif (formated_shipping_price)
+      message += "offerte"
+    else
+      message += "N/C"
+    end
+    message
+  end
 end
 

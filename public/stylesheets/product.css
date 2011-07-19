@@ -516,7 +516,7 @@ h2.offer_title strong {
   color:#33332f;
   font-weight:bold;
   font-size:2em;
-  text-align:center;
+  text-align:left;
 }
 
 .offer p.old_price{
@@ -526,15 +526,24 @@ h2.offer_title strong {
 
 .offer p.discount_price {
   font-weight:bold;
-  font-size:3em;
-  text-align:center;
+  font-size:2em;
+  text-align:left;
   color:red;
+}
+
+.offer p.shipping_price{
+  width:75px;
+  font-size:0.9em;
+  font-style:italic;
+  color:dimgray;
+  margin-top:5px;
 }
 
 .offer div.price_box_right {
   width:109px;
   height:53px;
   background-image:url('/images/product/discount.png')
+  margin-top: 3px;
 }
 
 .price_box p.discount_percentage{
