@@ -14,9 +14,6 @@
       <%= link_to_suggestion infos[:to_param] do %>
         <%= image_tag infos[:big_img_url], :alt => t_safe(:best_laptop_alt_img).gsub(/profile/, profile).gsub(/pc_name/, infos[:name]) %>
       <% end -%>
-      <script>
-        $j( ".best_laptop_pic img" ).aeImageResize({ height: 150, width: 200 });
-      </script>
     </div>
     <div class="clearfix"></div>
     <div class="best_laptop_offer">
