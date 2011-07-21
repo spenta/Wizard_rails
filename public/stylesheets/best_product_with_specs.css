@@ -33,7 +33,13 @@
   padding: 10px 2px 0px;
 }
 
-.bpws_v_price_box a{
+.bpws_v_price_box p, .bpws_h_price_box p {
+  font-size:1.35em;
+  color:#33332F;
+  text-align:center;
+}
+
+.bpws_v_score_price a, .bpws_h_score_price a{
   text-decoration:none;
 }
 
@@ -134,7 +140,7 @@
 }
 
 .bpws_title strong{
-  font-size:1em;
+  font-size:1.2em;
   font-weight:bold;
 }
 
@@ -305,21 +311,15 @@ h3.bpws_price {
   color:crimson;
 }
 
-p.bpws_price {
-  font-size:1.35em;
-  color:#33332F;
-  text-align:center;
-}
-
 .bpws_price_left {
   width:110px;
   float:left;
+  margin-left:13px;
 }
 
 .bpws_price_right {
-  margin-left:8px;
-  margin-top:12px;
-  width:155px;
+  margin-left:17px;
+  width:128px;
   float:left;
 }
 
@@ -347,19 +347,12 @@ p.bpws_price {
   text-align:center;
 }
 
-p.bpws_best_offer_text_link {
-  text-decoration:underline;
-  font-size:1em;
-  color:#036CAA;
-  text-align:center;
-  margin:0 0 3px 0;
-}
-
 .bpws_best_offer_logo {
   height:35px;
   width:92px;
   display:block;
   margin:0 auto;
+  margin-top:5px;
 }
 /* --- Bouton pour aller sur la fiche produit --- */
 .bpws_button {

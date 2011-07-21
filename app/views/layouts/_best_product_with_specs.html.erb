@@ -44,8 +44,8 @@
         </div>
         <div class="clearfix"></div>
       </div>
-      <%= content_tag :div, :class => "bpws_#{l}_price_box" do %>
-        <%= link_to_offer(offer) do %>
+      <%= link_to_offer(offer) do %>
+        <%= content_tag :div, :class => "bpws_#{l}_price_box" do %>
           <div class="bpws_price_left">
             <p class="bpws_price"><%= t :bestpick_price %></p>
             <% formated_price = get_formated_price infos[:price] %>
