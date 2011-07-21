@@ -3,8 +3,15 @@
   <%= include_stylesheets :home, :redirection%>
 <% end -%>
 <div id="home">
-  <div class="wrapper">
-    <%= content_tag :h1, t(:thanks_and_bye)  -%>
-    <img class="top" src="/images/home/step_2.png" alt="Des conseils d'achat d'ordinateur personnalises">
+  <%= content_tag :h1, t(:thanks_and_bye) -%>
+  <div class="redirect_wrapper">
+    <div class="redirect_top"></div>
+    <div class="redirect_content">
+      <% retailer = @offer.retailer -%>
+      <%= image_tag retailer.logo_url, :alt => "logo_#{retailer.name}", :class => "retailer_logo" %>
+      <img class="loader" src="/images/product/offers_loader.gif"></img> 
+    </div>
+    <div class="redirect_bottom"></div>
   </div>
+  <%= content_tag :p, t_safe(:thanks_and_bye_sub) %>
 </div>

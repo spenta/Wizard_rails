@@ -1,10 +1,57 @@
 #home {
   padding-top:40px;
-  height:300px;
+  height:400px;
+  
 }
-
 h1 {
   font-size:2.0em;
   padding-bottom:20px;
+}
+
+#home h1,#home p{
   text-align:center;
+}
+
+#home p{
+  font-size:1.7em;
+  font-style:italic;
+}
+
+img.retailer_logo{
+  display: block;
+  margin:0px auto;
+  margin-bottom:30px;
+}
+
+img.loader{
+  display: block;
+  margin:0px auto;
+  display: block;
+  margin:0px auto;
+  margin-bottom:20px;
+}
+
+div.redirect_wrapper{
+  margin:0px auto;
+  width:283px;
+  margin-bottom:30px;
+}
+
+div.redirect_top{
+  background-image:url('/images/product/top.png');
+  width:283px;
+  height:10px;
+}
+
+div.redirect_bottom{
+  background-image:url('/images/product/bottom.png');
+  width:283px;
+  height:10px;
+}
+
+div.redirect_content{
+  background-color:white;
+  width:283px;
+  padding-top:20px;
+  padding-bottom:20px;
 }
