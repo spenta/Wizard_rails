@@ -7,13 +7,9 @@
 #topwrapper {
   background-color:#50A5D7;
   margin:0 auto;
+  height: 1370px;
 }
 
-#bestpicks {
-  width:960px;
-  margin:0 auto;
-  padding-bottom:15px;
-}
 
 .clearfix { clear:both; }
 
@@ -25,12 +21,20 @@
 }
 
 /* ---------------- Titre & sous-titres de la page ---------------- */
+div#title_section{
+  margin:0 auto;
+  width: 922px;
+  padding-top: 20px;
+  margin-bottom: 70px;
+}
 
-.toptitle {
-  display:block;
-  text-align:center;
-  padding:15px 50px 8px 0;
-  margin-bottom:10px;
+#title_section a{
+  text-decoration:none;
+}
+
+div.toptitle{
+  float:left;
+  width:520px;
 }
 
 .toptitle h1 {
@@ -38,11 +42,8 @@
   color:white;
   text-shadow:1px 1px 0 #666666;
   margin-top:5px;
-}
-
-.toptitle h2 {
-  font-size:1.4em;
-  color:white;
+  text-align:center;
+  width:520px;
 }
 
 .toptitle a {
@@ -51,18 +52,39 @@
   color:white;
 }
 
-/* ---------------- Boutons de retour au wizard ---------------- */
-
-#navbuttons {
-  padding:15px 0px 8px 0px;
-  margin-left:35px;
-  float:left;
+div.subtitle{
+  margin-left:80px;
 }
 
+.subtitle img{
+  float:left;
+  display:block;
+}
+
+.subtitle h2 {
+  font-size: 2.5em;
+  color: white;
+  text-shadow: 1px 1px 0 #666;
+  padding-top: 6px;
+  height: 42px;
+}
+
+#topwrapper div.subtitle{
+  margin-bottom:10px;
+}
+#bestpicks {
+  width:960px;
+  margin:0 auto;
+  padding-bottom:15px;
+}
+
+/* ---------------- Boutons de retour au wizard ---------------- */
 .backbutton {
   background-image:url('/images/results/backbutton.png');
   width:200px;
   height:30px;
+  float:left;
+  margin-top:8px;
 }
 
 .backbutton:hover {
@@ -74,6 +96,7 @@
   width:200px;
   height:30px;
   margin-top:8px;
+  float:left;
 }
 
 .restartbutton:hover {
@@ -162,13 +185,6 @@ p.price {
   display:block;
 }
 
-#bottomhead h1 {
-  font-size:2.5em;
-  color:white;
-  text-shadow:1px 1px 0 #666666;
-  margin-top:8px
-}
-
 .bottomheaderleft {
   background-image:url('/images/results/bottomheader-left.png');
   float:left;
@@ -181,7 +197,6 @@ p.price {
   float:left;
   width:936px;
   height:40px;
-  text-align:center;
 }
 
 .bottomheaderright {

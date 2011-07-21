@@ -11,17 +11,17 @@ fr:
 
   # In the #toptitle <h1> tag
   result_page_title: |
-    Notre sélection : 3 PC taillés pour vous
+    Notre séléction parmi num_offers produits
 
-  # In the <h2> tag, before the number of products in the database
-  result_page_subtitle1: |
-    parmi les
+  result_page_subtitle_1: |
+    Les 3 meilleures affaires pour vos besoins
 
-  #In the <h2> tag, after the number of products in the database
-  result_page_subtitle2: modèles
-  #In the <h2> tag, after the link
-  result_page_subtitle3: |
-    disponibles sur les sites marchands référencés
+  result_page_subtitle_2: |
+    Préférez-vous un Mac ?
+  result_page_subtitle_3: |
+    D'autres modèles intéressants
+
+  #'
 
   #---------------------------------------------------------------------------
   # Nav button labels (Top left)
@@ -198,6 +198,3 @@ fr:
   extras_more_1: Voir la fiche produit
   extras_more_2: et les
   extras_more_3: offre(s)
-
-  i_want_mac: Plutôt Mac ?
-
