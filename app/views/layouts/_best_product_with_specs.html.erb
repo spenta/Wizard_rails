@@ -10,6 +10,7 @@
     <%= content_tag :div, :class => "bpws_#{l}_name_image" do %>
       <div class = "bpws_title">
         <%= link_to_suggestion product_link do %>
+          <img class = "medal" src="/images/best_product_with_specs/gold.png"></img>
           <h1><strong><%= infos[:brand_name] %></strong><br/> <%= truncate infos[:name], :length => 25 %></h1>
         <% end -%>
         <%= link_to_suggestion product_link do %>

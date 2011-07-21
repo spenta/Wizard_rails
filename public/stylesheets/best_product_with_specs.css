@@ -121,6 +121,18 @@
   text-decoration:none;
 }
 
+.bpws_v_name_image .bpws_title img{
+  display:block;
+  margin-left:10px;
+  float:left;
+  position:absolute;
+  z-index:1;
+}
+
+.bpws_h_name_image .bpws_title img{
+  display:none;
+}
+
 .bpws_title strong{
   font-size:1em;
   font-weight:bold;
