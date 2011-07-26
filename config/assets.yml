@@ -82,6 +82,9 @@ stylesheets:
   edit_article:
     - public/stylesheets/edit_article.css
 
+  articles_index:
+    - public/stylesheets/articles_index.css
+
   best_product_with_specs:
     - public/stylesheets/best_product_with_specs.css
 

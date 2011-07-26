@@ -140,5 +140,14 @@ module ApplicationHelper
     render 'layouts/best_laptop.html', :profile => profile
   end
 
+  def widget_tagged_article_list args
+    args_array = args.split(',,,')
+    tag_name = args_array.first
+    list_name = args_array.last
+    tag = Tag.where(:name => tag_name).first
+    articles = Article.all.select{|a| a.tags.include?(tag)}
+    render 'layouts/tagged_article_list', :articles => articles, :list_name => list_name
+  end
+
 end
 

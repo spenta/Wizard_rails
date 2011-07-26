@@ -313,3 +313,19 @@ p.legend {
   margin-bottom:6px;
   font-size:0.9em;
 }
+/*--------------index----------------*/
+
+.admin_list td {
+  padding:3px 18px 3px 3px;
+}
+
+.admin_list th{
+  padding:3px 18px 3px 3px;
+  font-weight:bold;
+  text-align:center;
+}
+
+div.tagged_article_list{
+  padding-top:20px;
+  padding-bottom:20px;
+}

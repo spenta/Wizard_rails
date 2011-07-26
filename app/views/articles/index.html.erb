@@ -1,36 +1,68 @@
 <%= content_for :head do %>
   <%= include_javascripts :home%>
+  <%= include_stylesheets :article %>
+  <title>Guides et articles pour trouver un ordinateur portable avec Choisir Facile</title>
+  <script type="text/javascript" src="http://apis.google.com/js/plusone.js"></script>
 <% end -%>
-<h1>Listing articles</h1>
+<div class="main_wrapper">
+  <div class="main">
+    <div class="content">
+      <h1 class="main_title">Liste des articles</h1>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Meta</th>
-    <th>Summary</th>
-    <th>Body</th>
-    <th>User</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+      <div class="content_hspacer"></div>
+      <div class="chapeau"><p>Retrouvez nos conseils pour choisir un ordinateur portable dans notre série de guides. Vous trouverez aussi nos avis sur les meilleurs PC du moment, ainsi que nos sélections de portables, constamment actualisée, pour des besoins précis : bureautique, jeux, traitement d'image, ...</p></div>
+      <div class="social_media">
+        <div class="content_hspacer"></div>
+        <p>Vous aimez les conseils de Choisir Facile ? Partagez-les !</p>
+        <div class="social_widget">
+          <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.choisirfacile.com" data-text="Un conseiller interactif trouver un PC portable #choisirfacile " data-count="horizontal" data-lang="fr">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+        </div>
+        <div class="social_widget">
+          <g:plusone href="http://www.choisirfacile.com" size="medium"></g:plusone>
+        </div>
+        <div class="social_widget">
+          <div class="fb-root"></div><script src="http://connect.facebook.net/fr_FR/all.js#appId=171689572872723&amp;xfbml=1"></script><fb:like href="http://www.choisirfacile.com" send="true" width="450" show_faces="false" font="arial"></fb:like>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+      <div class="article_body">
+        <% if current_user %>
+          <h2>Liste admin</h2>
 
-<% @articles.each do |article| %>
-  <tr>
-    <td><%= article.title %></td>
-    <td><%= article.summary %></td>
-    <td><%= article.user.name %></td>
-    <td><%= article.created_at %></td>
-    <td><%= article.updated_at %></td>
-    <% if current_user %>
-      <td><%= link_to 'Show', article_path(article.id) %></td>
-      <td><%= link_to 'Edit', edit_article_path(article.id) %></td>
-      <td><%= link_to 'Destroy', article_path(article.id), :confirm => 'Are you sure?', :method => :delete %></td>
-    <% end -%>
-  </tr>
-<% end %>
-</table>
+          <table class="admin_list">
+            <tr>
+              <th>Title</th>
+              <th>User</th>
+              <th></th>
+              <th></th>
+              <th></th>
+            </tr>
 
-<br />
+            <% @articles.each do |article| %>
+              <tr>
+                <td><%= article.title %></td>
+                <td><%= article.user.name %></td>
+                <td><%= link_to 'Show', article_path(article.id) %></td>
+                <td><%= link_to 'Edit', edit_article_path(article.id) %></td>
+                <td><%= link_to 'Destroy', article_path(article.id), :confirm => 'Are you sure?', :method => :delete %></td>
+              </tr>
+            <% end %>
+          </table>
+          <%= link_to 'New Article', new_article_path if current_user%>
+        <% end -%>
 
-<%= link_to 'New Article', new_article_path if current_user%>
+        <%= widget_tagged_article_list "guide,,,Nos guides" %>
+
+      </div>
+    </div>
+    <div class="sidebar">
+      <div class="sidebar_element">
+        <p>Choisir Facile est une mine d'infos pour <strong>choisir un PC portable</strong>. Pensez à notre <strong>conseiller interactif</strong>, il connaît toutes ces astuces !</p>
+        <a href="/conseiller-virtuel" data-method="post" rel="nofollow" class="label">
+          <div class="wizard_button"><p class="label">Conseiller interactif</p></div>
+        </a>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+</div>

@@ -1,4 +1,5 @@
 class TagsController < ApplicationController
+  before_filter :check_user_login
   def new
     @tag = Tag.new
     redirect_to :root unless current_user
@@ -11,6 +12,22 @@ class TagsController < ApplicationController
   end
 
   def index
+  end
+
+  def destroy
+    @tag = Tag.find(params[:id])
+    @tag.destroy
+
+    respond_to do |format|
+      format.html { redirect_to(tags_url) }
+      format.xml  { head :ok }
+    end
+  end
+
+  private
+
+  def check_user_login
+    redirect_to :root unless current_user
   end
 
 end

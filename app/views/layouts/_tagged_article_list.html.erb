@@ -1,0 +1,9 @@
+<div class="tagged_article_list">
+  <%= content_tag :h2, list_name %>
+  <% articles.each do |a| -%>
+    <p>
+      <%= link_to a.title, article_path(a.to_param) %>
+    </p>
+  <% end -%>
+  <div class="clearfix"></div>
+</div>
