@@ -2,7 +2,6 @@ class TagsController < ApplicationController
   before_filter :check_user_login
   def new
     @tag = Tag.new
-    redirect_to :root unless current_user
   end
 
   def create
