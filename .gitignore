@@ -4,7 +4,7 @@ log/*.log
 tmp/
 *.swp
 *.swo
-config/database.yml
+#config/database.yml
 public/assets/**/*
 #vim session
 *.vim
