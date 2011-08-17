@@ -2,7 +2,7 @@
   <title>Choisir Facile - Tous les ordinateurs PC portables</title>
   <meta name="description" content="La liste complète des ordinateurs disponibles sur les sites marchands partenaires." />
 
-  <%= include_stylesheets :catalogue%>
+  <%= stylesheet_link_tag 'catalogue' %>
   <!--[if lte IE 8]>
     <link type="text/css" rel="stylesheet" href="/stylesheets/catalogue_lteie8.css">
   <![endif]-->
@@ -10,8 +10,10 @@
   <script type="text/javascript">
     $j = jQuery.noConflict();
   </script>
-  <%= include_javascripts :catalogue%>
   <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js"%>
+  <%= javascript_include_tag 'rangeslider.min' %>
+  <%= javascript_include_tag 'jquery.dataTables.min' %>
+  <%= javascript_include_tag 'catalogue' %>
 
   <script type="text/javascript">
     // Price filter initialisation

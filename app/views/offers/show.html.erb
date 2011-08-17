@@ -1,6 +1,7 @@
 <%= content_for :head do %>
   <meta http-equiv="Refresh" content="1; url=<%= @offer.link %>" />
-  <%= include_stylesheets :home, :redirection%>
+  <%= stylesheet_link_tag 'home'%>
+  <%= stylesheet_link_tag 'redirection'%>
 <% end -%>
 <div id="home">
   <%= content_tag :h1, t(:thanks_and_bye) -%>

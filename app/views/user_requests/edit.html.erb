@@ -4,8 +4,18 @@
   <link rel="icon" type="image/png" href="/favicon.ico" />
   <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"%>
   <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js"%>
-  <%= include_javascripts :form%>
-  <%= include_stylesheets :form%>
+  <%= javascript_include_tag 'usages.answerMultichoice' %>
+  <%= javascript_include_tag 'usages.labelCheckbox' %>
+  <%= javascript_include_tag 'usages.selectSlider' %>
+  <%= javascript_include_tag 'usages.tabbedForm' %>
+  <%= javascript_include_tag 'usages_form' %>
+  <%= javascript_include_tag 'waitpopup' %>
+
+  <%= stylesheet_link_tag 'main' %>
+  <%= stylesheet_link_tag 'usages' %>
+  <%= stylesheet_link_tag 'usages.selectSlider' %>
+  <%= stylesheet_link_tag 'usages.labelCheckbox' %>
+  <%= stylesheet_link_tag 'usages.tabbedForm' %>
   <!--[if lte IE 8]>
   <link type="text/css" rel="stylesheet" href="/stylesheets/main_lteie8.css">
   <![endif]-->

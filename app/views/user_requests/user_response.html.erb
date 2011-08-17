@@ -5,9 +5,9 @@
 <% content_for :head do -%>
   <link rel="icon" type="image/png" href="/favicon.ico" />
   <title><%= t :result_page_html_title %></title>
-  <%= include_stylesheets :result%>
-  <%= include_stylesheets :best_product_with_specs%>
-  <%= include_stylesheets :score_colors%>
+  <%= stylesheet_link_tag 'result'%>
+  <%= stylesheet_link_tag 'best_product_with_specs'%>
+  <%= stylesheet_link_tag 'score_colors'%>
   <!--[if lte IE 8]>
   <link type="text/css" rel="stylesheet" href="/stylesheets/result_lteie8.css">
   <![endif]-->
@@ -16,7 +16,8 @@
   <![endif]-->
   <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"%>
   <script type="text/javascript" src="http://apis.google.com/js/plusone.js"></script>
-  <%= include_javascripts :result%>
+  <%= javascript_include_tag 'jquery.tablesorter.min' %>
+  <%= javascript_include_tag 'result' %>
 <% end -%>
 
 <div id="resultpage">
