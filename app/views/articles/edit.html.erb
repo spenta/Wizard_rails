@@ -1,7 +1,10 @@
 <%= content_for :head do -%>
-  <%= include_stylesheets :edit_article %>
-  <%= include_stylesheets :codemirror %>
-  <%= include_javascripts :codemirror %>
+  <%= stylesheet_link_tag 'edit_article'%>
+  <%= stylesheet_link_tag 'codemirror' %>
+  <%= stylesheet_link_tag 'codemirror_default' %>
+  <%= javascript_include_tag 'codemirror/codemirror' %>
+  <%= javascript_include_tag 'codemirror/htmlmixed' %>
+  <%= javascript_include_tag 'codemirror/xml' %>
 <% end -%>
 <%= render 'form' %>
 <%= link_to 'Show', article_path(@article.id) %> |

@@ -7,7 +7,7 @@
   <meta name="description" content="<%= t_safe :product_meta_description %> <%= infos[:brand_name] %> <%= infos[:name] %>" />
   <meta name="keywords" content="<%= t :meta_keywords %>, <%= t :product_laptop %>" />
 
-  <%= include_stylesheets :product %>
+  <%= stylesheet_link_tag 'product'%>
   <!--[if lte IE 8]>
     <link type="text/css" rel="stylesheet" href="/stylesheets/product_lteie8.css">
   <![endif]-->
@@ -25,7 +25,8 @@
     var bar_length_5 = <%= infos[:specification_values][4][:sv_score] %>
     var bar_length_6 = <%= infos[:specification_values][9][:sv_score] %>
   </script>
-  <%= include_javascripts :product %>
+  <%= javascript_include_tag 'jquery.ae.image.resize.min' %>
+  <%= javascript_include_tag 'product' %>
   <script type="text/javascript" src="http://apis.google.com/js/plusone.js"></script>
 
 

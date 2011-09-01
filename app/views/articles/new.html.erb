@@ -1,7 +1,10 @@
 <%= content_for :head do %>
-  <%= include_stylesheets :edit_article %>
-  <%= include_stylesheets :codemirror %>
-  <%= include_javascripts :codemirror %>
+  <%= stylesheet_link_tag 'edit_article.css'%>
+  <%= stylesheet_link_tag 'codemirror.css'%>
+  <%= stylesheet_link_tag 'codemirror_default.css'%>
+  <%= javascript_include_tag 'codemirror/codemirror.js'%>
+  <%= javascript_include_tag 'codemirror/xml.js'%>
+  <%= javascript_include_tag 'codemirror/htmlmixed.js'%>
 <% end -%>
 <%= render 'form' %>
 

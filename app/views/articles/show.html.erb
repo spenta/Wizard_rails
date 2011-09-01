@@ -1,6 +1,6 @@
 <%= content_for :head do %>
-  <%= include_stylesheets :article %>
-  <%= include_stylesheets :best_laptop %>
+  <%= stylesheet_link_tag 'article'%>
+  <%= stylesheet_link_tag 'best_laptop'%>
   <%= content_tag :title, @article.title_for_head -%>
   <script type="text/javascript" src="http://apis.google.com/js/plusone.js"></script>
   <%= @article.meta.html_safe %>

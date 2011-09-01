@@ -6,9 +6,11 @@
     <link rel="icon" type="image/png" href="../favicon.ico" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="author" content="ChoisirFacile" />
-    <%= include_stylesheets :reset %>
-    <%= include_stylesheets :header_and_footer %>
-    <%= include_javascripts :rails %>
+    <%= stylesheet_link_tag 'reset'%>
+    <%= stylesheet_link_tag 'header' %>
+    <%= stylesheet_link_tag 'footer' %>
+    <%= javascript_include_tag 'rails/prototype' %>
+    <%= javascript_include_tag 'rails/rails' %>
 
     <%= yield(:head) %>
 
@@ -76,7 +78,7 @@
           <p>© 2011 | Spenta SAS | <%= t_safe :rights_reserved %></p>
         </div>
         <div class="footer_right">
-          <%= link_to t_safe(:contact_text), contact_path %> | <%= link_to t_safe(:legal_info), legal_path %> | <%= link_to t_safe(:eula), terms_path %> <%= link_to ("| admin", admin_path) if current_user %>
+          <%= link_to t_safe(:contact_text), contact_path %> | <%= link_to t_safe(:legal_info), legal_path %> | <%= link_to t_safe(:eula), terms_path %> <%= (link_to("| admin", admin_path)) if current_user %>
         </div>
         <div class="clearfix"></div>
       </div>
