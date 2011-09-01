@@ -8,3 +8,4 @@ tmp/
 public/assets/**/*
 #vim session
 *.vim
+.directory
