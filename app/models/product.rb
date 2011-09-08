@@ -15,7 +15,7 @@ class Product < ActiveRecord::Base
     str += product_name
     str += "-"
     str += id.to_s
-    str.gsub(/[\/\ \.]/,'-')
+    str.gsub(/[\/\ \.%,]/,'-')
   end
 
   def self.all_cached
