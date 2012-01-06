@@ -62,10 +62,10 @@ class UserRequest < ActiveRecord::Base
     params.each do |key, weight_for_user|
       if key =~ /super_usage_weight_./
         are_weights_selected = true if weight_for_user.to_i > 0
-        super_usage_id = key.split('_').last
+        super_usage_id = key.split('_').last.to_i
         super_usages_cached = SuperUsage.all_cached_no_mobilities
         begin
-          usage_choices_to_update = usage_choices.select{|uc| uc.is_selected and super_usages_cached[super_usage_id]}
+          usage_choices_to_update = usage_choices.select{|uc| uc.is_selected and Usage.find(uc.usage_id).super_usage_id == super_usage_id}
         rescue
           raise I18n.t(:weights_step_wrong_choices) unless uc.update_attributes(:weight_for_user => weight_for_user.to_i)
         end
