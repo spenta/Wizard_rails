@@ -44,7 +44,7 @@ Header
 }
 
 #header_menu li.header_text_link {
-	padding:6px 0px 6px 16px;
+	padding:6px 16px 6px 16px;
 }
 
 #header_menu li div.wizard_header_button {

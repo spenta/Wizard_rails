@@ -47,6 +47,7 @@ fr:
   brands_alt: Choisir un ordinateur parmi les meilleures marques du marché
   tour_alt: Un PC portable pour chaque usage
   retailers_alt: Choisir un ordinateur chez les plus grands sites marchands
+  guides_alt: Guides des meilleurs PC portables
 
   # Line to explain our purpose
   home_explain: |
@@ -100,6 +101,14 @@ fr:
   home_retailer_count_2: marchands sur Choisir Facile. Actuellement, vous pouvez comparer
   home_retailer_count_3: modèles d'ordinateurs portables !
   home_retailer_link: Liste des marchands
+
+  # Guides
+  home_guides_title: Lisez nos guides !
+  home_guides_text: Vous voulez des conseils plus précis pour choisir votre PC portable ? Lisez nos derniers articles !
+  home_guides_link: Guides
+
+  # Contact
+  home_contact_title: Contactez-nous
 
   # ------- Extra text to give some extra SEO content to Google & friends
   home_extra_description: |

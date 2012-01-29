@@ -185,15 +185,15 @@ Extra infos
 /* Extras */
 
 
-#extra_content {
+/*#extra_content {
   width:350px;
   margin-left:30px;
   margin-top:16px;
   text-align:justify;
   float:left;
-}
+}*/
 
-#partners {
+/*#partners {
   width:258px;
   padding-top:5px;
   padding-bottom:10px;
@@ -208,13 +208,18 @@ Extra infos
   background-image:url('/images/home/box_bckg.png');
   behavior: url(/stylesheets/PIE.htc);
   position: relative;
-}
+}*/
 
 /* --- Sidebar --- */
 #sidebar {
   width:268px;
   float:left;
   margin-left:30px;
+}
+
+#sidebar > div {
+  margin-bottom:52px;
+  text-align:justify;
 }
 
 #tour {
@@ -227,30 +232,30 @@ Extra infos
   margin-right:8px;
 }
 
-#merchants {
+.leftbody_info{
+  width:306px;
   padding-top:5px
   padding-left:5px;
   padding-bottom:10px;
   margin-top:10px;
   border:1px solid #E5E5E5;
   background-image:url('/images/home/box_bckg.png');
-  background-position:0px 148px;
+  background-position:0px 157px;
   background-repeat:repeat-x;
   behavior: url(/stylesheets/PIE.htc);
-  position: relative;
+  float:left;
+}
+
+.leftbody_info img{
+  margin:6px 0px 0px 18px;
+  padding-bottom:12px;
+}
+
+#merchants {
 }
 
 #brands {
-  padding-top:5px
-  padding-left:5px;
-  padding-bottom:10px;
-  margin-top:10px;
-  border:1px solid #E5E5E5;
-  background-position:0px 149px;
-  background-repeat:repeat-x;
-  background-image:url('/images/home/box_bckg.png');
-  behavior: url(/stylesheets/PIE.htc);
-  position: relative;
+  margin-left:28px;
 }
 
 #home_infos .page_link {
@@ -270,7 +275,7 @@ Extra infos
 }
 
 
-#retailer_logos, #brand_logos {
+/*#retailer_logos, #brand_logos {
   text-align:center;
   margin:0;
 }
@@ -278,7 +283,7 @@ Extra infos
 .retailer_logo {
   padding:0 6px;
   margin-bottom:4px;
-}
+}*/
 
 
 
@@ -316,6 +321,11 @@ Extra infos
 #best_laptops p  {
   color:#33332F;
   font-size:1em;
+}
+
+#best_laptops > p {
+  margin-left:12px;
+  margin-right:12px;
 }
 
 #best_laptops p strong {

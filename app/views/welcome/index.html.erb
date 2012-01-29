@@ -108,23 +108,18 @@
 
         <%= render 'layouts/best_laptop.html', :profile => 'gamer' %>
       </div>
-
-      <div id="partners">
-        <%= link_to press_path, :class => "no_underline" do %>
-          <h3 class="emphasized_h3"><%= t :home_partner_title %></h3>
-        <% end -%>
-        <p><%= t_safe :home_partner_text %></p>
-        <p class="page_link">>
-          <%= link_to press_path do %>
-            <%= t :home_partner_link %>
-          <% end -%>
-        </p>
+      <div class="clearfix"></div>
+      <div id="merchants" class="leftbody_info">
+        <h2><%= t :home_retailer_title %></h2>
+        <img class="retailer_logo" src="/images/home/marchands_ordinateur_portable.jpg" alt="<%= t :retailers_alt %>" />
+        <p><%= t :home_retailer_count_1 %> <%= Retailer.all_cached.length %> <%= t :home_retailer_count_2 %> <em><%= Product.num_valid %> <%= t :home_retailer_count_3 %></em></p>
       </div>
 
-      <div id="extra_content">
-        <%= t_safe :home_extra_description %>
+      <div id="brands" class="leftbody_info">
+        <h2><%= t :home_brand_title %></h2>
+        <img class="retailer_logo" src="/images/home/marques_pc_portables.jpg" alt="<%= t :brands_alt %>" />
+        <p><%= t_safe :home_brand_text %></p>
       </div>
-
     </div>
 
 
@@ -145,23 +140,40 @@
 
       <div class="clearfix"></div>
 
-      <div id="merchants">
-        <h2><%= t :home_retailer_title %></h2>
-        <img class="retailer_logo" src="/images/home/marchands_ordinateur_portable.jpg" alt="<%= t :retailers_alt %>" />
-        <p><%= t :home_retailer_count_1 %> <%= Retailer.all_cached.length %> <%= t :home_retailer_count_2 %> <em><%= Product.num_valid %> <%= t :home_retailer_count_3 %></em></p>
+      <div id="guides">
+        <%= link_to articles_path, :class => "no_underline" do %>
+          <h3 class="emphasized_h3"><%= t :home_guides_title %></h3>
+        <% end -%>
+        <p><%= t_safe :home_guides_text %></p>
+        <p class="page_link">>
+          <%= link_to articles_path do %>
+            <%= t :home_guides_link %>
+          <% end -%>
+        </p>
       </div>
 
       <div class="clearfix"></div>
 
-      <div id="brands">
-        <h2><%= t :home_brand_title %></h2>
-        <img class="retailer_logo" src="/images/home/marques_pc_portables.jpg" alt="<%= t :brands_alt %>" />
-        <p><%= t_safe :home_brand_text %></p>
+      <div id="partners">
+        <%= link_to press_path, :class => "no_underline" do %>
+          <h3 class="emphasized_h3"><%= t :home_partner_title %></h3>
+        <% end -%>
+        <p><%= t_safe :home_partner_text %></p>
+        <p class="page_link">>
+        <%= link_to press_path do %>
+          <%= t :home_partner_link %>
+        <% end -%>
+        </p>
       </div>
 
       <div class="clearfix"></div>
 
-
+      <div id="extra_content">
+        <%= link_to contact_path, :class => "no_underline" do %>
+          <h3 class="emphasized_h3"><%= t :home_contact_title %></h3>
+        <% end -%>
+        <%= t_safe :home_extra_description %>
+      </div>
     </div><!-- Close Sidebar -->
 
 
