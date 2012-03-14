@@ -21,6 +21,10 @@ fr:
   best_laptop_family_title: Le bon plan FAMILIAL
   best_laptop_family_text: Le PC de toute la famille, économique et fait pour le divertissement ou les tâches de la vie courante.
 
+  #student
+  best_laptop_student_title: Le bon plan ETUDIANT
+  best_laptop_student_text: Un ordinateur pour les besoins essentiels de l'étudiant.
+
   best_laptop_alt_img: pc_name le meilleur PC profil du moment
   best_laptop_from_price: À partir de
   best_laptop_cheapest: Le moins cher
